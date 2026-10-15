@@ -60,3 +60,15 @@ python3 scripts/export-maps.py
 `catalog.js`：原始路线；`planning-data.js`：原有里程变体；`regional-catalog.js`：新增区域、补给、证据和统计；`map-data.js`与`regional-map-data.js`：本地道路、水域及路径；`map-renderer.js`：网页及导出共用地图渲染；`app.js`：交互与导航；`maps/`：所有方案SVG、PNG及独立西湖研究图。
 
 地图数据 © OpenStreetMap contributors，ODbL。路线为公开路网规划，非实骑轨迹；未承诺当天道路开放、店铺营业及服务设施可用。
+
+## 按区域扩充路线的 Skill
+
+项目内置 [`expand-cycling-routes`](.agents/skills/expand-cycling-routes/SKILL.md)。在以本仓库为工作目录的 Codex 中可这样使用：
+
+```text
+$expand-cycling-routes 帮我尽可能补充安吉的骑行线路，并更新到这个项目。
+```
+
+也可以说“使用项目里的骑行线路扩充 skill，补充太湖东岸”。若当前客户端未自动发现项目技能，可明确让它读取上面的 `SKILL.md` 后执行。
+
+只需提供区域；技能负责调研免费停车依据、规划真实道路路线、区分专用道与共用道路、补充餐饮咖啡和休息点、生成地图及百度/高德导航，再完成项目接入与验证。免费停车证据不足的方向进入待核查区，不靠复制长短版或虚构地点增加数量。技能文件会随仓库一起保存；推送、发布沿用当次会话授权。
