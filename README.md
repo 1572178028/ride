@@ -1,6 +1,6 @@
 # 骑遇 · 全国 4+2 骑行路线库｜杭州站
 
-从用户提供的公开站点 https://ride-atlas-hangzhou.tangybadge129.chatgpt.site/ 复制的静态网站。页面、CSS、JavaScript、四条线路数据、SVG 地图和 PNG 下载资源均保留原样；本地前版在 `/workspace/shared/ride-before-import-*` 下备份。
+基于用户提供的公开站点 https://ride-atlas-hangzhou.tangybadge129.chatgpt.site/ 扩充的静态骑行路线库。当前有 8 个规划方案、2 处停车起点、4 家原有商家和 6 个歇脚片区建议；未将复用的商家或停车点重复计为新增。
 
 ## 运行
 
@@ -28,17 +28,33 @@ python3 -m http.server 3000 --bind 0.0.0.0
 
 如果设置页提示套餐限制、仓库可见性要求或组织策略，请按 GitHub 提示处理；不要为部署而擅自更改仓库可见性。
 
-## 原站内容
+## 路线内容
 
 - 湘湖湖岸慢骑：约 10.5 km。
 - 七彩绿道 · 定山湖慢游：约 10.2 km。
 - 奥莱出发 · 翁金线初体验：约 15.8 km。
 - 翁金线 · 向盐官骑去：约 41 km。
+- 上善桥 · 入门折返：约 3.6 km。
+- 贺公堤 · 湖岸往返：约 11.4 km。
+- 湘湖 × 定山湖 · 两湖联骑：约 20.6 km，包含重复接驳。
+- 翁金线 · 林荫半日往返：约 24.8 km。
 
-原站提供免费停车的适用条件、来源与发布日期：湘湖停车限夜间 18:00—次日 08:30；下沙奥特莱斯停车按商场当日开放及管理规则。信息来自原站公开资料，本次迁移未进行现场、电话或来源内容的独立复核。请勿把有条件免费理解为全天无条件免费。原站资料核对日期保持不变。
+原站提供免费停车的适用条件、来源与发布日期：湘湖停车限夜间 18:00—次日 08:30；下沙奥特莱斯停车按商场当日开放及管理规则。信息来自原站公开资料，本次扩充未进行联网、现场或电话独立复核。请勿把有条件免费理解为全天无条件免费。原站资料核对日期保持不变。
 
 地图为规划参考、非实测轨迹。地图数据 © OpenStreetMap contributors，遵循原站标注的 ODbL；原始来源链接保留在页面内。
 
+## 验证与地图生成
+
+```sh
+node --test tests/catalog.test.cjs
+node scripts/generate-maps.cjs
+python scripts/export-maps.py
+```
+
+测试使用 Node 内置测试运行器，无需 npm 安装。地图 SVG 生成使用 Node 内置模块；仅重新生成 PNG 时需要 Python Playwright 和 Chromium，站点运行不依赖它们。修改路线或补给数据后，应同时更新 SVG 和 PNG，确保缩略图、下载图和交互地图一致。
+
+本次来源状态与未完成核查见 [data-notes.md](data-notes.md)。尚未新增经核查的新商家或新停车点。
+
 ## 文件
 
-`index.html` 页面；`styles.css` 样式；`catalog.js` 线路及停车、餐饮数据；`map-data.js` 道路、水域与参考路线数据；`map-renderer.js` 交互 SVG 地图渲染；`app.js` 筛选、收藏、导航与地图操作；`maps/` 地图缩略图及 PNG 下载文件。
+`index.html` 页面；`styles.css` 样式；`catalog.js` 原有线路及停车、餐饮数据；`planning-data.js` 新增里程方案、歇脚建议和资料状态；`map-data.js` 道路、水域与参考路线数据；`map-renderer.js` 交互 SVG 地图渲染；`app.js` 筛选、收藏、导航与地图操作；`maps/` 地图缩略图及 PNG 下载文件。
