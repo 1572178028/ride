@@ -8,7 +8,7 @@ const root = path.resolve(__dirname, '..');
 const app = {};
 app.window = app;
 vm.createContext(app);
-for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'map-renderer.js']) {
+for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'map-renderer.js']) {
   vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), app, { filename: file });
 }
 function km(a, b) {
@@ -42,8 +42,8 @@ test('distance variants belong to seven main lines across five actual areas', ()
     assert.equal(variant.familyTitle, main.familyTitle);
   }
 });
-test('West Lake previews cannot claim free parking or inflate the ride catalog', () => {
-  assert.equal(app.EXPANSION_CANDIDATES.length, 2);
+test('research directions cannot claim free parking or inflate the ride catalog', () => {
+  assert.equal(app.EXPANSION_CANDIDATES.length, 10);
   assert.ok(app.EXPANSION_CANDIDATES.some(candidate => candidate.area.includes('西湖')));
   assert.ok(app.ROUTES.some(route => route.region === 'qiandao'));
   assert.equal(app.RESEARCH_MAP.parking, undefined);
@@ -159,4 +159,27 @@ test('major regional water bodies are retained with multipolygon rings', () => {
  const svg = app.makeMapSVG(app.ROUTES.find(route => route.id === 'qiandao-peninsula'));
  assert.match(svg, /data-water-area="162908"/);
  assert.match(svg, /fill-rule="evenodd"/);
+});
+
+// Huzhou is a researched candidate set until real geometry and all parking conditions exist.
+test('Huzhou research covers eight distinct directions without publishing incomplete rides', () => {
+ const candidates = app.EXPANSION_CANDIDATES.filter(c => c.researchCity === 'huzhou');
+ assert.deepEqual(Array.from(candidates, c => c.id).sort(), [
+  'huzhou-anji-research', 'huzhou-badu-research', 'huzhou-huaxi-research',
+  'huzhou-jiapu-research', 'huzhou-lijiaxiang-research', 'huzhou-lougang-research',
+  'huzhou-moganshan-research', 'huzhou-nanxun-research'
+ ].sort());
+ for (const candidate of candidates) {
+  assert.equal(candidate.city, '湖州市');
+  assert.equal(candidate.checked, '2026-10-15');
+  assert.match(candidate.status, /非可出行方案/);
+  assert.ok(candidate.parkingNote && candidate.roadNote && candidate.foodNote);
+  assert.ok(candidate.sources.length > 0);
+  for (const [title, url] of candidate.sources) {
+   assert.ok(title); assert.match(url, /^https:\/\//);
+  }
+  assert.equal(candidate.distance, undefined);
+  assert.equal(candidate.start, undefined);
+  assert.equal(app.MAP_DATA.paths[candidate.id], undefined);
+ }
 });

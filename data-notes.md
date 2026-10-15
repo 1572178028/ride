@@ -46,3 +46,7 @@ OSM的`cycleway`不自动等于自行车独享：桐庐部分路段同时指定�
 ## 地图许可
 
 数据 © OpenStreetMap contributors，遵循[ODbL](https://www.openstreetmap.org/copyright)。`research/*-osm.json.gz`为公开路网快照，`scripts/build-regional-maps.py`可离线重建新增区域几何。主水面另保留千岛湖relation 162908与富春江relation 334800的多边形快照，裁切至路线周边并保留岛屿空洞。SVG和PNG由同一渲染器生成；地图导出与网页一并更新。
+
+## 湖州本批调研（2026-10-15）
+
+新增8个独立待核查方向，未计入正式骑行、停车或补给统计。停车条件、骑行道属性与餐饮线索按方向列在网页中，主要公开依据和具体缺口保存在 [research/huzhou-sources.md](research/huzhou-sources.md)。道路数据接口未取得可用湖州几何，未捏造里程、坐标或地图；待补齐完整停车窗口、合法接驳、真实路网和沿途地点后再正式收录。

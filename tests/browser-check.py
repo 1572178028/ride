@@ -61,6 +61,21 @@ with sync_playwright() as p:
     assert page.locator('.route-card').count()==7
     page.locator('.research-preview summary').click()
     assert page.locator('.research-preview img').is_visible()
+    # Huzhou research is visible but excluded from published ride counts/navigation.
+    page.select_option('#research-region','huzhou')
+    assert page.locator('.expansion-card').count()==8
+    assert '8 个待核查方向' in page.locator('#research-summary').inner_text()
+    assert page.locator('.research-preview').count()==0
+    page.locator('.research-evidence summary').first.click()
+    assert '风车打卡点的配套泊位' in page.locator('.research-evidence').first.inner_text()
+    hrefs=page.locator('.expansion-links a').evaluate_all('(links)=>links.map(a=>a.href)')
+    assert all('navigation?' not in href and '/direction?' not in href for href in hrefs)
+    assert all(parse_qs(urlparse(href).query)['city' if 'amap' in href else 'region']==['湖州市'] for href in hrefs)
+    assert page.locator('#total-plans').inner_text()=='12'
+    page.select_option('#research-region','hangzhou')
+    assert page.locator('.expansion-card').count()==2
+    page.select_option('#research-region','all')
+    assert page.locator('.expansion-card').count()==10
     # Isolated mobile context checks overflow, selection and persisted favorites.
     mobile=browser.new_context(viewport={'width':390,'height':844},device_scale_factor=1)
     mp=mobile.new_page();mp.on('pageerror',lambda e:errors.append(str(e)))
@@ -71,6 +86,12 @@ with sync_playwright() as p:
     assert mp.locator('#saved-count').inner_text()=='1'
     mp.locator('#selected-heading').scroll_into_view_if_needed()
     mp.screenshot(path='/tmp/ride-mobile.png',full_page=False)
+    mp.select_option('#research-region','huzhou')
+    mp.locator('.research-evidence summary').first.click()
+    assert mp.locator('.expansion-card').count()==8
+    assert mp.evaluate('document.documentElement.scrollWidth<=innerWidth')
+    mp.locator('#next-regions').scroll_into_view_if_needed()
+    mp.screenshot(path='/tmp/ride-huzhou-mobile.png',full_page=False)
     assert not errors,errors
     print(json.dumps({'routes':len(ids),'families':7,'regions':5,'browser_errors':errors,'desktop_screenshot':'/tmp/ride-desktop.png','mobile_screenshot':'/tmp/ride-mobile.png'}))
     browser.close()

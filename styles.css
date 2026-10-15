@@ -2248,3 +2248,16 @@ dialog .small {
     animation:none!important
   }
 }
+
+/* Evidence-backed research directions remain separate from ride plans. */
+.research-filter { flex-shrink: 0; }
+.research-filter select { padding: 10px 14px; border: 1px solid #becbdb; border-radius: 7px; background: white; color: var(--ink); font-size: 13px; }
+.research-evidence { border-top: 1px solid var(--line); padding-top: 13px; margin-top: 16px; }
+.research-evidence summary { color: var(--blue); font-size: 13px; font-weight: 600; cursor: pointer; }
+.research-evidence p { margin: 12px 0; font-size: 13px; }
+.research-evidence b { color: var(--ink); }
+.research-evidence ul { padding-left: 18px; font-size: 12px; line-height: 1.9; }
+.research-evidence li + li { margin-top: 7px; }
+.research-evidence a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.research-evidence small { color: var(--muted); font-size: 12px; }
+@media (max-width: 760px) { .research-filter { display: block; margin-top: 18px; } .research-filter select { width: 100%; } }
