@@ -2261,3 +2261,22 @@ dialog .small {
 .research-evidence a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
 .research-evidence small { color: var(--muted); font-size: 12px; }
 @media (max-width: 760px) { .research-filter { display: block; margin-top: 18px; } .research-filter select { width: 100%; } }
+
+/* Parking costs and researched places have independent, visible states. */
+.card-badge.paid { background:#fff0e6; color:#8b3f18; }
+.parking-box.paid-parking { border-color:#dfb99d; border-top-color:#a14d23; }
+.paid-parking .parking-icon { background:#8b3f18; }
+.paid-parking .detail-label,.paid-parking .price { color:#8b3f18; }
+.paid-parking .price { font-size:21px; }
+.paid-parking .parking-rule { background:#fff0e6; color:#8b3f18; }
+.supply-controls [data-supply-kind="茶饮"][aria-pressed=true] { background:var(--coffee); border-color:var(--coffee); }
+.research-places { border-top:1px solid var(--line); margin-top:18px; padding-top:13px; }
+.research-places h4 { margin:0 0 10px; font-size:15px; }
+.research-places article { background:#f5f7fb; border-radius:7px; padding:12px; margin-bottom:10px; }
+.research-places article>span { color:var(--coffee); font-size:11px; margin-right:9px; }
+.research-places article>b { font-size:14px; }
+.research-places article p { font-size:12px; margin:6px 0; }
+.research-places article a { color:var(--blue); text-decoration:underline; font-size:12px; margin-right:12px; }
+.research-places>small { color:var(--muted); font-size:11px; }
+.paid-summary>div:last-child { background:#fff0e6; }
+.paid-summary>div:last-child strong { color:#8b3f18; }

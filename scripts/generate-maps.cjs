@@ -7,7 +7,7 @@ const root = path.resolve(__dirname, '..');
 const context = {};
 context.window = context;
 vm.createContext(context);
-for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'map-renderer.js']) {
+for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'map-renderer.js']) {
   vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), context, { filename: file });
 }
 for (const route of context.ROUTES) {
@@ -16,4 +16,4 @@ for (const route of context.ROUTES) {
   console.log(`${route.id}: ${route.distance} km, ${route.supply.length} supply markers`);
 }
 
-fs.writeFileSync(path.join(root, 'maps', 'westlake-research.svg'), context.makeMapSVG(context.RESEARCH_MAP, { export: true }));
+for (const route of context.RESEARCH_MAPS) fs.writeFileSync(path.join(root, 'maps', `${route.id}.svg`), context.makeMapSVG(route, { export: true }));

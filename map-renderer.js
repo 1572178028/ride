@@ -61,21 +61,22 @@ window.makeMapSVG=function(route,options={}){
   for(let attempt=0;attempt<24&&pinPositions.some(p=>Math.hypot(p[0]-x,p[1]-y)<26);attempt++){const angle=attempt*2.4,radius=28+attempt*4;x=anchorX+Math.cos(angle)*radius;y=anchorY+Math.sin(angle)*radius;}
   pinPositions.push([x,y]);
   if(x!==anchorX||y!==anchorY)svg+=`<path d="M${anchorX} ${anchorY}L${x} ${y}" stroke="#667d97" stroke-width="1" stroke-dasharray="3 2"/><circle cx="${anchorX}" cy="${anchorY}" r="2" fill="#667d97"/>`;
-  const rest=f.kind==='歇脚',color=rest?'#116797':f.kind==='咖啡'?'#6636b6':'#b23b32',symbol=rest?'R':f.kind==='咖啡'?'C':'F';
+  const rest=f.kind==='歇脚',color=rest?'#116797':['咖啡','茶饮'].includes(f.kind)?'#6636b6':'#b23b32',symbol=rest?'R':f.kind==='咖啡'?'C':f.kind==='茶饮'?'T':'F';
   svg+=`<g data-poi="supply-${i}" tabindex="0" role="button" aria-label="${esc(f.name)}"><circle cx="${x}" cy="${y}" r="9" fill="${color}" stroke="#ffffff" stroke-width="2.5"/><text x="${x}" y="${y+3}" font-size="9" text-anchor="middle" fill="white" pointer-events="none">${symbol}</text>${label(x,y,short,{color,size:12,left:true})}</g>`;
  });
  const [sx,sy]=project(path[0]);
+ const startSeparated=!route.parking||Math.hypot((path[0][0]-route.parking.point[0])*lonFactor,path[0][1]-route.parking.point[1])*111.2>=.008;
  let [px,py]=project(route.parking?route.parking.point:path[0]);
  if(route.parking){
- if(!near(path[0],route.parking.point)&&Math.hypot(px-sx,py-sy)<40){svg+=`<path d="M${px} ${py}L${px-27} ${py+24}" stroke="#667d97" stroke-width="1" stroke-dasharray="3 2"/>`;px-=27;py+=24;}
- svg+=`<g data-poi="parking" tabindex="0" role="button" aria-label="${esc(route.parking.name)}免费停车与骑行起点"><rect x="${px-14}" y="${py-14}" width="28" height="28" rx="7" fill="#172b4d" stroke="#ffffff" stroke-width="3" filter="url(#shadow)"/><text x="${px}" y="${py+6}" font-size="18" font-weight="600" fill="#ffffff" text-anchor="middle" pointer-events="none">P</text>${label(px,py,route.parking.mapLabel||(route.region==='xianghu'?'老虎洞 · 停车 / 起点':'奥莱 · 停车 / 起点'),{fill:'#f0f4fc',color:'#172b4d',size:13})}</g>`;
+ if(startSeparated&&Math.hypot(px-sx,py-sy)<40){svg+=`<path d="M${px} ${py}L${px-27} ${py+24}" stroke="#667d97" stroke-width="1" stroke-dasharray="3 2"/>`;px-=27;py+=24;}
+ svg+=`<g data-poi="parking" tabindex="0" role="button" aria-label="${esc(route.parking.name)}停车与骑行起点"><rect x="${px-14}" y="${py-14}" width="28" height="28" rx="7" fill="#172b4d" stroke="#ffffff" stroke-width="3" filter="url(#shadow)"/><text x="${px}" y="${py+6}" font-size="18" font-weight="600" fill="#ffffff" text-anchor="middle" pointer-events="none">P</text>${label(px,py,route.parking.mapLabel||(route.region==='xianghu'?'老虎洞 · 停车 / 起点':'奥莱 · 停车 / 起点'),{fill:'#f0f4fc',color:'#172b4d',size:13})}</g>`;
  }
  svg+=`<g transform="translate(950 26)"><path d="M0 25L8 0L16 25L8 18Z" fill="#405773"/><text x="8" y="-5" fill="#405773" text-anchor="middle" font-size="10">N</text></g>`;
- if(!route.parking||!near(path[0],route.parking.point))svg+=`<g data-poi="start" tabindex="0" role="button" aria-label="道路骑行起点"><circle cx="${sx}" cy="${sy}" r="10" fill="#cc4c22" stroke="#ffffff" stroke-width="3"/><text x="${sx}" y="${sy+4}" text-anchor="middle" fill="white" font-size="11">S</text>${label(sx,sy,route.research?'研究起点 · 停车待查':'道路骑行起点')}</g>`;
+ if(startSeparated)svg+=`<g data-poi="start" tabindex="0" role="button" aria-label="道路骑行起点"><circle cx="${sx}" cy="${sy}" r="10" fill="#cc4c22" stroke="#ffffff" stroke-width="3"/><text x="${sx}" y="${sy+4}" text-anchor="middle" fill="white" font-size="11">S</text>${label(sx,sy,route.research?'研究起点 · 停车待查':'道路骑行起点')}</g>`;
  const kmWidth=scale/111.2,scaleKm=kmWidth>250?.5:kmWidth>70?1:2,barWidth=kmWidth*scaleKm;
  svg+=`<g transform="translate(35 555)"><path d="M0 -6V0H${barWidth}V-6" fill="none" stroke="#52657e" stroke-width="2"/><text y="17" font-size="10" fill="#52657e">${scaleKm} km</text></g><text x="965" y="576" text-anchor="end" font-size="9" fill="#52657e">© OpenStreetMap contributors · ODbL</text>`;
- if(options.export)svg+=`<rect x="25" y="20" width="550" height="49" rx="6" fill="#ffffff" fill-opacity=".96"/><text x="40" y="42" fill="#172b4d" font-size="16" font-weight="600">骑遇 · ${esc(route.title)}</text><text x="40" y="59" fill="#52657e" font-size="10">${route.distance} km ${route.shape} · ${esc(route.parking?route.parking.rule:'研究图 · 免费停车未确认，不计入路线库')}</text>`;
- if(options.export)svg+=`<rect x="0" y="584" width="1000" height="26" fill="#ffffff" fill-opacity=".96"/><text x="25" y="601" fill="#52657e" font-size="10">P 停车片区 / S 道路起点 / C 咖啡 / F 餐厅 / R 休息 · 绿线为路网骑行道，部分行人共用；片区点非精确入口</text>`;
+ if(options.export)svg+=`<rect x="25" y="20" width="550" height="49" rx="6" fill="#ffffff" fill-opacity=".96"/><text x="40" y="42" fill="#172b4d" font-size="16" font-weight="600">骑遇 · ${esc(route.title)}</text><text x="40" y="59" fill="#52657e" font-size="10">${route.distance} km ${route.shape} · ${esc(route.parking?route.parking.rule:route.id==='westlake-research'?'历史研究图 · 未计入当前路线统计':'研究图 · 停车与接驳未确认，不计入路线库')}</text>`;
+ if(options.export)svg+=`<rect x="0" y="584" width="1000" height="26" fill="#ffffff" fill-opacity=".96"/><text x="25" y="601" fill="#52657e" font-size="10">P 停车片区 / S 道路起点 / C 咖啡 / T 茶饮 / F 餐厅 / R 休息 · 绿线为路网骑行道，部分行人共用；片区点非精确入口</text>`;
  return svg+'</svg>';
 };
 })();
