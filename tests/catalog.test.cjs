@@ -29,6 +29,30 @@ test('route IDs and map paths are unique and complete', () => {
     if (route.shape !== '原路往返') assert.ok(km(points[0], points.at(-1)) < 0.01, `${route.id}: closed loop`);
   }
 });
+test('distance variants belong to four main lines across two actual areas', () => {
+  const mains = app.ROUTES.filter(route => route.id === route.familyId);
+  assert.equal(mains.length, 4);
+  assert.equal(app.ROUTE_METADATA.familyCount, 4);
+  assert.equal(app.ROUTE_METADATA.regionCount, 2);
+  for (const variant of app.ROUTES) {
+    const main = mains.find(route => route.id === variant.familyId);
+    assert.ok(main, variant.id);
+    assert.equal(variant.parking.poiid, main.parking.poiid);
+    assert.equal(variant.familyTitle, main.title);
+  }
+});
+test('unverified West Lake and Qiandao directions stay outside the ride catalog', () => {
+  assert.equal(app.EXPANSION_CANDIDATES.length, 3);
+  assert.ok(app.EXPANSION_CANDIDATES.some(candidate => candidate.area.includes('西湖')));
+  assert.ok(app.EXPANSION_CANDIDATES.some(candidate => candidate.area.includes('千岛湖')));
+  for (const candidate of app.EXPANSION_CANDIDATES) {
+    assert.match(candidate.status, /待核查/);
+    assert.match(candidate.missing, /免费停车/);
+    assert.ok(!app.ROUTES.some(route => route.id === candidate.id));
+    assert.ok(!app.MAP_DATA.paths[candidate.id]);
+    assert.equal(candidate.parking, undefined);
+  }
+});
 test('displayed distances match stored road geometry, counting return trips', () => {
   for (const route of app.ROUTES) {
     const points = app.MAP_DATA.paths[route.id];

@@ -117,6 +117,14 @@
     '将主要休息与补给安排在出发前和返回后。只在商场开放、允许使用的公共区域休息；座椅、卫生间和饮水位置需现场确认。', '起终点附近 · 商场片区');
 
   ROUTES.forEach(route => {
+    const family = {
+      'xianghu-shanshan': 'xianghu-lakeside',
+      'xianghu-two-lakes': 'xianghu-lakeside',
+      'xianghu-hegong': 'xianghu-color',
+      'wengjin-middle': 'wengjin-short'
+    }[route.id] || route.id;
+    route.familyId = family;
+    route.familyTitle = original[family].title;
     route.parking.checked = '2026-10-14';
     route.parking.verification = '公开资料依据 · 本次未复核';
     route.sourceChecked = '2026-10-14';
@@ -144,9 +152,36 @@
   window.ROUTE_METADATA = {
     updated: '2026-10-15', sourcesChecked: '2026-10-14',
     routeCount: ROUTES.length,
+    familyCount: new Set(ROUTES.map(route => route.familyId)).size,
+    regionCount: new Set(ROUTES.map(route => route.region)).size,
     parkingCount: new Set(ROUTES.map(route => route.parking.poiid)).size,
     shopCount: new Set(ROUTES.flatMap(route => route.food.map(place => place.name))).size,
     restSuggestionCount: new Set(ROUTES.flatMap(route => route.rest.map(place => place.name))).size
   };
+  // Research directions, deliberately excluded from the published ride catalog,
+  // its counts, its route maps and its parking/start navigation buttons.
+  window.EXPANSION_CANDIDATES = [
+    {
+      id: 'westlake-outer', area: '杭州 · 西湖', title: '西湖外围道路',
+      direction: '北山街、杨公堤、南山路方向', terrain: '城市湖景 · 平缓方向',
+      note: '先核查外围道路的自行车准入和衔接，不将景区步行游线默认视作骑行道；暂未生成路线或里程。',
+      missing: '合法免费停车点、当前通行规则、沿途商家与准确线路',
+      query: '西湖 杨公堤', city: '杭州市', status: '待核查 · 非可出行方案'
+    },
+    {
+      id: 'westlake-tea', area: '杭州 · 西湖茶山', title: '龙井—梅灵路方向',
+      direction: '茶山与山间公路', terrain: '爬坡方向 · 适合有经验骑友',
+      note: '作为与环湖休闲不同的山地公路方向调研；不把普通公路标成专用骑行道，具体路径与补给待核查。',
+      missing: '合法免费停车点、路况和骑行准入、餐厅及咖啡店资料',
+      query: '梅灵路', city: '杭州市', status: '待核查 · 非可出行方案'
+    },
+    {
+      id: 'qiandao-lake', area: '淳安 · 千岛湖', title: '千岛湖淳杨线方向',
+      direction: '湖滨休闲与分段折返方向', terrain: '郊外湖景 · 适合 4+2 调研',
+      note: '优先研究适合半日的沿湖分段，不直接采用大环湖方案。专用道覆盖、准确里程与补给间隔均待核查。',
+      missing: '可覆盖整段行程的合法免费停车点、开放路段、沿途补给及路网数据',
+      query: '千岛湖 淳杨线', city: '淳安县', status: '待核查 · 非可出行方案'
+    }
+  ];
   window.RIDE_COORDS = { wgs84ToGcj02: toGcj };
 })();
