@@ -13,6 +13,21 @@ python3 -m http.server 3000 --bind 0.0.0.0
 
 也可部署到支持静态文件的站点托管服务。所有显示用地图资源均随站点提供，无需在线地图 API。导航及信息来源链接需联网。收藏存储于当前浏览器，不自动迁移旧站的收藏。
 
+## GitHub Pages 托管
+
+本站已按 GitHub Pages 的项目站点路径准备好，所有本地资源使用相对地址；根目录的 `.nojekyll` 文件确保直接发布静态文件，无需 Jekyll 或构建依赖。
+
+仓库管理员首次启用：
+
+1. 打开 https://github.com/1572178028/ride/settings/pages 。
+2. 在 **Build and deployment → Source** 选择 **Deploy from a branch**。
+3. Branch 选择 **main**，目录选择 **/ (root)**，点击 **Save**。
+4. 在仓库 **Actions** 中查看 `pages build and deployment` 任务是否成功。
+
+首次部署成功后，默认访问地址为 https://1572178028.github.io/ride/ （以 Pages 设置实际显示的地址为准）。启用前不要将此地址视为已上线。后续推送到 `main` 会触发更新，无需再次选择分支。
+
+如果设置页提示套餐限制、仓库可见性要求或组织策略，请按 GitHub 提示处理；不要为部署而擅自更改仓库可见性。
+
 ## 原站内容
 
 - 湘湖湖岸慢骑：约 10.5 km。
