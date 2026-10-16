@@ -362,7 +362,7 @@ button,a {
 }
 .filters {
   display:grid;
-  grid-template-columns:1.2fr 1fr 1fr 1.3fr auto;
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:14px;
   background:white;
   padding:20px;
@@ -2280,3 +2280,56 @@ dialog .small {
 .research-places>small { color:var(--muted); font-size:11px; }
 .paid-summary>div:last-child { background:#fff0e6; }
 .paid-summary>div:last-child strong { color:#8b3f18; }
+
+/* Keep route selection reachable as the atlas grows. */
+@media (min-width: 761px) {
+  .route-list {
+    position:sticky;
+    top:100px;
+    max-height:calc(100dvh - 120px);
+    overflow-y:auto;
+    overflow-x:hidden;
+    overscroll-behavior-y:contain;
+    scrollbar-gutter:stable;
+    padding:2px 8px 12px 2px;
+    align-content:start;
+  }
+  .route-list::-webkit-scrollbar { width:7px; }
+  .route-list::-webkit-scrollbar-thumb { background:#b7c5da; border-radius:8px; }
+  .route-list::-webkit-scrollbar-track { background:#e7edf5; border-radius:8px; }
+}
+
+.route-photos { margin:26px 0; padding:20px; background:#fff; border:1px solid var(--line); border-radius:10px; }
+.photo-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.photo-heading h3 { font-size:21px; margin:0; }
+.photo-heading>span,.route-photos>p { color:var(--muted); font-size:12px; }
+.route-photos>p { margin:8px 0 16px; }
+.photo-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.photo-grid figure { margin:0; min-width:0; }
+.photo-open { display:block; padding:0; background:#e8edf5; position:relative; width:100%; border-radius:7px; overflow:hidden; }
+.photo-open img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; }
+.photo-open>span { position:absolute; right:8px; bottom:8px; padding:3px 7px; border-radius:4px; background:#172b4dce; color:#fff; font-size:11px; }
+.photo-unavailable { min-height:160px; }
+.photo-unavailable::before { content:'图片暂无法加载 · 可查看下方原始出处'; display:block; padding:40px 12px; color:var(--muted); font-size:12px; }
+.photo-unavailable img { display:none; }
+.photo-grid figcaption { padding-top:8px; font-size:12px; }
+.photo-grid figcaption b,.photo-grid figcaption small { display:block; }
+.photo-grid figcaption small { font-size:10px; color:var(--muted); margin:4px 0; }
+.photo-grid figcaption a { font-size:10px; color:var(--blue); margin-right:9px; }
+#photo-dialog { width:1000px; padding:28px; }
+#photo-dialog>img { width:100%; max-height:70dvh; object-fit:contain; display:block; background:#edf1f6; border-radius:7px; }
+#photo-dialog h3 { margin:15px 0 5px; font-size:20px; }
+#photo-dialog p { font-size:12px; margin-bottom:8px; }
+#photo-dialog>div>a { color:var(--blue); font-size:12px; margin-right:16px; }
+@media(max-width:760px) { .route-photos { padding:14px; } .photo-grid { grid-template-columns:1fr; } .photo-open img { aspect-ratio:16/10; } #photo-dialog { padding:24px 14px 16px; } }
+.night-box { margin:24px 0; padding:24px; border:1px solid #bdcde5; border-radius:10px; background:#eef3fc; }
+.night-box h3 { margin:6px 0 18px; font-size:21px; }
+.night-box dl { margin:0 0 12px; }
+.night-box dl>div { display:grid; grid-template-columns:100px 1fr; gap:12px; margin:12px 0; }
+.night-box dt { font-weight:600; color:#294b77; }
+.night-box dd { margin:0; color:var(--muted); font-size:13px; line-height:1.8; }
+.night-box>a { color:var(--blue); font-size:12px; }
+.supply-gaps { color:#7c551e; background:#fff8eb; border-radius:7px; padding:12px; font-size:12px; line-height:1.8; }
+.expansion-card .photo-heading h3 { font-size:17px; }
+.expansion-card .photo-grid { grid-template-columns:1fr; }
+@media(max-width:760px) { .night-box { padding:16px; } .night-box dl>div { grid-template-columns:1fr; gap:4px; } }

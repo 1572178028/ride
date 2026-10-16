@@ -21,6 +21,11 @@ window.makeMapSVG=function(route,options={}){
   svg+=`<polyline points="${poly(r.points)}" fill="none" stroke="${major?'#ffffff':shared?'#c2ceda':'#d7dfe8'}" stroke-width="${major?4:shared?1.3:2}" stroke-linecap="round" stroke-linejoin="round"/>`;
  }
  const labelBoxes=[{x:25,y:15,w:540,h:58}];
+ // Reserve marker footprints before placing labels, including the separate S pin.
+ for(const point of [path[0],...supply.map(f=>f.point),...route.stops.map(s=>s.point),...(route.parking?[route.parking.point]:[])]){
+  const [x,y]=project(point);labelBoxes.push({x:x-13,y:y-13,w:26,h:26});
+ }
+
  function label(x,y,text,opts={}){
   let width=text.length*(opts.size||13)+18,tx=x+14,ty=y-13;
   if(opts.left||tx+width>W-18)tx=x-width-14;
@@ -69,6 +74,7 @@ window.makeMapSVG=function(route,options={}){
  let [px,py]=project(route.parking?route.parking.point:path[0]);
  if(route.parking){
  if(startSeparated&&Math.hypot(px-sx,py-sy)<40){svg+=`<path d="M${px} ${py}L${px-27} ${py+24}" stroke="#667d97" stroke-width="1" stroke-dasharray="3 2"/>`;px-=27;py+=24;}
+ labelBoxes.push({x:px-16,y:py-16,w:32,h:32});
  svg+=`<g data-poi="parking" tabindex="0" role="button" aria-label="${esc(route.parking.name)}停车与骑行起点"><rect x="${px-14}" y="${py-14}" width="28" height="28" rx="7" fill="#172b4d" stroke="#ffffff" stroke-width="3" filter="url(#shadow)"/><text x="${px}" y="${py+6}" font-size="18" font-weight="600" fill="#ffffff" text-anchor="middle" pointer-events="none">P</text>${label(px,py,route.parking.mapLabel||(route.region==='xianghu'?'老虎洞 · 停车 / 起点':'奥莱 · 停车 / 起点'),{fill:'#f0f4fc',color:'#172b4d',size:13})}</g>`;
  }
  svg+=`<g transform="translate(950 26)"><path d="M0 25L8 0L16 25L8 18Z" fill="#405773"/><text x="8" y="-5" fill="#405773" text-anchor="middle" font-size="10">N</text></g>`;

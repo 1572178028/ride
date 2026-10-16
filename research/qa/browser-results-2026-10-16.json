@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-16",
+  "method": "Codex In-app Browser, documented CUA Playwright controls; actual 1440px iframe viewport",
+  "routes": [
+    {
+      "id": "xianghu-lakeside",
+      "heading": "湘湖湖岸慢骑"
+    },
+    {
+      "id": "xianghu-shanshan",
+      "heading": "上善桥 · 入门折返"
+    },
+    {
+      "id": "xianghu-two-lakes",
+      "heading": "湘湖 × 定山湖 · 两湖联骑"
+    },
+    {
+      "id": "xianghu-color",
+      "heading": "七彩绿道 · 定山湖慢游"
+    },
+    {
+      "id": "xianghu-hegong",
+      "heading": "贺公堤 · 湖岸往返"
+    },
+    {
+      "id": "wengjin-short",
+      "heading": "奥莱出发 · 翁金线初体验"
+    },
+    {
+      "id": "wengjin-middle",
+      "heading": "翁金线 · 林荫半日往返"
+    },
+    {
+      "id": "wengjin-yanguan",
+      "heading": "翁金线 · 向盐官骑去"
+    },
+    {
+      "id": "qiandao-cafe",
+      "heading": "千岛湖 · 秀水咖啡慢骑"
+    },
+    {
+      "id": "qiandao-peninsula",
+      "heading": "千岛湖 · 排岭半岛湖景延伸"
+    },
+    {
+      "id": "tonglu-riverside",
+      "heading": "桐庐 · 富春江岸慢骑"
+    },
+    {
+      "id": "qiantang-seawall",
+      "heading": "钱塘 · 湿地外围海塘"
+    },
+    {
+      "id": "westlake-road",
+      "heading": "西湖 · 北山南山湖景环游"
+    },
+    {
+      "id": "westlake-beishan-night",
+      "heading": "北山街 · 有照明资料的湖景夜骑"
+    },
+    {
+      "id": "westlake-tea-road",
+      "heading": "龙井 × 梅灵北路 · 茶山折返"
+    },
+    {
+      "id": "yucun-villages",
+      "heading": "余村 × 银坑 · 山麓乡路往返"
+    },
+    {
+      "id": "mogan-foothills",
+      "heading": "庾村 × 劳岭 · 山麓咖啡骑"
+    },
+    {
+      "id": "jiapu-lakeside",
+      "heading": "夹浦滨湖 · 辅道湖景往返"
+    },
+    {
+      "id": "jiapu-easy",
+      "heading": "夹浦滨湖 · 7.8公里入门折返"
+    },
+    {
+      "id": "huaxi-riverside",
+      "heading": "画溪 · 公园与城南乡路"
+    },
+    {
+      "id": "huaxi-short",
+      "heading": "画溪 · 公园城南轻松短骑"
+    },
+    {
+      "id": "nanhu-roads",
+      "heading": "南湖 · 外围街道一圈"
+    },
+    {
+      "id": "nanhu-short",
+      "heading": "南湖 · 东侧街道短折返"
+    },
+    {
+      "id": "jinhua-city",
+      "heading": "金华江北 · 铁路记忆与老城街道"
+    },
+    {
+      "id": "jinhua-short",
+      "heading": "金华江北 · 婺州公园外围短圈"
+    },
+    {
+      "id": "canal-streets",
+      "heading": "运河桥西 · 咖啡街道日间往返"
+    }
+  ],
+  "checks": {
+    "viewports": [
+      1440,
+      390
+    ],
+    "cityRegionCascade": true,
+    "unknownFeeNoFreeClaim": true,
+    "emptyResultReset": true,
+    "photoModalAndExternalLoading": true,
+    "desktopSidebarSelectionAndKeyboard": true,
+    "sidebarKeyScroll": {
+      "before": 40,
+      "after": 80
+    },
+    "mobileNoHorizontalOverflow": true,
+    "mobileFavoritePersistsAfterReload": true,
+    "mapZoomResetAndPngDownload": true,
+    "supplyFilterAndPoiPopup": true,
+    "researchPreviewAndPhotos": true,
+    "coverageDialog": true,
+    "capturedConsoleWarningsAndErrors": []
+  },
+  "limitations": [
+    "独立Playwright CLI脚本本轮未另行执行",
+    "嵌入视口验收，不是手机真机；导航App调起未验证",
+    "公开资料未进行现场或电话核验"
+  ]
+}

@@ -101,7 +101,7 @@ def route_path(coords, graph, turns, anchors):
             if node == end:
                 final = state
                 break
-            for after, meta in graph[node]:
+            for after, meta in graph.get(node, []):
                 if any(frm == before and ((rule == 'no_u_turn' and to == meta['way'] and after == previous_node) or (rule.startswith('no_') and rule != 'no_u_turn' and to == meta['way']) or (rule.startswith('only_') and to != meta['way'])) for rule, frm, to in turns[node]):
                     continue
                 nxt = (after, meta['way'], node)
@@ -132,8 +132,16 @@ def build(specs):
         source_region = items[0].get('snapshot', region)
         data = snapshot(source_region)
         coords, graph, turns, roads, water = network(data)
+        way_tags = {e['id']: e.get('tags', {}) for e in data['elements'] if e['type'] == 'way'}
         for item in items:
-            points, segments, anchors = route_path(coords, graph, turns, item['anchors'])
+            selected_graph = graph
+            if item.get('lightingOnly') or item.get('excludeTunnels'):
+                selected_graph = {n: [(to, edge) for to, edge in edges
+                                     if (not item.get('lightingOnly') or way_tags[edge['way']].get('lit') == 'yes')
+                                     and (not item.get('excludeTunnels') or way_tags[edge['way']].get('tunnel') != 'yes')]
+                                  for n, edges in graph.items()}
+                selected_graph = {n: edges for n, edges in selected_graph.items() if edges}
+            points, segments, anchors = route_path(coords, selected_graph, turns, item['anchors'])
             multiplier = 2 if item.get('return') else 1
             paths[item['id']] = points
             plans[item['id']] = {'distance': round(sum(s['km'] for s in segments) * multiplier, 1),
@@ -141,6 +149,13 @@ def build(specs):
                                  'anchors': anchors, 'segments': segments, 'wayIds': list(dict.fromkeys(s['way'] for s in segments)),
                                  'checked': data.get('source', {}).get('checked', '2026-10-15'), 'coordinateSystem': 'WGS84',
                                  'snapshot': source_region, 'geometrySource': data.get('source', {}).get('url', 'Overpass saved snapshot')}
+            plans[item['id']]['lightingMappedKm'] = round(sum(s['km'] for s in segments if way_tags[s['way']].get('lit') == 'yes') * multiplier, 2)
+            if item.get('return'):
+                for segment in segments:
+                    tags = way_tags[segment['way']]
+                    direction = tags.get('oneway:bicycle', tags.get('oneway', 'yes' if tags.get('junction') == 'roundabout' else 'no'))
+                    if direction in ('yes', '1', 'true', '-1'):
+                        raise ValueError(('return trip cannot reverse a one-way edge', item['id'], segment['way']))
             print(item['id'], plans[item['id']]['distance'], 'km', len(points), 'points')
         # Use the combined extent, retaining context for every plan in this area.
         all_points = [p for item in items for p in paths[item['id']]]
@@ -149,6 +164,20 @@ def build(specs):
         maps[region] = {'roads': [r for r in roads if any(within(p) for p in r['points'])],
                         'water': [w for w in water if any(within(p) for p in w)],
                         'waterAreas': regional.water_areas(region, bounds)}
+        # Map API snapshots also contain lake multipolygons. Preserve complete
+        # shoreline/island rings instead of reducing a lake to isolated ponds.
+        if region in ('nanhu', 'didang', 'jinhua', 'canal'):
+            for element in data['elements']:
+                if element['type'] != 'relation' or element.get('tags', {}).get('natural') != 'water':
+                    continue
+                outer = regional.joined_rings(element.get('members', []), 'outer')
+                if not outer:
+                    continue
+                rings = outer + regional.joined_rings(element.get('members', []), 'inner')
+                rings = [regional.clipped_ring(r, bounds) for r in rings]
+                rings = [r for r in rings if r]
+                if rings:
+                    maps[region]['waterAreas'].append({'source': element['id'], 'rings': rings})
     out = 'Object.assign(MAP_DATA.maps,' + json.dumps(maps, ensure_ascii=False, separators=(',', ':')) + ');\n'
     out += 'Object.assign(MAP_DATA.paths,' + json.dumps(paths, ensure_ascii=False, separators=(',', ':')) + ');\n'
     out += 'Object.assign(REGIONAL_PLANS,' + json.dumps(plans, ensure_ascii=False, separators=(',', ':')) + ');\n'

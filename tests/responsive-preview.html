@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<title>Ride Atlas 响应式验收</title>
+<style>
+  body { margin: 12px; background: #e7ebef; font: 14px system-ui; }
+  iframe { display: block; border: 1px solid #667; background: white; }
+</style>
+<p>嵌入真实页面检查响应式布局。测试宽度：<a href="?width=390">390px</a> · <a href="?width=1440">1440px</a></p>
+<iframe id="preview" title="骑遇响应式预览" height="844"></iframe>
+<script>
+  const params = new URLSearchParams(location.search);
+  const width = params.get('width') === '1440' ? 1440 : 390;
+  const preview = document.querySelector('#preview');
+  preview.width = width;
+  preview.src = '../index.html#route=nanhu-roads';
+</script>
+</html>
