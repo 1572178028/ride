@@ -10,7 +10,7 @@
 - 滨江原研究方向用替代公众车库解决；原江陵路P+R仍排除。白马湖、青山湖新增研究记录，研究总数12。青山湖9月7日已恢复景区开放，但夜间绿道恢复及灯光/取车条件未核，不能说整个景区目前仍闭园。
 - 23项Node检查通过；1440/390实际浏览器已选择全部4新方案、验证夜间/片区筛选、长短切换、P/S、导航参数、咖啡筛选定位、地图下载触发和无横向溢出。独立Playwright CLI未另跑，手机App调起未真机测试。
 - 验收截图/记录：research/qa/hangzhou-night-*；研究详细记录：research/hangzhou-night-verification-2026-10-16.md。
-- 本轮已完成本地验收，正常提交推送原origin/main的实际回执见本次对话最终结果。不宣称Pages部署完成；.idea/和小红书候选截图不提交。
+- 发布：功能与数据提交1abf7eb（Add sourced Hangzhou night rides and complete lake and river maps）已正常推送origin/main，Git回执6bc63cb→1abf7eb。随后单独补充并推送此成功记录。不宣称Pages部署完成；.idea/和小红书候选截图不提交。
 
 ---
 
