@@ -49,8 +49,8 @@ test('research directions cannot claim free parking or inflate the ride catalog'
   assert.ok(app.ROUTES.some(route => route.region === 'qiandao'));
   assert.equal(app.RESEARCH_MAP.parking, undefined);
   for (const candidate of app.EXPANSION_CANDIDATES) {
-    assert.match(candidate.status, /待核查/);
-    assert.match(candidate.missing, /停车/);
+    assert.match(candidate.status, /待核查|已复核/);
+    assert.ok(candidate.missing.trim().length > 0);
     assert.ok(!app.ROUTES.some(route => route.id === candidate.id));
     assert.ok(!app.ROUTES.some(route => route.id === candidate.preview));
     assert.equal(candidate.parking, undefined);
@@ -184,7 +184,7 @@ test('Huzhou keeps four directions separate while Jiapu and Huaxi have explicit 
  for (const candidate of candidates) {
   assert.equal(candidate.city, '湖州市');
   assert.equal(candidate.checked, ['huzhou-badu-research','huzhou-lijiaxiang-research'].includes(candidate.id) ? '2026-10-16' : '2026-10-15');
-  assert.match(candidate.status, /非可出行方案/);
+  assert.ok(!app.ROUTES.some(r => r.id === candidate.id));
   assert.ok(candidate.parkingNote && candidate.roadNote && candidate.foodNote);
   assert.ok(candidate.sources.length > 0);
   for (const [title, url] of candidate.sources) {
@@ -303,7 +303,7 @@ test('local and external licensed photos are attributed and attached to their ac
 
 test('webpage and export generator load the same final data files', () => {
   const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  const files = [...html.matchAll(/<script src="([^"]+)"/g)].map(m => m[1]).filter(f => f !== 'app.js');
+  const files = [...html.matchAll(/<script src="([^"]+)"/g)].map(m => m[1].split('?')[0]).filter(f => f !== 'app.js');
   const generator = fs.readFileSync(path.join(root, 'scripts/generate-maps.cjs'), 'utf8');
   let position = -1;
   for (const file of files) {
@@ -323,4 +323,28 @@ test('geotagged Beishan landscape keeps its date and cannot imply permission to 
   assert.equal(photo.date, '2011-11-23');
   assert.match(photo.caption, /人行道.*非本线骑行路面/);
   assert.match(photo.caption, /不代表当前路况或夜间照明/);
+});
+
+test('follow-up audit excludes closed parking and retains new map evidence without publishing research rides', () => {
+  for (const c of app.EXPANSION_CANDIDATES) {
+    assert.equal(c.reviewedAt, '2026-10-16');
+    assert.ok(c.reviewOutcome && c.missing && c.parkingNote && c.roadNote);
+    assert.ok(!app.ROUTES.some(r => r.id === c.id));
+  }
+  const closed = app.EXPANSION_CANDIDATES.find(c => c.id === 'hangzhou-binjiang-night-research');
+  assert.ok(closed.excludedParking.includes('520287620'));
+  assert.match(closed.parkingNote, /停用/);
+  for (const r of app.ROUTES) assert.ok(!JSON.stringify(r.parking).includes('520287620'));
+  const jianhu = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(root, 'research/shaoxing-jianhu-review-osm.json.gz'))));
+  const lane = jianhu.elements.find(e => e.id === 1246053702 && e.type === 'way');
+  assert.equal(lane.tags.bicycle, 'designated');
+  const parking = jianhu.elements.find(e => e.id === 1327461263 && e.type === 'way');
+  assert.equal(parking.tags.fee, 'yes');
+  assert.equal(parking.tags['fee:conditional'], 'no @ stay < 30 minutes');
+  assert.ok(jianhu.elements.some(e => e.type === 'relation' && e.id === 11335116));
+  for (const name of ['jiaxing-xiuzhou-review', 'shaoxing-jianhu-review']) {
+    const data = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(root, 'research', name + '-osm.json.gz'))));
+    assert.equal(data.source.checked, '2026-10-16');
+    assert.ok(data.elements.every(e => !e.uid && !e.user));
+  }
 });

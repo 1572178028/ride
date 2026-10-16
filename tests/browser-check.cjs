@@ -38,6 +38,29 @@ const server = http.createServer((req, res) => {
       if (['nanhu', 'jinhua', 'canal'].includes(r.region)) { assert.equal(new URL(links[0]).searchParams.get('city'), r.city); assert.equal(new URL(links[1]).searchParams.get('region'), r.city); }
       if (r.fee !== 'free') assert.ok(!(await page.locator('.parking-box').innerText()).includes('¥0'));
     }
+
+    // Switching from a lower detail section must reveal the new route heading.
+    const assertRouteTop = async p => {
+      await p.waitForFunction(() => {
+        const heading = document.querySelector('#selected-heading').getBoundingClientRect();
+        const header = document.querySelector('.site-header').getBoundingClientRect();
+        return heading.top >= header.bottom && heading.top < header.bottom + 80;
+      });
+    };
+    const switchFromSupply = async p => {
+      await p.locator('[data-family="wengjin-short"]').click();
+      await assertRouteTop(p);
+      await p.locator('.food-card').first().scrollIntoViewIfNeeded();
+      assert.ok(await p.locator('#selected-heading').evaluate(e => e.getBoundingClientRect().top < 0));
+      await p.locator('[data-family="wengjin-yanguan"]').click();
+      await assertRouteTop(p);
+      assert.equal(await p.locator('#selected-heading h2').innerText(), '翁金线 · 向盐官骑去');
+    };
+    await switchFromSupply(page);
+    const beforeSave = await page.locator('#selected-heading').evaluate(e => e.getBoundingClientRect().top);
+    await page.locator('[data-save="wengjin-yanguan"]').click();
+    assert.ok(Math.abs(await page.locator('#selected-heading').evaluate(e => e.getBoundingClientRect().top) - beforeSave) < 16);
+    await page.locator('[data-save="wengjin-yanguan"]').click();
     await page.selectOption('#city-filter', 'jiaxing');
     assert.deepEqual(await page.locator('#region-filter option').evaluateAll(ns => ns.map(n => n.value)), ['all', 'wengjin', 'nanhu']);
     await page.selectOption('#region-filter', 'nanhu'); assert.equal(await page.locator('.route-card').count(), 1);
@@ -75,6 +98,7 @@ const server = http.createServer((req, res) => {
     await mobile.locator('#route-detail .photo-open').first().click(); assert.ok(await mobile.locator('#photo-dialog').evaluate(d => d.open));
     assert.ok(await mobile.evaluate(() => document.documentElement.scrollWidth <= innerWidth)); await mobile.locator('.photo-close').click();
     await mobile.locator('#selected-heading').scrollIntoViewIfNeeded(); await mobile.screenshot({ path: '/private/tmp/ride-mobile.png' });
+    await switchFromSupply(mobile);
     await mobile.selectOption('#research-region', 'shaoxing'); assert.equal(await mobile.locator('.expansion-card').count(), 3);
     assert.ok(await mobile.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     assert.deepEqual(errors, []); console.log(JSON.stringify({ routes: ids.length, desktop: 1440, mobile: 390, errors }));

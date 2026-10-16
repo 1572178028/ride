@@ -1961,7 +1961,7 @@ dialog .small {
   }
   .route-view {
     width:100%;
-    scroll-margin-top:82px
+    scroll-margin-top:0
   }
   .route-topline {
     font-size:10px;
@@ -2283,6 +2283,7 @@ dialog .small {
 
 /* Keep route selection reachable as the atlas grows. */
 @media (min-width: 761px) {
+  .route-view { scroll-margin-top:4px; }
   .route-list {
     position:sticky;
     top:100px;
@@ -2333,3 +2334,6 @@ dialog .small {
 .expansion-card .photo-heading h3 { font-size:17px; }
 .expansion-card .photo-grid { grid-template-columns:1fr; }
 @media(max-width:760px) { .night-box { padding:16px; } .night-box dl>div { grid-template-columns:1fr; gap:4px; } }
+
+/* Replacing cards must not move the document scroll anchor. */
+#route-list { overflow-anchor:none; }

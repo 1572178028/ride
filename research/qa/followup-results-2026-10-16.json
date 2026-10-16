@@ -1,0 +1,29 @@
+{
+  "checked": "2026-10-16",
+  "method": "Codex in-app browser with real responsive iframe; standalone Playwright CLI not run",
+  "viewports": {
+    "desktop": {
+      "headerBottom": 83,
+      "headingTop": 99.796875,
+      "scrollWidth": 1440,
+      "title": "翁金线 · 向盐官骑去",
+      "width": 1440
+    },
+    "mobile": {
+      "headerBottom": 67,
+      "headingTop": 76.0390625,
+      "scrollWidth": 390,
+      "title": "翁金线 · 向盐官骑去",
+      "width": 390
+    }
+  },
+  "researchCards": 11,
+  "allCardsShowReviewed": true,
+  "hangzhouResearchFilter": 2,
+  "parkingClosureVisible": true,
+  "favoriteObservedShiftPx": 8,
+  "favoriteTriggersRouteScroll": false,
+  "directPageApplicationErrors": [],
+  "iframeToolObserverError": "MutationObserver.observe parameter 1 is not a Node; not present in application code",
+  "nodeTestsPassed": 22
+}
