@@ -21,7 +21,9 @@
 
 ## 发布状态
 
-本地验收已完成，准备正常提交并推送origin/main；最终远程结果在推送后补记。保留无关.idea/，不强推。GitHub CLI未登录，不能通过其API确认Pages部署；推送不等于网站已部署。
+功能提交2562a08（Expand Zhejiang rides with sourced parking and responsive route selection）已正常推送origin/main，Git确认95540e6→2562a08，GitHub公开仓库页面已显示本批文件及最新README。随后仅补充本发布记录，单独提交并推送。无关.idea/保留未提交，小红书候选截图未推送。
+
+GitHub CLI未登录，Pages默认地址本次网页工具不可访问，未确认实际部署状态；不把推送当成网站已上线。无需为了推送修改认证或部署设置。
 
 ---
 
