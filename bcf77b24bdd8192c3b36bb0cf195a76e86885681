@@ -1,0 +1,104 @@
+styles.css
+  1b1f8a0f6b9079fc 1964,2286,2337-2339
+tests/responsive-preview.html
+  1b1f8a0f6b9079fc 16
+TASK_PROGRESS.md
+  1b1f8a0f6b9079fc 1-16
+tests/browser-check.cjs
+  1b1f8a0f6b9079fc 41-63,101
+app.js
+  1b1f8a0f6b9079fc 14,29,108,119-120
+research-updates.js
+  1b1f8a0f6b9079fc 71-146
+research/followup-verification-2026-10-16.md
+  1b1f8a0f6b9079fc 1-42
+data-notes.md
+  1b1f8a0f6b9079fc 5-8
+index.html
+  1b1f8a0f6b9079fc 7,19,26
+research/qa/followup-results-2026-10-16.json
+  1b1f8a0f6b9079fc 1-29
+tests/catalog.test.cjs
+  1b1f8a0f6b9079fc 52-53,187,306,327-349
+README.md
+  1b1f8a0f6b9079fc 9-12,43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "bcf77b24bdd8192c3b36bb0cf195a76e86885681",
+  "prompts": {
+    "1b1f8a0f6b9079fc": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a142d0-de33-7bc1-b5e0-c2aee02d4736",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 261,
+      "total_deletions": 39,
+      "accepted_lines": 238,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "tests/responsive-preview.html": {
+          "additions": 5,
+          "deletions": 5,
+          "accepted_lines": 1
+        },
+        "research-updates.js": {
+          "additions": 84,
+          "deletions": 8,
+          "accepted_lines": 76
+        },
+        "research/followup-verification-2026-10-16.md": {
+          "additions": 42,
+          "accepted_lines": 42
+        },
+        "app.js": {
+          "additions": 6,
+          "deletions": 6,
+          "accepted_lines": 5
+        },
+        "research/qa/followup-results-2026-10-16.json": {
+          "additions": 29,
+          "accepted_lines": 29
+        },
+        "README.md": {
+          "additions": 5,
+          "deletions": 1,
+          "accepted_lines": 5
+        },
+        "tests/browser-check.cjs": {
+          "additions": 25,
+          "deletions": 1,
+          "accepted_lines": 24
+        },
+        "TASK_PROGRESS.md": {
+          "additions": 16,
+          "deletions": 1,
+          "accepted_lines": 16
+        },
+        "styles.css": {
+          "additions": 6,
+          "deletions": 2,
+          "accepted_lines": 5
+        },
+        "index.html": {
+          "additions": 11,
+          "deletions": 11,
+          "accepted_lines": 3
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 28,
+          "deletions": 4,
+          "accepted_lines": 28
+        },
+        "data-notes.md": {
+          "additions": 4,
+          "accepted_lines": 4
+        }
+      }
+    }
+  }
+}
