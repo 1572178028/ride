@@ -9,7 +9,7 @@
 - 本轮核查未消除全部停车/接驳/准入缺口，11方向仍在研究区；正式目录维持16主线、26方案、13停车片区。核查完成不等于每个方向均可出行。
 - 22项Node测试实际通过，真实1440px/390px浏览器检查回顶、标题无遮挡、收藏阅读位置、无横向溢出与最新研究卡；截图/测量见research/qa/route-switch-top-*和followup-results。独立Playwright CLI未另行运行。
 - 小红书当前标签连接被浏览器安全策略拒绝，本轮未绕过，既有候选截图不推送。没有电话或现场核验。
-- 发布：本轮验收完成，沿用已授权原main正常提交推送；成功与否由本次最终Git回执确认。不声称Pages部署已完成。.idea/保留不提交。
+- 发布：功能与复核提交bcf77b2（Return route selection to detail top and audit research directions）已正常推送origin/main，Git回执41ba864→bcf77b2。随后仅补充此发布记录并单独提交推送。不声称Pages部署已完成。.idea/保留不提交。
 
 ---
 
