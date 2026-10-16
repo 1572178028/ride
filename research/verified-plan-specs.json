@@ -349,5 +349,121 @@
         30.0125579
       ]
     ]
+  },
+  {
+    "id": "westlake-nanshan-night",
+    "region": "westlake",
+    "snapshot": "westlake-verified",
+    "anchors": [
+      [
+        120.1302,
+        30.2545
+      ],
+      [
+        120.1476357,
+        30.2616005
+      ],
+      [
+        120.1528705,
+        30.239921
+      ],
+      [
+        120.1302,
+        30.2545
+      ]
+    ],
+    "excludeTunnels": true,
+    "excludeService": true
+  },
+  {
+    "id": "binjiang-wentao-night",
+    "region": "binjiang",
+    "snapshot": "hangzhou-binjiang-west-night",
+    "excludeTunnels": true,
+    "excludeService": true,
+    "anchors": [
+      [
+        120.1479327,
+        30.1903761
+      ],
+      [
+        120.14779,
+        30.1939848
+      ],
+      [
+        120.1761375,
+        30.2034468
+      ],
+      [
+        120.14779,
+        30.1939848
+      ],
+      [
+        120.1479327,
+        30.1903761
+      ]
+    ]
+  },
+  {
+    "id": "binjiang-wentao-short-night",
+    "region": "binjiang",
+    "snapshot": "hangzhou-binjiang-west-night",
+    "excludeTunnels": true,
+    "excludeService": true,
+    "anchors": [
+      [
+        120.1479327,
+        30.1903761
+      ],
+      [
+        120.14779,
+        30.1939848
+      ],
+      [
+        120.1584476,
+        30.1953272
+      ],
+      [
+        120.14779,
+        30.1939848
+      ],
+      [
+        120.1479327,
+        30.1903761
+      ]
+    ]
+  },
+  {
+    "id": "qianjiang-city-night",
+    "region": "qianjiang",
+    "snapshot": "hangzhou-qianjiang-night",
+    "excludeTunnels": true,
+    "excludeService": true,
+    "anchors": [
+      [
+        120.2102,
+        30.2478
+      ],
+      [
+        120.2126,
+        30.2517
+      ],
+      [
+        120.2151,
+        30.2558
+      ],
+      [
+        120.2101,
+        30.252
+      ],
+      [
+        120.2066,
+        30.2475
+      ],
+      [
+        120.2102,
+        30.2478
+      ]
+    ]
   }
 ]

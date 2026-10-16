@@ -1,9 +1,9 @@
 /* Final catalogue summary. Load after every route and research data file. */
 (() => {
   'use strict';
-  const cities = { xianghu: 'hangzhou', westlake: 'hangzhou', qiandao: 'hangzhou', tonglu: 'hangzhou', qiantangpark: 'hangzhou', canal: 'hangzhou', wengjin: 'jiaxing', nanhu: 'jiaxing', yucun: 'huzhou', mogan: 'huzhou', jiapu: 'huzhou', huaxi: 'huzhou', jinhua: 'jinhua' };
+  const cities = { xianghu: 'hangzhou', westlake: 'hangzhou', qiandao: 'hangzhou', tonglu: 'hangzhou', qiantangpark: 'hangzhou', canal: 'hangzhou', binjiang: 'hangzhou', qianjiang: 'hangzhou', wengjin: 'jiaxing', nanhu: 'jiaxing', yucun: 'huzhou', mogan: 'huzhou', jiapu: 'huzhou', huaxi: 'huzhou', jinhua: 'jinhua' };
   window.CITY_LABELS = { hangzhou: '杭州', huzhou: '湖州', jiaxing: '嘉兴', shaoxing: '绍兴', jinhua: '金华' };
-  window.REGION_LABELS = { xianghu: '萧山 · 湘湖', wengjin: '海宁 · 翁金线', qiandao: '淳安 · 千岛湖', tonglu: '桐庐 · 富春江', qiantangpark: '钱塘 · 湿地外围', westlake: '西湖与茶山', yucun: '安吉 · 余村', mogan: '德清 · 莫干山山麓', jiapu: '长兴 · 夹浦滨湖', huaxi: '长兴 · 城南画溪', nanhu: '南湖外围街道', jinhua: '江北 · 铁路公园与老城', canal: '拱墅 · 运河桥西' };
+  window.REGION_LABELS = { xianghu: '萧山 · 湘湖', wengjin: '海宁 · 翁金线', qiandao: '淳安 · 千岛湖', tonglu: '桐庐 · 富春江', qiantangpark: '钱塘 · 湿地外围', westlake: '西湖与茶山', yucun: '安吉 · 余村', mogan: '德清 · 莫干山山麓', jiapu: '长兴 · 夹浦滨湖', huaxi: '长兴 · 城南画溪', nanhu: '南湖外围街道', jinhua: '江北 · 铁路公园与老城', canal: '拱墅 · 运河桥西', binjiang: '滨江 · 闻涛路西段', qianjiang: '上城 · 钱江新城' };
   for (const r of ROUTES) {
     r.cityGroup = cities[r.region];
     if (r.window === 'night' && !r.nightRide) r.nightRide = {

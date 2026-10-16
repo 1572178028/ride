@@ -135,10 +135,11 @@ def build(specs):
         way_tags = {e['id']: e.get('tags', {}) for e in data['elements'] if e['type'] == 'way'}
         for item in items:
             selected_graph = graph
-            if item.get('lightingOnly') or item.get('excludeTunnels'):
+            if item.get('lightingOnly') or item.get('excludeTunnels') or item.get('excludeService'):
                 selected_graph = {n: [(to, edge) for to, edge in edges
                                      if (not item.get('lightingOnly') or way_tags[edge['way']].get('lit') == 'yes')
-                                     and (not item.get('excludeTunnels') or way_tags[edge['way']].get('tunnel') != 'yes')]
+                                     and (not item.get('excludeTunnels') or way_tags[edge['way']].get('tunnel') != 'yes')
+                                     and (not item.get('excludeService') or edge['kind'] != 'service')]
                                   for n, edges in graph.items()}
                 selected_graph = {n: edges for n, edges in selected_graph.items() if edges}
             points, segments, anchors = route_path(coords, selected_graph, turns, item['anchors'])
@@ -163,10 +164,10 @@ def build(specs):
         within = lambda p: bounds[0] <= p[0] <= bounds[2] and bounds[1] <= p[1] <= bounds[3]
         maps[region] = {'roads': [r for r in roads if any(within(p) for p in r['points'])],
                         'water': [w for w in water if any(within(p) for p in w)],
-                        'waterAreas': regional.water_areas(region, bounds)}
+                        'waterAreas': regional.water_areas('qiantang-night' if region in ('binjiang', 'qianjiang') else region, bounds)}
         # Map API snapshots also contain lake multipolygons. Preserve complete
         # shoreline/island rings instead of reducing a lake to isolated ponds.
-        if region in ('nanhu', 'didang', 'jinhua', 'canal'):
+        if region in ('nanhu', 'didang', 'jinhua', 'canal', 'binjiang', 'qianjiang'):
             for element in data['elements']:
                 if element['type'] != 'relation' or element.get('tags', {}).get('natural') != 'water':
                     continue

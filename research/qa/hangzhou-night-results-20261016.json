@@ -1,0 +1,63 @@
+{
+  "checked": "2026-10-16",
+  "method": "Codex in-app browser; real 1440/390 iframe viewports",
+  "nightFilter": {
+    "families": 5,
+    "plans": 10
+  },
+  "newPlans": [
+    {
+      "id": "westlake-nanshan-night",
+      "title": "北山—南山 · 湖城夜景往返",
+      "map": 1,
+      "parkingMarker": 1,
+      "startMarker": 1,
+      "nightBox": "建议20:10—22:00；给装卸车和取车留足时间",
+      "navigationValid": true,
+      "amapMode": "ride",
+      "baiduMode": "riding"
+    },
+    {
+      "id": "binjiang-wentao-night",
+      "title": "闻涛路 · 江风夜骑",
+      "map": 1,
+      "parkingMarker": 1,
+      "startMarker": 1,
+      "nightBox": "建议18:30—20:30；最晚取车时间先在入口确认",
+      "navigationValid": true,
+      "amapMode": "ride",
+      "baiduMode": "riding"
+    },
+    {
+      "id": "binjiang-wentao-short-night",
+      "title": "闻涛路 · 3公里轻松夜骑",
+      "map": 1,
+      "parkingMarker": 1,
+      "startMarker": 1,
+      "nightBox": "建议18:30—20:30；最晚取车时间先在入口确认",
+      "navigationValid": true,
+      "amapMode": "ride",
+      "baiduMode": "riding"
+    },
+    {
+      "id": "qianjiang-city-night",
+      "title": "钱江新城 · 街区灯火一圈",
+      "map": 1,
+      "parkingMarker": 1,
+      "startMarker": 1,
+      "nightBox": "建议18:30—20:00；步行观景、用餐及取车时间另留",
+      "navigationValid": true,
+      "amapMode": "ride",
+      "baiduMode": "riding"
+    }
+  ],
+  "mobileAllFourSelected": true,
+  "mobileNoHorizontalOverflow": true,
+  "mobileRegionFilter": "1 条主线 · 2 种里程方案",
+  "coffeeFilterAndMapPopup": true,
+  "pngDownloadTriggered": true,
+  "pngFilesGeneratedAndChecked": true,
+  "standalonePlaywrightCliRun": false,
+  "phoneNativeAppsTested": false,
+  "consoleNotes": "iframe日志仅出现MutationObserver.observe目标不是Node的错误，项目源代码没有该观察器；直接页面已渲染新路线，未出现新的该错误。不声称全部浏览器工具日志为空。"
+}

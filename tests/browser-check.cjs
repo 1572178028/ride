@@ -19,9 +19,9 @@ const server = http.createServer((req, res) => {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1050 }, acceptDownloads: true });
     watch(page); await page.goto(url); await page.waitForSelector('.route-card');
     assert.equal(await page.evaluate(() => innerWidth), 1440);
-    assert.equal(await page.locator('.route-card').count(), 16);
-    assert.equal(await page.locator('#total-plans').innerText(), '26');
-    assert.equal(await page.locator('#total-parking').innerText(), '13');
+    assert.equal(await page.locator('.route-card').count(), 18);
+    assert.equal(await page.locator('#total-plans').innerText(), '30');
+    assert.equal(await page.locator('#total-parking').innerText(), '15');
     const ids = await page.evaluate(() => ROUTES.map(r => r.id));
     const select = async (p, id) => { await p.evaluate(id => { location.hash = 'route=' + id; }, id); await p.waitForFunction(id => document.querySelector('#selected-heading h2').textContent === ROUTES.find(r => r.id === id).title, id); };
     for (const id of ids) {
@@ -61,6 +61,15 @@ const server = http.createServer((req, res) => {
     await page.locator('[data-save="wengjin-yanguan"]').click();
     assert.ok(Math.abs(await page.locator('#selected-heading').evaluate(e => e.getBoundingClientRect().top) - beforeSave) < 16);
     await page.locator('[data-save="wengjin-yanguan"]').click();
+    await page.selectOption('#city-filter', 'hangzhou');
+    await page.selectOption('#parking-filter', 'night');
+    assert.equal(await page.locator('#result-count').innerText(), '5 条主线 · 10 种里程方案');
+    for (const id of ['westlake-nanshan-night','binjiang-wentao-night','binjiang-wentao-short-night','qianjiang-city-night']) {
+      await select(page, id);
+      assert.ok((await page.locator('.night-box').innerText()).includes('建议'));
+      assert.equal(await page.locator('#map-container [data-poi="parking"]').count(), 1);
+      assert.equal(await page.locator('#map-container [data-poi="start"]').count(), 1);
+    }
     await page.selectOption('#city-filter', 'jiaxing');
     assert.deepEqual(await page.locator('#region-filter option').evaluateAll(ns => ns.map(n => n.value)), ['all', 'wengjin', 'nanhu']);
     await page.selectOption('#region-filter', 'nanhu'); assert.equal(await page.locator('.route-card').count(), 1);
@@ -68,7 +77,7 @@ const server = http.createServer((req, res) => {
     await page.selectOption('#city-filter', 'jinhua'); assert.equal(await page.locator('#region-filter').inputValue(), 'all');
     await page.selectOption('#city-filter', 'all'); await page.selectOption('#parking-filter', 'unknown'); assert.equal(await page.locator('.route-card').count(), 4);
     await page.selectOption('#lane-filter', 'dedicated'); assert.ok(await page.locator('#route-view').isHidden());
-    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 16);
+    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 18);
     await page.locator('#route-library').scrollIntoViewIfNeeded();
     assert.ok(await page.locator('#route-list').evaluate(el => el.scrollHeight > el.clientHeight && getComputedStyle(el).overflowY === 'auto'));
     await page.locator('.card-select').last().click();
@@ -87,7 +96,7 @@ const server = http.createServer((req, res) => {
     await page.locator('#reset-map').click(); assert.equal(await page.locator('#map-container svg').getAttribute('viewBox'), '0 0 1000 610');
     const downloading = page.waitForEvent('download'); await page.locator('#download-map').click(); const download = await downloading;
     assert.equal(await download.failure(), null); assert.ok(download.suggestedFilename().endsWith('.png'));
-    for (const [region, count] of [['huzhou', 4], ['shaoxing', 3], ['hangzhou', 2]]) { await page.selectOption('#research-region', region); assert.equal(await page.locator('.expansion-card').count(), count); }
+    for (const [region, count] of [['huzhou', 4], ['shaoxing', 3], ['hangzhou', 3]]) { await page.selectOption('#research-region', region); assert.equal(await page.locator('.expansion-card').count(), count); }
     await page.selectOption('#research-region', 'shaoxing'); await page.locator('.research-preview summary').click(); assert.ok(await page.locator('.research-preview img').isVisible());
     await page.locator('[data-research-id="shaoxing-eastlake-research"] .photo-open').first().click(); assert.ok((await page.locator('#photo-dialog').innerText()).includes('Logan Wenger')); await page.locator('.photo-close').click();
     assert.ok((await page.locator('.expansion-links a').evaluateAll(ns => ns.map(n => n.href))).every(u => !u.includes('/navigation?') && !u.includes('/direction?')));

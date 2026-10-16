@@ -8,7 +8,7 @@ const root = path.resolve(__dirname, '..');
 const app = {};
 app.window = app;
 vm.createContext(app);
-for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'expanded-catalog.js', 'city-catalog.js', 'research-updates.js', 'photo-data.js', 'catalog-metadata.js', 'map-renderer.js']) {
+for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'expanded-catalog.js', 'city-catalog.js', 'research-updates.js', 'night-catalog.js', 'photo-data.js', 'catalog-metadata.js', 'map-renderer.js']) {
   vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), app, { filename: file });
 }
 function km(a, b) {
@@ -17,7 +17,7 @@ function km(a, b) {
   return 12742 * Math.atan2(Math.sqrt(q), Math.sqrt(1 - q));
 }
 test('route IDs and map paths are unique and complete', () => {
-  assert.equal(app.ROUTES.length, 26);
+  assert.equal(app.ROUTES.length, 30);
   assert.equal(new Set(app.ROUTES.map(route => route.id)).size, app.ROUTES.length);
   for (const route of app.ROUTES) {
     const points = app.MAP_DATA.paths[route.id];
@@ -30,11 +30,11 @@ test('route IDs and map paths are unique and complete', () => {
     if (route.shape !== '原路往返') assert.ok(km(points[0], points.at(-1)) < 0.01, `${route.id}: closed loop`);
   }
 });
-test('distance variants belong to sixteen main lines across thirteen actual areas', () => {
+test('distance variants belong to eighteen main lines across fifteen actual areas', () => {
   const mains = app.ROUTES.filter(route => route.id === route.familyId);
-  assert.equal(mains.length, 16);
-  assert.equal(app.ROUTE_METADATA.familyCount, 16);
-  assert.equal(app.ROUTE_METADATA.regionCount, 13);
+  assert.equal(mains.length, 18);
+  assert.equal(app.ROUTE_METADATA.familyCount, 18);
+  assert.equal(app.ROUTE_METADATA.regionCount, 15);
   for (const variant of app.ROUTES) {
     const main = mains.find(route => route.id === variant.familyId);
     assert.ok(main, variant.id);
@@ -43,7 +43,7 @@ test('distance variants belong to sixteen main lines across thirteen actual area
   }
 });
 test('research directions cannot claim free parking or inflate the ride catalog', () => {
-  assert.equal(app.EXPANSION_CANDIDATES.length, 11);
+  assert.equal(app.EXPANSION_CANDIDATES.length, 12);
   assert.ok(app.ROUTES.some(route => route.region === 'westlake'));
   assert.ok(app.RESEARCH_MAPS.some(route => route.region === 'jiapu'));
   assert.ok(app.ROUTES.some(route => route.region === 'qiandao'));
@@ -77,7 +77,7 @@ test('every plan preserves parking evidence and exposes overnight restrictions',
     assert.ok(route.parking.id || route.parking.poiid);
     assert.ok(route.parking.condition && route.parking.evidence);
     assert.match(route.parking.source, /^https?:\/\//);
-    assert.equal(route.parking.checked, ['huaxi','nanhu','jinhua','canal'].includes(route.region) ? '2026-10-16' : '2026-10-15');
+    assert.equal(route.parking.checked, ['huaxi','nanhu','jinhua','canal','binjiang','qianjiang'].includes(route.region) ? '2026-10-16' : '2026-10-15');
     assert.match(route.parking.verification, /读取|声明|对照/);
     if (route.parking.feeType === 'free') assert.equal(route.parking.price, '¥0');
     else { assert.ok(['paid','unknown'].includes(route.parking.feeType)); assert.notEqual(route.parking.price, '¥0'); assert.ok(route.parking.priceSummary && route.parking.condition); }
@@ -86,18 +86,18 @@ test('every plan preserves parking evidence and exposes overnight restrictions',
       if (route.region === 'xianghu') {
         assert.match(route.parking.rule, /18:00/);
         assert.match(route.parking.rule, /08:30/);
-      } else {
-        assert.equal(route.id, 'westlake-beishan-night');
+      } else if (route.region === 'westlake') {
+        assert.ok(['westlake-beishan-night', 'westlake-nanshan-night'].includes(route.id));
         assert.match(route.parking.rule, /20:00/);
         assert.match(route.parking.rule, /8:00/);
       }
     }
     assert.equal(route.dedicated, false, 'shared paths must not become dedicated cycleways');
   }
-  assert.equal(app.ROUTE_METADATA.parkingCount, 13);
+  assert.equal(app.ROUTE_METADATA.parkingCount, 15);
   assert.equal(app.ROUTE_METADATA.freeParkingCount, 5);
-  assert.equal(app.ROUTE_METADATA.paidParkingCount, 4);
-  assert.equal(app.ROUTE_METADATA.shopCount, 26, 'shared stores must be counted once');
+  assert.equal(app.ROUTE_METADATA.paidParkingCount, 6);
+  assert.equal(app.ROUTE_METADATA.shopCount, 28, 'shared stores must be counted once');
 });
 test('all supply types render distinct markers, names, evidence status and per-type filtering', () => {
   for (const route of app.ROUTES) {
@@ -198,7 +198,7 @@ test('Huzhou keeps four directions separate while Jiapu and Huaxi have explicit 
 
 test('paid routes keep reference charges separate from free parking and unpublished policies', () => {
   const paid = app.ROUTES.filter(r => r.parking.feeType === 'paid');
-  assert.deepEqual(Array.from(paid, r => r.id).sort(), ['canal-streets', 'mogan-foothills', 'westlake-beishan-night', 'westlake-road', 'westlake-tea-road', 'yucun-villages']);
+  assert.deepEqual(Array.from(paid, r => r.id).sort(), ['binjiang-wentao-night', 'binjiang-wentao-short-night', 'canal-streets', 'mogan-foothills', 'qianjiang-city-night', 'westlake-beishan-night', 'westlake-nanshan-night', 'westlake-road', 'westlake-tea-road', 'yucun-villages']);
   for (const r of paid) {
     assert.notEqual(r.parking.price, '¥0');
     assert.ok(r.parking.namedNavigation, 'area pins must use name lookup');
@@ -237,7 +237,7 @@ test('research previews use real edges and never draw a free parking pin', () =>
 test('new cities and parking fee categories remain explicit and deduplicated', () => {
   assert.equal(app.ROUTE_METADATA.cityCount, 4);
   assert.equal(app.ROUTE_METADATA.unknownParkingCount, 4);
-  assert.equal(app.ROUTE_METADATA.restSuggestionCount, 32);
+  assert.equal(app.ROUTE_METADATA.restSuggestionCount, 39);
   for (const r of app.ROUTES) {
     assert.ok(app.CITY_LABELS[r.cityGroup] && app.REGION_LABELS[r.region], r.id);
     if (['nanhu', 'jinhua', 'canal'].includes(r.region)) assert.equal(r.city, { nanhu: '嘉兴市', jinhua: '金华市', canal: '杭州市' }[r.region]);
@@ -331,10 +331,10 @@ test('follow-up audit excludes closed parking and retains new map evidence witho
     assert.ok(c.reviewOutcome && c.missing && c.parkingNote && c.roadNote);
     assert.ok(!app.ROUTES.some(r => r.id === c.id));
   }
-  const closed = app.EXPANSION_CANDIDATES.find(c => c.id === 'hangzhou-binjiang-night-research');
+  const closed = app.ROUTES.find(r => r.id === 'binjiang-wentao-night').parking;
   assert.ok(closed.excludedParking.includes('520287620'));
-  assert.match(closed.parkingNote, /停用/);
-  for (const r of app.ROUTES) assert.ok(!JSON.stringify(r.parking).includes('520287620'));
+  assert.match(closed.evidence, /停用/);
+  for (const r of app.ROUTES) assert.notEqual(r.parking.id, '520287620');
   const jianhu = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(root, 'research/shaoxing-jianhu-review-osm.json.gz'))));
   const lane = jianhu.elements.find(e => e.id === 1246053702 && e.type === 'way');
   assert.equal(lane.tags.bicycle, 'designated');
@@ -347,4 +347,37 @@ test('follow-up audit excludes closed parking and retains new map evidence witho
     assert.equal(data.source.checked, '2026-10-16');
     assert.ok(data.elements.every(e => !e.uid && !e.user));
   }
+});
+
+test('Hangzhou adds four night plans with explicit lighting gaps, conditional parking and legal mapped directions', () => {
+  const ids = ['westlake-nanshan-night','binjiang-wentao-night','binjiang-wentao-short-night','qianjiang-city-night'];
+  for (const id of ids) {
+    const r = app.ROUTES.find(r => r.id === id), plan = app.REGIONAL_PLANS[id];
+    assert.equal(r.window, 'night'); assert.equal(r.cityGroup, 'hangzhou');
+    assert.equal(r.parking.feeType, 'paid'); assert.ok(r.nightRide.lightingSource);
+    assert.match(r.nightRide.parking, /确认|核对/);
+    assert.ok(r.sources.some(s => s[1].includes('2026-10/12')));
+    const data = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(root, 'research', plan.snapshot + '-osm.json.gz'))));
+    const ways = new Map(data.elements.filter(e => e.type === 'way').map(e => [e.id, e]));
+    let lit = 0;
+    for (const seg of plan.segments) {
+      const t = ways.get(seg.way).tags;
+      assert.notEqual(t.tunnel, 'yes'); assert.notEqual(t.highway, 'service');
+      if (t.lit === 'yes') lit += seg.km;
+      if (t.highway === 'footway') assert.ok(['yes','designated'].includes(t.bicycle));
+    }
+    assert.ok(Math.abs(lit - r.lightingMappedKm) < .01);
+    assert.ok(r.lightingMappedKm < r.distance, 'partial lighting must stay partial');
+  }
+  for (const region of ['binjiang','qianjiang']) assert.ok(app.MAP_DATA.maps[region].waterAreas.some(a => a.source === 8227206));
+  assert.ok(app.MAP_DATA.maps.westlake.waterAreas.some(a => a.source === 2308774 && a.rings.length > 1));
+  const short = app.ROUTES.find(r => r.id === ids[2]), long = app.ROUTES.find(r => r.id === ids[1]);
+  assert.equal(short.familyId, long.id); assert.equal(short.parking.id, long.parking.id);
+  assert.ok(short.distance < long.distance);
+  const city = app.ROUTES.find(r => r.id === ids[3]);
+  assert.match(city.parking.rule, /5元.*小时/);
+  assert.ok(!city.parking.rule.includes('5元/次'));
+  assert.ok(city.food.some(p => p.kind === '咖啡' && p.namedNavigation && p.location.includes('非店门')));
+  const lake = app.EXPANSION_CANDIDATES.find(c => c.id === 'hangzhou-qingshan-night-research');
+  assert.match(lake.roadNote, /恢复/); assert.ok(!app.ROUTES.some(r => /qingshan/.test(r.id)));
 });
