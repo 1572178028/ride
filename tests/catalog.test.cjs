@@ -289,11 +289,11 @@ test('new city lakes preserve actual shoreline and island polygons', () => {
 
 test('local and external licensed photos are attributed and attached to their actual subject', () => {
   const licenses = JSON.parse(fs.readFileSync(path.join(root, 'research/photo-licenses.json')));
-  assert.equal(licenses.length, 22);
+  assert.equal(licenses.length, 26);
   for (const r of [...app.ROUTES, ...app.EXPANSION_CANDIDATES]) for (const photo of r.photos || []) {
     const record = licenses.find(p => p.src === photo.src);
     assert.ok(record && record.author === photo.author && record.license === photo.license);
-    if(photo.sourceType==='social-screenshot'){assert.equal(new URL(photo.source).hostname,'www.xiaohongshu.com');assert.ok(photo.captureDate);assert.match(photo.license,/未声明开放许可/);assert.ok(!photo.licenseUrl);}else{assert.ok(photo.source.startsWith('https://commons.wikimedia.org/wiki/File:'));assert.ok(photo.licenseUrl);}
+    if(['social-screenshot','social-image','press-photo'].includes(photo.sourceType)){assert.ok(['www.xiaohongshu.com','pic.hangzhou.com.cn','hznews.hangzhou.com.cn'].includes(new URL(photo.source).hostname));assert.ok(photo.captureDate);assert.match(photo.license,/未声明开放许可/);assert.ok(!photo.licenseUrl);}else{assert.ok(photo.source.startsWith('https://commons.wikimedia.org/wiki/File:'));assert.ok(photo.licenseUrl);}
     assert.ok(photo.date && photo.modification && photo.caption);
     if (photo.storage === 'external') assert.ok(['upload.wikimedia.org','thumb.wikimedia.org'].includes(new URL(photo.src).hostname));
     else assert.ok(fs.existsSync(path.join(root, photo.src)));
@@ -301,7 +301,7 @@ test('local and external licensed photos are attributed and attached to their ac
     if(record.routeIds)assert.ok(record.routeIds.includes(r.id),r.id+': photo assigned to an unreviewed route');
     else assert.equal(photo.group, expected);
   }
-  assert.equal(app.ROUTE_METADATA.photoCount, 19, 'reviewed photographs are counted once across variants');
+  assert.equal(app.ROUTE_METADATA.photoCount, 7, 'reviewed photographs are counted once across variants');
 });
 
 test('webpage and export generator load the same final data files', () => {
@@ -318,14 +318,14 @@ test('webpage and export generator load the same final data files', () => {
 });
 
 
-test('geotagged Beishan landscape keeps its date and cannot imply permission to ride the promenade', () => {
-  const r = app.ROUTES.find(r => r.id === 'westlake-beishan-night');
-  const photo = r.photos.find(p => p.point);
-  assert.ok(photo && photo.kind === 'landscape');
-  assert.ok(Math.min(...app.MAP_DATA.paths[r.id].map(p => km(p, photo.point))) < 0.1);
-  assert.equal(photo.date, '2011-11-23');
-  assert.match(photo.caption, /人行道.*非本线骑行路面/);
-  assert.match(photo.caption, /不代表当前路况或夜间照明/);
+test('published route galleries contain road images only and social screenshots exclude platform UI', () => {
+ for(const r of app.ROUTES)for(const p of r.photos)assert.equal(p.kind,'road',r.id+': '+p.id);
+ const r=app.ROUTES.find(r=>r.id==='meiling-south-road');
+ assert.ok(r.photos.some(p=>p.id==='meiling-south-xhs'));
+ assert.ok(!app.ROUTES.flatMap(r=>r.photos).some(p=>p.id==='beishan-road-2011'||p.id==='huaxi-nearby-2023'));
+ const p=app.ROUTES.find(r=>r.id==='jiapu-easy').photos[0];
+ assert.deepEqual(JSON.parse(JSON.stringify(p.crop)),{left:155,top:64,width:253,height:338});
+ assert.ok(p.referenceOnly,'unlocated road photo must retain its reference-only label');
 });
 
 test('follow-up audit excludes closed parking and retains new map evidence without publishing research rides', () => {
@@ -431,8 +431,8 @@ test('Map markers show only short identifiers, with accessible full names for in
  }
 });
 test('Photo coverage and gaps stay explicit and every added assignment targets a real route', () => {
- assert.equal(app.ROUTE_METADATA.photoFamilyCount,13);
- assert.equal(app.ROUTE_METADATA.photoRouteCount,27);
+ assert.equal(app.ROUTE_METADATA.photoFamilyCount,5);
+ assert.equal(app.ROUTE_METADATA.photoRouteCount,10);
  const licenses=JSON.parse(fs.readFileSync(path.join(root,'research/photo-licenses.json')));
  for(const p of licenses.filter(p=>p.checked==='2026-10-19')){
   assert.ok(p.relation&&p.verification&&p.kind);

@@ -129,11 +129,11 @@ const server = http.createServer((req, res) => {
     assert.ok(await page.locator('.route-card.selected').evaluate(el => { const c = el.getBoundingClientRect(), l = el.parentElement.getBoundingClientRect(); return c.top >= l.top - 2 && c.bottom <= l.bottom + 2; }));
     await page.locator('#route-list').focus(); await page.locator('#route-list').evaluate(el => { el.scrollTop = 0; });
     await page.keyboard.press('ArrowDown'); await page.waitForTimeout(200); assert.ok(await page.locator('#route-list').evaluate(el => el.scrollTop > 0));
-    await select(page, 'nanhu-roads');
-    assert.equal(await page.locator('#route-detail .photo-open').count(), 3);
+    await select(page, 'meiling-south-road');
+    assert.equal(await page.locator('#route-detail .photo-open').count(), 2);
     await page.locator('#route-detail .photo-open').first().click();
     assert.ok(await page.locator('#photo-dialog img').evaluate(i => i.complete && i.naturalWidth > 0));
-    assert.ok((await page.locator('#photo-dialog').innerText()).includes('Windmemories')); await page.keyboard.press('Escape');
+    assert.ok((await page.locator('#photo-dialog').innerText()).includes('中午吃什么')); await page.keyboard.press('Escape');
     assert.ok(!await page.locator('#photo-dialog').evaluate(d => d.open));
     await page.locator('#route-detail .photo-open').nth(1).click(); await page.locator('.photo-close').click();
     await select(page, 'westlake-beishan-night'); assert.ok((await page.locator('.night-box').innerText()).includes('lit=yes'));
@@ -149,7 +149,7 @@ const server = http.createServer((req, res) => {
     const context = await browser.newContext({ viewport: { width: 390, height: 844 } }), mobile = await context.newPage(); watch(mobile);
     await mobile.goto(url + '#route=nanhu-roads'); await mobile.waitForSelector('.route-card'); assert.ok(await mobile.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     await mobile.locator('[data-save="nanhu-roads"]').click(); await mobile.reload(); assert.equal(await mobile.locator('#saved-count').innerText(), '1');
-    await mobile.locator('#route-detail .photo-open').first().click(); assert.ok(await mobile.locator('#photo-dialog').evaluate(d => d.open));
+    await select(mobile,'meiling-south-road'); await mobile.locator('#route-detail .photo-open').first().click(); assert.ok(await mobile.locator('#photo-dialog').evaluate(d => d.open));
     assert.ok(await mobile.evaluate(() => document.documentElement.scrollWidth <= innerWidth)); await mobile.locator('.photo-close').click();
     await mobile.locator('#selected-heading').scrollIntoViewIfNeeded(); await mobile.screenshot({ path: '/private/tmp/ride-mobile.png' });
     await select(mobile,'westlake-hills-loop');

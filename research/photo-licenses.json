@@ -14,7 +14,8 @@
     "src": "photos/nanhu-1.jpg",
     "modification": "按预览尺寸缩放，内容未修改",
     "kind": "landscape",
-    "caption": "嘉兴南湖 · 2024年景观实拍，非本线道路实测"
+    "caption": "嘉兴南湖 · 2024年景观实拍，非本线道路实测",
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "nanhu-2",
@@ -31,7 +32,8 @@
     "src": "photos/nanhu-2.jpg",
     "modification": "按预览尺寸缩放，内容未修改",
     "kind": "landscape",
-    "caption": "嘉兴南湖 · 2024年景观实拍，非本线道路实测"
+    "caption": "嘉兴南湖 · 2024年景观实拍，非本线道路实测",
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "nanhu-3",
@@ -48,7 +50,8 @@
     "src": "photos/nanhu-3.jpg",
     "modification": "按预览尺寸缩放，内容未修改",
     "kind": "landscape",
-    "caption": "嘉兴南湖 · 2024年景观实拍，非本线道路实测"
+    "caption": "嘉兴南湖 · 2024年景观实拍，非本线道路实测",
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "shaoxing-4",
@@ -65,7 +68,8 @@
     "src": "photos/shaoxing-4.jpg",
     "modification": "按预览尺寸缩放，内容未修改",
     "kind": "landscape",
-    "caption": "绍兴东湖 · 景点实拍，非骑行路面或当前路况"
+    "caption": "绍兴东湖 · 景点实拍，非骑行路面或当前路况",
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "shaoxing-5",
@@ -82,7 +86,8 @@
     "src": "photos/shaoxing-5.jpg",
     "modification": "按预览尺寸缩放，内容未修改",
     "kind": "landscape",
-    "caption": "绍兴东湖 · 景点实拍，非骑行路面或当前路况"
+    "caption": "绍兴东湖 · 景点实拍，非骑行路面或当前路况",
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "jinhua-6",
@@ -99,7 +104,8 @@
     "src": "photos/jinhua-6.jpg",
     "modification": "按预览尺寸缩放，内容未修改",
     "kind": "landscape",
-    "caption": "金华双龙洞 · 2011年景点实拍，非江北线路或导航依据"
+    "caption": "金华双龙洞 · 2011年景点实拍，非江北线路或导航依据",
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "xianghu-7",
@@ -116,7 +122,8 @@
     "src": "photos/xianghu-7.jpg",
     "modification": "按预览尺寸缩放，内容未修改",
     "kind": "landscape",
-    "caption": "湘湖湖山广场 · 2019年景观实拍，非夜间照明证明"
+    "caption": "湘湖湖山广场 · 2019年景观实拍，非夜间照明证明",
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "xianghu-8",
@@ -133,7 +140,8 @@
     "src": "photos/xianghu-8.jpg",
     "modification": "按预览尺寸缩放，内容未修改",
     "kind": "landscape",
-    "caption": "湘湖湖山广场 · 2019年景观实拍，非夜间照明证明"
+    "caption": "湘湖湖山广场 · 2019年景观实拍，非夜间照明证明",
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "beishan-road-2023",
@@ -152,7 +160,8 @@
     "kind": "landscape",
     "modification": "原站图片外链；未下载或修改内容",
     "caption": "北山街湖边人行道景观 · 2023-07-16日间实拍；非本线骑行路面，不代表当前路况或夜间照明",
-    "verification": "2026-10-16通过浏览器成功加载并目视：画面为湖边人行道与湖景，不作为北山街骑行道路或准入证明。Commons原始地点描述为北山路；有GPS的2011照片与本线位置相邻，未现场复拍。"
+    "verification": "2026-10-16通过浏览器成功加载并目视：画面为湖边人行道与湖景，不作为北山街骑行道路或准入证明。Commons原始地点描述为北山路；有GPS的2011照片与本线位置相邻，未现场复拍。",
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "beishan-road-2011",
@@ -175,7 +184,8 @@
     "point": [
       120.144875,
       30.261402
-    ]
+    ],
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "yanguan-water-2024",
@@ -202,7 +212,8 @@
     "point": [
       120.543786,
       30.406411
-    ]
+    ],
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "meijiawu-tea-2018",
@@ -226,7 +237,8 @@
       "westlake-hills-loop"
     ],
     "modification": "Commons预览尺寸，内容未修改",
-    "verification": "原始描述、许可与可用坐标已读；2026-10-19逐张目视核对。"
+    "verification": "原始描述、许可与可用坐标已读；2026-10-19逐张目视核对。",
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "tonglu-river-2011",
@@ -249,7 +261,8 @@
       "tonglu-riverside"
     ],
     "modification": "Commons预览尺寸，内容未修改",
-    "verification": "原始描述、许可与可用坐标已读；2026-10-19逐张目视核对。"
+    "verification": "原始描述、许可与可用坐标已读；2026-10-19逐张目视核对。",
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "canal-bridge-2023",
@@ -276,7 +289,8 @@
     "point": [
       120.134894,
       30.319278
-    ]
+    ],
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "qianjiang-night-2018",
@@ -303,7 +317,8 @@
     "point": [
       120.210189,
       30.245542
-    ]
+    ],
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "qianjiang-day-2012",
@@ -326,7 +341,8 @@
       "qianjiang-city-night"
     ],
     "modification": "Commons预览尺寸，内容未修改",
-    "verification": "原始描述、许可与可用坐标已读；2026-10-19逐张目视核对。"
+    "verification": "原始描述、许可与可用坐标已读；2026-10-19逐张目视核对。",
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "qiandao-race-2023",
@@ -382,7 +398,8 @@
     "point": [
       119.031294,
       29.616972
-    ]
+    ],
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "binjiang-start-2025",
@@ -438,7 +455,8 @@
     "point": [
       119.652908,
       29.101961
-    ]
+    ],
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "huaxi-nearby-2023",
@@ -466,7 +484,8 @@
     "point": [
       119.900933,
       31.009012
-    ]
+    ],
+    "publicationStatus": "excluded-landscape"
   },
   {
     "id": "taihu9-official-social",
@@ -481,14 +500,109 @@
     "checked": "2026-10-19",
     "src": "photos/taihu9-official-social.jpg",
     "storage": "local",
-    "kind": "landscape",
-    "caption": "太湖9号公路 · 长兴文旅原帖截图",
+    "kind": "road",
+    "caption": "太湖9号公路彩色道路 · 原帖图片",
     "relation": "夹浦所属太湖9号公路片区参考；画面具体路段未定位，不代表本站夹浦短线实际路面或通行条件。",
     "routeIds": [
       "jiapu-lakeside",
       "jiapu-easy"
     ],
-    "modification": "保留完整原帖截图、作者及画面水印，未裁剪",
-    "verification": "2026-10-16已登录浏览器读取正文并截图；2026-10-19重新目视核对本地截图。当前原帖访问出现滑块验证，未重新核实在线状态。"
+    "modification": "仅裁取原帖的图片区域，去除正文、作者栏及互动界面；原图内文字保留",
+    "verification": "2026-10-16已登录浏览器读取正文并截图；2026-10-19重新目视核对本地截图。当前原帖访问出现滑块验证，未重新核实在线状态。",
+    "crop": {
+      "left": 155,
+      "top": 64,
+      "width": 253,
+      "height": 338
+    },
+    "referenceOnly": true
+  },
+  {
+    "id": "meiling-south-xhs",
+    "group": "meiling",
+    "source": "https://www.xiaohongshu.com/explore/6a8a64700000000028003d7c",
+    "author": "中午吃什么",
+    "license": "原作者版权 · 未声明开放许可",
+    "date": "原帖08-23；拍摄日期未注明",
+    "checked": "2026-10-19",
+    "captureDate": "2026-10-19",
+    "src": "photos/meiling-south-xhs.jpg",
+    "storage": "local",
+    "kind": "road",
+    "caption": "梅灵南路 · 梅家坞至云栖竹径水杉路段",
+    "relation": "原帖明确拍摄于梅家坞往云栖竹径方向的水杉路段；可见路面、边线与弯道。",
+    "routeIds": [
+      "meiling-south-road",
+      "westlake-hills-loop"
+    ],
+    "sourceType": "social-image",
+    "modification": "仅图片本身，保留原图水印；署名及出处在图注展示",
+    "verification": "2026-10-19浏览器读取原帖正文并目视核对道路画面，未使用平台AI总结。"
+  },
+  {
+    "id": "xianghu-yuewang-xhs",
+    "group": "xianghu",
+    "source": "https://www.xiaohongshu.com/explore/6726296b000000003c0160b4",
+    "author": "橘子暖阳",
+    "license": "原作者版权 · 未声明开放许可",
+    "date": "原帖2024-11-02；拍摄日期未注明",
+    "checked": "2026-10-19",
+    "captureDate": "2026-10-19",
+    "src": "photos/xianghu-yuewang-xhs.png",
+    "storage": "local",
+    "kind": "road",
+    "caption": "湘湖越王路 · 林荫道路实拍",
+    "relation": "原帖正文与作者回复均指明越王路；可见双向路面与车辆，无独立骑行道。具体拍摄桩号未注明。",
+    "routeIds": [
+      "xianghu-lakeside",
+      "xianghu-two-lakes"
+    ],
+    "sourceType": "social-image",
+    "modification": "仅图片本身，保留原图水印；署名及出处在图注展示",
+    "verification": "2026-10-19浏览器读取原帖正文并目视核对道路画面，未使用平台AI总结。"
+  },
+  {
+    "id": "meiling-south-road-2024",
+    "group": "meiling",
+    "source": "https://pic.hangzhou.com.cn/hzyx/content/content_8829832.html",
+    "author": "张之冰 / 杭州日报",
+    "license": "原作者版权 · 未声明开放许可",
+    "date": "报道2024-12-23；拍摄日期未注明",
+    "checked": "2026-10-19",
+    "captureDate": "2026-10-19",
+    "src": "photos/meiling-south-road-2024.jpg",
+    "storage": "local",
+    "kind": "road",
+    "caption": "梅灵南路 · 梅坞农居水杉公路",
+    "relation": "报道明确梅灵南路梅坞农居段；画面展示路面、道路标线和骑行者。",
+    "routeIds": [
+      "meiling-south-road",
+      "westlake-hills-loop"
+    ],
+    "sourceType": "press-photo",
+    "modification": "仅图片本身，保留原图水印；署名及出处在图注展示",
+    "verification": "2026-10-19浏览器读取原帖正文并目视核对道路画面，未使用平台AI总结。"
+  },
+  {
+    "id": "wentao-road-2020",
+    "group": "wentao",
+    "source": "https://hznews.hangzhou.com.cn/tupian/content/2020-11/27/content_7861743.htm",
+    "author": "董旭明 / 浙江日报",
+    "license": "原作者版权 · 未声明开放许可",
+    "date": "报道2020-11-27；拍摄日期未注明",
+    "checked": "2026-10-19",
+    "captureDate": "2026-10-19",
+    "src": "photos/wentao-road-2020.jpg",
+    "storage": "local",
+    "kind": "road",
+    "caption": "闻涛路西段 · 红蓝慢行道路实拍",
+    "relation": "报道明确东信大道往西的闻涛路西段，画面可见道路与慢行道结构；历史日间照片不代表当前夜间照明。",
+    "routeIds": [
+      "binjiang-wentao-night",
+      "binjiang-wentao-short-night"
+    ],
+    "sourceType": "press-photo",
+    "modification": "仅图片本身，保留原图水印；署名及出处在图注展示",
+    "verification": "2026-10-19浏览器读取原帖正文并目视核对道路画面，未使用平台AI总结。"
   }
 ]
