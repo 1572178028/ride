@@ -1,0 +1,393 @@
+scripts/build-photo-updates.cjs
+  61d686ee2a95e217 1-6
+maps/jinhua-city.svg
+  61d686ee2a95e217 1
+map-renderer.js
+  61d686ee2a95e217 6-7,39-47,55,57-58,60,62,66,69-70,73,77
+maps/jinhua-short.svg
+  61d686ee2a95e217 1
+maps/didang-research.svg
+  61d686ee2a95e217 1
+maps/qiandao-peninsula.svg
+  61d686ee2a95e217 1
+styles.css
+  61d686ee2a95e217 911-912,2040,2307,2336-2337
+research/photo-licenses.json
+  61d686ee2a95e217 179-492
+maps/mogan-foothills.svg
+  61d686ee2a95e217 1
+maps/nanhu-short.svg
+  61d686ee2a95e217 1
+maps/qianjiang-city-night.svg
+  61d686ee2a95e217 1
+maps/xianghu-hegong.svg
+  61d686ee2a95e217 1
+maps/jiapu-lakeside.svg
+  61d686ee2a95e217 1
+scripts/generate-maps.cjs
+  61d686ee2a95e217 10
+catalog-metadata.js
+  61d686ee2a95e217 26-27
+maps/binjiang-wentao-night.svg
+  61d686ee2a95e217 1
+maps/qiandao-cafe.svg
+  61d686ee2a95e217 1
+tests/catalog.test.cjs
+  61d686ee2a95e217 11,116,292,296-297,301-302,304,421-443
+maps/wengjin-middle.svg
+  61d686ee2a95e217 1
+maps/jiapu-easy.svg
+  61d686ee2a95e217 1
+maps/westlake-nanshan-night.svg
+  61d686ee2a95e217 1
+maps/xianghu-shanshan.svg
+  61d686ee2a95e217 1
+photo-updates.js
+  61d686ee2a95e217 1-327
+app.js
+  61d686ee2a95e217 36,56-60,62,66,94
+README.md
+  61d686ee2a95e217 11,29,42,57,85-87,114-118,120-121
+TASK_PROGRESS.md
+  61d686ee2a95e217 1-4,6-8
+data-notes.md
+  61d686ee2a95e217 100-103
+maps/qiantang-seawall.svg
+  61d686ee2a95e217 1
+research/map-photo-improvements-2026-10-19.md
+  61d686ee2a95e217 1-41,43-52
+maps/huaxi-riverside.svg
+  61d686ee2a95e217 1
+maps/xianghu-lakeside.svg
+  61d686ee2a95e217 1
+maps/westlake-research.svg
+  61d686ee2a95e217 1
+maps/xianghu-two-lakes.svg
+  61d686ee2a95e217 1
+photo-data.js
+  61d686ee2a95e217 183
+research/qa/map-photos-20261019.md
+  61d686ee2a95e217 1-10
+research/xiaohongshu/README.md
+  61d686ee2a95e217 15-18
+maps/canal-streets.svg
+  61d686ee2a95e217 1
+maps/wengjin-yanguan.svg
+  61d686ee2a95e217 1
+maps/westlake-road.svg
+  61d686ee2a95e217 1
+maps/tonglu-riverside.svg
+  61d686ee2a95e217 1
+maps/wengjin-short.svg
+  61d686ee2a95e217 1
+maps/binjiang-wentao-short-night.svg
+  61d686ee2a95e217 1
+maps/westlake-tea-road.svg
+  61d686ee2a95e217 1
+maps/westlake-hills-loop.svg
+  61d686ee2a95e217 1
+maps/westlake-beishan-night.svg
+  61d686ee2a95e217 1
+maps/nanhu-roads.svg
+  61d686ee2a95e217 1
+maps/yucun-villages.svg
+  61d686ee2a95e217 1
+tests/browser-check.cjs
+  61d686ee2a95e217 52-62,75-85,159-169
+maps/meiling-south-road.svg
+  61d686ee2a95e217 1
+maps/xianghu-color.svg
+  61d686ee2a95e217 1
+maps/jiapu-research.svg
+  61d686ee2a95e217 1
+maps/huaxi-short.svg
+  61d686ee2a95e217 1
+index.html
+  61d686ee2a95e217 7,26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "fa3d3e80abc6d0287ddde60efb7c4c9022eee82c",
+  "prompts": {
+    "61d686ee2a95e217": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15252-34d2-7002-b4a0-4d3855f4b14c",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 974,
+      "total_deletions": 207,
+      "accepted_lines": 881,
+      "overriden_lines": 4,
+      "per_file_stats": {
+        "maps/qiandao-peninsula.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/meiling-south-road.svg": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 1
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 36,
+          "deletions": 11,
+          "accepted_lines": 32
+        },
+        "maps/wengjin-middle.svg": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 1
+        },
+        "maps/wengjin-yanguan.svg": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 1
+        },
+        "maps/xianghu-two-lakes.svg": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 1
+        },
+        "app.js": {
+          "additions": 11,
+          "deletions": 7,
+          "accepted_lines": 9
+        },
+        "maps/wengjin-short.svg": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 1
+        },
+        "maps/jiapu-easy.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/xianghu-hegong.svg": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 1
+        },
+        "README.md": {
+          "additions": 17,
+          "deletions": 7,
+          "accepted_lines": 14,
+          "overriden_lines": 1
+        },
+        "maps/xianghu-color.svg": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 1
+        },
+        "tests/browser-check.cjs": {
+          "additions": 38,
+          "deletions": 4,
+          "accepted_lines": 34
+        },
+        "maps/huaxi-riverside.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/binjiang-wentao-night.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/canal-streets.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/westlake-beishan-night.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/didang-research.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/jiapu-lakeside.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "scripts/build-photo-updates.cjs": {
+          "additions": 6,
+          "accepted_lines": 6
+        },
+        "research/photo-licenses.json": {
+          "additions": 318,
+          "deletions": 4,
+          "accepted_lines": 314
+        },
+        "research/map-photo-improvements-2026-10-19.md": {
+          "additions": 55,
+          "deletions": 3,
+          "accepted_lines": 51,
+          "overriden_lines": 1
+        },
+        "TASK_PROGRESS.md": {
+          "additions": 10,
+          "deletions": 2,
+          "accepted_lines": 7,
+          "overriden_lines": 1
+        },
+        "photo-updates.js": {
+          "additions": 331,
+          "deletions": 4,
+          "accepted_lines": 327
+        },
+        "index.html": {
+          "additions": 8,
+          "deletions": 8,
+          "accepted_lines": 2,
+          "overriden_lines": 1
+        },
+        "maps/huaxi-short.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/xianghu-shanshan.svg": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 1
+        },
+        "data-notes.md": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "maps/qiandao-cafe.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/binjiang-wentao-short-night.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/jinhua-city.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "research/xiaohongshu/README.md": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "research/qa/map-photos-20261019.md": {
+          "additions": 11,
+          "deletions": 1,
+          "accepted_lines": 10
+        },
+        "maps/mogan-foothills.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/westlake-hills-loop.svg": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 1
+        },
+        "maps/yucun-villages.svg": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 1
+        },
+        "photo-data.js": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "maps/westlake-tea-road.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/jiapu-research.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "styles.css": {
+          "additions": 6,
+          "deletions": 8,
+          "accepted_lines": 6
+        },
+        "maps/qianjiang-city-night.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/tonglu-riverside.svg": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 1
+        },
+        "scripts/generate-maps.cjs": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "maps/westlake-research.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/nanhu-roads.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/xianghu-lakeside.svg": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 1
+        },
+        "maps/westlake-nanshan-night.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/qiantang-seawall.svg": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 1
+        },
+        "maps/jinhua-short.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "maps/nanhu-short.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "catalog-metadata.js": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "map-renderer.js": {
+          "additions": 32,
+          "deletions": 64,
+          "accepted_lines": 22
+        },
+        "maps/westlake-road.svg": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        }
+      }
+    }
+  }
+}
