@@ -156,10 +156,10 @@
   {
     "id": "xianghu-color-east-bili",
     "group": "xianghu",
-    "src": "photos/xianghu-color-east-bili.png",
+    "src": "photos/xianghu-color-east-bili-hq.png",
     "storage": "local",
     "kind": "road",
-    "caption": "七彩绿道东岸 · 路口与铺装路面",
+    "caption": "七彩绿道东岸 · 林荫道路与铺装路面",
     "author": "骑狂铁迷",
     "source": "https://www.bilibili.com/video/BV1na4y1J7AM/",
     "date": "视频版本标注2023-10-14；实际拍摄日期未注明",
@@ -167,7 +167,7 @@
     "captureDate": "2026-10-19",
     "license": "原作者版权 · 未声明开放许可",
     "sourceType": "video-frame",
-    "relation": "原片02:47，图内位置图位于环线东侧；与七彩绿道、贺公堤前半程及两湖方案的东侧共线段匹配。",
+    "relation": "原片02:47附近，图内位置图位于环线东侧；与七彩绿道、贺公堤前半程及两湖方案的东侧共线段匹配。",
     "routeIds": [
       "xianghu-color",
       "xianghu-hegong",
@@ -175,14 +175,17 @@
     ],
     "modification": "仅保留图片/视频画面，原片内位置小地图与水印保留；不包含平台正文、互动栏与播放器控件。",
     "verification": "2026-10-19经浏览器实际读取原帖并目视核对；本次平台顺序与排除记录见research/xianghu-photo-search-20261019/README.md。",
-    "frameTimeSeconds": 167.12971,
+    "frameTimeSeconds": 167.45621,
     "frameTime": "02:47",
-    "platform": "bilibili"
+    "platform": "bilibili",
+    "pixelWidth": 1280,
+    "pixelHeight": 716,
+    "qualityNote": "直接下载blob视频失败；确认1080P源1920×1080后网页全屏截图1280×716，裁去底部进度线；未插值放大或AI重绘"
   },
   {
     "id": "xianghu-color-eastlake-bili",
     "group": "xianghu",
-    "src": "photos/xianghu-color-eastlake-bili.png",
+    "src": "photos/xianghu-color-eastlake-bili-hq.png",
     "storage": "local",
     "kind": "road",
     "caption": "七彩绿道东岸 · 湖边缓坡",
@@ -193,7 +196,7 @@
     "captureDate": "2026-10-19",
     "license": "原作者版权 · 未声明开放许可",
     "sourceType": "video-frame",
-    "relation": "原片04:22，位置图沿东岸向南，展示湖边坡道与桥口路面；与三方案东侧共线段匹配。",
+    "relation": "原片04:32，位置图沿东岸向南，展示湖边坡道与桥口路面；与三方案东侧共线段匹配。",
     "routeIds": [
       "xianghu-color",
       "xianghu-hegong",
@@ -201,14 +204,17 @@
     ],
     "modification": "仅保留图片/视频画面，原片内位置小地图与水印保留；不包含平台正文、互动栏与播放器控件。",
     "verification": "2026-10-19经浏览器实际读取原帖并目视核对；本次平台顺序与排除记录见research/xianghu-photo-search-20261019/README.md。",
-    "frameTimeSeconds": 262.912199,
-    "frameTime": "04:22",
-    "platform": "bilibili"
+    "frameTimeSeconds": 272.380837,
+    "frameTime": "04:32",
+    "platform": "bilibili",
+    "pixelWidth": 1280,
+    "pixelHeight": 716,
+    "qualityNote": "直接下载blob视频失败；确认1080P源1920×1080后网页全屏截图1280×716，裁去底部进度线；未插值放大或AI重绘"
   },
   {
     "id": "xianghu-color-bridge-bili",
     "group": "xianghu",
-    "src": "photos/xianghu-color-bridge-bili.png",
+    "src": "photos/xianghu-color-bridge-bili-hq.png",
     "storage": "local",
     "kind": "road",
     "caption": "七彩绿道东南侧 · 林荫道路",
@@ -219,7 +225,7 @@
     "captureDate": "2026-10-19",
     "license": "原作者版权 · 未声明开放许可",
     "sourceType": "video-frame",
-    "relation": "原片05:17，位置图位于东南侧，展示宽度、铺装和路旁步行空间；不把它当作二期上善桥段。",
+    "relation": "原片05:21，位置图位于东南侧，展示宽度、铺装和路旁步行空间；不把它当作二期上善桥段。",
     "routeIds": [
       "xianghu-color",
       "xianghu-hegong",
@@ -227,14 +233,17 @@
     ],
     "modification": "仅保留图片/视频画面，原片内位置小地图与水印保留；不包含平台正文、互动栏与播放器控件。",
     "verification": "2026-10-19经浏览器实际读取原帖并目视核对；本次平台顺序与排除记录见research/xianghu-photo-search-20261019/README.md。",
-    "frameTimeSeconds": 317.224664,
-    "frameTime": "05:17",
-    "platform": "bilibili"
+    "frameTimeSeconds": 321.619455,
+    "frameTime": "05:21",
+    "platform": "bilibili",
+    "pixelWidth": 1280,
+    "pixelHeight": 716,
+    "qualityNote": "直接下载blob视频失败；确认1080P源1920×1080后网页全屏截图1280×716，裁去底部进度线；未插值放大或AI重绘"
   },
   {
     "id": "xianghu-dingshan-paving-xhs",
     "group": "xianghu",
-    "src": "photos/xianghu-dingshan-paving-xhs.png",
+    "src": "photos/xianghu-dingshan-paving-xhs-hq.png",
     "storage": "local",
     "kind": "road",
     "caption": "定山湖小环线 · 砖铺湖岸骑行段",
@@ -244,16 +253,19 @@
     "checked": "2026-10-19",
     "captureDate": "2026-10-19",
     "license": "原作者版权 · 未声明开放许可",
-    "sourceType": "social-screenshot",
+    "sourceType": "social-image",
     "relation": "原帖第2张；首图路线为定山湖环线，正文给出亚太路—眉山路起点。图为环线湖岸铺装段；具体桩号未标，不挂到未确认经过该段的贺公堤短线。",
     "routeIds": [
       "xianghu-color",
       "xianghu-two-lakes"
     ],
-    "modification": "仅保留图片/视频画面，原片内位置小地图与水印保留；不包含平台正文、互动栏与播放器控件。",
+    "modification": "下载原帖第2张道路图片，保留完整图片内容；无平台界面，未插值放大",
     "verification": "2026-10-19经浏览器实际读取原帖并目视核对；本次平台顺序与排除记录见research/xianghu-photo-search-20261019/README.md。",
     "platform": "xiaohongshu",
-    "imageIndex": 2
+    "imageIndex": 2,
+    "pixelWidth": 1080,
+    "pixelHeight": 1876,
+    "qualityNote": "原帖道路图片直接下载，1080×1876；下载后目视确认路面与骑车者，未插值放大或AI重绘"
   },
   {
     "id": "xianghu-color-aerial-2020",
