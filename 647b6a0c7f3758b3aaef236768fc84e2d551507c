@@ -1,0 +1,71 @@
+tests/catalog.test.cjs
+  61d686ee2a95e217 33,35-36,434,457-466
+tests/browser-check.cjs
+  61d686ee2a95e217 22,27-38,123,137
+README.md
+  61d686ee2a95e217 5,42,57,125-126
+catalog-metadata.js
+  61d686ee2a95e217 7-24
+maps/xianghu-lakeside.svg
+  61d686ee2a95e217 1
+TASK_PROGRESS.md
+  61d686ee2a95e217 1-4
+index.html
+  61d686ee2a95e217 7,13,16,21,24,26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "647b6a0c7f3758b3aaef236768fc84e2d551507c",
+  "prompts": {
+    "61d686ee2a95e217": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15252-34d2-7002-b4a0-4d3855f4b14c",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 67,
+      "total_deletions": 20,
+      "accepted_lines": 65,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "catalog-metadata.js": {
+          "additions": 18,
+          "accepted_lines": 18
+        },
+        "tests/browser-check.cjs": {
+          "additions": 15,
+          "deletions": 3,
+          "accepted_lines": 15
+        },
+        "README.md": {
+          "additions": 7,
+          "deletions": 5,
+          "accepted_lines": 6
+        },
+        "index.html": {
+          "additions": 6,
+          "deletions": 6,
+          "accepted_lines": 6
+        },
+        "maps/xianghu-lakeside.svg": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "TASK_PROGRESS.md": {
+          "additions": 5,
+          "deletions": 1,
+          "accepted_lines": 4
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 15,
+          "deletions": 4,
+          "accepted_lines": 15
+        }
+      }
+    }
+  }
+}
