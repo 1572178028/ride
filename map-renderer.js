@@ -34,6 +34,18 @@ window.makeMapSVG=function(route,options={}){
    if(!labelBoxes.some(b=>tx<b.x+b.w&&tx+width>b.x&&ty-20<b.y+b.h&&ty+8>b.y))break;
    ty+=29;if(ty>H-32){ty=75+(k*31)%(H-160);}
   }
+  if(route.labelLayout==='nearest'){
+   const candidates=[];
+   for(const dx of (opts.left?[-width-14,14,-width-80,80,-width-160,160]:[14,-width-14,80,-width-80,160,-width-160]))for(const dy of [-13,24,-49,60,-85,96,-121,132,-157,168]){
+    const bx=Math.max(14,Math.min(W-width-14,x+dx)),by=Math.max(75,Math.min(H-42,y+dy));
+    if(!labelBoxes.some(b=>bx<b.x+b.w&&bx+width>b.x&&by-20<b.y+b.h&&by+9>b.y)){
+     const distance=Math.hypot(Math.max(bx-x,0,x-bx-width),Math.max(by-20-y,0,y-by-9));
+     candidates.push({x:bx,y:by,distance});
+    }
+   }
+   candidates.sort((a,b)=>a.distance-b.distance);
+   if(candidates.length){tx=candidates[0].x;ty=candidates[0].y;}
+  }
   labelBoxes.push({x:tx,y:ty-20,w:width,h:30});
   const lx=Math.max(tx,Math.min(tx+width,x)),ly=Math.max(ty-20,Math.min(ty+9,y));
   const leader=Math.hypot(lx-x,ly-y)>15?`<path d="M${x} ${y}L${lx} ${ly}" fill="none" stroke="${opts.color||'#667d97'}" stroke-opacity=".55" stroke-width=".8"/>`:'';
@@ -48,9 +60,21 @@ window.makeMapSVG=function(route,options={}){
  // Direction arrows make loop and return geometries readable without a map App.
  for(let i=Math.max(1,Math.floor(path.length/6));i<path.length;i+=Math.max(1,Math.floor(path.length/5))){const a=project(path[i-1]),b=project(path[i]),angle=Math.atan2(b[1]-a[1],b[0]-a[0])*180/Math.PI;svg+=`<path d="M-4 -4L2 0L-4 4" transform="translate(${b[0]} ${b[1]}) rotate(${angle})" fill="none" stroke="#ffffff" stroke-width="2"/>`;}
  const water=route.mapWater||{name:route.region==='xianghu'?'湘湖':'钱塘江',point:route.region==='xianghu'?[120.209,30.135]:[120.486,30.384]};
- const waterPosition=project(water.point);
- svg+=`<text x="${waterPosition[0]}" y="${waterPosition[1]}" fill="#467f9a" font-size="25" font-weight="400" letter-spacing="8" text-anchor="middle">${esc(water.name)}</text>`;
+ for(const item of route.mapWaters||[water]){
+  const waterPosition=project(item.point);
+  svg+=`<text x="${waterPosition[0]}" y="${waterPosition[1]}" fill="#467f9a" font-size="25" font-weight="400" letter-spacing="8" text-anchor="middle">${esc(item.name)}</text>`;
+ }
  const near=(a,b)=>Math.hypot((a[0]-b[0])*lonFactor,a[1]-b[1])*111.2<.08;
+ let reservedStartLabel='',reservedParkingLabel='';
+ if(route.labelLayout==='nearest'){
+  const [startX,startY]=project(path[0]);
+  reservedStartLabel=label(startX,startY,'道路骑行起点');
+  if(route.parking){
+   let [parkX,parkY]=project(route.parking.point);
+   if(Math.hypot(parkX-startX,parkY-startY)<40){parkX-=27;parkY+=24;}
+   reservedParkingLabel=label(parkX,parkY,route.parking.mapLabel,{fill:'#f0f4fc',color:'#172b4d',size:13,left:true});
+  }
+ }
  const stopPositions=[];
  route.stops.slice(1).forEach((s,i)=>{
   // A rest marker already names this location; avoid stacking duplicate pins/labels.
@@ -75,10 +99,10 @@ window.makeMapSVG=function(route,options={}){
  if(route.parking){
  if(startSeparated&&Math.hypot(px-sx,py-sy)<40){svg+=`<path d="M${px} ${py}L${px-27} ${py+24}" stroke="#667d97" stroke-width="1" stroke-dasharray="3 2"/>`;px-=27;py+=24;}
  labelBoxes.push({x:px-16,y:py-16,w:32,h:32});
- svg+=`<g data-poi="parking" tabindex="0" role="button" aria-label="${esc(route.parking.name)}停车与骑行起点"><rect x="${px-14}" y="${py-14}" width="28" height="28" rx="7" fill="#172b4d" stroke="#ffffff" stroke-width="3" filter="url(#shadow)"/><text x="${px}" y="${py+6}" font-size="18" font-weight="600" fill="#ffffff" text-anchor="middle" pointer-events="none">P</text>${label(px,py,route.parking.mapLabel||(route.region==='xianghu'?'老虎洞 · 停车 / 起点':'奥莱 · 停车 / 起点'),{fill:'#f0f4fc',color:'#172b4d',size:13})}</g>`;
+ svg+=`<g data-poi="parking" tabindex="0" role="button" aria-label="${esc(route.parking.name)}停车与骑行起点"><rect x="${px-14}" y="${py-14}" width="28" height="28" rx="7" fill="#172b4d" stroke="#ffffff" stroke-width="3" filter="url(#shadow)"/><text x="${px}" y="${py+6}" font-size="18" font-weight="600" fill="#ffffff" text-anchor="middle" pointer-events="none">P</text>${reservedParkingLabel||label(px,py,route.parking.mapLabel||(route.region==='xianghu'?'老虎洞 · 停车 / 起点':'奥莱 · 停车 / 起点'),{fill:'#f0f4fc',color:'#172b4d',size:13})}</g>`;
  }
  svg+=`<g transform="translate(950 26)"><path d="M0 25L8 0L16 25L8 18Z" fill="#405773"/><text x="8" y="-5" fill="#405773" text-anchor="middle" font-size="10">N</text></g>`;
- if(startSeparated)svg+=`<g data-poi="start" tabindex="0" role="button" aria-label="道路骑行起点"><circle cx="${sx}" cy="${sy}" r="10" fill="#cc4c22" stroke="#ffffff" stroke-width="3"/><text x="${sx}" y="${sy+4}" text-anchor="middle" fill="white" font-size="11">S</text>${label(sx,sy,route.research?'研究起点 · 停车待查':'道路骑行起点')}</g>`;
+ if(startSeparated)svg+=`<g data-poi="start" tabindex="0" role="button" aria-label="道路骑行起点"><circle cx="${sx}" cy="${sy}" r="10" fill="#cc4c22" stroke="#ffffff" stroke-width="3"/><text x="${sx}" y="${sy+4}" text-anchor="middle" fill="white" font-size="11">S</text>${reservedStartLabel||label(sx,sy,route.research?'研究起点 · 停车待查':'道路骑行起点')}</g>`;
  const kmWidth=scale/111.2,scaleKm=kmWidth>250?.5:kmWidth>70?1:2,barWidth=kmWidth*scaleKm;
  svg+=`<g transform="translate(35 555)"><path d="M0 -6V0H${barWidth}V-6" fill="none" stroke="#52657e" stroke-width="2"/><text y="17" font-size="10" fill="#52657e">${scaleKm} km</text></g><text x="965" y="576" text-anchor="end" font-size="9" fill="#52657e">© OpenStreetMap contributors · ODbL</text>`;
  if(options.export)svg+=`<rect x="25" y="20" width="550" height="49" rx="6" fill="#ffffff" fill-opacity=".96"/><text x="40" y="42" fill="#172b4d" font-size="16" font-weight="600">骑遇 · ${esc(route.title)}</text><text x="40" y="59" fill="#52657e" font-size="10">${route.distance} km ${route.shape} · ${esc(route.parking?route.parking.rule:route.id==='westlake-research'?'历史研究图 · 未计入当前路线统计':'研究图 · 停车与接驳未确认，不计入路线库')}</text>`;

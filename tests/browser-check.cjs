@@ -19,27 +19,33 @@ const server = http.createServer((req, res) => {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1050 }, acceptDownloads: true });
     watch(page); await page.goto(url); await page.waitForSelector('.route-card');
     assert.equal(await page.evaluate(() => innerWidth), 1440);
-    assert.equal(await page.locator('.route-card').count(), 20);
+    assert.equal(await page.locator('.route-card').count(), 17);
     assert.equal(await page.locator('#total-plans').innerText(), '32');
     assert.equal(await page.locator('#total-parking').innerText(), '16');
     const ids = await page.evaluate(() => ROUTES.map(r => r.id));
     const select = async (p, id) => { await p.evaluate(id => { location.hash = 'route=' + id; }, id); await p.waitForFunction(id => document.querySelector('#selected-heading h2').textContent === ROUTES.find(r => r.id === id).title, id); };
-    await select(page, 'meiling-south-road');
-    await page.locator('#selected-heading').scrollIntoViewIfNeeded();
-    await page.screenshot({path:'/private/tmp/ride-meiling-desktop.png'});
     await page.selectOption('#city-filter','hangzhou');
-    await page.selectOption('#region-filter','meiling-south');
+    await page.selectOption('#region-filter','westlake');
     assert.equal(await page.locator('.route-card').count(),1);
-    assert.ok((await page.locator('.parking-box').innerText()).includes('2020'));
-    await page.selectOption('#region-filter','all');
-    await page.selectOption('#city-filter','all');
+    assert.equal(await page.locator('.variant-picker button').count(),6);
+    assert.equal(await page.locator('#selected-heading h2').innerText(),'西湖 × 梅灵南北路 · 茶山江景环线');
+    assert.ok((await page.locator('.variant-picker').innerText()).includes('停车起点可能不同'));
+    for(const id of ['westlake-road','westlake-tea-road','meiling-south-road','westlake-hills-loop']){
+      await page.locator(`[data-variant="${id}"]`).click();
+      assert.equal(await page.locator('.route-card').count(),1);
+      assert.equal(await page.locator('#map-container svg').count(),1);
+      assert.equal(await page.locator('#selected-heading h2').innerText(),await page.evaluate(id=>ROUTES.find(r=>r.id===id).title,id));
+    }
+    await page.locator('#selected-heading').scrollIntoViewIfNeeded();
+    await page.screenshot({path:'/private/tmp/ride-unified-westlake-desktop.png'});
+    await page.locator('#map-container').scrollIntoViewIfNeeded();
+    await page.screenshot({path:'/private/tmp/ride-unified-westlake-map.png'});
+    await page.selectOption('#region-filter','all');await page.selectOption('#city-filter','all');
     await page.evaluate(() => {location.hash='route=westlake-20261018';});
-    await page.waitForSelector('.recorded-map img');
-    assert.ok(await page.locator('.recorded-map img').evaluate(i=>i.complete&&i.naturalWidth>0));
-    assert.equal(await page.locator('.navigation-actions').count(),0);
-    assert.ok(await page.locator('.map-legend').isHidden());
-    const originalDownload=page.waitForEvent('download');await page.locator('#download-map').click();
-    assert.ok((await originalDownload).suggestedFilename().endsWith('.jpg'));
+    await page.waitForFunction(()=>location.hash==='#route=westlake-hills-loop');
+    assert.equal(await page.locator('#map-container svg').count(),1);
+    assert.equal(await page.locator('img[src*="my-rides"]').count(),0);
+    assert.equal(await page.locator('.navigation-actions a').count(),4);
     for (const id of ids) {
       await select(page, id);
       assert.equal(await page.locator('#map-container svg').count(), 1);
@@ -93,7 +99,7 @@ const server = http.createServer((req, res) => {
     await page.selectOption('#city-filter', 'jinhua'); assert.equal(await page.locator('#region-filter').inputValue(), 'all');
     await page.selectOption('#city-filter', 'all'); await page.selectOption('#parking-filter', 'unknown'); assert.equal(await page.locator('.route-card').count(), 5);
     await page.selectOption('#lane-filter', 'dedicated'); assert.ok(await page.locator('#route-view').isHidden());
-    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 20);
+    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 17);
     await page.locator('#route-library').scrollIntoViewIfNeeded();
     assert.ok(await page.locator('#route-list').evaluate(el => el.scrollHeight > el.clientHeight && getComputedStyle(el).overflowY === 'auto'));
     await page.locator('.card-select').last().click();
@@ -123,9 +129,9 @@ const server = http.createServer((req, res) => {
     await mobile.locator('#route-detail .photo-open').first().click(); assert.ok(await mobile.locator('#photo-dialog').evaluate(d => d.open));
     assert.ok(await mobile.evaluate(() => document.documentElement.scrollWidth <= innerWidth)); await mobile.locator('.photo-close').click();
     await mobile.locator('#selected-heading').scrollIntoViewIfNeeded(); await mobile.screenshot({ path: '/private/tmp/ride-mobile.png' });
-    await select(mobile,'meiling-south-road');
+    await select(mobile,'westlake-hills-loop');
     await mobile.locator('#selected-heading').scrollIntoViewIfNeeded();
-    await mobile.screenshot({path:'/private/tmp/ride-meiling-mobile.png'});
+    await mobile.screenshot({path:'/private/tmp/ride-unified-westlake-mobile.png'});
     assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
     await switchFromSupply(mobile);
     await mobile.selectOption('#research-region', 'shaoxing'); assert.equal(await mobile.locator('.expansion-card').count(), 3);
