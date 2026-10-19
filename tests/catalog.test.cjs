@@ -30,10 +30,10 @@ test('route IDs and map paths are unique and complete', () => {
     if (route.shape !== '原路往返') assert.ok(km(points[0], points.at(-1)) < 0.01, `${route.id}: closed loop`);
   }
 });
-test('distance variants belong to seventeen route families across fifteen actual areas', () => {
+test('distance variants belong to sixteen route families across fifteen actual areas', () => {
   const mains = app.ROUTES.filter(route => route.id === route.familyId);
-  assert.equal(mains.length, 17);
-  assert.equal(app.ROUTE_METADATA.familyCount, 17);
+  assert.equal(mains.length, 16);
+  assert.equal(app.ROUTE_METADATA.familyCount, 16);
   assert.equal(app.ROUTE_METADATA.regionCount, 15);
   for (const variant of app.ROUTES) {
     const main = mains.find(route => route.id === variant.familyId);
@@ -431,7 +431,7 @@ test('Map markers show only short identifiers, with accessible full names for in
  }
 });
 test('Photo coverage and gaps stay explicit and every added assignment targets a real route', () => {
- assert.equal(app.ROUTE_METADATA.photoFamilyCount,6);
+ assert.equal(app.ROUTE_METADATA.photoFamilyCount,5);
  assert.equal(app.ROUTE_METADATA.photoRouteCount,11);
  const licenses=JSON.parse(fs.readFileSync(path.join(root,'research/photo-licenses.json')));
  for(const p of licenses.filter(p=>p.checked==='2026-10-19')){
@@ -453,4 +453,15 @@ test('Xianghu galleries separate shared third-phase roads from unverified second
   for(const p of r.photos.filter(p=>p.sourceType==='video-frame')){assert.equal(p.platform,'bilibili');assert.ok(p.frameTimeSeconds>0&&p.frameTime);}
  }
  assert.ok(!app.ROUTES.flatMap(r=>r.photos).some(p=>p.id==='xianghu-yuewang-xhs'));
+});
+
+test('Xianghu has one destination with five distinct selectable plans', () => {
+ const routes=app.ROUTES.filter(r=>r.region==='xianghu');
+ assert.equal(routes.length,5);
+ assert.deepEqual([...new Set(routes.map(r=>r.familyId))],['xianghu-lakeside']);
+ assert.equal(new Set(routes.map(r=>r.shortTitle)).size,5);
+ assert.equal(new Set(routes.map(r=>r.planOrder)).size,5);
+ assert.equal(new Set(routes.map(r=>JSON.stringify(app.MAP_DATA.paths[r.id]))).size,5);
+ assert.equal(routes.find(r=>r.id==='xianghu-lakeside').photos.length,0);
+ assert.equal(routes.find(r=>r.id==='xianghu-color').photos.length,5);
 });

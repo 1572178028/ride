@@ -4,6 +4,24 @@
   const cities = { xianghu: 'hangzhou', westlake: 'hangzhou', qiandao: 'hangzhou', tonglu: 'hangzhou', qiantangpark: 'hangzhou', canal: 'hangzhou', binjiang: 'hangzhou', qianjiang: 'hangzhou', wengjin: 'jiaxing', nanhu: 'jiaxing', yucun: 'huzhou', mogan: 'huzhou', jiapu: 'huzhou', huaxi: 'huzhou', jinhua: 'jinhua' };
   window.CITY_LABELS = { hangzhou: '杭州', huzhou: '湖州', jiaxing: '嘉兴', shaoxing: '绍兴', jinhua: '金华' };
   window.REGION_LABELS = { xianghu: '萧山 · 湘湖', wengjin: '海宁 · 翁金线', qiandao: '淳安 · 千岛湖', tonglu: '桐庐 · 富春江', qiantangpark: '钱塘 · 湿地外围', westlake: '西湖 · 龙井与梅灵茶山', yucun: '安吉 · 余村', mogan: '德清 · 莫干山山麓', jiapu: '长兴 · 夹浦滨湖', huaxi: '长兴 · 城南画溪', nanhu: '南湖外围街道', jinhua: '江北 · 铁路公园与老城', canal: '拱墅 · 运河桥西', binjiang: '滨江 · 闻涛路西段', qianjiang: '上城 · 钱江新城' };
+  // One destination entry; each plan keeps its own geometry, navigation and photos.
+  const xianghuPlans = [
+    ['xianghu-lakeside', '二期湖岸环线'],
+    ['xianghu-shanshan', '上善桥短线'],
+    ['xianghu-color', '三期七彩绿道'],
+    ['xianghu-hegong', '贺公堤往返'],
+    ['xianghu-two-lakes', '两湖联骑']
+  ];
+  xianghuPlans.forEach(([id, label], order) => {
+    const route = ROUTES.find(r => r.id === id);
+    route.familyId = 'xianghu-lakeside';
+    route.familyTitle = '湘湖 · 二三期湖岸与七彩绿道';
+    route.shortTitle = label;
+    route.planOrder = order;
+  });
+  const xianghuMain = ROUTES.find(r => r.id === 'xianghu-lakeside');
+  xianghuMain.area = '萧山 · 湘湖二期与三期';
+  xianghuMain.title = '湘湖二期 · 湖岸环线';
   for (const r of ROUTES) {
     r.cityGroup = cities[r.region];
     if (r.window === 'night' && !r.nightRide) r.nightRide = {
