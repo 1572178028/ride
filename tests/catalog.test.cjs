@@ -289,7 +289,7 @@ test('new city lakes preserve actual shoreline and island polygons', () => {
 
 test('local and external licensed photos are attributed and attached to their actual subject', () => {
   const licenses = JSON.parse(fs.readFileSync(path.join(root, 'research/photo-licenses.json')));
-  assert.equal(licenses.length, 31);
+  assert.equal(licenses.length, 34);
   for (const r of [...app.ROUTES, ...app.EXPANSION_CANDIDATES]) for (const photo of r.photos || []) {
     const record = licenses.find(p => p.src === photo.src);
     assert.ok(record && record.author === photo.author && record.license === photo.license);
@@ -301,7 +301,7 @@ test('local and external licensed photos are attributed and attached to their ac
     if(record.routeIds)assert.ok(record.routeIds.includes(r.id),r.id+': photo assigned to an unreviewed route');
     else assert.equal(photo.group, expected);
   }
-  assert.equal(app.ROUTE_METADATA.photoCount, 11, 'reviewed photographs are counted once across variants');
+  assert.equal(app.ROUTE_METADATA.photoCount, 14, 'reviewed photographs are counted once across variants');
 });
 
 test('webpage and export generator load the same final data files', () => {
@@ -431,8 +431,8 @@ test('Map markers show only short identifiers, with accessible full names for in
  }
 });
 test('Photo coverage and gaps stay explicit and every added assignment targets a real route', () => {
- assert.equal(app.ROUTE_METADATA.photoFamilyCount,5);
- assert.equal(app.ROUTE_METADATA.photoRouteCount,11);
+ assert.equal(app.ROUTE_METADATA.photoFamilyCount,6);
+ assert.equal(app.ROUTE_METADATA.photoRouteCount,12);
  const licenses=JSON.parse(fs.readFileSync(path.join(root,'research/photo-licenses.json')));
  for(const p of licenses.filter(p=>p.checked==='2026-10-19')){
   assert.ok(p.relation&&p.verification&&p.kind);
@@ -474,5 +474,14 @@ test('Wengjin variants share one destination without changing roads or photo cov
  assert.equal(new Set(routes.map(r=>JSON.stringify(r.start.point))).size,1);
  assert.equal(new Set(routes.map(r=>r.parking.poiid||r.parking.id)).size,1);
  assert.equal(routes.find(r=>r.id==='wengjin-short').photos.length,0);
+ assert.equal(routes.find(r=>r.id==='wengjin-middle').photos.length,0);
+ const longRoute=routes.find(r=>r.id==='wengjin-yanguan');
+ assert.equal(longRoute.photos.length,3);
+ assert.equal(longRoute.photoMissing,0);
+ for(const p of longRoute.photos){
+  assert.equal(p.pixelWidth,1080);
+  assert.equal(p.pixelHeight,1440);
+  assert.match(p.caption,/具体拍摄段未标明/);
+ }
  assert.equal(new Set(routes.map(r=>JSON.stringify(app.MAP_DATA.paths[r.id]))).size,3);
 });

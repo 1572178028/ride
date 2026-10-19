@@ -743,5 +743,83 @@
     "modification": "仅保留图片/视频画面，原片内位置小地图与水印保留；不包含平台正文、互动栏与播放器控件。",
     "verification": "2026-10-19经浏览器实际读取原帖并目视核对；本次平台顺序与排除记录见research/xianghu-photo-search-20261019/README.md。",
     "platform": "google-source"
+  },
+  {
+    "id": "wengjin-canopy-rider-xhs",
+    "group": "wengjin",
+    "src": "photos/wengjin-canopy-rider-xhs-hq.jpg",
+    "storage": "local",
+    "kind": "road",
+    "caption": "翁金线林荫绿道 · 树冠廊道与骑行段（具体拍摄段未标明）",
+    "author": "中午吃什么",
+    "source": "https://www.xiaohongshu.com/explore/6a2274ba000000003701f84b",
+    "date": "原帖09-03；拍摄日期未注明",
+    "checked": "2026-10-19",
+    "captureDate": "2026-10-19",
+    "license": "原作者版权 · 未声明开放许可",
+    "sourceType": "social-image",
+    "relation": "原帖第1张；正文明确为翁金线（百里钱塘生态绿道），具体拍摄段未标明，归入41公里盐官长线，不挂短线与中线。",
+    "routeIds": [
+      "wengjin-yanguan"
+    ],
+    "modification": "直接下载原帖第1张道路图片，保留完整图片内容；无平台界面，未插值放大",
+    "verification": "2026-10-19经浏览器实际读取原帖并目视核对；平台检索与排除记录见research/wengjin-photo-search-20261019/README.md。",
+    "platform": "xiaohongshu",
+    "imageIndex": 1,
+    "pixelWidth": 1080,
+    "pixelHeight": 1440,
+    "qualityNote": "原帖道路图片直接下载，1080×1440；未插值放大或AI重绘"
+  },
+  {
+    "id": "wengjin-straight-lane-xhs",
+    "group": "wengjin",
+    "src": "photos/wengjin-straight-lane-xhs-hq.jpg",
+    "storage": "local",
+    "kind": "road",
+    "caption": "翁金线林荫公路 · 笔直标线直道（具体拍摄段未标明）",
+    "author": "中午吃什么",
+    "source": "https://www.xiaohongshu.com/explore/6a2274ba000000003701f84b",
+    "date": "原帖09-03；拍摄日期未注明",
+    "checked": "2026-10-19",
+    "captureDate": "2026-10-19",
+    "license": "原作者版权 · 未声明开放许可",
+    "sourceType": "social-image",
+    "relation": "原帖第2张；展示翁金线黄虚线双侧路面与连续行道树，具体拍摄段未标明，归入41公里盐官长线，不挂短线与中线。",
+    "routeIds": [
+      "wengjin-yanguan"
+    ],
+    "modification": "直接下载原帖第2张道路图片，保留完整图片内容；无平台界面，未插值放大",
+    "verification": "2026-10-19经浏览器实际读取原帖并目视核对；平台检索与排除记录见research/wengjin-photo-search-20261019/README.md。",
+    "platform": "xiaohongshu",
+    "imageIndex": 2,
+    "pixelWidth": 1080,
+    "pixelHeight": 1440,
+    "qualityNote": "原帖道路图片直接下载，1080×1440；未插值放大或AI重绘"
+  },
+  {
+    "id": "wengjin-shaded-corridor-xhs",
+    "group": "wengjin",
+    "src": "photos/wengjin-shaded-corridor-xhs-hq.jpg",
+    "storage": "local",
+    "kind": "road",
+    "caption": "翁金线林荫路段 · 慢行与绿植隔离带（具体拍摄段未标明）",
+    "author": "中午吃什么",
+    "source": "https://www.xiaohongshu.com/explore/6a2274ba000000003701f84b",
+    "date": "原帖09-03；拍摄日期未注明",
+    "checked": "2026-10-19",
+    "captureDate": "2026-10-19",
+    "license": "原作者版权 · 未声明开放许可",
+    "sourceType": "social-image",
+    "relation": "原帖第4张（第3张路堤草坡侧面已排除）；展示浓密树荫下的铺装路面与绿植隔离带，具体拍摄段未标明，归入41公里盐官长线。",
+    "routeIds": [
+      "wengjin-yanguan"
+    ],
+    "modification": "直接下载原帖第4张道路图片，保留完整图片内容；无平台界面，未插值放大",
+    "verification": "2026-10-19经浏览器实际读取原帖并目视核对；平台检索与排除记录见research/wengjin-photo-search-20261019/README.md。",
+    "platform": "xiaohongshu",
+    "imageIndex": 4,
+    "pixelWidth": 1080,
+    "pixelHeight": 1440,
+    "qualityNote": "原帖道路图片直接下载，1080×1440；未插值放大或AI重绘"
   }
 ]

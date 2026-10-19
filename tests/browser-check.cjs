@@ -43,7 +43,21 @@ const server = http.createServer((req, res) => {
       await page.locator(`[data-variant="${id}"]`).click();
       assert.equal(await page.locator('#selected-heading h2').innerText(),await page.evaluate(id=>ROUTES.find(r=>r.id===id).title,id));
       assert.equal(await page.locator('.route-card').count(),1);
+      assert.equal(await page.locator('#route-detail .photo-open').count(),id==='wengjin-yanguan'?3:0);
     }
+    await page.locator('#route-detail .route-photos').scrollIntoViewIfNeeded();
+    await page.evaluate(async () => {
+      for (const img of document.querySelectorAll('#route-detail .photo-open img')) {
+        img.loading = 'eager';
+        await img.decode();
+      }
+    });
+    await page.screenshot({path:'/private/tmp/ride-photo-wengjin-desktop.png'});
+    await page.locator('#route-detail .photo-open').first().click();
+    await page.evaluate(async () => { await document.querySelector('#photo-dialog img').decode(); });
+    assert.ok((await page.locator('#photo-dialog').innerText()).includes('具体拍摄段未标明'));
+    await page.screenshot({path:'/private/tmp/ride-photo-wengjin-modal.png'});
+    await page.keyboard.press('Escape');
     await page.selectOption('#region-filter','all');
     await page.selectOption('#city-filter','hangzhou');
     await page.selectOption('#region-filter','westlake');
