@@ -22,6 +22,14 @@
   const xianghuMain = ROUTES.find(r => r.id === 'xianghu-lakeside');
   xianghuMain.area = '萧山 · 湘湖二期与三期';
   xianghuMain.title = '湘湖二期 · 湖岸环线';
+  // The three Wengjin distances share the outlet parking and road start.
+  ['wengjin-short', 'wengjin-middle', 'wengjin-yanguan'].forEach((id, order) => {
+    const route = ROUTES.find(r => r.id === id);
+    route.familyId = 'wengjin-short';
+    route.familyTitle = '翁金线 · 奥莱出发至盐官';
+    route.shortTitle = ['入门短线', '林荫半日往返', '盐官长线'][order];
+    route.planOrder = order;
+  });
   for (const r of ROUTES) {
     r.cityGroup = cities[r.region];
     if (r.window === 'night' && !r.nightRide) r.nightRide = {

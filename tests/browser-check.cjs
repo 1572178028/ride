@@ -16,10 +16,10 @@ const server = http.createServer((req, res) => {
     browser = await chromium.launch({ headless: true, ...(chrome ? { executablePath: chrome } : {}) });
     const url = `http://127.0.0.1:${server.address().port}/`, errors = [];
     const watch = p => { p.on('pageerror', e => errors.push(e.message)); p.on('response', r => { if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`); }); };
-    const page = await browser.newPage({ viewport: { width: 1440, height: 1050 }, acceptDownloads: true });
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1050 }, reducedMotion: 'reduce', acceptDownloads: true });
     watch(page); await page.goto(url); await page.waitForSelector('.route-card');
     assert.equal(await page.evaluate(() => innerWidth), 1440);
-    assert.equal(await page.locator('.route-card').count(), 16);
+    assert.equal(await page.locator('.route-card').count(), 15);
     assert.equal(await page.locator('#total-plans').innerText(), '32');
     assert.equal(await page.locator('#total-parking').innerText(), '16');
     const ids = await page.evaluate(() => ROUTES.map(r => r.id));
@@ -35,6 +35,15 @@ const server = http.createServer((req, res) => {
     }
     await page.locator('#selected-heading').scrollIntoViewIfNeeded();
     await page.screenshot({path:'/private/tmp/ride-unified-xianghu-desktop.png'});
+    await page.selectOption('#region-filter','all');
+    await page.selectOption('#region-filter','wengjin');
+    assert.equal(await page.locator('.route-card').count(),1);
+    assert.equal(await page.locator('.variant-picker button').count(),3);
+    for (const id of ['wengjin-short','wengjin-middle','wengjin-yanguan']) {
+      await page.locator(`[data-variant="${id}"]`).click();
+      assert.equal(await page.locator('#selected-heading h2').innerText(),await page.evaluate(id=>ROUTES.find(r=>r.id===id).title,id));
+      assert.equal(await page.locator('.route-card').count(),1);
+    }
     await page.selectOption('#region-filter','all');
     await page.selectOption('#city-filter','hangzhou');
     await page.selectOption('#region-filter','westlake');
@@ -105,11 +114,13 @@ const server = http.createServer((req, res) => {
       });
     };
     const switchFromSupply = async p => {
-      await p.locator('[data-family="wengjin-short"]').click();
+      await p.locator('[data-family="canal-streets"]').click();
       await assertRouteTop(p);
       await p.locator('.food-card').first().scrollIntoViewIfNeeded();
       assert.ok(await p.locator('#selected-heading').evaluate(e => e.getBoundingClientRect().top < 0));
-      await p.locator('[data-family="wengjin-yanguan"]').click();
+      await p.locator('[data-family="wengjin-short"]').click();
+      await assertRouteTop(p);
+      await p.locator('[data-variant="wengjin-yanguan"]').click();
       await assertRouteTop(p);
       assert.equal(await p.locator('#selected-heading h2').innerText(), '翁金线 · 向盐官骑去');
     };
@@ -134,7 +145,7 @@ const server = http.createServer((req, res) => {
     await page.selectOption('#city-filter', 'jinhua'); assert.equal(await page.locator('#region-filter').inputValue(), 'all');
     await page.selectOption('#city-filter', 'all'); await page.selectOption('#parking-filter', 'unknown'); assert.equal(await page.locator('.route-card').count(), 5);
     await page.selectOption('#lane-filter', 'dedicated'); assert.ok(await page.locator('#route-view').isHidden());
-    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 16);
+    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 15);
     await page.locator('#route-library').scrollIntoViewIfNeeded();
     assert.ok(await page.locator('#route-list').evaluate(el => el.scrollHeight > el.clientHeight && getComputedStyle(el).overflowY === 'auto'));
     await page.locator('.card-select').last().click();
@@ -158,7 +169,7 @@ const server = http.createServer((req, res) => {
     await page.locator('[data-research-id="shaoxing-eastlake-research"] .photo-open').first().click(); assert.ok((await page.locator('#photo-dialog').innerText()).includes('Logan Wenger')); await page.locator('.photo-close').click();
     assert.ok((await page.locator('.expansion-links a').evaluateAll(ns => ns.map(n => n.href))).every(u => !u.includes('/navigation?') && !u.includes('/direction?')));
     await select(page, 'nanhu-roads'); await page.locator('#selected-heading').scrollIntoViewIfNeeded(); await page.screenshot({ path: '/private/tmp/ride-desktop.png' });
-    const context = await browser.newContext({ viewport: { width: 390, height: 844 } }), mobile = await context.newPage(); watch(mobile);
+    const context = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' }), mobile = await context.newPage(); watch(mobile);
     await mobile.goto(url + '#route=nanhu-roads'); await mobile.waitForSelector('.route-card'); assert.ok(await mobile.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     await mobile.locator('[data-save="nanhu-roads"]').click(); await mobile.reload(); assert.equal(await mobile.locator('#saved-count').innerText(), '1');
     await select(mobile,'meiling-south-road'); await mobile.locator('#route-detail .photo-open').first().click(); assert.ok(await mobile.locator('#photo-dialog').evaluate(d => d.open));

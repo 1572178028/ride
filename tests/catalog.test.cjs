@@ -30,10 +30,10 @@ test('route IDs and map paths are unique and complete', () => {
     if (route.shape !== '原路往返') assert.ok(km(points[0], points.at(-1)) < 0.01, `${route.id}: closed loop`);
   }
 });
-test('distance variants belong to sixteen route families across fifteen actual areas', () => {
+test('distance variants belong to fifteen route families across fifteen actual areas', () => {
   const mains = app.ROUTES.filter(route => route.id === route.familyId);
-  assert.equal(mains.length, 16);
-  assert.equal(app.ROUTE_METADATA.familyCount, 16);
+  assert.equal(mains.length, 15);
+  assert.equal(app.ROUTE_METADATA.familyCount, 15);
   assert.equal(app.ROUTE_METADATA.regionCount, 15);
   for (const variant of app.ROUTES) {
     const main = mains.find(route => route.id === variant.familyId);
@@ -464,4 +464,15 @@ test('Xianghu has one destination with five distinct selectable plans', () => {
  assert.equal(new Set(routes.map(r=>JSON.stringify(app.MAP_DATA.paths[r.id]))).size,5);
  assert.equal(routes.find(r=>r.id==='xianghu-lakeside').photos.length,0);
  assert.equal(routes.find(r=>r.id==='xianghu-color').photos.length,5);
+});
+
+test('Wengjin variants share one destination without changing roads or photo coverage', () => {
+ const routes=app.ROUTES.filter(r=>r.region==='wengjin');
+ assert.equal(routes.length,3);
+ assert.deepEqual([...new Set(routes.map(r=>r.familyId))],['wengjin-short']);
+ assert.equal(new Set(routes.map(r=>r.shortTitle)).size,3);
+ assert.equal(new Set(routes.map(r=>JSON.stringify(r.start.point))).size,1);
+ assert.equal(new Set(routes.map(r=>r.parking.poiid||r.parking.id)).size,1);
+ assert.equal(routes.find(r=>r.id==='wengjin-short').photos.length,0);
+ assert.equal(new Set(routes.map(r=>JSON.stringify(app.MAP_DATA.paths[r.id]))).size,3);
 });
