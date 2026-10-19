@@ -110,28 +110,6 @@
     "verification": "2026-10-19浏览器读取原帖正文并目视核对道路画面，未使用平台AI总结。"
   },
   {
-    "id": "xianghu-yuewang-xhs",
-    "group": "xianghu",
-    "source": "https://www.xiaohongshu.com/explore/6726296b000000003c0160b4",
-    "author": "橘子暖阳",
-    "license": "原作者版权 · 未声明开放许可",
-    "date": "原帖2024-11-02；拍摄日期未注明",
-    "checked": "2026-10-19",
-    "captureDate": "2026-10-19",
-    "src": "photos/xianghu-yuewang-xhs.png",
-    "storage": "local",
-    "kind": "road",
-    "caption": "湘湖越王路 · 林荫道路实拍",
-    "relation": "原帖正文与作者回复均指明越王路；可见双向路面与车辆，无独立骑行道。具体拍摄桩号未注明。",
-    "routeIds": [
-      "xianghu-lakeside",
-      "xianghu-two-lakes"
-    ],
-    "sourceType": "social-image",
-    "modification": "仅图片本身，保留原图水印；署名及出处在图注展示",
-    "verification": "2026-10-19浏览器读取原帖正文并目视核对道路画面，未使用平台AI总结。"
-  },
-  {
     "id": "meiling-south-road-2024",
     "group": "meiling",
     "source": "https://pic.hangzhou.com.cn/hzyx/content/content_8829832.html",
@@ -174,10 +152,136 @@
     "sourceType": "press-photo",
     "modification": "仅图片本身，保留原图水印；署名及出处在图注展示",
     "verification": "2026-10-19浏览器读取原帖正文并目视核对道路画面，未使用平台AI总结。"
+  },
+  {
+    "id": "xianghu-color-east-bili",
+    "group": "xianghu",
+    "src": "photos/xianghu-color-east-bili.png",
+    "storage": "local",
+    "kind": "road",
+    "caption": "七彩绿道东岸 · 路口与铺装路面",
+    "author": "骑狂铁迷",
+    "source": "https://www.bilibili.com/video/BV1na4y1J7AM/",
+    "date": "视频版本标注2023-10-14；实际拍摄日期未注明",
+    "checked": "2026-10-19",
+    "captureDate": "2026-10-19",
+    "license": "原作者版权 · 未声明开放许可",
+    "sourceType": "video-frame",
+    "relation": "原片02:47，图内位置图位于环线东侧；与七彩绿道、贺公堤前半程及两湖方案的东侧共线段匹配。",
+    "routeIds": [
+      "xianghu-color",
+      "xianghu-hegong",
+      "xianghu-two-lakes"
+    ],
+    "modification": "仅保留图片/视频画面，原片内位置小地图与水印保留；不包含平台正文、互动栏与播放器控件。",
+    "verification": "2026-10-19经浏览器实际读取原帖并目视核对；本次平台顺序与排除记录见research/xianghu-photo-search-20261019/README.md。",
+    "frameTimeSeconds": 167.12971,
+    "frameTime": "02:47",
+    "platform": "bilibili"
+  },
+  {
+    "id": "xianghu-color-eastlake-bili",
+    "group": "xianghu",
+    "src": "photos/xianghu-color-eastlake-bili.png",
+    "storage": "local",
+    "kind": "road",
+    "caption": "七彩绿道东岸 · 湖边缓坡",
+    "author": "骑狂铁迷",
+    "source": "https://www.bilibili.com/video/BV1na4y1J7AM/",
+    "date": "视频版本标注2023-10-14；实际拍摄日期未注明",
+    "checked": "2026-10-19",
+    "captureDate": "2026-10-19",
+    "license": "原作者版权 · 未声明开放许可",
+    "sourceType": "video-frame",
+    "relation": "原片04:22，位置图沿东岸向南，展示湖边坡道与桥口路面；与三方案东侧共线段匹配。",
+    "routeIds": [
+      "xianghu-color",
+      "xianghu-hegong",
+      "xianghu-two-lakes"
+    ],
+    "modification": "仅保留图片/视频画面，原片内位置小地图与水印保留；不包含平台正文、互动栏与播放器控件。",
+    "verification": "2026-10-19经浏览器实际读取原帖并目视核对；本次平台顺序与排除记录见research/xianghu-photo-search-20261019/README.md。",
+    "frameTimeSeconds": 262.912199,
+    "frameTime": "04:22",
+    "platform": "bilibili"
+  },
+  {
+    "id": "xianghu-color-bridge-bili",
+    "group": "xianghu",
+    "src": "photos/xianghu-color-bridge-bili.png",
+    "storage": "local",
+    "kind": "road",
+    "caption": "七彩绿道东南侧 · 林荫道路",
+    "author": "骑狂铁迷",
+    "source": "https://www.bilibili.com/video/BV1na4y1J7AM/",
+    "date": "视频版本标注2023-10-14；实际拍摄日期未注明",
+    "checked": "2026-10-19",
+    "captureDate": "2026-10-19",
+    "license": "原作者版权 · 未声明开放许可",
+    "sourceType": "video-frame",
+    "relation": "原片05:17，位置图位于东南侧，展示宽度、铺装和路旁步行空间；不把它当作二期上善桥段。",
+    "routeIds": [
+      "xianghu-color",
+      "xianghu-hegong",
+      "xianghu-two-lakes"
+    ],
+    "modification": "仅保留图片/视频画面，原片内位置小地图与水印保留；不包含平台正文、互动栏与播放器控件。",
+    "verification": "2026-10-19经浏览器实际读取原帖并目视核对；本次平台顺序与排除记录见research/xianghu-photo-search-20261019/README.md。",
+    "frameTimeSeconds": 317.224664,
+    "frameTime": "05:17",
+    "platform": "bilibili"
+  },
+  {
+    "id": "xianghu-dingshan-paving-xhs",
+    "group": "xianghu",
+    "src": "photos/xianghu-dingshan-paving-xhs.png",
+    "storage": "local",
+    "kind": "road",
+    "caption": "定山湖小环线 · 砖铺湖岸骑行段",
+    "author": "饭饭和Mini",
+    "source": "https://www.xiaohongshu.com/explore/6a0987bf000000003501d20c",
+    "date": "原帖05-17；拍摄日期未注明",
+    "checked": "2026-10-19",
+    "captureDate": "2026-10-19",
+    "license": "原作者版权 · 未声明开放许可",
+    "sourceType": "social-screenshot",
+    "relation": "原帖第2张；首图路线为定山湖环线，正文给出亚太路—眉山路起点。图为环线湖岸铺装段；具体桩号未标，不挂到未确认经过该段的贺公堤短线。",
+    "routeIds": [
+      "xianghu-color",
+      "xianghu-two-lakes"
+    ],
+    "modification": "仅保留图片/视频画面，原片内位置小地图与水印保留；不包含平台正文、互动栏与播放器控件。",
+    "verification": "2026-10-19经浏览器实际读取原帖并目视核对；本次平台顺序与排除记录见research/xianghu-photo-search-20261019/README.md。",
+    "platform": "xiaohongshu",
+    "imageIndex": 2
+  },
+  {
+    "id": "xianghu-color-aerial-2020",
+    "group": "xianghu",
+    "src": "photos/xianghu-color-aerial-2020.jpg",
+    "storage": "local",
+    "kind": "road",
+    "caption": "七彩绿道 · 道路弯道与分流结构",
+    "author": "商汤科技SenseTime（原帖未单列摄影者）",
+    "source": "https://www.sohu.com/a/421401696_99963310",
+    "date": "报道2020-09-28；拍摄日期未注明",
+    "checked": "2026-10-19",
+    "captureDate": "2026-10-19",
+    "license": "原作者版权 · 未声明开放许可",
+    "sourceType": "press-photo",
+    "relation": "技术提供方原帖明确为湘湖三期七彩绿道，图中可见道路结构与行进箭头；具体拍摄桩号未知，仅挂完整三期环线，不挂贺公堤短线。",
+    "routeIds": [
+      "xianghu-color",
+      "xianghu-two-lakes"
+    ],
+    "modification": "仅保留图片/视频画面，原片内位置小地图与水印保留；不包含平台正文、互动栏与播放器控件。",
+    "verification": "2026-10-19经浏览器实际读取原帖并目视核对；本次平台顺序与排除记录见research/xianghu-photo-search-20261019/README.md。",
+    "platform": "google-source"
   }
 ];
   for(const r of ROUTES){
-    r.photos=additions.filter(p=>p.kind==='road'&&p.publicationStatus!=='excluded-landscape'&&p.routeIds.includes(r.id));
-    if(!r.photos.length)r.photoGap='道路实拍待补：仅收录展示骑行路面且能核对路段的图片。';
+    r.photos=additions.filter(p=>p.kind==='road'&&!String(p.publicationStatus||'').startsWith('excluded-')&&p.routeIds.includes(r.id));
+    r.photoTarget=3; r.photoMissing=Math.max(0,3-r.photos.filter(p=>!p.referenceOnly).length);
+    if(r.photoMissing)r.photoGap=r.photos.length?'道路图目标3张，仍待补'+r.photoMissing+'张对应路段的照片。':'道路实拍待补：仅收录展示骑行路面且能核对路段的图片。';
   }
 })();

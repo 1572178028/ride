@@ -289,11 +289,11 @@ test('new city lakes preserve actual shoreline and island polygons', () => {
 
 test('local and external licensed photos are attributed and attached to their actual subject', () => {
   const licenses = JSON.parse(fs.readFileSync(path.join(root, 'research/photo-licenses.json')));
-  assert.equal(licenses.length, 26);
+  assert.equal(licenses.length, 31);
   for (const r of [...app.ROUTES, ...app.EXPANSION_CANDIDATES]) for (const photo of r.photos || []) {
     const record = licenses.find(p => p.src === photo.src);
     assert.ok(record && record.author === photo.author && record.license === photo.license);
-    if(['social-screenshot','social-image','press-photo'].includes(photo.sourceType)){assert.ok(['www.xiaohongshu.com','pic.hangzhou.com.cn','hznews.hangzhou.com.cn'].includes(new URL(photo.source).hostname));assert.ok(photo.captureDate);assert.match(photo.license,/未声明开放许可/);assert.ok(!photo.licenseUrl);}else{assert.ok(photo.source.startsWith('https://commons.wikimedia.org/wiki/File:'));assert.ok(photo.licenseUrl);}
+    if(['social-screenshot','social-image','press-photo','video-frame'].includes(photo.sourceType)){assert.ok(['www.xiaohongshu.com','pic.hangzhou.com.cn','hznews.hangzhou.com.cn','www.bilibili.com','www.sohu.com'].includes(new URL(photo.source).hostname));assert.ok(photo.captureDate);assert.match(photo.license,/未声明开放许可/);assert.ok(!photo.licenseUrl);}else{assert.ok(photo.source.startsWith('https://commons.wikimedia.org/wiki/File:'));assert.ok(photo.licenseUrl);}
     assert.ok(photo.date && photo.modification && photo.caption);
     if (photo.storage === 'external') assert.ok(['upload.wikimedia.org','thumb.wikimedia.org'].includes(new URL(photo.src).hostname));
     else assert.ok(fs.existsSync(path.join(root, photo.src)));
@@ -301,7 +301,7 @@ test('local and external licensed photos are attributed and attached to their ac
     if(record.routeIds)assert.ok(record.routeIds.includes(r.id),r.id+': photo assigned to an unreviewed route');
     else assert.equal(photo.group, expected);
   }
-  assert.equal(app.ROUTE_METADATA.photoCount, 7, 'reviewed photographs are counted once across variants');
+  assert.equal(app.ROUTE_METADATA.photoCount, 11, 'reviewed photographs are counted once across variants');
 });
 
 test('webpage and export generator load the same final data files', () => {
@@ -431,8 +431,8 @@ test('Map markers show only short identifiers, with accessible full names for in
  }
 });
 test('Photo coverage and gaps stay explicit and every added assignment targets a real route', () => {
- assert.equal(app.ROUTE_METADATA.photoFamilyCount,5);
- assert.equal(app.ROUTE_METADATA.photoRouteCount,10);
+ assert.equal(app.ROUTE_METADATA.photoFamilyCount,6);
+ assert.equal(app.ROUTE_METADATA.photoRouteCount,11);
  const licenses=JSON.parse(fs.readFileSync(path.join(root,'research/photo-licenses.json')));
  for(const p of licenses.filter(p=>p.checked==='2026-10-19')){
   assert.ok(p.relation&&p.verification&&p.kind);
@@ -441,4 +441,16 @@ test('Photo coverage and gaps stay explicit and every added assignment targets a
  }
  for(const r of app.ROUTES.filter(r=>!r.photos.length))assert.ok(r.photoGap,r.id);
  assert.ok(!app.ROUTES.find(r=>r.id==='wengjin-short').photos.length,'Salt-town image cannot imply the short western route reaches Yanguan');
+});
+
+
+test('Xianghu galleries separate shared third-phase roads from unverified second-phase photos', () => {
+ const expected={'xianghu-lakeside':0,'xianghu-shanshan':0,'xianghu-color':5,'xianghu-hegong':3,'xianghu-two-lakes':5};
+ for(const [id,n] of Object.entries(expected)){
+  const r=app.ROUTES.find(r=>r.id===id);assert.equal(r.photos.length,n,id);
+  assert.equal(r.photoTarget,3);assert.equal(r.photoMissing,Math.max(0,3-n));
+  if(n<3)assert.ok(r.photoGap);
+  for(const p of r.photos.filter(p=>p.sourceType==='video-frame')){assert.equal(p.platform,'bilibili');assert.ok(p.frameTimeSeconds>0&&p.frameTime);}
+ }
+ assert.ok(!app.ROUTES.flatMap(r=>r.photos).some(p=>p.id==='xianghu-yuewang-xhs'));
 });
