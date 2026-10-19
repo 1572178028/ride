@@ -3,6 +3,8 @@
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 window.makeMapSVG=function(route,options={}){
  const W=1000,H=610,path=MAP_DATA.paths[route.id],data=MAP_DATA.maps[route.region];
+ const markerScale=options.markerScale||1;
+ const markerTransform=(x,y)=>markerScale===1?'':` transform="translate(${x} ${y}) scale(${markerScale}) translate(${-x} ${-y})"`;
  const supply=(route.supply||route.food).filter(f=>!options.supplyKind||options.supplyKind==='all'||f.kind===options.supplyKind);
  const all=[...path,...(route.supply||route.food).map(f=>f.point),...route.stops.map(s=>s.point),...(route.parking?[route.parking.point]:[])];
  let xmin=Math.min(...all.map(p=>p[0])),xmax=Math.max(...all.map(p=>p[0])),ymin=Math.min(...all.map(p=>p[1])),ymax=Math.max(...all.map(p=>p[1]));
@@ -20,37 +22,6 @@ window.makeMapSVG=function(route,options={}){
   const major=['motorway','trunk','primary','secondary','tertiary'].includes(r.kind),shared=['footway','path','cycleway','pedestrian'].includes(r.kind);
   svg+=`<polyline points="${poly(r.points)}" fill="none" stroke="${major?'#ffffff':shared?'#c2ceda':'#d7dfe8'}" stroke-width="${major?4:shared?1.3:2}" stroke-linecap="round" stroke-linejoin="round"/>`;
  }
- const labelBoxes=[{x:25,y:15,w:540,h:58}];
- // Reserve marker footprints before placing labels, including the separate S pin.
- for(const point of [path[0],...supply.map(f=>f.point),...route.stops.map(s=>s.point),...(route.parking?[route.parking.point]:[])]){
-  const [x,y]=project(point);labelBoxes.push({x:x-13,y:y-13,w:26,h:26});
- }
-
- function label(x,y,text,opts={}){
-  let width=text.length*(opts.size||13)+18,tx=x+14,ty=y-13;
-  if(opts.left||tx+width>W-18)tx=x-width-14;
-  ty=Math.max(30,Math.min(H-40,ty));tx=Math.max(14,Math.min(W-width-14,tx));
-  for(let k=0;k<24;k++){
-   if(!labelBoxes.some(b=>tx<b.x+b.w&&tx+width>b.x&&ty-20<b.y+b.h&&ty+8>b.y))break;
-   ty+=29;if(ty>H-32){ty=75+(k*31)%(H-160);}
-  }
-  if(route.labelLayout==='nearest'){
-   const candidates=[];
-   for(const dx of (opts.left?[-width-14,14,-width-80,80,-width-160,160]:[14,-width-14,80,-width-80,160,-width-160]))for(const dy of [-13,24,-49,60,-85,96,-121,132,-157,168]){
-    const bx=Math.max(14,Math.min(W-width-14,x+dx)),by=Math.max(75,Math.min(H-42,y+dy));
-    if(!labelBoxes.some(b=>bx<b.x+b.w&&bx+width>b.x&&by-20<b.y+b.h&&by+9>b.y)){
-     const distance=Math.hypot(Math.max(bx-x,0,x-bx-width),Math.max(by-20-y,0,y-by-9));
-     candidates.push({x:bx,y:by,distance});
-    }
-   }
-   candidates.sort((a,b)=>a.distance-b.distance);
-   if(candidates.length){tx=candidates[0].x;ty=candidates[0].y;}
-  }
-  labelBoxes.push({x:tx,y:ty-20,w:width,h:30});
-  const lx=Math.max(tx,Math.min(tx+width,x)),ly=Math.max(ty-20,Math.min(ty+9,y));
-  const leader=Math.hypot(lx-x,ly-y)>15?`<path d="M${x} ${y}L${lx} ${ly}" fill="none" stroke="${opts.color||'#667d97'}" stroke-opacity=".55" stroke-width=".8"/>`:'';
-  return leader+`<rect x="${tx}" y="${ty-20}" width="${width}" height="29" rx="5" fill="${opts.fill||'#ffffff'}" fill-opacity=".94" stroke="#c6d2e1" stroke-width=".7"/><text x="${tx+9}" y="${ty}" fill="${opts.color||'#29445f'}" font-size="${opts.size||13}" font-weight="600">${esc(text)}</text>`;
- }
  const roadNames=new Set();let named=0;
  for(const r of roads){if(!r.name||roadNames.has(r.name)||named>12||r.points.length<4||r.name.includes('绿道')||r.name.length>7||['footway','path'].includes(r.kind))continue;const mid=r.points[Math.floor(r.points.length/2)];const [x,y]=project(mid);if(x<70||x>W-90||y<60||y>H-80)continue;roadNames.add(r.name);named++;svg+=`<text x="${x}" y="${y}" fill="#708096" font-size="10" text-anchor="middle" style="paint-order:stroke" stroke="#eef1f5" stroke-width="3">${esc(r.name)}</text>`;}
  svg+=`<polyline points="${poly(path)}" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><polyline points="${poly(path)}" fill="none" stroke="#cc4c22" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>`;
@@ -65,15 +36,15 @@ window.makeMapSVG=function(route,options={}){
   svg+=`<text x="${waterPosition[0]}" y="${waterPosition[1]}" fill="#467f9a" font-size="25" font-weight="400" letter-spacing="8" text-anchor="middle">${esc(item.name)}</text>`;
  }
  const near=(a,b)=>Math.hypot((a[0]-b[0])*lonFactor,a[1]-b[1])*111.2<.08;
- let reservedStartLabel='',reservedParkingLabel='';
- if(route.labelLayout==='nearest'){
-  const [startX,startY]=project(path[0]);
-  reservedStartLabel=label(startX,startY,'道路骑行起点');
-  if(route.parking){
-   let [parkX,parkY]=project(route.parking.point);
-   if(Math.hypot(parkX-startX,parkY-startY)<40){parkX-=27;parkY+=24;}
-   reservedParkingLabel=label(parkX,parkY,route.parking.mapLabel,{fill:'#f0f4fc',color:'#172b4d',size:13,left:true});
-  }
+ const [sx,sy]=project(path[0]);
+ const startSeparated=!route.parking||Math.hypot((path[0][0]-route.parking.point[0])*lonFactor,path[0][1]-route.parking.point[1])*111.2>=.008;
+ const [originalPX,originalPY]=project(route.parking?route.parking.point:path[0]);
+ let px=originalPX,py=originalPY;
+ if(route.parking&&startSeparated&&Math.hypot(px-sx,py-sy)<40*markerScale){
+  px+=(markerScale>1&&px<W/2?27:-27)*markerScale;
+  py+=(markerScale>1&&py>H/2?-24:24)*markerScale;
+  px=Math.max(18*markerScale,Math.min(W-18*markerScale,px));
+  py=Math.max(18*markerScale,Math.min(H-18*markerScale,py));
  }
  const stopPositions=[];
  route.stops.slice(1).forEach((s,i)=>{
@@ -81,32 +52,29 @@ window.makeMapSVG=function(route,options={}){
   if(near(s.point,path[0])||stopPositions.some(p=>near(p,s.point))||(route.parking&&near(s.point,route.parking.point))||supply.some(f=>f.kind==='歇脚'&&near(s.point,f.point)))return;
   stopPositions.push(s.point);
   const [x,y]=project(s.point);
-  svg+=`<g data-poi="stop-${i+1}" tabindex="0" role="button" aria-label="${esc(s.name)}"><circle cx="${x}" cy="${y}" r="9" fill="#ffffff" stroke="#385777" stroke-width="2.5"/><text x="${x}" y="${y+4}" text-anchor="middle" fill="#29445f" font-size="10" font-weight="600">${i+2}</text>${label(x,y,s.name)}</g>`;
+  svg+=`<g data-poi="stop-${i+1}"${markerTransform(x,y)} tabindex="0" role="button" aria-label="${esc(s.name)}"><circle cx="${x}" cy="${y}" r="9" fill="#ffffff" stroke="#385777" stroke-width="2.5"/><text x="${x}" y="${y+4}" text-anchor="middle" fill="#29445f" font-size="10" font-weight="600">${i+2}</text></g>`;
  });
- const pinPositions=[];
+ const pinPositions=[project(path[0]),...stopPositions.map(project)];
+ if(route.parking)pinPositions.push([originalPX,originalPY],[px,py]);
  supply.forEach(f=>{
-  const i=(route.supply||route.food).indexOf(f),[anchorX,anchorY]=project(f.point),short=(i+1)+'. '+(f.mapLabel||f.name);
+  const i=(route.supply||route.food).indexOf(f),[anchorX,anchorY]=project(f.point),short=String(i+1);
   let x=anchorX,y=anchorY;
-  for(let attempt=0;attempt<24&&pinPositions.some(p=>Math.hypot(p[0]-x,p[1]-y)<26);attempt++){const angle=attempt*2.4,radius=28+attempt*4;x=anchorX+Math.cos(angle)*radius;y=anchorY+Math.sin(angle)*radius;}
+  for(let attempt=0;attempt<24&&pinPositions.some(p=>Math.hypot(p[0]-x,p[1]-y)<26*markerScale);attempt++){const angle=attempt*2.4,radius=(28+attempt*4)*markerScale;x=Math.max(20*markerScale,Math.min(W-20*markerScale,anchorX+Math.cos(angle)*radius));y=Math.max(20*markerScale,Math.min(H-20*markerScale,anchorY+Math.sin(angle)*radius));}
   pinPositions.push([x,y]);
   if(x!==anchorX||y!==anchorY)svg+=`<path d="M${anchorX} ${anchorY}L${x} ${y}" stroke="#667d97" stroke-width="1" stroke-dasharray="3 2"/><circle cx="${anchorX}" cy="${anchorY}" r="2" fill="#667d97"/>`;
   const rest=f.kind==='歇脚',color=rest?'#116797':['咖啡','茶饮'].includes(f.kind)?'#6636b6':'#b23b32',symbol=rest?'R':f.kind==='咖啡'?'C':f.kind==='茶饮'?'T':'F';
-  svg+=`<g data-poi="supply-${i}" tabindex="0" role="button" aria-label="${esc(f.name)}"><circle cx="${x}" cy="${y}" r="9" fill="${color}" stroke="#ffffff" stroke-width="2.5"/><text x="${x}" y="${y+3}" font-size="9" text-anchor="middle" fill="white" pointer-events="none">${symbol}</text>${label(x,y,short,{color,size:12,left:true})}</g>`;
+  svg+=`<g data-poi="supply-${i}"${markerTransform(x,y)} tabindex="0" role="button" aria-label="${symbol}${short} · ${esc(f.name)}"><title>${esc(f.name)}</title><circle r="20" cx="${x}" cy="${y}" fill="transparent"/><circle cx="${x}" cy="${y}" r="12" fill="${color}" stroke="#ffffff" stroke-width="2.5"/><text x="${x}" y="${y+3}" font-size="9" text-anchor="middle" fill="white" pointer-events="none">${symbol}${short}</text></g>`;
  });
- const [sx,sy]=project(path[0]);
- const startSeparated=!route.parking||Math.hypot((path[0][0]-route.parking.point[0])*lonFactor,path[0][1]-route.parking.point[1])*111.2>=.008;
- let [px,py]=project(route.parking?route.parking.point:path[0]);
  if(route.parking){
- if(startSeparated&&Math.hypot(px-sx,py-sy)<40){svg+=`<path d="M${px} ${py}L${px-27} ${py+24}" stroke="#667d97" stroke-width="1" stroke-dasharray="3 2"/>`;px-=27;py+=24;}
- labelBoxes.push({x:px-16,y:py-16,w:32,h:32});
- svg+=`<g data-poi="parking" tabindex="0" role="button" aria-label="${esc(route.parking.name)}停车与骑行起点"><rect x="${px-14}" y="${py-14}" width="28" height="28" rx="7" fill="#172b4d" stroke="#ffffff" stroke-width="3" filter="url(#shadow)"/><text x="${px}" y="${py+6}" font-size="18" font-weight="600" fill="#ffffff" text-anchor="middle" pointer-events="none">P</text>${reservedParkingLabel||label(px,py,route.parking.mapLabel||(route.region==='xianghu'?'老虎洞 · 停车 / 起点':'奥莱 · 停车 / 起点'),{fill:'#f0f4fc',color:'#172b4d',size:13})}</g>`;
+ if(px!==originalPX||py!==originalPY)svg+=`<path d="M${originalPX} ${originalPY}L${px} ${py}" stroke="#667d97" stroke-width="1" stroke-dasharray="3 2"/>`;
+ svg+=`<g data-poi="parking"${markerTransform(px,py)} tabindex="0" role="button" aria-label="${esc(route.parking.name)}停车与骑行起点"><rect x="${px-14}" y="${py-14}" width="28" height="28" rx="7" fill="#172b4d" stroke="#ffffff" stroke-width="3" filter="url(#shadow)"/><text x="${px}" y="${py+6}" font-size="18" font-weight="600" fill="#ffffff" text-anchor="middle" pointer-events="none">P</text></g>`;
  }
  svg+=`<g transform="translate(950 26)"><path d="M0 25L8 0L16 25L8 18Z" fill="#405773"/><text x="8" y="-5" fill="#405773" text-anchor="middle" font-size="10">N</text></g>`;
- if(startSeparated)svg+=`<g data-poi="start" tabindex="0" role="button" aria-label="道路骑行起点"><circle cx="${sx}" cy="${sy}" r="10" fill="#cc4c22" stroke="#ffffff" stroke-width="3"/><text x="${sx}" y="${sy+4}" text-anchor="middle" fill="white" font-size="11">S</text>${reservedStartLabel||label(sx,sy,route.research?'研究起点 · 停车待查':'道路骑行起点')}</g>`;
+ if(startSeparated)svg+=`<g data-poi="start"${markerTransform(sx,sy)} tabindex="0" role="button" aria-label="道路骑行起点"><circle cx="${sx}" cy="${sy}" r="20" fill="transparent"/><circle cx="${sx}" cy="${sy}" r="10" fill="#cc4c22" stroke="#ffffff" stroke-width="3"/><text x="${sx}" y="${sy+4}" text-anchor="middle" fill="white" font-size="11">S</text></g>`;
  const kmWidth=scale/111.2,scaleKm=kmWidth>250?.5:kmWidth>70?1:2,barWidth=kmWidth*scaleKm;
  svg+=`<g transform="translate(35 555)"><path d="M0 -6V0H${barWidth}V-6" fill="none" stroke="#52657e" stroke-width="2"/><text y="17" font-size="10" fill="#52657e">${scaleKm} km</text></g><text x="965" y="576" text-anchor="end" font-size="9" fill="#52657e">© OpenStreetMap contributors · ODbL</text>`;
  if(options.export)svg+=`<rect x="25" y="20" width="550" height="49" rx="6" fill="#ffffff" fill-opacity=".96"/><text x="40" y="42" fill="#172b4d" font-size="16" font-weight="600">骑遇 · ${esc(route.title)}</text><text x="40" y="59" fill="#52657e" font-size="10">${route.distance} km ${route.shape} · ${esc(route.parking?route.parking.rule:route.id==='westlake-research'?'历史研究图 · 未计入当前路线统计':'研究图 · 停车与接驳未确认，不计入路线库')}</text>`;
- if(options.export)svg+=`<rect x="0" y="584" width="1000" height="26" fill="#ffffff" fill-opacity=".96"/><text x="25" y="601" fill="#52657e" font-size="10">P 停车片区 / S 道路起点 / C 咖啡 / T 茶饮 / F 餐厅 / R 休息 · 绿线为路网骑行道，部分行人共用；片区点非精确入口</text>`;
+ if(options.export)svg+=`<rect x="0" y="584" width="1000" height="26" fill="#ffffff" fill-opacity=".96"/><text x="25" y="601" fill="#52657e" font-size="10">P 停车 / S 起点 / 数字 途经点 / C 咖啡 / T 茶饮 / F 餐厅 / R 休息 · 编号对应地点列表；绿线可能行人共用</text>`;
  return svg+'</svg>';
 };
 })();

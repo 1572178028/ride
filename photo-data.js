@@ -180,6 +180,7 @@
     ]
   }
 ];
+  window.PHOTO_CATALOG=photos;
   const groups = { 'xianghu-lakeside': 'xianghu', 'xianghu-two-lakes': 'xianghu', 'nanhu-roads': 'nanhu', 'nanhu-short': 'nanhu', 'shaoxing-eastlake-research': 'shaoxing', 'jinhua-shuanglong-research': 'jinhua', 'westlake-road': 'beishan-road', 'westlake-tea-road': 'beishan-road', 'westlake-beishan-night': 'beishan-road' };
   for (const item of [...ROUTES, ...EXPANSION_CANDIDATES]) if (groups[item.id]) item.photos = photos.filter(p => p.group === groups[item.id]);
 })();

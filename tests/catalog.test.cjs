@@ -8,7 +8,7 @@ const root = path.resolve(__dirname, '..');
 const app = {};
 app.window = app;
 vm.createContext(app);
-for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'expanded-catalog.js', 'city-catalog.js', 'research-updates.js', 'night-catalog.js', 'photo-data.js', 'meiling-map-data.js', 'meiling-catalog.js', 'westlake-circuit-map-data.js', 'westlake-circuit-catalog.js', 'catalog-metadata.js', 'map-renderer.js']) {
+for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'expanded-catalog.js', 'city-catalog.js', 'research-updates.js', 'night-catalog.js', 'photo-data.js', 'meiling-map-data.js', 'meiling-catalog.js', 'westlake-circuit-map-data.js', 'westlake-circuit-catalog.js', 'photo-updates.js', 'catalog-metadata.js', 'map-renderer.js']) {
   vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), app, { filename: file });
 }
 function km(a, b) {
@@ -113,7 +113,7 @@ test('all supply types render distinct markers, names, evidence status and per-t
     for (const place of route.supply) {
       assert.match(place.source, /^https:\/\//);
       assert.ok(place.mapLabel && place.status, place.name);
-      assert.ok(svg.includes(place.mapLabel.replace(/&/g, '&amp;')), place.name);
+      assert.ok(svg.includes(place.name.replace(/&/g, '&amp;')), place.name);
       if (place.kind === '歇脚' && place.source.includes('openstreetmap')) assert.match(place.status, /设施|公园/);
     }
   }
@@ -289,18 +289,19 @@ test('new city lakes preserve actual shoreline and island polygons', () => {
 
 test('local and external licensed photos are attributed and attached to their actual subject', () => {
   const licenses = JSON.parse(fs.readFileSync(path.join(root, 'research/photo-licenses.json')));
-  assert.equal(licenses.length, 10);
+  assert.equal(licenses.length, 22);
   for (const r of [...app.ROUTES, ...app.EXPANSION_CANDIDATES]) for (const photo of r.photos || []) {
     const record = licenses.find(p => p.src === photo.src);
     assert.ok(record && record.author === photo.author && record.license === photo.license);
-    assert.ok(photo.source.startsWith('https://commons.wikimedia.org/wiki/File:'));
-    assert.ok(photo.date && photo.licenseUrl && photo.modification && photo.caption);
+    if(photo.sourceType==='social-screenshot'){assert.equal(new URL(photo.source).hostname,'www.xiaohongshu.com');assert.ok(photo.captureDate);assert.match(photo.license,/未声明开放许可/);assert.ok(!photo.licenseUrl);}else{assert.ok(photo.source.startsWith('https://commons.wikimedia.org/wiki/File:'));assert.ok(photo.licenseUrl);}
+    assert.ok(photo.date && photo.modification && photo.caption);
     if (photo.storage === 'external') assert.ok(['upload.wikimedia.org','thumb.wikimedia.org'].includes(new URL(photo.src).hostname));
     else assert.ok(fs.existsSync(path.join(root, photo.src)));
     const expected = r.region === 'westlake' ? 'beishan-road' : r.region === 'nanhu' ? 'nanhu' : r.region === 'xianghu' ? 'xianghu' : r.id === 'shaoxing-eastlake-research' ? 'shaoxing' : 'jinhua';
-    assert.equal(photo.group, expected);
+    if(record.routeIds)assert.ok(record.routeIds.includes(r.id),r.id+': photo assigned to an unreviewed route');
+    else assert.equal(photo.group, expected);
   }
-  assert.equal(app.ROUTE_METADATA.photoCount, 7, 'five local and two external landscape references belong to published rides');
+  assert.equal(app.ROUTE_METADATA.photoCount, 19, 'reviewed photographs are counted once across variants');
 });
 
 test('webpage and export generator load the same final data files', () => {
@@ -416,4 +417,28 @@ test('West Lake is one family with a planned circuit and no workout screenshot r
  assert.equal(ways.get(4352782).tags.cycleway,'track');
  for(const name of ['梅灵北路','梅灵南路','之江路','虎跑路','南山路','北山街'])assert.ok(p.segments.some(s=>s.name===name),name);
  assert.ok(app.makeMapSVG(r).includes('钱塘江'));
+});
+
+test('Map markers show only short identifiers, with accessible full names for interaction', () => {
+ for(const r of app.ROUTES){
+  const svg=app.makeMapSVG(r);
+  for(const g of svg.matchAll(/<g data-poi="[^\"]+"[^>]*>([\s\S]*?)<\/g>/g)){
+   const texts=[...g[1].matchAll(/<text[^>]*>([^<]+)<\/text>/g)].map(m=>m[1]);
+   assert.ok(texts.every(t=>/^(P|S|[FCRT]\d+|\d+)$/.test(t)),r.id+': full name must not obscure route');
+   assert.ok(!g[1].includes('fill-opacity=".94"'),r.id);
+  }
+  r.supply.forEach((p,i)=>assert.ok(svg.includes(`aria-label="${p.kind==='歇脚'?'R':p.kind==='咖啡'?'C':p.kind==='茶饮'?'T':'F'}${i+1} · `)));
+ }
+});
+test('Photo coverage and gaps stay explicit and every added assignment targets a real route', () => {
+ assert.equal(app.ROUTE_METADATA.photoFamilyCount,13);
+ assert.equal(app.ROUTE_METADATA.photoRouteCount,27);
+ const licenses=JSON.parse(fs.readFileSync(path.join(root,'research/photo-licenses.json')));
+ for(const p of licenses.filter(p=>p.checked==='2026-10-19')){
+  assert.ok(p.relation&&p.verification&&p.kind);
+  assert.equal(p.storage,'local');
+  for(const id of p.routeIds)assert.ok(app.ROUTES.some(r=>r.id===id),id);
+ }
+ for(const r of app.ROUTES.filter(r=>!r.photos.length))assert.ok(r.photoGap,r.id);
+ assert.ok(!app.ROUTES.find(r=>r.id==='wengjin-short').photos.length,'Salt-town image cannot imply the short western route reaches Yanguan');
 });

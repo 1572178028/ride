@@ -49,6 +49,17 @@ const server = http.createServer((req, res) => {
     for (const id of ids) {
       await select(page, id);
       assert.equal(await page.locator('#map-container svg').count(), 1);
+      assert.ok(await page.locator('#map-container [data-poi] text').evaluateAll(ns=>ns.every(n=>/^(P|S|[FCRT]\d+|\d+)$/.test(n.textContent.trim()))),id);
+      const firstSupply=page.locator('#map-container [data-poi="supply-0"]');
+      await (await firstSupply.count()?firstSupply:page.locator('#map-container [data-poi="parking"]')).focus();
+      await page.keyboard.press('Enter');
+      assert.ok(await page.locator('#poi-popup').isVisible(),id);
+      assert.ok(await page.evaluate(()=>document.querySelector('#poi-popup').getBoundingClientRect().top>=document.querySelector('#map-container').getBoundingClientRect().bottom),id+': details must sit below the map');
+      assert.ok((await page.locator('#poi-popup b').innerText()).length>0);
+      await page.locator('#close-poi').click();
+      const locals=page.locator('#route-detail .photo-open img[src^="photos/"]');
+      if(await locals.count())await page.waitForFunction(()=>[...document.querySelectorAll('#route-detail .photo-open img[src^="photos/"]')].every(i=>i.complete&&i.naturalWidth>0));
+
       assert.equal(await page.locator('#map-container [data-poi="parking"]').count(), 1);
       const links = await page.locator('.navigation-actions a').evaluateAll(ns => ns.map(n => n.href));
       assert.ok(links.every(u => !/undefined|NaN/.test(u)), id);
@@ -60,6 +71,18 @@ const server = http.createServer((req, res) => {
       if (['nanhu', 'jinhua', 'canal'].includes(r.region)) { assert.equal(new URL(links[0]).searchParams.get('city'), r.city); assert.equal(new URL(links[1]).searchParams.get('region'), r.city); }
       if (r.fee !== 'free') assert.ok(!(await page.locator('.parking-box').innerText()).includes('¥0'));
     }
+
+    await select(page,'jinhua-city');
+    await page.locator('#map-container').scrollIntoViewIfNeeded();
+    await page.screenshot({path:'/private/tmp/ride-marker-jinhua-desktop.png'});
+    await select(page,'qiandao-cafe');
+    await page.locator('#route-detail .route-photos').scrollIntoViewIfNeeded();
+    await page.screenshot({path:'/private/tmp/ride-photo-qiandao-desktop.png'});
+    await page.locator('#route-detail .photo-open').first().click();
+    assert.ok((await page.locator('#photo-dialog').innerText()).includes('赛事期间'));
+    await page.keyboard.press('Escape');
+    await select(page,'wengjin-short');
+    assert.ok(await page.locator('.photo-empty').isVisible());
 
     // Switching from a lower detail section must reveal the new route heading.
     const assertRouteTop = async p => {
@@ -133,6 +156,17 @@ const server = http.createServer((req, res) => {
     await mobile.locator('#selected-heading').scrollIntoViewIfNeeded();
     await mobile.screenshot({path:'/private/tmp/ride-unified-westlake-mobile.png'});
     assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+    await select(mobile,'jinhua-city');
+    await mobile.locator('#map-container').scrollIntoViewIfNeeded();
+    await mobile.screenshot({path:'/private/tmp/ride-marker-jinhua-mobile.png'});
+    await mobile.locator('#map-container [data-poi="supply-0"]').focus();
+    await mobile.keyboard.press('Enter');
+    assert.ok(await mobile.locator('#poi-popup').isVisible());
+    assert.ok(await mobile.evaluate(()=>document.querySelector('#poi-popup').getBoundingClientRect().top>=document.querySelector('#map-container').getBoundingClientRect().bottom));
+    await mobile.locator('#close-poi').click();
+    await select(mobile,'binjiang-wentao-night');
+    await mobile.locator('#route-detail .route-photos').scrollIntoViewIfNeeded();
+    await mobile.screenshot({path:'/private/tmp/ride-photo-binjiang-mobile.png'});
     await switchFromSupply(mobile);
     await mobile.selectOption('#research-region', 'shaoxing'); assert.equal(await mobile.locator('.expansion-card').count(), 3);
     assert.ok(await mobile.evaluate(() => document.documentElement.scrollWidth <= innerWidth));

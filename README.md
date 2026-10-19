@@ -8,7 +8,7 @@
 
 ## 新增杭州夜骑（2026-10-16）
 
-新增4种方案、2条独立主线与2个片区；西湖南山版和闻涛短版分别复用主线，不重复统计。页面选择“杭州 → 夜间方案”可看到当前5条主线的10种夜间方案。
+新增4种方案、2条独立主线与2个片区；西湖南山版和闻涛短版分别复用主线，不重复统计。页面选择“杭州 → 夜间方案”可看到当前4条主线的10种夜间方案。
 
 | 新方案 | 路网里程 | 停车与夜间条件 |
 | --- | --- | --- |
@@ -26,7 +26,7 @@
 
 ## 前一轮扩展（归档）
 
-相对于已推送基线`95540e6`，增加5条主线、10种方案：
+相对于已推送基线`95540e6`，增加4条主线、10种方案：
 
 | 方向 | 道路规划里程 | 停车与适用边界 |
 | --- | --- | --- |
@@ -39,7 +39,7 @@
 
 城市与片区联动筛选；桌面侧栏独立滚动并保持当前卡片可见；手机保留横向选线。夜骑详情分别说明照明、停车取车与补给。费用待确认方案不会显示¥0；未完成核验的品牌点留在探店线索，不计入正式商户。
 
-照片优先道路环境，支持本地文件或原站外链、点击放大、作者/日期/出处/许可。当前正式路线关联5张本地湘湖/南湖景观照片和2张北山街湖边人行道景观外链，研究卡另展示3张东湖/双龙景点照片。历史照片与景点图不作为当前道路准入或夜间照明证明；外链不能加载时仍可打开出处。已通过登录的应用内浏览器读取小红书原笔记并保存两张道路候选截图；具体拍摄路段和转载许可待核，截图仅保留本地。见[小红书核查记录](research/xiaohongshu/README.md)。
+照片优先道路环境，支持本地文件或原站外链、点击放大、作者/日期/出处/许可。当前正式路线关联19张去重实拍（17张本地、2张外链），覆盖13条主线、27种方案；其中新增11张经地点、许可及画面核对的照片，研究卡另展示3张原有东湖/双龙景点照片。历史照片与景点图不作为当前道路准入或夜间照明证明；外链不能加载时仍可打开出处。已通过登录的应用内浏览器读取小红书原笔记并保存两张道路候选截图；具体拍摄路段和转载许可待核，本轮按用户要求接入长兴文旅完整原帖截图作为片区参考，未声明开放许可，不作为夹浦短线实景证明。见[小红书核查记录](research/xiaohongshu/README.md)。
 
 ## 待核查方向
 
@@ -54,7 +54,7 @@ python3 -m http.server 3000 --bind 127.0.0.1
 node tests/catalog.test.cjs
 ```
 
-当前25项Node测试已通过。Node检查覆盖统计去重、来源日期/费用分类、真实OSM边、单行与往返方向、道路累计里程、照明标记、湖岸多边形、图片许可及所有地图资源。
+当前27项Node测试已通过。Node检查覆盖统计去重、来源日期/费用分类、真实OSM边、单行与往返方向、道路累计里程、照明标记、湖岸多边形、图片许可及所有地图资源。
 
 真实桌面/手机交互检查使用Node Playwright与已安装的Chrome/Chromium：
 
@@ -82,7 +82,9 @@ node scripts/export-maps.cjs
 ```text
 map-data → catalog → planning-data → regional-map-data → regional-catalog
 → huzhou-research → verified-map-data → verified-catalog → expanded-catalog
-→ city-catalog → research-updates → night-catalog → photo-data → catalog-metadata
+→ city-catalog → research-updates → night-catalog → photo-data
+→ meiling-map-data → meiling-catalog → westlake-circuit-map-data → westlake-circuit-catalog
+→ photo-updates → catalog-metadata
 → map-renderer → app
 ```
 
@@ -109,3 +111,11 @@ Apple Watch截图仅作需求参考，截图条目、运动指标及公开图片
 25项Node检查及独立Playwright通过，覆盖32个道路方案；西湖筛选只显示1张卡片、6种具名方案，验证不同停车点切换、原截图链接迁移、PNG下载、导航、收藏及1440/390px无溢出。手机App调起仍未真机核验。
 
 几何重建：`python3 scripts/build-westlake-circuit.py`；随后按通用命令重建SVG/PNG。南路分段独立几何生成器继续保留。加载顺序在`meiling-catalog.js`后加入`westlake-circuit-map-data.js`、`westlake-circuit-catalog.js`，再汇总元数据。完整来源、快照日期与核验边界见[合并核查记录](research/westlake-unification-2026-10-19.md)。
+
+## 地图与实拍完善（2026-10-19）
+
+地图只保留P/S、途经点数字与F/C/T/R编号，完整地点名称通过点击或Enter查看；详情移到地图下方，网页、SVG/PNG缩略图与下载图统一。补给编号对应列表，地图不再用长文字框遮挡路线。
+
+新增11张开放许可实拍和1张保留作者的社交平台原帖截图，区分道路环境与周边景观，展示范围、作者、拍摄日期和许可，支持完整画面放大。正式照片覆盖13/17条主线、27/32方案。翁金西段、钱塘湿地、余村与庾村仍缺合适实拍，已明确展示缺口，不以其他地点或AI图代替。
+
+来源、筛选排除项与照片清单见[本轮记录](research/map-photo-improvements-2026-10-19.md)。复建图片元数据：`node scripts/build-photo-updates.cjs`；地图沿用通用SVG/PNG导出命令。

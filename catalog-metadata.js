@@ -23,5 +23,7 @@
     shopCount: count(ROUTES.flatMap(r => r.food.map(p => p.id || p.name))),
     restSuggestionCount: count(ROUTES.flatMap(r => r.rest.map(p => p.id || p.name))),
     researchCount: EXPANSION_CANDIDATES.length,
+    photoFamilyCount: count(ROUTES.filter(r=>(r.photos||[]).length).map(r=>r.familyId)),
+    photoRouteCount: ROUTES.filter(r=>(r.photos||[]).length).length,
     photoCount: count(ROUTES.flatMap(r => (r.photos || []).map(p => p.src))) };
 })();

@@ -908,10 +908,8 @@ button,a {
   padding:5px 16px 15px
 }
 .poi-popup {
-  position:absolute;
-  left:14px;
-  right:14px;
-  bottom:145px;
+  position:relative;
+  margin:12px 14px;
   border:1px solid #9cb2d2;
   border-left:4px solid var(--blue);
   background:#fff;
@@ -2039,9 +2037,7 @@ dialog .small {
     padding:5px 10px 12px
   }
   .poi-popup {
-    bottom:185px;
-    left:8px;
-    right:8px;
+    margin:8px;
     padding:11px
   }
   .poi-popup span {
@@ -2308,7 +2304,7 @@ dialog .small {
 .photo-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
 .photo-grid figure { margin:0; min-width:0; }
 .photo-open { display:block; padding:0; background:#e8edf5; position:relative; width:100%; border-radius:7px; overflow:hidden; }
-.photo-open img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; }
+.photo-open img { display:block; width:100%; aspect-ratio:4/3; object-fit:contain; }
 .photo-open>span { position:absolute; right:8px; bottom:8px; padding:3px 7px; border-radius:4px; background:#172b4dce; color:#fff; font-size:11px; }
 .photo-unavailable { min-height:160px; }
 .photo-unavailable::before { content:'图片暂无法加载 · 可查看下方原始出处'; display:block; padding:40px 12px; color:var(--muted); font-size:12px; }
@@ -2337,3 +2333,5 @@ dialog .small {
 
 /* Replacing cards must not move the document scroll anchor. */
 #route-list { overflow-anchor:none; }
+
+.photo-kind{display:inline-block;padding:2px 6px;margin-bottom:6px;border-radius:4px;background:#edf1f6;color:#526177;font-size:10px}.photo-kind.photo-road{background:#e3f3ec;color:#17634c}.photo-relation{font-size:11px;line-height:1.6;color:#526177;margin:6px 0}.photo-empty{background:#f6f8fb}.photo-empty .photo-heading h3{font-size:17px}.photo-empty>p{margin-bottom:0}
