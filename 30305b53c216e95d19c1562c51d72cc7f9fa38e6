@@ -1,0 +1,91 @@
+app.js
+  61d686ee2a95e217 59
+README.md
+  61d686ee2a95e217 42,119
+index.html
+  61d686ee2a95e217 7,17,26
+research/map-photo-improvements-2026-10-19.md
+  61d686ee2a95e217 1-16
+scripts/build-photo-updates.cjs
+  61d686ee2a95e217 4-5
+research/photo-licenses.json
+  61d686ee2a95e217 17-18,35-36,53-54,71-72,89-90,107-108,125-126,143-144,163-164,187-188,215-216,240-241,264-265,292-293,320-321,344-345,401-402,458-459,487-488,503-504,510-602,604-606
+TASK_PROGRESS.md
+  61d686ee2a95e217 1-8
+tests/browser-check.cjs
+  61d686ee2a95e217 132-133,136,152
+photo-updates.js
+  61d686ee2a95e217 73-74,80-172,174-176,180-181
+tests/catalog.test.cjs
+  61d686ee2a95e217 292,296,304,321-328,434-435
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "30305b53c216e95d19c1562c51d72cc7f9fa38e6",
+  "prompts": {
+    "61d686ee2a95e217": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15252-34d2-7002-b4a0-4d3855f4b14c",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 288,
+      "total_deletions": 294,
+      "accepted_lines": 287,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "TASK_PROGRESS.md": {
+          "additions": 8,
+          "accepted_lines": 8
+        },
+        "app.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "research/map-photo-improvements-2026-10-19.md": {
+          "additions": 16,
+          "accepted_lines": 16
+        },
+        "README.md": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        },
+        "tests/browser-check.cjs": {
+          "additions": 4,
+          "deletions": 4,
+          "accepted_lines": 4
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 13,
+          "deletions": 13,
+          "accepted_lines": 13
+        },
+        "research/photo-licenses.json": {
+          "additions": 137,
+          "deletions": 23,
+          "accepted_lines": 137
+        },
+        "photo-updates.js": {
+          "additions": 101,
+          "deletions": 245,
+          "accepted_lines": 101
+        },
+        "index.html": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 3
+        },
+        "scripts/build-photo-updates.cjs": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        }
+      }
+    }
+  }
+}
