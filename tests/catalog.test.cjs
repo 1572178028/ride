@@ -8,7 +8,7 @@ const root = path.resolve(__dirname, '..');
 const app = {};
 app.window = app;
 vm.createContext(app);
-for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'expanded-catalog.js', 'city-catalog.js', 'research-updates.js', 'night-catalog.js', 'photo-data.js', 'meiling-map-data.js', 'meiling-catalog.js', 'westlake-circuit-map-data.js', 'westlake-circuit-catalog.js', 'puyang-map-data.js', 'puyang-catalog.js', 'huzhou-parking-updates.js', 'huzhou-expansion-map-data.js', 'huzhou-expansion-catalog.js', 'photo-updates.js', 'catalog-metadata.js', 'map-renderer.js']) {
+for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'expanded-catalog.js', 'city-catalog.js', 'research-updates.js', 'night-catalog.js', 'photo-data.js', 'meiling-map-data.js', 'meiling-catalog.js', 'westlake-circuit-map-data.js', 'westlake-circuit-catalog.js', 'puyang-map-data.js', 'puyang-catalog.js', 'huzhou-parking-updates.js', 'huzhou-expansion-map-data.js', 'huzhou-expansion-catalog.js', 'two-region-research-updates.js', 'photo-updates.js', 'catalog-metadata.js', 'map-renderer.js']) {
   vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), app, { filename: file });
 }
 function km(a, b) {
@@ -352,7 +352,7 @@ test('published route galleries contain road images only and social screenshots 
 
 test('follow-up audit excludes closed parking and retains new map evidence without publishing research rides', () => {
   for (const c of app.EXPANSION_CANDIDATES) {
-    assert.equal(c.reviewedAt, c.id==='puyang-greenway-research'?'2026-10-20':'2026-10-16');
+    assert.equal(c.reviewedAt, ['puyang-greenway-research','jinhua-shuanglong-research','shaoxing-eastlake-research'].includes(c.id)?'2026-10-20':'2026-10-16');
     assert.ok(c.reviewOutcome && c.missing && c.parkingNote && c.roadNote);
     assert.ok(!app.ROUTES.some(r => r.id === c.id));
   }
@@ -577,4 +577,15 @@ test('photo association thresholds distinguish 60, 70, 85 and 86 without claimin
    assert.ok(m.source+m.location+m.track+m.visual>=60,p.id);
   }
  }
+});
+
+test('Shuanglong and East Lake research retain parking evidence without publishing disconnected rides',()=>{
+ const s=app.EXPANSION_CANDIDATES.find(c=>c.id==='jinhua-shuanglong-research');
+ const e=app.EXPANSION_CANDIDATES.find(c=>c.id==='shaoxing-eastlake-research');
+ assert.equal(s.parkingOptions[0].poiId,'B0MDB6G8XL');assert.equal(s.parkingOptions[0].feeBasis,'user-default-roadside');assert.match(s.roadNote,/500米/);
+ assert.equal(e.parkingOptions[0].poiId,'B023F0P6XD');assert.equal(e.parkingOptions[0].feeType,'paid');assert.match(e.parkingOptions[0].rule,/超时规则/);
+ assert.match(e.roadNote,/242米/);assert.ok(!s.parking&&!e.parking);
+ assert.ok(!app.ROUTES.some(r=>['shuanglong','shaoxing-eastlake'].includes(r.region)));
+ const audit=JSON.parse(fs.readFileSync(path.join(root,'research/shuanglong-eastlake-geometry-audit.json')));
+ assert.equal(audit.snapshotDate,'2026-10-16');assert.equal(audit.results.eastlake.snapMetres,242);assert.match(audit.results.eastlake.error,/no permitted connection/);
 });
