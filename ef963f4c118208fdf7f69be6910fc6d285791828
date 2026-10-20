@@ -1,0 +1,29 @@
+.github/workflows/release.yml
+  3f45d0fac59df6b4 1-45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "ef963f4c118208fdf7f69be6910fc6d285791828",
+  "prompts": {
+    "3f45d0fac59df6b4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15761-67bc-73f2-8c41-840f2d17843e",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 45,
+      "total_deletions": 0,
+      "accepted_lines": 45,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        ".github/workflows/release.yml": {
+          "additions": 45,
+          "accepted_lines": 45
+        }
+      }
+    }
+  }
+}
