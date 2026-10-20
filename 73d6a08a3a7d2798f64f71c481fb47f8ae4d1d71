@@ -1,0 +1,29 @@
+TASK_PROGRESS.md
+  3f45d0fac59df6b4 554-558
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "73d6a08a3a7d2798f64f71c481fb47f8ae4d1d71",
+  "prompts": {
+    "3f45d0fac59df6b4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15761-67bc-73f2-8c41-840f2d17843e",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 5,
+      "total_deletions": 0,
+      "accepted_lines": 5,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "TASK_PROGRESS.md": {
+          "additions": 5,
+          "accepted_lines": 5
+        }
+      }
+    }
+  }
+}
