@@ -1,0 +1,35 @@
+.agents/skills/expand-cycling-routes/SKILL.md
+  3f45d0fac59df6b4 30
+.github/workflows/release.yml
+  3f45d0fac59df6b4 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "1a0623061ca31ab95982ec29f670b8a4500e74ae",
+  "prompts": {
+    "3f45d0fac59df6b4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15761-67bc-73f2-8c41-840f2d17843e",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 0,
+      "accepted_lines": 2,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        ".agents/skills/expand-cycling-routes/SKILL.md": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        ".github/workflows/release.yml": {
+          "additions": 1,
+          "accepted_lines": 1
+        }
+      }
+    }
+  }
+}
