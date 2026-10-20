@@ -1,0 +1,45 @@
+name: Publish versioned release
+on:
+  push:
+    branches: [main]
+    paths:
+      - version.json
+      - research/releases/**
+      - .github/workflows/release.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-versioned-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      SOURCE_SHA: ${{ github.sha }}
+    steps:
+      - name: Check version, tag, tests and publish release
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh auth setup-git
+          gh repo clone "$GH_REPO" source
+          cd source
+          git checkout --detach "$SOURCE_SHA"
+          version=$(node -p "require('./version.json').version")
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          tag="v$version"
+          git fetch origin "refs/tags/$tag:refs/tags/$tag"
+          git merge-base --is-ancestor "$tag" HEAD
+          tagged_version=$(git show "$tag:version.json" | node -e "let s='';process.stdin.on('data',x=>s+=x).on('end',()=>process.stdout.write(JSON.parse(s).version))")
+          test "$tagged_version" = "$version"
+          node --test tests/catalog.test.cjs tests/puyang-route.test.cjs
+          git show "$tag:research/releases/$tag.md" > /tmp/release-notes.md
+          if gh release view "$tag" --json tagName >/dev/null 2>&1; then
+            echo "Release $tag already exists; leaving it unchanged."
+          else
+            gh release create "$tag" --verify-tag --title "V $version" --notes-file /tmp/release-notes.md
+          fi
