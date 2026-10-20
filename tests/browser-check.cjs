@@ -179,6 +179,14 @@ const server = http.createServer((req, res) => {
     const downloading = page.waitForEvent('download'); await page.locator('#download-map').click(); const download = await downloading;
     assert.equal(await download.failure(), null); assert.ok(download.suggestedFilename().endsWith('.png'));
     for (const [region, count] of [['huzhou', 4], ['shaoxing', 3], ['hangzhou', 3]]) { await page.selectOption('#research-region', region); assert.equal(await page.locator('.expansion-card').count(), count); }
+    await page.selectOption('#research-region','huzhou');
+    assert.equal(await page.locator('.parking-option').count(),6);
+    assert.equal(await page.locator('[data-fee-basis="user-default-roadside"]').count(),4);
+    const hzParkingLinks=await page.locator('.parking-option a').evaluateAll(ns=>ns.map(n=>n.href));
+    assert.equal(hzParkingLinks.length,18);
+    assert.ok(hzParkingLinks.every(u=>!u.includes('undefined')&&!u.includes('NaN')));
+    await page.locator('[data-research-id="huzhou-lougang-research"] .research-parking').scrollIntoViewIfNeeded();
+    await page.screenshot({path:'/private/tmp/ride-huzhou-parking-desktop.png'});
     await page.selectOption('#research-region', 'shaoxing'); await page.locator('.research-preview summary').click(); assert.ok(await page.locator('.research-preview img').isVisible());
     await page.locator('[data-research-id="shaoxing-eastlake-research"] .photo-open').first().click(); assert.ok((await page.locator('#photo-dialog').innerText()).includes('Logan Wenger')); await page.locator('.photo-close').click();
     await page.selectOption('#research-region', 'hangzhou');
@@ -221,6 +229,11 @@ const server = http.createServer((req, res) => {
     await mobile.locator('#selected-heading').scrollIntoViewIfNeeded();
     await mobile.screenshot({path:'/private/tmp/ride-puyang-mobile.png'});
     assert.ok(await mobile.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    await mobile.selectOption('#research-region','huzhou');
+    assert.equal(await mobile.locator('.parking-option').count(),6);
+    await mobile.locator('[data-research-id="huzhou-lijiaxiang-research"] .research-parking').scrollIntoViewIfNeeded();
+    await mobile.screenshot({path:'/private/tmp/ride-huzhou-parking-mobile.png'});
+    assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
     assert.deepEqual(errors, []); console.log(JSON.stringify({ routes: ids.length, desktop: 1440, mobile: 390, errors }));
   } finally { if (browser) await browser.close(); server.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });

@@ -8,7 +8,7 @@ const root = path.resolve(__dirname, '..');
 const app = {};
 app.window = app;
 vm.createContext(app);
-for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'expanded-catalog.js', 'city-catalog.js', 'research-updates.js', 'night-catalog.js', 'photo-data.js', 'meiling-map-data.js', 'meiling-catalog.js', 'westlake-circuit-map-data.js', 'westlake-circuit-catalog.js', 'puyang-map-data.js', 'puyang-catalog.js', 'photo-updates.js', 'catalog-metadata.js', 'map-renderer.js']) {
+for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'expanded-catalog.js', 'city-catalog.js', 'research-updates.js', 'night-catalog.js', 'photo-data.js', 'meiling-map-data.js', 'meiling-catalog.js', 'westlake-circuit-map-data.js', 'westlake-circuit-catalog.js', 'puyang-map-data.js', 'puyang-catalog.js', 'photo-updates.js', 'huzhou-parking-updates.js', 'catalog-metadata.js', 'map-renderer.js']) {
   vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), app, { filename: file });
 }
 function km(a, b) {
@@ -498,4 +498,24 @@ test('Wengjin variants share one destination without changing roads or photo cov
   assert.match(p.caption,/具体拍摄段未标明/);
  }
  assert.equal(new Set(routes.map(r=>JSON.stringify(app.MAP_DATA.paths[r.id]))).size,3);
+});
+
+
+test('Huzhou parking options distinguish user roadside defaults from known charging evidence',()=>{
+ const candidates=app.EXPANSION_CANDIDATES.filter(c=>c.researchCity==='huzhou');
+ const options=candidates.flatMap(c=>c.parkingOptions||[]);
+ assert.equal(options.length,6);
+ assert.equal(new Set(options.map(p=>p.provider+':'+p.poiId)).size,6);
+ assert.equal(options.filter(p=>p.feeBasis==='user-default-roadside').length,4);
+ for(const p of options){
+  assert.equal(p.checked,'2026-10-20');
+  assert.ok(p.name&&p.address&&p.note&&p.query);
+  assert.ok(new URL(p.source).searchParams.get(p.provider==='amap'?'id':'uid')===p.poiId);
+  if(p.roadside){assert.equal(p.feeType,'free');assert.equal(p.feeBasis,'user-default-roadside');assert.match(p.rule,/默认免费/);assert.match(p.rule,/现场标志/);}
+  else assert.notEqual(p.feeType,'free');
+ }
+ assert.equal(options.find(p=>p.poiId==='B0FFLC9ZT2').feeType,'paid');
+ assert.ok(options.find(p=>p.poiId==='7db98ae511fa742fd518b73a').note.includes('不是荻港古村门口'));
+ assert.equal(app.ROUTE_METADATA.familyCount,16);
+ assert.equal(app.ROUTE_METADATA.parkingCount,17,'research options are not formal parking starts');
 });
