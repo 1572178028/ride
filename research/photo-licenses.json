@@ -905,5 +905,55 @@
     ],
     "publicationStatus": "excluded-unlocated-northern-section",
     "exclusionReason": "渔浦北段攻略照片未定位到临浦正式路线，保留资源和出处，不作为该路线实拍。"
+  },
+  {
+    "id": "badu-park-tidenews",
+    "group": "badu",
+    "kind": "road",
+    "routeIds": [
+      "badu-ginkgo-road"
+    ],
+    "src": "photos/badu-park-tidenews-202607.jpg",
+    "storage": "local",
+    "source": "https://tidenews.com.cn/news.html?id=3505512",
+    "originalUrl": "https://meizi-chao-pub.8531.cn/2083058777824477184_1280px.jpg?height=720&width=1280",
+    "author": "潮新闻记者 朱高祥",
+    "date": "报道2026-07-19；拍摄日未单列",
+    "checked": "2026-10-20",
+    "sourceType": "news-original-image",
+    "license": "潮新闻版权 · 原文注明“转载请注明出处”",
+    "caption": "小柏线 · 方一村古银杏公园旁道路",
+    "relation": "原文在方一村采访段明确图注“小柏线两侧”；画面可见古银杏公园石牌、路名指示与公共道路标线。高德古银杏公园B023C02Z8N位于本方案经过的方一村小柏线旁。匹配到路段，未定位摄影者精确站位。",
+    "verification": "原文在方一村采访段明确图注“小柏线两侧”；画面可见古银杏公园石牌、路名指示与公共道路标线。高德古银杏公园B023C02Z8N位于本方案经过的方一村小柏线旁。匹配到路段，未定位摄影者精确站位。",
+    "pixelWidth": 1280,
+    "pixelHeight": 720,
+    "modification": "原图保存，保留潮新闻水印，未裁剪、放大或改写内容",
+    "locationConfidence": "路段级 · 高，非精确摄影坐标",
+    "downloadDate": "2026-10-20"
+  },
+  {
+    "id": "badu-village-tidenews",
+    "group": "badu",
+    "kind": "road",
+    "routeIds": [
+      "badu-ginkgo-road"
+    ],
+    "src": "photos/badu-village-tidenews-202607.jpg",
+    "storage": "local",
+    "source": "https://tidenews.com.cn/news.html?id=3505512",
+    "originalUrl": "https://meizi-chao-pub.8531.cn/2083058777824477187_1280px.jpg?height=720&width=1280",
+    "author": "潮新闻记者 朱高祥",
+    "date": "报道2026-07-19；拍摄日未单列",
+    "checked": "2026-10-20",
+    "sourceType": "news-original-image",
+    "license": "潮新闻版权 · 原文注明“转载请注明出处”",
+    "caption": "小柏线 · 方一村路口与村标",
+    "relation": "画面可读“方一”村标，原文图注“方一村一景”，与前图同一采访段和小柏线村庄环境交叉对应。展示本线方一村路段道路环境，不据此承诺当天通行。",
+    "verification": "画面可读“方一”村标，原文图注“方一村一景”，与前图同一采访段和小柏线村庄环境交叉对应。展示本线方一村路段道路环境，不据此承诺当天通行。",
+    "pixelWidth": 1280,
+    "pixelHeight": 720,
+    "modification": "原图保存，保留潮新闻水印，未裁剪、放大或改写内容",
+    "locationConfidence": "路段级 · 高，非精确摄影坐标",
+    "downloadDate": "2026-10-20"
   }
 ]

@@ -185,6 +185,15 @@ const server = http.createServer((req, res) => {
       assert.equal(await page.locator('.navigation-actions a').count(),4);
       assert.equal(await page.locator('#map-container [data-poi="parking"]').count(),1);
       assert.equal(await page.locator('#map-container [data-poi="start"]').count(),1);
+      if(id==='badu-ginkgo-road'){
+        assert.equal(await page.locator('#route-detail .photo-open').count(),2);
+        await page.locator('#route-detail .route-photos').scrollIntoViewIfNeeded();
+        await page.waitForFunction(()=>Array.from(document.querySelectorAll('#route-detail .photo-open img')).every(i=>i.complete&&i.naturalWidth===1280));
+        await page.screenshot({path:'/private/tmp/ride-badu-photos-desktop.png'});
+        await page.locator('#route-detail .photo-open').first().click();
+        assert.ok((await page.locator('#photo-dialog').innerText()).includes('朱高祥'));
+        await page.keyboard.press('Escape');
+      }
       await page.locator('#map-container').scrollIntoViewIfNeeded();
       await page.screenshot({path:'/private/tmp/ride-'+id+'-desktop.png'});
     }
@@ -242,6 +251,13 @@ const server = http.createServer((req, res) => {
       await select(mobile,id);
       await mobile.locator('#map-container').scrollIntoViewIfNeeded();
       await mobile.screenshot({path:'/private/tmp/ride-'+id+'-mobile.png'});
+      if(id==='badu-ginkgo-road'){
+        await mobile.locator('#route-detail .route-photos').scrollIntoViewIfNeeded();
+        await mobile.waitForFunction(()=>Array.from(document.querySelectorAll('#route-detail .photo-open img')).every(i=>i.complete&&i.naturalWidth===1280));
+        await mobile.locator('#route-detail .photo-open img').evaluateAll(async ns=>Promise.all(ns.map(i=>i.decode())));
+        await mobile.screenshot({path:'/private/tmp/ride-badu-photos-mobile.png'});
+      }
+
       assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
     }
     await mobile.selectOption('#research-region','huzhou');
