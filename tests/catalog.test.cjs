@@ -543,3 +543,18 @@ test('Badu road photos retain explicit landmark evidence and original attributio
  assert.equal(app.ROUTES.find(r=>r.id==='puyang-greenway').photos.length,0);
  assert.equal(app.ROUTES.find(r=>r.id==='yigao-village-road').photos.length,0);
 });
+
+test('photo association thresholds distinguish 60, 70, 85 and 86 without claiming location probability', () => {
+  const code = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const helper = code.slice(code.indexOf('function photoMatchHTML('), code.indexOf('function photosHTML('));
+  const context = { esc: s => String(s) }; vm.createContext(context); vm.runInContext(helper, context);
+  for (const [score, tier] of [[60,'light'],[69,'light'],[70,'medium'],[85,'medium'],[86,'dark'],[100,'dark']]) {
+    const markup = context.photoMatchHTML({matchAssessment:{source:20,location:Math.min(40,score-40),track:Math.max(0,score-80),visual:20,reason:'test'}});
+    assert.ok(markup.includes(`photo-match ${tier}`));
+    assert.ok(markup.includes(`${score}%`));
+    assert.ok(markup.includes('非定位概率'));
+  }
+  assert.ok(context.photoMatchHTML({}).includes('待评分'));
+  const photos=app.ROUTES.find(r=>r.id==='badu-ginkgo-road').photos;
+  assert.deepEqual(Array.from(photos,p=>Object.values(p.matchAssessment).filter(v=>typeof v==='number').reduce((a,b)=>a+b,0)),[80,75]);
+});

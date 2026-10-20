@@ -929,7 +929,14 @@
     "pixelHeight": 720,
     "modification": "原图保存，保留潮新闻水印，未裁剪、放大或改写内容",
     "locationConfidence": "路段级 · 高，非精确摄影坐标",
-    "downloadDate": "2026-10-20"
+    "downloadDate": "2026-10-20",
+    "matchAssessment": {
+      "source": 20,
+      "location": 40,
+      "track": 0,
+      "visual": 20,
+      "reason": "原文小柏线及古银杏公园路牌互证；无摄影点GPS及原始轨迹。"
+    }
   },
   {
     "id": "badu-village-tidenews",
@@ -954,6 +961,13 @@
     "pixelHeight": 720,
     "modification": "原图保存，保留潮新闻水印，未裁剪、放大或改写内容",
     "locationConfidence": "路段级 · 高，非精确摄影坐标",
-    "downloadDate": "2026-10-20"
+    "downloadDate": "2026-10-20",
+    "matchAssessment": {
+      "source": 20,
+      "location": 35,
+      "track": 0,
+      "visual": 20,
+      "reason": "原文方一村图注与村标互证；摄影站位及原始轨迹未定位。"
+    }
   }
 ]

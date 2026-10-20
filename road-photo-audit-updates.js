@@ -52,6 +52,8 @@
     "locationConfidence": "路段级 · 高，非精确摄影坐标"
   }
 ];
+ photos[0].matchAssessment={source:20,location:40,track:0,visual:20,reason:'原文明确小柏线，古银杏公园路牌与本线方一村段相符；无摄影点GPS或原始骑行轨迹，轨迹项不加分。'};
+ photos[1].matchAssessment={source:20,location:35,track:0,visual:20,reason:'原文方一村图注与可读村标互证，处于本线经过片区；未确定摄影站位及原始轨迹，地点35分、轨迹0分。'};
  const r=ROUTES.find(r=>r.id==='badu-ginkgo-road');
  r.photos=photos;r.photoTarget=3;r.photoMissing=1;r.photoGap='已补2张方一村小柏线路段道路图，仍待补1张不同路段或视角的照片。';
  r.notes=r.notes.filter(n=>!n.startsWith('对应本方案的道路实拍'));r.notes.push('已补两张2026年报道的方一村小柏线道路图，仍缺1张；历史图不证明当日通行。未电话、实地或实骑核验。');
