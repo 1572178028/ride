@@ -1,3 +1,4 @@
+# Publish only the existing, validated tag named in version.json.
 name: Publish versioned release
 on:
   push:
