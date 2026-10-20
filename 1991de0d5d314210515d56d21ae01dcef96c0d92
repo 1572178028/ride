@@ -1,0 +1,29 @@
+research/shuanglong-eastlake-progress-20261020.md
+  3f45d0fac59df6b4 46-51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "1991de0d5d314210515d56d21ae01dcef96c0d92",
+  "prompts": {
+    "3f45d0fac59df6b4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15761-67bc-73f2-8c41-840f2d17843e",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 6,
+      "total_deletions": 0,
+      "accepted_lines": 6,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "research/shuanglong-eastlake-progress-20261020.md": {
+          "additions": 6,
+          "accepted_lines": 6
+        }
+      }
+    }
+  }
+}
