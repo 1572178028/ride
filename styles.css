@@ -710,7 +710,9 @@ button,a {
   font-size:13px
 }
 .route-summary>div:last-child strong {
-  color:var(--green)
+  color:var(--green);
+  white-space:normal;
+  overflow-wrap:anywhere
 }
 .route-summary small {
   display:block;

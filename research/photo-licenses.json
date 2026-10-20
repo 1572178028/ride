@@ -837,16 +837,18 @@
     "license": "原作者版权 · 未声明开放许可",
     "sourceType": "social-image",
     "relation": "原帖第4张；正文说明浦阳江绿道萧山段从渔浦公园向北可到三江口、向南可到义桥大桥及临浦。照片展示江岸护栏和铺装路面；具体拍摄段未标明，按用户偏好挂浦阳江绿道最长往返线。",
-    "candidateIds": [
-      "puyang-greenway-research"
-    ],
     "modification": "直接下载原帖第4张道路图片，完整保留原图；无平台界面，未插值放大",
     "verification": "2026-10-19读取原帖正文并目视核对；图片用于研究候选，停车和具体拍摄点未核实。",
     "platform": "xiaohongshu",
     "imageIndex": 4,
     "pixelWidth": 1080,
     "pixelHeight": 1440,
-    "qualityNote": "原帖WebP原图直接下载，1080×1440；未插值放大或AI重绘"
+    "qualityNote": "原帖WebP原图直接下载，1080×1440；未插值放大或AI重绘",
+    "archivedCandidateIds": [
+      "puyang-greenway-research"
+    ],
+    "publicationStatus": "excluded-unlocated-northern-section",
+    "exclusionReason": "渔浦北段攻略照片未定位到临浦正式路线，保留资源和出处，不作为该路线实拍。"
   },
   {
     "id": "puyang-mitchell-canopy-road",
@@ -863,16 +865,18 @@
     "license": "原作者版权 · 未声明开放许可",
     "sourceType": "social-image",
     "relation": "原帖第10张；可见连续铺装路面和林荫。作者正文将相册定位为浦阳江绿道骑行；具体拍摄段未标明，按用户偏好挂浦阳江绿道最长往返线。",
-    "candidateIds": [
-      "puyang-greenway-research"
-    ],
     "modification": "直接下载原帖第10张道路图片，完整保留原图；无平台界面，未插值放大",
     "verification": "2026-10-19读取原帖正文并目视核对；图片用于研究候选，停车和具体拍摄点未核实。",
     "platform": "xiaohongshu",
     "imageIndex": 10,
     "pixelWidth": 1080,
     "pixelHeight": 1440,
-    "qualityNote": "原帖WebP原图直接下载，1080×1440；未插值放大或AI重绘"
+    "qualityNote": "原帖WebP原图直接下载，1080×1440；未插值放大或AI重绘",
+    "archivedCandidateIds": [
+      "puyang-greenway-research"
+    ],
+    "publicationStatus": "excluded-unlocated-northern-section",
+    "exclusionReason": "渔浦北段攻略照片未定位到临浦正式路线，保留资源和出处，不作为该路线实拍。"
   },
   {
     "id": "puyang-mitchell-origin-marker",
@@ -889,15 +893,17 @@
     "license": "原作者版权 · 未声明开放许可",
     "sourceType": "social-image",
     "relation": "原帖第11张；画面可见“浙东唐诗之路源头”标石、自行车和道路铺装。正文将渔浦公园作为绿道起点；具体拍摄段未标明，按用户偏好挂浦阳江绿道最长往返线。",
-    "candidateIds": [
-      "puyang-greenway-research"
-    ],
     "modification": "直接下载原帖第11张道路图片，完整保留原图；无平台界面，未插值放大",
     "verification": "2026-10-19读取原帖正文并目视核对；图片用于研究候选，停车和具体拍摄点未核实。",
     "platform": "xiaohongshu",
     "imageIndex": 11,
     "pixelWidth": 1080,
     "pixelHeight": 1440,
-    "qualityNote": "原帖WebP原图直接下载，1080×1440；未插值放大或AI重绘"
+    "qualityNote": "原帖WebP原图直接下载，1080×1440；未插值放大或AI重绘",
+    "archivedCandidateIds": [
+      "puyang-greenway-research"
+    ],
+    "publicationStatus": "excluded-unlocated-northern-section",
+    "exclusionReason": "渔浦北段攻略照片未定位到临浦正式路线，保留资源和出处，不作为该路线实拍。"
   }
 ]

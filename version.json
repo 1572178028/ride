@@ -1,6 +1,11 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "date": "2026-10-20",
-  "status": "baseline",
-  "description": "现有路线目录的初始版本基线；浦阳江正式路线尚未完成收录。"
+  "status": "release",
+  "description": "新增杭州浦阳江独立路线，参考免费，费用及取车时间须入场确认。",
+  "increments": {
+    "routes": 1,
+    "cities": 0,
+    "provinces": 0
+  }
 }

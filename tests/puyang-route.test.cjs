@@ -3,7 +3,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),zlib=require('node:zlib');
 const root=path.resolve(__dirname,'..'),ctx={};ctx.window=ctx;vm.createContext(ctx);
 for(const f of ['map-data.js','catalog.js','planning-data.js','regional-map-data.js','verified-map-data.js','puyang-map-data.js','puyang-catalog.js','map-renderer.js'])vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),ctx);
-const r=ctx.PUYANG_ROUTE_DRAFT,p=ctx.REGIONAL_PLANS[r.id],points=ctx.MAP_DATA.paths[r.id];
+const r=ctx.ROUTES.find(r=>r.id==='puyang-greenway'),p=ctx.REGIONAL_PLANS[r.id],points=ctx.MAP_DATA.paths[r.id];
 const snapshot=JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(root,'research/puyangjiang-osm.json.gz'))));
 const ways=new Map(snapshot.elements.filter(e=>e.type==='way').map(e=>[e.id,e]));
 const key=p=>p.join(',');
@@ -26,8 +26,8 @@ test('Puyang draft uses actual directed OSM edges for both outbound and return',
  assert.ok(Math.abs(p.segments.reduce((n,s)=>n+s.km,0)-r.distance)<0.06);
  assert.ok(Math.abs(p.connectorKm-0.762)<0.02,'connector should agree with independently read Amap route');
 });
-test('draft does not publish a route or promise free all-day parking',()=>{
- assert.ok(!ctx.ROUTES.some(x=>x.id===r.id));
+test('conditional route does not promise free all-day parking',()=>{
+ assert.equal(ctx.ROUTES.filter(x=>x.id===r.id).length,1);
  assert.equal(r.parking.feeType,'unknown');assert.notEqual(r.parking.price,'¥0');
  assert.equal(r.parking.poiid,'B0KKK7TLQ8');
  assert.deepEqual(Array.from(r.parking.gcj),[120.252843,30.036164]);
