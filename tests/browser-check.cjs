@@ -43,7 +43,7 @@ const server = http.createServer((req, res) => {
       await page.locator(`[data-variant="${id}"]`).click();
       assert.equal(await page.locator('#selected-heading h2').innerText(),await page.evaluate(id=>ROUTES.find(r=>r.id===id).title,id));
       assert.equal(await page.locator('.route-card').count(),1);
-      assert.equal(await page.locator('#route-detail .photo-open').count(),id==='wengjin-yanguan'?3:0);
+      assert.equal(await page.locator('#route-detail .photo-open').count(),3);
     }
     await page.locator('#route-detail .route-photos').scrollIntoViewIfNeeded();
     await page.evaluate(async () => {
@@ -92,6 +92,7 @@ const server = http.createServer((req, res) => {
       assert.ok(await page.evaluate(()=>document.querySelector('#poi-popup').getBoundingClientRect().top>=document.querySelector('#map-container').getBoundingClientRect().bottom),id+': details must sit below the map');
       assert.ok((await page.locator('#poi-popup b').innerText()).length>0);
       await page.locator('#close-poi').click();
+      for(const badge of await page.locator('#route-detail .photo-match:not(.unscored)').allTextContents())assert.match(badge,/^\d+%$/);
       const locals=page.locator('#route-detail .photo-open img[src^="photos/"]');
       if(await locals.count())await page.waitForFunction(()=>[...document.querySelectorAll('#route-detail .photo-open img[src^="photos/"]')].every(i=>i.complete&&i.naturalWidth>0));
 
@@ -116,7 +117,7 @@ const server = http.createServer((req, res) => {
     await page.locator('#route-detail .photo-open').first().click();
     assert.ok((await page.locator('#photo-dialog').innerText()).includes('赛事期间'));
     await page.keyboard.press('Escape');
-    await select(page,'wengjin-short');
+    await select(page,'xianghu-shanshan');
     assert.ok(await page.locator('.photo-empty').isVisible());
 
     // Switching from a lower detail section must reveal the new route heading.
@@ -211,7 +212,7 @@ const server = http.createServer((req, res) => {
     await select(page,'puyang-greenway');
     assert.ok((await page.locator('.parking-box').innerText()).includes('费用及取车时间须入场确认'));
     assert.equal(await page.locator('#map-container [data-poi="parking"]').count(),1);
-    assert.equal(await page.locator('#route-detail .photo-open').count(),0);
+    assert.equal(await page.locator('#route-detail .photo-open').count(),1);
     const puyangLinks=await page.locator('.navigation-actions a').evaluateAll(ns=>ns.map(n=>n.href));
     assert.equal(puyangLinks.length,4);
     assert.ok(puyangLinks.every(u=>!u.includes('undefined')&&!u.includes('NaN')));

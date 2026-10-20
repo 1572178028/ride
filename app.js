@@ -59,7 +59,7 @@ function photoMatchHTML(p){
  const score=m.source+m.location+m.track+m.visual;
  const tier=score>85?'dark':score>=70?'medium':'light';
  const label=score>85?'深绿 · 路段高度关联':score>=70?'中绿 · 线路关联':'浅绿 · 线路参考';
- return `<details class="photo-assessment"><summary><span class="photo-match ${tier}">${label} · ${score}%</span></summary><p>关联评分，非定位概率。出处 ${m.source}/20 · 地点 ${m.location}/40 · 轨迹 ${m.track}/20 · 画面 ${m.visual}/20</p><p>${esc(m.reason)}</p></details>`;
+ return `<details class="photo-assessment"><summary><span class="photo-match ${tier}" aria-label="${label}，关联评分 ${score}%">${score}%</span></summary><p>关联评分，非定位概率。出处 ${m.source}/20 · 地点 ${m.location}/40 · 轨迹 ${m.track}/20 · 画面 ${m.visual}/20</p><p>${esc(m.reason)}</p></details>`;
 }
 function photosHTML(r){
  const photos=(r.photos||[]).filter(p=>!p.matchAssessment||(!p.matchAssessment.conflict&&p.matchAssessment.source+p.matchAssessment.location+p.matchAssessment.track+p.matchAssessment.visual>=60));

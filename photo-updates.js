@@ -1,6 +1,6 @@
-/* Reviewed real photographs. No AI-generated substitutes or unrelated place images. */
+/* Reviewed real photographs and evidence scores. Generated from research/photo-licenses.json. */
 (() => {
-  const additions = [
+ const additions = [
   {
     "id": "qiandao-race-2023",
     "group": "qiandao",
@@ -27,7 +27,15 @@
     "point": [
       119.03675,
       29.618033
-    ]
+    ],
+    "matchAssessment": {
+      "source": 20,
+      "location": 40,
+      "track": 0,
+      "visual": 20,
+      "reason": "亚运会赛事期间拍摄；封闭赛道条件不代表日常车流与准入 原始出处和明确路段可对应；没有逐帧骑行轨迹，轨迹项为0。"
+    },
+    "assessmentDate": "2026-10-20"
   },
   {
     "id": "binjiang-start-2025",
@@ -55,7 +63,15 @@
     "point": [
       120.148081,
       30.190264
-    ]
+    ],
+    "matchAssessment": {
+      "source": 20,
+      "location": 40,
+      "track": 0,
+      "visual": 20,
+      "reason": "道路接驳段日间街景；非闻涛路沿江路面，不作夜间照明依据 原始出处和明确路段可对应；没有逐帧骑行轨迹，轨迹项为0。"
+    },
+    "assessmentDate": "2026-10-20"
   },
   {
     "id": "taihu9-official-social",
@@ -85,7 +101,15 @@
       "width": 253,
       "height": 338
     },
-    "referenceOnly": true
+    "referenceOnly": true,
+    "matchAssessment": {
+      "source": 20,
+      "location": 30,
+      "track": 0,
+      "visual": 10,
+      "reason": "已归档长兴文旅太湖9号公路原帖与道路画面；仅可关联同名滨湖道路，未定位到本站夹浦短线，作为线路参考。"
+    },
+    "assessmentDate": "2026-10-20"
   },
   {
     "id": "meiling-south-xhs",
@@ -107,7 +131,15 @@
     ],
     "sourceType": "social-image",
     "modification": "仅图片本身，保留原图水印；署名及出处在图注展示",
-    "verification": "2026-10-19浏览器读取原帖正文并目视核对道路画面，未使用平台AI总结。"
+    "verification": "2026-10-19浏览器读取原帖正文并目视核对道路画面，未使用平台AI总结。",
+    "matchAssessment": {
+      "source": 20,
+      "location": 40,
+      "track": 0,
+      "visual": 20,
+      "reason": "原帖明确拍摄于梅家坞往云栖竹径方向的水杉路段；可见路面、边线与弯道。 原始出处和明确路段可对应；没有逐帧骑行轨迹，轨迹项为0。"
+    },
+    "assessmentDate": "2026-10-20"
   },
   {
     "id": "meiling-south-road-2024",
@@ -129,7 +161,15 @@
     ],
     "sourceType": "press-photo",
     "modification": "仅图片本身，保留原图水印；署名及出处在图注展示",
-    "verification": "2026-10-19浏览器读取原帖正文并目视核对道路画面，未使用平台AI总结。"
+    "verification": "2026-10-19浏览器读取原帖正文并目视核对道路画面，未使用平台AI总结。",
+    "matchAssessment": {
+      "source": 20,
+      "location": 40,
+      "track": 0,
+      "visual": 20,
+      "reason": "报道明确梅灵南路梅坞农居段；画面展示路面、道路标线和骑行者。 原始出处和明确路段可对应；没有逐帧骑行轨迹，轨迹项为0。"
+    },
+    "assessmentDate": "2026-10-20"
   },
   {
     "id": "wentao-road-2020",
@@ -151,7 +191,15 @@
     ],
     "sourceType": "press-photo",
     "modification": "仅图片本身，保留原图水印；署名及出处在图注展示",
-    "verification": "2026-10-19浏览器读取原帖正文并目视核对道路画面，未使用平台AI总结。"
+    "verification": "2026-10-19浏览器读取原帖正文并目视核对道路画面，未使用平台AI总结。",
+    "matchAssessment": {
+      "source": 20,
+      "location": 40,
+      "track": 0,
+      "visual": 20,
+      "reason": "报道明确东信大道往西的闻涛路西段，画面可见道路与慢行道结构；历史日间照片不代表当前夜间照明。 原始出处和明确路段可对应；没有逐帧骑行轨迹，轨迹项为0。"
+    },
+    "assessmentDate": "2026-10-20"
   },
   {
     "id": "xianghu-color-east-bili",
@@ -180,7 +228,15 @@
     "platform": "bilibili",
     "pixelWidth": 1280,
     "pixelHeight": 716,
-    "qualityNote": "直接下载blob视频失败；确认1080P源1920×1080后网页全屏截图1280×716，裁去底部进度线；未插值放大或AI重绘"
+    "qualityNote": "直接下载blob视频失败；确认1080P源1920×1080后网页全屏截图1280×716，裁去底部进度线；未插值放大或AI重绘",
+    "matchAssessment": {
+      "source": 20,
+      "location": 35,
+      "track": 20,
+      "visual": 15,
+      "reason": "已读原片和画面位置图，东侧共线路段可与本方案对应；定位图有显示精度限制，未声称摄影点GPS。"
+    },
+    "assessmentDate": "2026-10-20"
   },
   {
     "id": "xianghu-color-eastlake-bili",
@@ -209,7 +265,15 @@
     "platform": "bilibili",
     "pixelWidth": 1280,
     "pixelHeight": 716,
-    "qualityNote": "直接下载blob视频失败；确认1080P源1920×1080后网页全屏截图1280×716，裁去底部进度线；未插值放大或AI重绘"
+    "qualityNote": "直接下载blob视频失败；确认1080P源1920×1080后网页全屏截图1280×716，裁去底部进度线；未插值放大或AI重绘",
+    "matchAssessment": {
+      "source": 20,
+      "location": 35,
+      "track": 20,
+      "visual": 15,
+      "reason": "已读原片和画面位置图，东侧共线路段可与本方案对应；定位图有显示精度限制，未声称摄影点GPS。"
+    },
+    "assessmentDate": "2026-10-20"
   },
   {
     "id": "xianghu-color-bridge-bili",
@@ -238,7 +302,15 @@
     "platform": "bilibili",
     "pixelWidth": 1280,
     "pixelHeight": 716,
-    "qualityNote": "直接下载blob视频失败；确认1080P源1920×1080后网页全屏截图1280×716，裁去底部进度线；未插值放大或AI重绘"
+    "qualityNote": "直接下载blob视频失败；确认1080P源1920×1080后网页全屏截图1280×716，裁去底部进度线；未插值放大或AI重绘",
+    "matchAssessment": {
+      "source": 20,
+      "location": 35,
+      "track": 20,
+      "visual": 15,
+      "reason": "已读原片和画面位置图，东侧共线路段可与本方案对应；定位图有显示精度限制，未声称摄影点GPS。"
+    },
+    "assessmentDate": "2026-10-20"
   },
   {
     "id": "xianghu-dingshan-paving-xhs",
@@ -265,7 +337,15 @@
     "imageIndex": 2,
     "pixelWidth": 1080,
     "pixelHeight": 1876,
-    "qualityNote": "原帖道路图片直接下载，1080×1876；下载后目视确认路面与骑车者，未插值放大或AI重绘"
+    "qualityNote": "原帖道路图片直接下载，1080×1876；下载后目视确认路面与骑车者，未插值放大或AI重绘",
+    "matchAssessment": {
+      "source": 20,
+      "location": 35,
+      "track": 10,
+      "visual": 15,
+      "reason": "原帖轨迹和亚太路—眉山路起点对应定山湖环线，画面显示湖岸铺装；摄影桩号未标注。"
+    },
+    "assessmentDate": "2026-10-20"
   },
   {
     "id": "xianghu-color-aerial-2020",
@@ -288,7 +368,15 @@
     ],
     "modification": "仅保留图片/视频画面，原片内位置小地图与水印保留；不包含平台正文、互动栏与播放器控件。",
     "verification": "2026-10-19经浏览器实际读取原帖并目视核对；本次平台顺序与排除记录见research/xianghu-photo-search-20261019/README.md。",
-    "platform": "google-source"
+    "platform": "google-source",
+    "matchAssessment": {
+      "source": 20,
+      "location": 30,
+      "track": 0,
+      "visual": 20,
+      "reason": "原提供方明确湘湖三期七彩绿道，航拍可辨道路和箭头；无原始轨迹或摄影点坐标。"
+    },
+    "assessmentDate": "2026-10-20"
   },
   {
     "id": "wengjin-canopy-rider-xhs",
@@ -304,8 +392,10 @@
     "captureDate": "2026-10-19",
     "license": "原作者版权 · 未声明开放许可",
     "sourceType": "social-image",
-    "relation": "原帖第1张；正文明确为翁金线（百里钱塘生态绿道），具体拍摄段未标明，归入41公里盐官长线，不挂短线与中线。",
+    "relation": "原帖明确为翁金线，具体拍摄段未标明。按新关联评分规则展示同线路参考；不据此认定短线或中线到达盐官，摄影点可能在本方案折返点之外。",
     "routeIds": [
+      "wengjin-short",
+      "wengjin-middle",
       "wengjin-yanguan"
     ],
     "modification": "直接下载原帖第1张道路图片，保留完整图片内容；无平台界面，未插值放大",
@@ -314,7 +404,16 @@
     "imageIndex": 1,
     "pixelWidth": 1080,
     "pixelHeight": 1440,
-    "qualityNote": "原帖道路图片直接下载，1080×1440；未插值放大或AI重绘"
+    "qualityNote": "原帖道路图片直接下载，1080×1440；未插值放大或AI重绘",
+    "referenceOnly": true,
+    "matchAssessment": {
+      "source": 20,
+      "location": 30,
+      "track": 0,
+      "visual": 10,
+      "reason": "完整原帖明确翁金线，树荫和黄虚线路面一致；没有具体西段/中段/盐官段定位，按同路名参考收录，不保证拍摄点在当前距离内。"
+    },
+    "assessmentDate": "2026-10-20"
   },
   {
     "id": "wengjin-straight-lane-xhs",
@@ -330,8 +429,10 @@
     "captureDate": "2026-10-19",
     "license": "原作者版权 · 未声明开放许可",
     "sourceType": "social-image",
-    "relation": "原帖第2张；展示翁金线黄虚线双侧路面与连续行道树，具体拍摄段未标明，归入41公里盐官长线，不挂短线与中线。",
+    "relation": "原帖明确为翁金线，具体拍摄段未标明。按新关联评分规则展示同线路参考；不据此认定短线或中线到达盐官，摄影点可能在本方案折返点之外。",
     "routeIds": [
+      "wengjin-short",
+      "wengjin-middle",
       "wengjin-yanguan"
     ],
     "modification": "直接下载原帖第2张道路图片，保留完整图片内容；无平台界面，未插值放大",
@@ -340,7 +441,16 @@
     "imageIndex": 2,
     "pixelWidth": 1080,
     "pixelHeight": 1440,
-    "qualityNote": "原帖道路图片直接下载，1080×1440；未插值放大或AI重绘"
+    "qualityNote": "原帖道路图片直接下载，1080×1440；未插值放大或AI重绘",
+    "referenceOnly": true,
+    "matchAssessment": {
+      "source": 20,
+      "location": 30,
+      "track": 0,
+      "visual": 10,
+      "reason": "完整原帖明确翁金线，树荫和黄虚线路面一致；没有具体西段/中段/盐官段定位，按同路名参考收录，不保证拍摄点在当前距离内。"
+    },
+    "assessmentDate": "2026-10-20"
   },
   {
     "id": "wengjin-shaded-corridor-xhs",
@@ -356,8 +466,10 @@
     "captureDate": "2026-10-19",
     "license": "原作者版权 · 未声明开放许可",
     "sourceType": "social-image",
-    "relation": "原帖第4张（第3张路堤草坡侧面已排除）；展示浓密树荫下的铺装路面与绿植隔离带，具体拍摄段未标明，归入41公里盐官长线。",
+    "relation": "原帖明确为翁金线，具体拍摄段未标明。按新关联评分规则展示同线路参考；不据此认定短线或中线到达盐官，摄影点可能在本方案折返点之外。",
     "routeIds": [
+      "wengjin-short",
+      "wengjin-middle",
       "wengjin-yanguan"
     ],
     "modification": "直接下载原帖第4张道路图片，保留完整图片内容；无平台界面，未插值放大",
@@ -366,19 +478,545 @@
     "imageIndex": 4,
     "pixelWidth": 1080,
     "pixelHeight": 1440,
-    "qualityNote": "原帖道路图片直接下载，1080×1440；未插值放大或AI重绘"
+    "qualityNote": "原帖道路图片直接下载，1080×1440；未插值放大或AI重绘",
+    "referenceOnly": true,
+    "matchAssessment": {
+      "source": 20,
+      "location": 30,
+      "track": 0,
+      "visual": 10,
+      "reason": "完整原帖明确翁金线，树荫和黄虚线路面一致；没有具体西段/中段/盐官段定位，按同路名参考收录，不保证拍摄点在当前距离内。"
+    },
+    "assessmentDate": "2026-10-20"
+  },
+  {
+    "id": "badu-park-tidenews",
+    "group": "badu",
+    "kind": "road",
+    "routeIds": [
+      "badu-ginkgo-road"
+    ],
+    "src": "photos/badu-park-tidenews-202607.jpg",
+    "storage": "local",
+    "source": "https://tidenews.com.cn/news.html?id=3505512",
+    "originalUrl": "https://meizi-chao-pub.8531.cn/2083058777824477184_1280px.jpg?height=720&width=1280",
+    "author": "潮新闻记者 朱高祥",
+    "date": "报道2026-07-19；拍摄日未单列",
+    "checked": "2026-10-20",
+    "sourceType": "news-original-image",
+    "license": "潮新闻版权 · 原文注明“转载请注明出处”",
+    "caption": "小柏线 · 方一村古银杏公园旁道路",
+    "relation": "原文在方一村采访段明确图注“小柏线两侧”；画面可见古银杏公园石牌、路名指示与公共道路标线。高德古银杏公园B023C02Z8N位于本方案经过的方一村小柏线旁。匹配到路段，未定位摄影者精确站位。",
+    "verification": "原文在方一村采访段明确图注“小柏线两侧”；画面可见古银杏公园石牌、路名指示与公共道路标线。高德古银杏公园B023C02Z8N位于本方案经过的方一村小柏线旁。匹配到路段，未定位摄影者精确站位。",
+    "pixelWidth": 1280,
+    "pixelHeight": 720,
+    "modification": "原图保存，保留潮新闻水印，未裁剪、放大或改写内容",
+    "locationConfidence": "路段级 · 高，非精确摄影坐标",
+    "downloadDate": "2026-10-20",
+    "matchAssessment": {
+      "source": 20,
+      "location": 40,
+      "track": 0,
+      "visual": 20,
+      "reason": "原文小柏线及古银杏公园路牌互证；无摄影点GPS及原始轨迹。"
+    }
+  },
+  {
+    "id": "badu-village-tidenews",
+    "group": "badu",
+    "kind": "road",
+    "routeIds": [
+      "badu-ginkgo-road"
+    ],
+    "src": "photos/badu-village-tidenews-202607.jpg",
+    "storage": "local",
+    "source": "https://tidenews.com.cn/news.html?id=3505512",
+    "originalUrl": "https://meizi-chao-pub.8531.cn/2083058777824477187_1280px.jpg?height=720&width=1280",
+    "author": "潮新闻记者 朱高祥",
+    "date": "报道2026-07-19；拍摄日未单列",
+    "checked": "2026-10-20",
+    "sourceType": "news-original-image",
+    "license": "潮新闻版权 · 原文注明“转载请注明出处”",
+    "caption": "小柏线 · 方一村路口与村标",
+    "relation": "画面可读“方一”村标，原文图注“方一村一景”，与前图同一采访段和小柏线村庄环境交叉对应。展示本线方一村路段道路环境，不据此承诺当天通行。",
+    "verification": "画面可读“方一”村标，原文图注“方一村一景”，与前图同一采访段和小柏线村庄环境交叉对应。展示本线方一村路段道路环境，不据此承诺当天通行。",
+    "pixelWidth": 1280,
+    "pixelHeight": 720,
+    "modification": "原图保存，保留潮新闻水印，未裁剪、放大或改写内容",
+    "locationConfidence": "路段级 · 高，非精确摄影坐标",
+    "downloadDate": "2026-10-20",
+    "matchAssessment": {
+      "source": 20,
+      "location": 35,
+      "track": 0,
+      "visual": 20,
+      "reason": "原文方一村图注与村标互证；摄影站位及原始轨迹未定位。"
+    }
+  },
+  {
+    "id": "tonglu-yunyi-road-3",
+    "group": "tonglu",
+    "kind": "road",
+    "routeIds": [
+      "tonglu-riverside"
+    ],
+    "src": "photos/tonglu-yunyi-road-3.webp",
+    "storage": "local",
+    "source": "https://www.xiaohongshu.com/explore/6a40fc2d0000000006021897",
+    "author": "云衣",
+    "date": "2026-06-28（轨迹日期；各图拍摄时刻未注明）",
+    "checked": "2026-10-20",
+    "downloadDate": "2026-10-20",
+    "assessmentDate": "2026-10-20",
+    "sourceType": "social-original-image",
+    "platform": "xiaohongshu",
+    "sourceImageIndex": 3,
+    "license": "原作者版权 · 原帖未注明开放许可",
+    "caption": "富春江城南岸 · 廊架慢行空间（行程参考）",
+    "relation": "原帖23.85km轨迹经过桐庐城南岸，与本方案滨江生态公园—梅林公园江岸方向重合；图片有道路主体，摄影点未定位，按同岸行程参考。作者提醒上下层有断点需搬车，照片不能证明全线准入或连通。",
+    "verification": "读取原帖全文、图组并逐图目视核对；原帖23.85km轨迹经过桐庐城南岸，与本方案滨江生态公园—梅林公园江岸方向重合；图片有道路主体，摄影点未定位，按同岸行程参考。作者提醒上下层有断点需搬车，照片不能证明全线准入或连通。",
+    "pixelWidth": 1080,
+    "pixelHeight": 1440,
+    "modification": "保存原帖可获取原图，保留水印，未放大或改写画面",
+    "matchAssessment": {
+      "source": 20,
+      "location": 30,
+      "track": 0,
+      "visual": 10,
+      "reason": "原帖23.85km轨迹经过桐庐城南岸，与本方案滨江生态公园—梅林公园江岸方向重合；图片有道路主体，摄影点未定位，按同岸行程参考。作者提醒上下层有断点需搬车，照片不能证明全线准入或连通。"
+    },
+    "referenceOnly": true
+  },
+  {
+    "id": "tonglu-yunyi-road-6",
+    "group": "tonglu",
+    "kind": "road",
+    "routeIds": [
+      "tonglu-riverside"
+    ],
+    "src": "photos/tonglu-yunyi-road-6.webp",
+    "storage": "local",
+    "source": "https://www.xiaohongshu.com/explore/6a40fc2d0000000006021897",
+    "author": "云衣",
+    "date": "2026-06-28（轨迹日期；各图拍摄时刻未注明）",
+    "checked": "2026-10-20",
+    "downloadDate": "2026-10-20",
+    "assessmentDate": "2026-10-20",
+    "sourceType": "social-original-image",
+    "platform": "xiaohongshu",
+    "sourceImageIndex": 6,
+    "license": "原作者版权 · 原帖未注明开放许可",
+    "caption": "富春江城南岸 · 上下层江岸连接处（行程参考）",
+    "relation": "原帖23.85km轨迹经过桐庐城南岸，与本方案滨江生态公园—梅林公园江岸方向重合；图片有道路主体，摄影点未定位，按同岸行程参考。作者提醒上下层有断点需搬车，照片不能证明全线准入或连通。",
+    "verification": "读取原帖全文、图组并逐图目视核对；原帖23.85km轨迹经过桐庐城南岸，与本方案滨江生态公园—梅林公园江岸方向重合；图片有道路主体，摄影点未定位，按同岸行程参考。作者提醒上下层有断点需搬车，照片不能证明全线准入或连通。",
+    "pixelWidth": 1440,
+    "pixelHeight": 1080,
+    "modification": "保存原帖可获取原图，保留水印，未放大或改写画面",
+    "matchAssessment": {
+      "source": 20,
+      "location": 30,
+      "track": 0,
+      "visual": 10,
+      "reason": "原帖23.85km轨迹经过桐庐城南岸，与本方案滨江生态公园—梅林公园江岸方向重合；图片有道路主体，摄影点未定位，按同岸行程参考。作者提醒上下层有断点需搬车，照片不能证明全线准入或连通。"
+    },
+    "referenceOnly": true
+  },
+  {
+    "id": "tonglu-yunyi-road-9",
+    "group": "tonglu",
+    "kind": "road",
+    "routeIds": [
+      "tonglu-riverside"
+    ],
+    "src": "photos/tonglu-yunyi-road-9.webp",
+    "storage": "local",
+    "source": "https://www.xiaohongshu.com/explore/6a40fc2d0000000006021897",
+    "author": "云衣",
+    "date": "2026-06-28（轨迹日期；各图拍摄时刻未注明）",
+    "checked": "2026-10-20",
+    "downloadDate": "2026-10-20",
+    "assessmentDate": "2026-10-20",
+    "sourceType": "social-original-image",
+    "platform": "xiaohongshu",
+    "sourceImageIndex": 9,
+    "license": "原作者版权 · 原帖未注明开放许可",
+    "caption": "富春江城南岸 · 林荫铺装路面（行程参考）",
+    "relation": "原帖23.85km轨迹经过桐庐城南岸，与本方案滨江生态公园—梅林公园江岸方向重合；图片有道路主体，摄影点未定位，按同岸行程参考。作者提醒上下层有断点需搬车，照片不能证明全线准入或连通。",
+    "verification": "读取原帖全文、图组并逐图目视核对；原帖23.85km轨迹经过桐庐城南岸，与本方案滨江生态公园—梅林公园江岸方向重合；图片有道路主体，摄影点未定位，按同岸行程参考。作者提醒上下层有断点需搬车，照片不能证明全线准入或连通。",
+    "pixelWidth": 1080,
+    "pixelHeight": 1440,
+    "modification": "保存原帖可获取原图，保留水印，未放大或改写画面",
+    "matchAssessment": {
+      "source": 20,
+      "location": 30,
+      "track": 0,
+      "visual": 10,
+      "reason": "原帖23.85km轨迹经过桐庐城南岸，与本方案滨江生态公园—梅林公园江岸方向重合；图片有道路主体，摄影点未定位，按同岸行程参考。作者提醒上下层有断点需搬车，照片不能证明全线准入或连通。"
+    },
+    "referenceOnly": true
+  },
+  {
+    "id": "westlake-clockwise-road-2",
+    "group": "westlake",
+    "kind": "road",
+    "routeIds": [
+      "westlake-road",
+      "westlake-hills-loop",
+      "westlake-nanshan-night"
+    ],
+    "src": "photos/westlake-clockwise-road-2.webp",
+    "storage": "local",
+    "source": "https://www.xiaohongshu.com/explore/6a1bdbcd000000000702a6f3",
+    "author": "每天都很困",
+    "date": "原帖编辑于10-08（年份及各图拍摄日未单列）",
+    "checked": "2026-10-20",
+    "downloadDate": "2026-10-20",
+    "assessmentDate": "2026-10-20",
+    "sourceType": "social-original-image",
+    "platform": "xiaohongshu",
+    "sourceImageIndex": 2,
+    "license": "原作者版权 · 原帖未注明开放许可",
+    "caption": "环西湖公共道路 · 林荫街道",
+    "relation": "原帖附南山路—杨公堤—北山街环线示意与正文，照片展示同次环湖行程中的公共道路；未定位摄影站位，作为行程关联参考。日间历史照片不代表当前路况或夜间照明；不据此导向苏堤、白堤骑行。",
+    "verification": "读取原帖全文、图组并逐图目视核对；原帖附南山路—杨公堤—北山街环线示意与正文，照片展示同次环湖行程中的公共道路；未定位摄影站位，作为行程关联参考。日间历史照片不代表当前路况或夜间照明；不据此导向苏堤、白堤骑行。",
+    "pixelWidth": 1440,
+    "pixelHeight": 1080,
+    "modification": "保存原帖可获取原图，保留水印，未放大或改写画面",
+    "matchAssessment": {
+      "source": 20,
+      "location": 30,
+      "track": 10,
+      "visual": 10,
+      "reason": "原帖附南山路—杨公堤—北山街环线示意与正文，照片展示同次环湖行程中的公共道路；未定位摄影站位，作为行程关联参考。日间历史照片不代表当前路况或夜间照明；不据此导向苏堤、白堤骑行。"
+    },
+    "referenceOnly": false
+  },
+  {
+    "id": "westlake-clockwise-road-4",
+    "group": "westlake",
+    "kind": "road",
+    "routeIds": [
+      "westlake-road",
+      "westlake-hills-loop",
+      "westlake-nanshan-night"
+    ],
+    "src": "photos/westlake-clockwise-road-4.webp",
+    "storage": "local",
+    "source": "https://www.xiaohongshu.com/explore/6a1bdbcd000000000702a6f3",
+    "author": "每天都很困",
+    "date": "原帖编辑于10-08（年份及各图拍摄日未单列）",
+    "checked": "2026-10-20",
+    "downloadDate": "2026-10-20",
+    "assessmentDate": "2026-10-20",
+    "sourceType": "social-original-image",
+    "platform": "xiaohongshu",
+    "sourceImageIndex": 4,
+    "license": "原作者版权 · 原帖未注明开放许可",
+    "caption": "南山路 · 雷峰路停车场旁",
+    "relation": "画面可读“雷峰路停车场”，太子湾北、苏堤等方向牌与南山路路段对应。日间历史照片不代表当前路况或夜间照明；不据此导向苏堤、白堤骑行。",
+    "verification": "读取原帖全文、图组并逐图目视核对；画面可读“雷峰路停车场”，太子湾北、苏堤等方向牌与南山路路段对应。日间历史照片不代表当前路况或夜间照明；不据此导向苏堤、白堤骑行。",
+    "pixelWidth": 1440,
+    "pixelHeight": 1080,
+    "modification": "保存原帖可获取原图，保留水印，未放大或改写画面",
+    "matchAssessment": {
+      "source": 20,
+      "location": 40,
+      "track": 10,
+      "visual": 20,
+      "reason": "画面可读“雷峰路停车场”，太子湾北、苏堤等方向牌与南山路路段对应。日间历史照片不代表当前路况或夜间照明；不据此导向苏堤、白堤骑行。"
+    },
+    "referenceOnly": false
+  },
+  {
+    "id": "westlake-clockwise-road-6",
+    "group": "westlake",
+    "kind": "road",
+    "routeIds": [
+      "westlake-road"
+    ],
+    "src": "photos/westlake-clockwise-road-6.webp",
+    "storage": "local",
+    "source": "https://www.xiaohongshu.com/explore/6a1bdbcd000000000702a6f3",
+    "author": "每天都很困",
+    "date": "原帖编辑于10-08（年份及各图拍摄日未单列）",
+    "checked": "2026-10-20",
+    "downloadDate": "2026-10-20",
+    "assessmentDate": "2026-10-20",
+    "sourceType": "social-original-image",
+    "platform": "xiaohongshu",
+    "sourceImageIndex": 6,
+    "license": "原作者版权 · 原帖未注明开放许可",
+    "caption": "环西湖公共道路 · 林荫弯道",
+    "relation": "原帖附南山路—杨公堤—北山街环线示意与正文，照片展示同次环湖行程中的公共道路；未定位摄影站位，作为行程关联参考。日间历史照片不代表当前路况或夜间照明；不据此导向苏堤、白堤骑行。",
+    "verification": "读取原帖全文、图组并逐图目视核对；原帖附南山路—杨公堤—北山街环线示意与正文，照片展示同次环湖行程中的公共道路；未定位摄影站位，作为行程关联参考。日间历史照片不代表当前路况或夜间照明；不据此导向苏堤、白堤骑行。",
+    "pixelWidth": 1440,
+    "pixelHeight": 1080,
+    "modification": "保存原帖可获取原图，保留水印，未放大或改写画面",
+    "matchAssessment": {
+      "source": 20,
+      "location": 30,
+      "track": 10,
+      "visual": 10,
+      "reason": "原帖附南山路—杨公堤—北山街环线示意与正文，照片展示同次环湖行程中的公共道路；未定位摄影站位，作为行程关联参考。日间历史照片不代表当前路况或夜间照明；不据此导向苏堤、白堤骑行。"
+    },
+    "referenceOnly": false
+  },
+  {
+    "id": "beishan-aries-road",
+    "group": "westlake",
+    "kind": "road",
+    "routeIds": [
+      "westlake-road",
+      "westlake-hills-loop",
+      "westlake-tea-road",
+      "westlake-beishan-night",
+      "westlake-nanshan-night"
+    ],
+    "src": "photos/beishan-aries-road.webp",
+    "storage": "local",
+    "source": "https://www.xiaohongshu.com/explore/687e1f88000000000d018191",
+    "author": "白洋-Aries",
+    "date": "原帖编辑于2025-07-30；各图拍摄日未单列",
+    "checked": "2026-10-20",
+    "downloadDate": "2026-10-20",
+    "assessmentDate": "2026-10-20",
+    "sourceType": "social-original-image",
+    "platform": "xiaohongshu",
+    "sourceImageIndex": 5,
+    "license": "原作者版权 · 原帖未注明开放许可",
+    "caption": "北山街 · 湖畔林荫公共道路",
+    "relation": "原帖标题、正文和骑行行程明确北山街，画面可见湖岸荷塘、路面与行道树。关联北山街共线路段，具体摄影站位未标注；日间图不证明夜间照明。",
+    "verification": "读取原帖全文、图组并逐图目视核对；原帖标题、正文和骑行行程明确北山街，画面可见湖岸荷塘、路面与行道树。关联北山街共线路段，具体摄影站位未标注；日间图不证明夜间照明。",
+    "pixelWidth": 1080,
+    "pixelHeight": 1439,
+    "modification": "保存原帖可获取原图，保留水印，未放大或改写画面",
+    "matchAssessment": {
+      "source": 20,
+      "location": 35,
+      "track": 10,
+      "visual": 20,
+      "reason": "原帖标题、正文和骑行行程明确北山街，画面可见湖岸荷塘、路面与行道树。关联北山街共线路段，具体摄影站位未标注；日间图不证明夜间照明。"
+    },
+    "referenceOnly": false
+  },
+  {
+    "id": "wentao-puyan-road-2024",
+    "group": "binjiang",
+    "kind": "road",
+    "routeIds": [
+      "binjiang-wentao-night",
+      "binjiang-wentao-short-night"
+    ],
+    "src": "photos/wentao-puyan-road-2024.webp",
+    "storage": "local",
+    "source": "https://www.xiaohongshu.com/explore/660905eb000000001a01399b",
+    "author": "猴酱😋",
+    "date": "2024-03-31发布；拍摄日未单列",
+    "checked": "2026-10-20",
+    "downloadDate": "2026-10-20",
+    "assessmentDate": "2026-10-20",
+    "sourceType": "social-original-image",
+    "platform": "xiaohongshu",
+    "sourceImageIndex": 4,
+    "license": "原作者版权 · 原帖未注明开放许可",
+    "caption": "闻涛路浦沿段 · 沿江慢行路面",
+    "relation": "原帖明确滨江浦沿闻涛路，照片为独立道路原图，可见江侧护栏、慢行标线与分隔跑道；没有细分摄影点，按闻涛路西段同路参考，不作夜间照明依据。",
+    "verification": "读取原帖全文、图组并逐图目视核对；原帖明确滨江浦沿闻涛路，照片为独立道路原图，可见江侧护栏、慢行标线与分隔跑道；没有细分摄影点，按闻涛路西段同路参考，不作夜间照明依据。",
+    "pixelWidth": 1440,
+    "pixelHeight": 1080,
+    "modification": "保存原帖可获取原图，保留水印，未放大或改写画面",
+    "matchAssessment": {
+      "source": 20,
+      "location": 30,
+      "track": 0,
+      "visual": 10,
+      "reason": "原帖明确滨江浦沿闻涛路，照片为独立道路原图，可见江侧护栏、慢行标线与分隔跑道；没有细分摄影点，按闻涛路西段同路参考，不作夜间照明依据。"
+    },
+    "referenceOnly": true
+  },
+  {
+    "id": "mogan-laoling-village-road",
+    "group": "mogan",
+    "kind": "road",
+    "routeIds": [
+      "mogan-foothills"
+    ],
+    "src": "photos/mogan-laoling-village-road.webp",
+    "storage": "local",
+    "source": "https://www.xiaohongshu.com/explore/69ee24c8000000002301f943",
+    "author": "dussica",
+    "date": "04-26发布（年份及拍摄日未单列）",
+    "checked": "2026-10-20",
+    "downloadDate": "2026-10-20",
+    "assessmentDate": "2026-10-20",
+    "sourceType": "social-original-image",
+    "platform": "xiaohongshu",
+    "sourceImageIndex": 7,
+    "license": "原作者版权 · 原帖未注明开放许可",
+    "caption": "劳岭村 · 林荫村道（线路参考）",
+    "relation": "原帖明确劳岭村与通往庾村的乡村道路行程，图组有劳岭/石颐方向牌、村道白边线及沿路民居；村道具体站位未定位，按本方案劳岭村段线路参考，不代表全线实骑或水库管理区准入。",
+    "verification": "读取原帖全文、图组并逐图目视核对；原帖明确劳岭村与通往庾村的乡村道路行程，图组有劳岭/石颐方向牌、村道白边线及沿路民居；村道具体站位未定位，按本方案劳岭村段线路参考，不代表全线实骑或水库管理区准入。",
+    "pixelWidth": 1080,
+    "pixelHeight": 1440,
+    "modification": "保存原帖可获取原图，保留水印，未放大或改写画面",
+    "matchAssessment": {
+      "source": 20,
+      "location": 30,
+      "track": 0,
+      "visual": 10,
+      "reason": "原帖明确劳岭村与通往庾村的乡村道路行程，图组有劳岭/石颐方向牌、村道白边线及沿路民居；村道具体站位未定位，按本方案劳岭村段线路参考，不代表全线实骑或水库管理区准入。"
+    },
+    "referenceOnly": true
+  },
+  {
+    "id": "puyang-linpu-oldstreet-road",
+    "group": "puyang",
+    "kind": "road",
+    "routeIds": [
+      "puyang-greenway"
+    ],
+    "src": "photos/puyang-linpu-oldstreet-road.webp",
+    "storage": "local",
+    "source": "https://www.xiaohongshu.com/explore/672f4845000000001901496b",
+    "author": "老坛酸菜钵钵鸡",
+    "date": "2024-11-10编辑；拍摄日未单列",
+    "checked": "2026-10-20",
+    "downloadDate": "2026-10-20",
+    "assessmentDate": "2026-10-20",
+    "sourceType": "social-original-image",
+    "platform": "xiaohongshu",
+    "sourceImageIndex": 1,
+    "license": "原作者版权 · 原帖未注明开放许可",
+    "caption": "临浦老街 · 筒仓地标旁道路（接驳参考）",
+    "relation": "画面可读“临浦 LINPU XIAOSHAN”筒仓地标并可见公共路面，原帖明确打卡临浦古镇。仅关联本方案临浦老街起终点接驳片区，不将132km跨诸暨行程的其他照片挂到本线，未定位精确摄影站位。",
+    "verification": "读取原帖全文、图组并逐图目视核对；画面可读“临浦 LINPU XIAOSHAN”筒仓地标并可见公共路面，原帖明确打卡临浦古镇。仅关联本方案临浦老街起终点接驳片区，不将132km跨诸暨行程的其他照片挂到本线，未定位精确摄影站位。",
+    "pixelWidth": 1080,
+    "pixelHeight": 1440,
+    "modification": "保存原帖可获取原图，保留水印，未放大或改写画面",
+    "matchAssessment": {
+      "source": 20,
+      "location": 35,
+      "track": 0,
+      "visual": 10,
+      "reason": "画面可读“临浦 LINPU XIAOSHAN”筒仓地标并可见公共路面，原帖明确打卡临浦古镇。仅关联本方案临浦老街起终点接驳片区，不将132km跨诸暨行程的其他照片挂到本线，未定位精确摄影站位。"
+    },
+    "referenceOnly": true
+  },
+  {
+    "id": "nanhu-haiyantang-road-2018",
+    "group": "nanhu",
+    "kind": "road",
+    "routeIds": [
+      "nanhu-roads",
+      "nanhu-short"
+    ],
+    "src": "photos/nanhu-haiyantang-road-2018.jpg",
+    "storage": "local",
+    "source": "https://cs.zjol.com.cn/tszc/201806/t20180628_7643927.shtml",
+    "originalUrl": "https://cs.zjol.com.cn/tszc/201806/W020180628286955246076.jpg",
+    "author": "王振宇 / 嘉兴日报",
+    "date": "2018-06-25拍摄；2018-06-28报道",
+    "checked": "2026-10-20",
+    "downloadDate": "2026-10-20",
+    "assessmentDate": "2026-10-20",
+    "sourceType": "news-original-image",
+    "license": "嘉兴日报版权 · 未注明开放许可",
+    "caption": "海盐塘路 · 历史街道路面（2018年）",
+    "relation": "原报道明确为南湖旁海盐塘路，主体可见沿街路面和步行空间，关联本方案海盐塘路起终点段；摄影站位未单列。2018年历史夜景、原图500×333，不证明当前路况或照明。",
+    "verification": "读取报道正文、摄影署名及原图；原报道明确为南湖旁海盐塘路，主体可见沿街路面和步行空间，关联本方案海盐塘路起终点段；摄影站位未单列。2018年历史夜景、原图500×333，不证明当前路况或照明。",
+    "pixelWidth": 500,
+    "pixelHeight": 333,
+    "modification": "保存原报道可获取原图，未放大或改写画面",
+    "matchAssessment": {
+      "source": 20,
+      "location": 40,
+      "track": 0,
+      "visual": 10,
+      "reason": "原报道明确为南湖旁海盐塘路，主体可见沿街路面和步行空间，关联本方案海盐塘路起终点段；摄影站位未单列。2018年历史夜景、原图500×333，不证明当前路况或照明。"
+    }
+  },
+  {
+    "id": "jinhua-jiefang-40",
+    "group": "jinhua",
+    "kind": "road",
+    "routeIds": [
+      "jinhua-city"
+    ],
+    "src": "photos/jinhua-jiefang-road-40s.png",
+    "storage": "local",
+    "source": "https://tidenews.com.cn/news.html?id=2918234",
+    "originalUrl": "https://meizi-chao-pub.8531.cn/1842385990831386626_hdw.mp4?width=1280&height=720&isVertical=0&fsize=33721499&duration=104",
+    "author": "叶振宇 / 潮新闻",
+    "date": "2024-10-05报道；拍摄日未单列",
+    "checked": "2026-10-20",
+    "captureDate": "2026-10-20",
+    "assessmentDate": "2026-10-20",
+    "sourceType": "news-video-frame",
+    "platform": "潮新闻",
+    "frameTimeSeconds": 40,
+    "frameTime": "00:40",
+    "license": "潮新闻版权 · 原文注明“转载请注明出处”",
+    "caption": "解放东路 · 莲花井与景虹广场旁路面",
+    "relation": "原文与视频旁白明确解放东路后街路口，画面可读景虹广场，公共路面、标线与车辆清楚；本方案回程经过解放东路。 原片00:40，历史画面不代表当前路况。",
+    "verification": "读取原文、公开原视频720p；逐帧核对道路与地标。",
+    "pixelWidth": 1280,
+    "pixelHeight": 720,
+    "modification": "从公开原视频直接读取原始1280×720帧，保留字幕和水印，无平台界面、未放大或改写画面",
+    "matchAssessment": {
+      "source": 20,
+      "location": 40,
+      "track": 0,
+      "visual": 20,
+      "reason": "原文与视频旁白明确解放东路后街路口，画面可读景虹广场，公共路面、标线与车辆清楚；本方案回程经过解放东路。 无独立骑行轨迹，轨迹项不加分。"
+    }
+  },
+  {
+    "id": "jinhua-jiefang-56",
+    "group": "jinhua",
+    "kind": "road",
+    "routeIds": [
+      "jinhua-city"
+    ],
+    "src": "photos/jinhua-jiefang-road-56s.png",
+    "storage": "local",
+    "source": "https://tidenews.com.cn/news.html?id=2918234",
+    "originalUrl": "https://meizi-chao-pub.8531.cn/1842385990831386626_hdw.mp4?width=1280&height=720&isVertical=0&fsize=33721499&duration=104",
+    "author": "叶振宇 / 潮新闻",
+    "date": "2024-10-05报道；拍摄日未单列",
+    "checked": "2026-10-20",
+    "captureDate": "2026-10-20",
+    "assessmentDate": "2026-10-20",
+    "sourceType": "news-video-frame",
+    "platform": "潮新闻",
+    "frameTimeSeconds": 56,
+    "frameTime": "00:56",
+    "license": "潮新闻版权 · 原文注明“转载请注明出处”",
+    "caption": "解放东路 · 西市街天桥夜间道路",
+    "relation": "原文明确解放东路西市街—明月街段；画面可读“西市街人行天桥”，桥下可见机动车道和道路隔离栏。只说明历史道路环境，不导向天桥骑行或夜市摊位穿行。 原片00:56，历史画面不代表当前路况。",
+    "verification": "读取原文、公开原视频720p；逐帧核对道路与地标。",
+    "pixelWidth": 1280,
+    "pixelHeight": 720,
+    "modification": "从公开原视频直接读取原始1280×720帧，保留字幕和水印，无平台界面、未放大或改写画面",
+    "matchAssessment": {
+      "source": 20,
+      "location": 40,
+      "track": 0,
+      "visual": 20,
+      "reason": "原文明确解放东路西市街—明月街段；画面可读“西市街人行天桥”，桥下可见机动车道和道路隔离栏。只说明历史道路环境，不导向天桥骑行或夜市摊位穿行。 无独立骑行轨迹，轨迹项不加分。"
+    }
   }
 ];
-  for(const r of ROUTES){
-    r.photos=additions.filter(p=>p.kind==='road'&&!String(p.publicationStatus||'').startsWith('excluded-')&&(p.routeIds||[]).includes(r.id));
-    r.photoTarget=3; r.photoMissing=Math.max(0,3-r.photos.filter(p=>!p.referenceOnly).length);
-    if(r.photoMissing)r.photoGap=r.photos.length?'道路图目标3张，仍待补'+r.photoMissing+'张对应路段的照片。':'道路实拍待补：仅收录展示骑行路面且能核对路段的图片。';
-  }
-  for(const r of EXPANSION_CANDIDATES){
-    const candidatePhotos=additions.filter(p=>p.kind==='road'&&!String(p.publicationStatus||'').startsWith('excluded-')&&(p.candidateIds||[]).includes(r.id));
-    if(candidatePhotos.length)r.photos=[...(r.photos||[]),...candidatePhotos];
-    if(!Array.isArray(r.photos))r.photos=[];
-    r.photoTarget=3; r.photoMissing=Math.max(0,3-r.photos.filter(p=>!p.referenceOnly).length);
-    if(r.photoMissing&&candidatePhotos.length)r.photoGap='道路图目标3张，仍待补'+r.photoMissing+'张对应路段的照片。';
-  }
+
+ const score=p=>{const m=p.matchAssessment;return m?m.source+m.location+m.track+m.visual:null;};
+ const eligible=p=>!p.matchAssessment||(!p.matchAssessment.conflict&&score(p)>=60);
+ for(const r of ROUTES){
+  r.photos=additions.filter(p=>(p.routeIds||[]).includes(r.id)&&eligible(p));
+  r.photoTarget=3;r.photoMissing=Math.max(0,3-r.photos.filter(p=>p.scope!=='detour').length);
+  r.photoGap=r.photoMissing?(r.photos.length?'道路图目标3张，仍待补'+r.photoMissing+'张。已展示图片含关联参考，详见评分依据。':'暂无达到60%关联评分的道路实拍；保留缺口，不用同片区景点替代。'):'';
+  r.notes=r.notes.filter(n=>!n.startsWith('对应本方案的道路实拍')&&!n.startsWith('已补两张2026年报道'));
+ }
+ for(const r of EXPANSION_CANDIDATES){
+  const candidatePhotos=additions.filter(p=>(p.candidateIds||[]).includes(r.id)&&eligible(p));
+  if(candidatePhotos.length)r.photos=candidatePhotos;
+ }
 })();

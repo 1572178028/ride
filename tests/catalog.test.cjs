@@ -8,7 +8,7 @@ const root = path.resolve(__dirname, '..');
 const app = {};
 app.window = app;
 vm.createContext(app);
-for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'expanded-catalog.js', 'city-catalog.js', 'research-updates.js', 'night-catalog.js', 'photo-data.js', 'meiling-map-data.js', 'meiling-catalog.js', 'westlake-circuit-map-data.js', 'westlake-circuit-catalog.js', 'puyang-map-data.js', 'puyang-catalog.js', 'photo-updates.js', 'huzhou-parking-updates.js', 'huzhou-expansion-map-data.js', 'huzhou-expansion-catalog.js', 'road-photo-audit-updates.js', 'catalog-metadata.js', 'map-renderer.js']) {
+for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'expanded-catalog.js', 'city-catalog.js', 'research-updates.js', 'night-catalog.js', 'photo-data.js', 'meiling-map-data.js', 'meiling-catalog.js', 'westlake-circuit-map-data.js', 'westlake-circuit-catalog.js', 'puyang-map-data.js', 'puyang-catalog.js', 'huzhou-parking-updates.js', 'huzhou-expansion-map-data.js', 'huzhou-expansion-catalog.js', 'photo-updates.js', 'catalog-metadata.js', 'map-renderer.js']) {
   vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), app, { filename: file });
 }
 function km(a, b) {
@@ -67,7 +67,7 @@ test('Puyang is published with explicitly conditional parking and counted connec
  assert.equal(route.distance,16.7);
  assert.equal(app.REGIONAL_PLANS[route.id].connectorKm,0.758);
  assert.ok(!app.EXPANSION_CANDIDATES.some(r=>r.id==='puyang-greenway-research'));
- assert.equal(route.photos.length,0,'unlocated northern photos must not become Linpu verification');
+ assert.equal(route.photos.length,1);assert.match(route.photos[0].relation,/临浦.*起终点接驳/);assert.ok(!route.photos.some(p=>p.id==='puyang-north-xhs'));
  assert.ok(app.makeMapSVG(route).includes('data-poi="parking"'));
 });
 test('displayed distances match stored road geometry, counting return trips', () => {
@@ -301,11 +301,20 @@ test('new city lakes preserve actual shoreline and island polygons', () => {
 
 test('local and external licensed photos are attributed and attached to their actual subject', () => {
   const licenses = JSON.parse(fs.readFileSync(path.join(root, 'research/photo-licenses.json')));
-  assert.equal(licenses.length, 39);
+  assert.equal(licenses.length, 52);
   for (const r of [...app.ROUTES, ...app.EXPANSION_CANDIDATES]) for (const photo of r.photos || []) {
     const record = licenses.find(p => p.src === photo.src);
     assert.ok(record && record.author === photo.author && record.license === photo.license);
-    if(photo.sourceType==='news-original-image'){assert.equal(new URL(photo.source).hostname,'tidenews.com.cn');assert.match(photo.license,/转载请注明出处/);assert.ok(!photo.licenseUrl);assert.ok(['badu-park-tidenews','badu-village-tidenews'].includes(photo.id));}else if(['social-screenshot','social-image','press-photo','video-frame'].includes(photo.sourceType)){assert.ok(['www.xiaohongshu.com','pic.hangzhou.com.cn','hznews.hangzhou.com.cn','www.bilibili.com','www.sohu.com'].includes(new URL(photo.source).hostname));assert.ok(photo.captureDate);assert.match(photo.license,/未声明开放许可/);assert.ok(!photo.licenseUrl);}else{assert.ok(photo.source.startsWith('https://commons.wikimedia.org/wiki/File:'));assert.ok(photo.licenseUrl);}
+    const host=new URL(photo.source).hostname;
+    if(['news-original-image','news-video-frame'].includes(photo.sourceType)){
+      assert.ok(['tidenews.com.cn','cs.zjol.com.cn'].includes(host));
+      assert.match(photo.license,/版权|转载请注明出处/);assert.ok(!photo.licenseUrl);
+      if(photo.sourceType==='news-video-frame'){assert.ok(photo.frameTimeSeconds>0);assert.ok(photo.originalUrl.startsWith('https://meizi-chao-pub.8531.cn/'));}
+    }else if(photo.sourceType==='social-original-image'){
+      assert.equal(host,'www.xiaohongshu.com');assert.ok(photo.sourceImageIndex>0);assert.ok(photo.downloadDate);assert.ok(photo.pixelWidth>0&&photo.pixelHeight>0);assert.match(photo.license,/未注明开放许可/);
+    }else if(['social-screenshot','social-image','press-photo','video-frame'].includes(photo.sourceType)){
+      assert.ok(['www.xiaohongshu.com','pic.hangzhou.com.cn','hznews.hangzhou.com.cn','www.bilibili.com','www.sohu.com'].includes(host));assert.ok(photo.captureDate);assert.match(photo.license,/未声明开放许可/);assert.ok(!photo.licenseUrl);
+    }else{assert.ok(photo.source.startsWith('https://commons.wikimedia.org/wiki/File:'));assert.ok(photo.licenseUrl);}
     assert.ok(photo.date && photo.modification && photo.caption);
     if (photo.storage === 'external') assert.ok(['upload.wikimedia.org','thumb.wikimedia.org'].includes(new URL(photo.src).hostname));
     else assert.ok(fs.existsSync(path.join(root, photo.src)));
@@ -314,7 +323,7 @@ test('local and external licensed photos are attributed and attached to their ac
     else if(record.candidateIds){assert.ok(record.candidateIds.includes(r.id),r.id+': photo assigned to an unreviewed research candidate');assert.equal(record.group,r.region);}
     else assert.equal(photo.group, expected);
   }
-  assert.equal(app.ROUTE_METADATA.photoCount, 16, 'reviewed photographs are counted once across variants');
+  assert.equal(app.ROUTE_METADATA.photoCount, 29, 'reviewed photographs are counted once across variants');
 });
 
 test('webpage and export generator load the same final data files', () => {
@@ -444,8 +453,8 @@ test('Map markers show only short identifiers, with accessible full names for in
  }
 });
 test('Photo coverage and gaps stay explicit and every added assignment targets a real route', () => {
- assert.equal(app.ROUTE_METADATA.photoFamilyCount,7);
- assert.equal(app.ROUTE_METADATA.photoRouteCount,13);
+ assert.equal(app.ROUTE_METADATA.photoFamilyCount,12);
+ assert.equal(app.ROUTE_METADATA.photoRouteCount,25);
  const licenses=JSON.parse(fs.readFileSync(path.join(root,'research/photo-licenses.json')));
  for(const p of licenses.filter(p=>p.checked==='2026-10-19')){
   assert.ok(p.relation&&p.verification&&p.kind);
@@ -454,7 +463,7 @@ test('Photo coverage and gaps stay explicit and every added assignment targets a
   for(const id of p.candidateIds||[])assert.ok(app.EXPANSION_CANDIDATES.some(r=>r.id===id),id);
  }
  for(const r of app.ROUTES.filter(r=>!r.photos.length))assert.ok(r.photoGap,r.id);
- assert.ok(!app.ROUTES.find(r=>r.id==='wengjin-short').photos.length,'Salt-town image cannot imply the short western route reaches Yanguan');
+ for(const p of app.ROUTES.find(r=>r.id==='wengjin-short').photos){assert.ok(p.referenceOnly);assert.match(p.relation,/不据此认定/);}
 });
 
 
@@ -487,8 +496,8 @@ test('Wengjin variants share one destination without changing roads or photo cov
  assert.equal(new Set(routes.map(r=>r.shortTitle)).size,3);
  assert.equal(new Set(routes.map(r=>JSON.stringify(r.start.point))).size,1);
  assert.equal(new Set(routes.map(r=>r.parking.poiid||r.parking.id)).size,1);
- assert.equal(routes.find(r=>r.id==='wengjin-short').photos.length,0);
- assert.equal(routes.find(r=>r.id==='wengjin-middle').photos.length,0);
+ assert.equal(routes.find(r=>r.id==='wengjin-short').photos.length,3);
+ assert.equal(routes.find(r=>r.id==='wengjin-middle').photos.length,3);
  const longRoute=routes.find(r=>r.id==='wengjin-yanguan');
  assert.equal(longRoute.photos.length,3);
  assert.equal(longRoute.photoMissing,0);
@@ -540,7 +549,7 @@ test('Huzhou publishes two public-road rides with truthful parking and counted c
 test('Badu road photos retain explicit landmark evidence and original attribution',()=>{
  const r=app.ROUTES.find(r=>r.id==='badu-ginkgo-road');assert.equal(r.photos.length,2);assert.equal(r.photoMissing,1);
  for(const p of r.photos){assert.equal(p.kind,'road');assert.equal(p.pixelWidth,1280);assert.equal(p.pixelHeight,720);assert.match(p.relation,/方一/);assert.equal(p.source,'https://tidenews.com.cn/news.html?id=3505512');assert.match(p.license,/转载请注明出处/);}
- assert.equal(app.ROUTES.find(r=>r.id==='puyang-greenway').photos.length,0);
+ assert.equal(app.ROUTES.find(r=>r.id==='puyang-greenway').photos.length,1);
  assert.equal(app.ROUTES.find(r=>r.id==='yigao-village-road').photos.length,0);
 });
 
@@ -552,9 +561,20 @@ test('photo association thresholds distinguish 60, 70, 85 and 86 without claimin
     const markup = context.photoMatchHTML({matchAssessment:{source:20,location:Math.min(40,score-40),track:Math.max(0,score-80),visual:20,reason:'test'}});
     assert.ok(markup.includes(`photo-match ${tier}`));
     assert.ok(markup.includes(`${score}%`));
+    assert.match(markup, new RegExp('aria-label="[^"]+">'+score+'%<\\/span>'));
     assert.ok(markup.includes('非定位概率'));
   }
   assert.ok(context.photoMatchHTML({}).includes('待评分'));
   const photos=app.ROUTES.find(r=>r.id==='badu-ginkgo-road').photos;
   assert.deepEqual(Array.from(photos,p=>Object.values(p.matchAssessment).filter(v=>typeof v==='number').reduce((a,b)=>a+b,0)),[80,75]);
+});
+
+ test('published road photographs have bounded evidence scores and accurate gap counts',()=>{
+ for(const r of app.ROUTES){
+  assert.equal(r.photoMissing,Math.max(0,3-r.photos.filter(p=>p.scope!=='detour').length),r.id);
+  for(const p of r.photos){const m=p.matchAssessment;assert.ok(m&&m.reason&&!m.conflict,p.id);
+   for(const [k,max] of Object.entries({source:20,location:40,track:20,visual:20}))assert.ok(Number.isInteger(m[k])&&m[k]>=0&&m[k]<=max,p.id+':'+k);
+   assert.ok(m.source+m.location+m.track+m.visual>=60,p.id);
+  }
+ }
 });
