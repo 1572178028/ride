@@ -1,10 +1,10 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.3",
   "date": "2026-10-20",
   "status": "release",
-  "description": "新增杭州浦阳江独立路线，参考免费，费用及取车时间须入场确认。",
+  "description": "新增湖州八都岕小柏线及义皋湖薛线两条独立主线。路侧默认免费，景区车场收费参考。",
   "increments": {
-    "routes": 1,
+    "routes": 2,
     "cities": 0,
     "provinces": 0
   }

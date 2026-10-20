@@ -37,7 +37,7 @@ window.makeMapSVG=function(route,options={}){
  }
  const near=(a,b)=>Math.hypot((a[0]-b[0])*lonFactor,a[1]-b[1])*111.2<.08;
  const [sx,sy]=project(path[0]);
- const startSeparated=!route.parking||Math.hypot((path[0][0]-route.parking.point[0])*lonFactor,path[0][1]-route.parking.point[1])*111.2>=.008;
+ const startSeparated=route.separateStart||!route.parking||Math.hypot((path[0][0]-route.parking.point[0])*lonFactor,path[0][1]-route.parking.point[1])*111.2>=.008;
  const [originalPX,originalPY]=project(route.parking?route.parking.point:path[0]);
  let px=originalPX,py=originalPY;
  if(route.parking&&startSeparated&&Math.hypot(px-sx,py-sy)<40*markerScale){

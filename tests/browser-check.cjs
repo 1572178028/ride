@@ -19,9 +19,9 @@ const server = http.createServer((req, res) => {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1050 }, reducedMotion: 'reduce', acceptDownloads: true });
     watch(page); await page.goto(url); await page.waitForSelector('.route-card');
     assert.equal(await page.evaluate(() => innerWidth), 1440);
-    assert.equal(await page.locator('.route-card').count(), 16);
-    assert.equal(await page.locator('#total-plans').innerText(), '33');
-    assert.equal(await page.locator('#total-parking').innerText(), '17');
+    assert.equal(await page.locator('.route-card').count(), 18);
+    assert.equal(await page.locator('#total-plans').innerText(), '35');
+    assert.equal(await page.locator('#total-parking').innerText(), '19');
     const ids = await page.evaluate(() => ROUTES.map(r => r.id));
     const select = async (p, id) => { await p.evaluate(id => { location.hash = 'route=' + id; }, id); await p.waitForFunction(id => document.querySelector('#selected-heading h2').textContent === ROUTES.find(r => r.id === id).title, id); };
     await page.selectOption('#region-filter','xianghu');
@@ -159,7 +159,7 @@ const server = http.createServer((req, res) => {
     await page.selectOption('#city-filter', 'jinhua'); assert.equal(await page.locator('#region-filter').inputValue(), 'all');
     await page.selectOption('#city-filter', 'all'); await page.selectOption('#parking-filter', 'unknown'); assert.equal(await page.locator('.route-card').count(), 6);
     await page.selectOption('#lane-filter', 'dedicated'); assert.ok(await page.locator('#route-view').isHidden());
-    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 16);
+    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 18);
     await page.locator('#route-library').scrollIntoViewIfNeeded();
     assert.ok(await page.locator('#route-list').evaluate(el => el.scrollHeight > el.clientHeight && getComputedStyle(el).overflowY === 'auto'));
     await page.locator('.card-select').last().click();
@@ -178,14 +178,23 @@ const server = http.createServer((req, res) => {
     await page.locator('#reset-map').click(); assert.equal(await page.locator('#map-container svg').getAttribute('viewBox'), '0 0 1000 610');
     const downloading = page.waitForEvent('download'); await page.locator('#download-map').click(); const download = await downloading;
     assert.equal(await download.failure(), null); assert.ok(download.suggestedFilename().endsWith('.png'));
-    for (const [region, count] of [['huzhou', 4], ['shaoxing', 3], ['hangzhou', 3]]) { await page.selectOption('#research-region', region); assert.equal(await page.locator('.expansion-card').count(), count); }
+    for (const [region, count] of [['huzhou', 2], ['shaoxing', 3], ['hangzhou', 3]]) { await page.selectOption('#research-region', region); assert.equal(await page.locator('.expansion-card').count(), count); }
+    for(const id of ['badu-ginkgo-road','yigao-village-road']){
+      await select(page,id);
+      assert.ok((await page.locator('.parking-box').innerText()).includes(id.startsWith('badu')?'当前价格待入场确认':'默认免费'));
+      assert.equal(await page.locator('.navigation-actions a').count(),4);
+      assert.equal(await page.locator('#map-container [data-poi="parking"]').count(),1);
+      assert.equal(await page.locator('#map-container [data-poi="start"]').count(),1);
+      await page.locator('#map-container').scrollIntoViewIfNeeded();
+      await page.screenshot({path:'/private/tmp/ride-'+id+'-desktop.png'});
+    }
     await page.selectOption('#research-region','huzhou');
-    assert.equal(await page.locator('.parking-option').count(),6);
-    assert.equal(await page.locator('[data-fee-basis="user-default-roadside"]').count(),4);
+    assert.equal(await page.locator('.parking-option').count(),3);
+    assert.equal(await page.locator('[data-fee-basis="user-default-roadside"]').count(),2);
     const hzParkingLinks=await page.locator('.parking-option a').evaluateAll(ns=>ns.map(n=>n.href));
-    assert.equal(hzParkingLinks.length,18);
+    assert.equal(hzParkingLinks.length,9);
     assert.ok(hzParkingLinks.every(u=>!u.includes('undefined')&&!u.includes('NaN')));
-    await page.locator('[data-research-id="huzhou-lougang-research"] .research-parking').scrollIntoViewIfNeeded();
+    await page.locator('[data-research-id="huzhou-nanxun-research"] .research-parking').scrollIntoViewIfNeeded();
     await page.screenshot({path:'/private/tmp/ride-huzhou-parking-desktop.png'});
     await page.selectOption('#research-region', 'shaoxing'); await page.locator('.research-preview summary').click(); assert.ok(await page.locator('.research-preview img').isVisible());
     await page.locator('[data-research-id="shaoxing-eastlake-research"] .photo-open').first().click(); assert.ok((await page.locator('#photo-dialog').innerText()).includes('Logan Wenger')); await page.locator('.photo-close').click();
@@ -229,8 +238,14 @@ const server = http.createServer((req, res) => {
     await mobile.locator('#selected-heading').scrollIntoViewIfNeeded();
     await mobile.screenshot({path:'/private/tmp/ride-puyang-mobile.png'});
     assert.ok(await mobile.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    for(const id of ['badu-ginkgo-road','yigao-village-road']){
+      await select(mobile,id);
+      await mobile.locator('#map-container').scrollIntoViewIfNeeded();
+      await mobile.screenshot({path:'/private/tmp/ride-'+id+'-mobile.png'});
+      assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+    }
     await mobile.selectOption('#research-region','huzhou');
-    assert.equal(await mobile.locator('.parking-option').count(),6);
+    assert.equal(await mobile.locator('.parking-option').count(),3);
     await mobile.locator('[data-research-id="huzhou-lijiaxiang-research"] .research-parking').scrollIntoViewIfNeeded();
     await mobile.screenshot({path:'/private/tmp/ride-huzhou-parking-mobile.png'});
     assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));

@@ -8,7 +8,7 @@ const root = path.resolve(__dirname, '..');
 const app = {};
 app.window = app;
 vm.createContext(app);
-for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'expanded-catalog.js', 'city-catalog.js', 'research-updates.js', 'night-catalog.js', 'photo-data.js', 'meiling-map-data.js', 'meiling-catalog.js', 'westlake-circuit-map-data.js', 'westlake-circuit-catalog.js', 'puyang-map-data.js', 'puyang-catalog.js', 'photo-updates.js', 'huzhou-parking-updates.js', 'catalog-metadata.js', 'map-renderer.js']) {
+for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'expanded-catalog.js', 'city-catalog.js', 'research-updates.js', 'night-catalog.js', 'photo-data.js', 'meiling-map-data.js', 'meiling-catalog.js', 'westlake-circuit-map-data.js', 'westlake-circuit-catalog.js', 'puyang-map-data.js', 'puyang-catalog.js', 'photo-updates.js', 'huzhou-parking-updates.js', 'huzhou-expansion-map-data.js', 'huzhou-expansion-catalog.js', 'catalog-metadata.js', 'map-renderer.js']) {
   vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), app, { filename: file });
 }
 function km(a, b) {
@@ -17,7 +17,7 @@ function km(a, b) {
   return 12742 * Math.atan2(Math.sqrt(q), Math.sqrt(1 - q));
 }
 test('route IDs and map paths are unique and complete', () => {
-  assert.equal(app.ROUTES.length, 33);
+  assert.equal(app.ROUTES.length, 35);
   assert.equal(new Set(app.ROUTES.map(route => route.id)).size, app.ROUTES.length);
   for (const route of app.ROUTES) {
     const points = app.MAP_DATA.paths[route.id];
@@ -30,11 +30,11 @@ test('route IDs and map paths are unique and complete', () => {
     if (route.shape !== '原路往返') assert.ok(km(points[0], points.at(-1)) < 0.01, `${route.id}: closed loop`);
   }
 });
-test('distance variants belong to sixteen route families across sixteen actual areas', () => {
+test('distance variants belong to eighteen route families across eighteen actual areas', () => {
   const mains = app.ROUTES.filter(route => route.id === route.familyId);
-  assert.equal(mains.length, 16);
-  assert.equal(app.ROUTE_METADATA.familyCount, 16);
-  assert.equal(app.ROUTE_METADATA.regionCount, 16);
+  assert.equal(mains.length, 18);
+  assert.equal(app.ROUTE_METADATA.familyCount, 18);
+  assert.equal(app.ROUTE_METADATA.regionCount, 18);
   for (const variant of app.ROUTES) {
     const main = mains.find(route => route.id === variant.familyId);
     assert.ok(main, variant.id);
@@ -45,7 +45,7 @@ test('distance variants belong to sixteen route families across sixteen actual a
   }
 });
 test('research directions cannot claim free parking or inflate the ride catalog', () => {
-  assert.equal(app.EXPANSION_CANDIDATES.length, 12);
+  assert.equal(app.EXPANSION_CANDIDATES.length, 10);
   assert.ok(app.ROUTES.some(route => route.region === 'westlake'));
   assert.ok(app.RESEARCH_MAPS.some(route => route.region === 'jiapu'));
   assert.ok(app.ROUTES.some(route => route.region === 'qiandao'));
@@ -91,7 +91,7 @@ test('every plan preserves parking evidence and exposes overnight restrictions',
     assert.ok(route.parking.id || route.parking.poiid);
     assert.ok(route.parking.condition && route.parking.evidence);
     assert.match(route.parking.source, /^https?:\/\//);
-    assert.equal(route.parking.checked, route.id==='puyang-greenway'?'2026-10-20':['meiling-south-road','westlake-hills-loop'].includes(route.id) ? '2026-10-19' : ['huaxi','nanhu','jinhua','canal','binjiang','qianjiang'].includes(route.region) ? '2026-10-16' : '2026-10-15');
+    assert.equal(route.parking.checked, ['puyang-greenway','badu-ginkgo-road','yigao-village-road'].includes(route.id)?'2026-10-20':['meiling-south-road','westlake-hills-loop'].includes(route.id) ? '2026-10-19' : ['huaxi','nanhu','jinhua','canal','binjiang','qianjiang'].includes(route.region) ? '2026-10-16' : '2026-10-15');
     assert.match(route.parking.verification, /读取|声明|对照/);
     if (route.parking.feeType === 'free') assert.equal(route.parking.price, '¥0');
     else { assert.ok(['paid','unknown'].includes(route.parking.feeType)); assert.notEqual(route.parking.price, '¥0'); assert.ok(route.parking.priceSummary && route.parking.condition); }
@@ -108,10 +108,10 @@ test('every plan preserves parking evidence and exposes overnight restrictions',
     }
     assert.equal(route.dedicated, false, 'shared paths must not become dedicated cycleways');
   }
-  assert.equal(app.ROUTE_METADATA.parkingCount, 17);
-  assert.equal(app.ROUTE_METADATA.freeParkingCount, 5);
-  assert.equal(app.ROUTE_METADATA.paidParkingCount, 6);
-  assert.equal(app.ROUTE_METADATA.shopCount, 31, 'shared stores must be counted once');
+  assert.equal(app.ROUTE_METADATA.parkingCount, 19);
+  assert.equal(app.ROUTE_METADATA.freeParkingCount, 6);
+  assert.equal(app.ROUTE_METADATA.paidParkingCount, 7);
+  assert.equal(app.ROUTE_METADATA.shopCount, 34, 'shared stores must be counted once');
 });
 test('all supply types render distinct markers, names, evidence status and per-type filtering', () => {
   for (const route of app.ROUTES) {
@@ -189,10 +189,10 @@ test('major regional water bodies are retained with multipolygon rings', () => {
 });
 
 // Huzhou is a researched candidate set until real geometry and all parking conditions exist.
-test('Huzhou keeps four directions separate while Jiapu and Huaxi have explicit parking data', () => {
+test('Huzhou keeps unresolved directions separate while Jiapu and Huaxi have explicit parking data', () => {
  const candidates = app.EXPANSION_CANDIDATES.filter(c => c.researchCity === 'huzhou');
  assert.deepEqual(Array.from(candidates, c => c.id).sort(), [
-  'huzhou-badu-research', 'huzhou-lijiaxiang-research', 'huzhou-lougang-research',
+  'huzhou-lijiaxiang-research',
   'huzhou-nanxun-research'
  ].sort());
  for (const candidate of candidates) {
@@ -212,7 +212,7 @@ test('Huzhou keeps four directions separate while Jiapu and Huaxi have explicit 
 
 test('paid routes keep reference charges separate from free parking and unpublished policies', () => {
   const paid = app.ROUTES.filter(r => r.parking.feeType === 'paid');
-  assert.deepEqual(Array.from(paid, r => r.id).sort(), ['binjiang-wentao-night', 'binjiang-wentao-short-night', 'canal-streets', 'mogan-foothills', 'qianjiang-city-night', 'westlake-beishan-night', 'westlake-hills-loop', 'westlake-nanshan-night', 'westlake-road', 'westlake-tea-road', 'yucun-villages']);
+  assert.deepEqual(Array.from(paid, r => r.id).sort(), ['badu-ginkgo-road', 'binjiang-wentao-night', 'binjiang-wentao-short-night', 'canal-streets', 'mogan-foothills', 'qianjiang-city-night', 'westlake-beishan-night', 'westlake-hills-loop', 'westlake-nanshan-night', 'westlake-road', 'westlake-tea-road', 'yucun-villages']);
   for (const r of paid) {
     assert.notEqual(r.parking.price, '¥0');
     assert.ok(r.parking.namedNavigation, 'area pins must use name lookup');
@@ -229,7 +229,7 @@ test('paid routes keep reference charges separate from free parking and unpublis
   const mogan = paid.find(r => r.region === 'mogan');
   assert.match(mogan.parking.condition, /30分钟/);
   assert.match(mogan.parking.condition, /参考价格/);
-  assert.equal(app.ROUTES.filter(r => r.parking.feeType === 'free').length, 12);
+  assert.equal(app.ROUTES.filter(r => r.parking.feeType === 'free').length, 13);
 });
 
 test('research previews use real edges and never draw a free parking pin', () => {
@@ -251,7 +251,7 @@ test('research previews use real edges and never draw a free parking pin', () =>
 test('new cities and parking fee categories remain explicit and deduplicated', () => {
   assert.equal(app.ROUTE_METADATA.cityCount, 4);
   assert.equal(app.ROUTE_METADATA.unknownParkingCount, 6);
-  assert.equal(app.ROUTE_METADATA.restSuggestionCount, 45);
+  assert.equal(app.ROUTE_METADATA.restSuggestionCount, 47);
   for (const r of app.ROUTES) {
     assert.ok(app.CITY_LABELS[r.cityGroup] && app.REGION_LABELS[r.region], r.id);
     if (['nanhu', 'jinhua', 'canal'].includes(r.region)) assert.equal(r.city, { nanhu: '嘉兴市', jinhua: '金华市', canal: '杭州市' }[r.region]);
@@ -504,9 +504,9 @@ test('Wengjin variants share one destination without changing roads or photo cov
 test('Huzhou parking options distinguish user roadside defaults from known charging evidence',()=>{
  const candidates=app.EXPANSION_CANDIDATES.filter(c=>c.researchCity==='huzhou');
  const options=candidates.flatMap(c=>c.parkingOptions||[]);
- assert.equal(options.length,6);
- assert.equal(new Set(options.map(p=>p.provider+':'+p.poiId)).size,6);
- assert.equal(options.filter(p=>p.feeBasis==='user-default-roadside').length,4);
+ assert.equal(options.length,3);
+ assert.equal(new Set(options.map(p=>p.provider+':'+p.poiId)).size,3);
+ assert.equal(options.filter(p=>p.feeBasis==='user-default-roadside').length,2);
  for(const p of options){
   assert.equal(p.checked,'2026-10-20');
   assert.ok(p.name&&p.address&&p.note&&p.query);
@@ -514,8 +514,25 @@ test('Huzhou parking options distinguish user roadside defaults from known charg
   if(p.roadside){assert.equal(p.feeType,'free');assert.equal(p.feeBasis,'user-default-roadside');assert.match(p.rule,/默认免费/);assert.match(p.rule,/现场标志/);}
   else assert.notEqual(p.feeType,'free');
  }
- assert.equal(options.find(p=>p.poiId==='B0FFLC9ZT2').feeType,'paid');
+ assert.equal(app.ROUTES.find(r=>r.id==='badu-ginkgo-road').parking.feeType,'paid');
  assert.ok(options.find(p=>p.poiId==='7db98ae511fa742fd518b73a').note.includes('不是荻港古村门口'));
- assert.equal(app.ROUTE_METADATA.familyCount,16);
- assert.equal(app.ROUTE_METADATA.parkingCount,17,'research options are not formal parking starts');
+ assert.equal(app.ROUTE_METADATA.familyCount,18);
+ assert.equal(app.ROUTE_METADATA.parkingCount,19,'research options are not formal parking starts');
+});
+
+
+test('Huzhou publishes two public-road rides with truthful parking and counted connectors',()=>{
+ const badu=app.ROUTES.find(r=>r.id==='badu-ginkgo-road'),yigao=app.ROUTES.find(r=>r.id==='yigao-village-road');
+ assert.equal(badu.distance,5.9);assert.equal(yigao.distance,5.6);
+ assert.equal(app.REGIONAL_PLANS[badu.id].connectorKm,.297);
+ assert.equal(badu.parking.feeType,'paid');assert.match(badu.parking.rule,/不是2026年现价/);
+ assert.equal(yigao.parking.feeBasis,'user-default-roadside');assert.match(yigao.parking.condition,/用户规划约定/);
+ for(const r of [badu,yigao]){
+  assert.equal(r.cityGroup,'huzhou');assert.equal(r.mapCyclewayKm,0);
+  assert.match(app.makeMapSVG(r),/data-poi="start"/);assert.match(app.makeMapSVG(r),/data-poi="parking"/);assert.equal(r.isolated,false);
+  assert.equal(r.photos.length,0);assert.equal(r.photoMissing,3);assert.ok(r.photoGap);
+  const plan=app.REGIONAL_PLANS[r.id];assert.equal(plan.checked,'2026-10-20');
+  const data=JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(root,'research',plan.snapshot+'-osm.json.gz'))));assert.equal(data.source.checked,'2026-10-20');
+  assert.ok(!app.EXPANSION_CANDIDATES.some(c=>c.id===(r.id===badu.id?'huzhou-badu-research':'huzhou-lougang-research')));
+ }
 });
