@@ -45,7 +45,7 @@ test('distance variants belong to fifteen route families across fifteen actual a
   }
 });
 test('research directions cannot claim free parking or inflate the ride catalog', () => {
-  assert.equal(app.EXPANSION_CANDIDATES.length, 12);
+  assert.equal(app.EXPANSION_CANDIDATES.length, 13);
   assert.ok(app.ROUTES.some(route => route.region === 'westlake'));
   assert.ok(app.RESEARCH_MAPS.some(route => route.region === 'jiapu'));
   assert.ok(app.ROUTES.some(route => route.region === 'qiandao'));
@@ -57,6 +57,20 @@ test('research directions cannot claim free parking or inflate the ride catalog'
     assert.ok(!app.ROUTES.some(route => route.id === candidate.preview));
     assert.equal(candidate.parking, undefined);
   }
+});
+test('Puyang greenway remains a mapped research preview until parking is verified', () => {
+  const candidate=app.EXPANSION_CANDIDATES.find(c=>c.id==='puyang-greenway-research');
+  const preview=app.RESEARCH_MAPS.find(r=>r.id==='puyang-greenway-research');
+  const plan=app.REGIONAL_PLANS['puyang-greenway-research'];
+  assert.ok(candidate&&preview&&plan);
+  assert.ok(candidate.missing.includes('免费停车'));
+  assert.equal(candidate.parking,undefined);
+  assert.ok(plan.distance>10);
+  assert.ok(plan.segments.some(segment=>segment.kind==='cycleway'));
+  assert.ok(!app.makeMapSVG(preview,{export:true}).includes('data-poi="parking"'));
+  assert.equal(candidate.photos.length,3);
+  assert.equal(candidate.photoMissing,0);
+  assert.ok(candidate.photos.every(photo=>photo.caption.includes('具体拍摄段未标明')));
 });
 test('displayed distances match stored road geometry, counting return trips', () => {
   for (const route of app.ROUTES) {
@@ -289,7 +303,7 @@ test('new city lakes preserve actual shoreline and island polygons', () => {
 
 test('local and external licensed photos are attributed and attached to their actual subject', () => {
   const licenses = JSON.parse(fs.readFileSync(path.join(root, 'research/photo-licenses.json')));
-  assert.equal(licenses.length, 34);
+  assert.equal(licenses.length, 37);
   for (const r of [...app.ROUTES, ...app.EXPANSION_CANDIDATES]) for (const photo of r.photos || []) {
     const record = licenses.find(p => p.src === photo.src);
     assert.ok(record && record.author === photo.author && record.license === photo.license);
@@ -299,6 +313,7 @@ test('local and external licensed photos are attributed and attached to their ac
     else assert.ok(fs.existsSync(path.join(root, photo.src)));
     const expected = r.region === 'westlake' ? 'beishan-road' : r.region === 'nanhu' ? 'nanhu' : r.region === 'xianghu' ? 'xianghu' : r.id === 'shaoxing-eastlake-research' ? 'shaoxing' : 'jinhua';
     if(record.routeIds)assert.ok(record.routeIds.includes(r.id),r.id+': photo assigned to an unreviewed route');
+    else if(record.candidateIds){assert.ok(record.candidateIds.includes(r.id),r.id+': photo assigned to an unreviewed research candidate');assert.equal(record.group,r.region);}
     else assert.equal(photo.group, expected);
   }
   assert.equal(app.ROUTE_METADATA.photoCount, 14, 'reviewed photographs are counted once across variants');
@@ -330,7 +345,7 @@ test('published route galleries contain road images only and social screenshots 
 
 test('follow-up audit excludes closed parking and retains new map evidence without publishing research rides', () => {
   for (const c of app.EXPANSION_CANDIDATES) {
-    assert.equal(c.reviewedAt, '2026-10-16');
+    assert.equal(c.reviewedAt, c.id==='puyang-greenway-research'?'2026-10-20':'2026-10-16');
     assert.ok(c.reviewOutcome && c.missing && c.parkingNote && c.roadNote);
     assert.ok(!app.ROUTES.some(r => r.id === c.id));
   }
@@ -437,7 +452,8 @@ test('Photo coverage and gaps stay explicit and every added assignment targets a
  for(const p of licenses.filter(p=>p.checked==='2026-10-19')){
   assert.ok(p.relation&&p.verification&&p.kind);
   assert.equal(p.storage,'local');
-  for(const id of p.routeIds)assert.ok(app.ROUTES.some(r=>r.id===id),id);
+  for(const id of p.routeIds||[])assert.ok(app.ROUTES.some(r=>r.id===id),id);
+  for(const id of p.candidateIds||[])assert.ok(app.EXPANSION_CANDIDATES.some(r=>r.id===id),id);
  }
  for(const r of app.ROUTES.filter(r=>!r.photos.length))assert.ok(r.photoGap,r.id);
  assert.ok(!app.ROUTES.find(r=>r.id==='wengjin-short').photos.length,'Salt-town image cannot imply the short western route reaches Yanguan');

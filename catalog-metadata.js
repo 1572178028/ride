@@ -42,7 +42,7 @@
   const count = values => new Set(values).size;
   const parkingId = r => r.parking.id || r.parking.poiid;
   const parkingCount = type => count(ROUTES.filter(r => r.parking.feeType === type).map(parkingId));
-  window.ROUTE_METADATA = { updated: '2026-10-19', routeCount: ROUTES.length,
+  window.ROUTE_METADATA = { updated: '2026-10-20', routeCount: ROUTES.length,
     familyCount: count(ROUTES.map(r => r.familyId)), regionCount: count(ROUTES.map(r => r.region)),
     cityCount: count(ROUTES.map(r => r.cityGroup)), parkingCount: count(ROUTES.map(parkingId)),
     freeParkingCount: parkingCount('free'), paidParkingCount: parkingCount('paid'), unknownParkingCount: parkingCount('unknown'),

@@ -465,5 +465,25 @@
         30.2478
       ]
     ]
+  },
+  {
+    "id": "puyang-greenway-research",
+    "region": "puyang",
+    "snapshot": "puyangjiang",
+    "anchors": [
+      [
+        120.2409335,
+        30.0382399
+      ],
+      [
+        120.2105597,
+        30.0568696
+      ],
+      [
+        120.1896101,
+        30.0733146
+      ]
+    ],
+    "return": true
   }
 ]

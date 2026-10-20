@@ -144,4 +144,51 @@
       excludedParking: ['520287620'],
       sources: [['都市快报 · 江陵路临时车场停用公告实访', 'https://www.hzzx.gov.cn/cshz/content/2024-03/21/content_8704440.htm'], ['都市快报 · 闻涛路2.0开放路段与步骑用途', 'https://zjnews.zjol.com.cn/zjnews/hznews/202205/t20220506_24189324.shtml'], ['都市快报2016夜骑介绍 · 历史背景', 'https://hznews.hangzhou.com.cn/wenti/content/2016-05/04/content_6163836.htm']]
     });
+  const puyangPlan = REGIONAL_PLANS['puyang-greenway-research'];
+  const puyangStops = ['临浦外滩沿江慢行道南段', '浦阳江沿岸绿道中段', '义桥方向绿道北端'];
+  const puyangNotes = [
+    '研究路径从道路图上的cycleway南段节点起算；临浦外滩停车接驳距离未核实。',
+    '经过浦阳江滨水慢行系统；按当日骑行标识与临时施工公告通行。',
+    '义桥方向研究折返点，按原路返回。'
+  ];
+  EXPANSION_CANDIDATES.push({
+    id: 'puyang-greenway-research', region: 'puyang', researchCity: 'hangzhou',
+    city: '杭州市萧山区', area: '萧山 · 浦阳江沿江绿道',
+    title: '浦阳江绿道 · 临浦至义桥沿江段',
+    direction: '沿浦阳江萧山段堤顶慢行道，从临浦方向向义桥、渔浦一带骑行。',
+    note: 'OSM可连通道路规划往返约 ' + puyangPlan.distance.toFixed(1) + ' km；绿色叠线仅标实际落在cycleway way上的路段。当前为停车接驳待核的研究预览。',
+    missing: '临浦外滩10号足球公园免费停车的具体地块与入口、覆盖整段行程的开放和取车窗口；绿道入口接驳、现场准入以及沿线商家位置。',
+    parkingNote: '2026-09-09报道写明临浦外滩10号足球公园桥下空间“停车免费”并称公园已开放；正文没有具体车位地块、入口、公众停车条件或免费取车窗口。邻近OSM停车地块尚无法可靠对应到该公园，所以研究图不放P，也不生成驾车到停车点导航。',
+    roadNote: '萧山发布2020年报道记录浦阳江景观提升23公里、三期段12公里，并称堤顶空间改造为慢行系统；杭州亚运在萧山2022年介绍浦阳江绿道沿江而建。OSM 2026-10-20快照中，这条往返研究路径包含多个highway=cycleway分段。2025年路线文章与小红书实拍提供骑行到访佐证，但不代表所有路段全年准入。',
+    foodNote: '2026-09-09报道记载临浦外滩10号足球公园内“外滩撤离点”提供果汁和咖啡，报道时提到营业至凌晨2点；当前营业、店门和骑行支线未复核，不计正式商户。其余沿线餐饮咖啡尚待定位核实。',
+    sources: [
+      ['萧山发布：浦阳江绿道建设进度与堤顶慢行系统（2020-12-06）', 'https://zzhz.zjol.com.cn/hz/fb/202012/t20201206_12461356.shtml'],
+      ['亚运在萧山：浦阳江绿道（省级绿道1号线支线）（2022-07-29）', 'https://www.hangzhou2022.cn/sqzc/hzsq/202207/t20220729_51198.shtml'],
+      ['萧山骑行路线介绍：浦阳江绿道与分流描述（2025-04-24）', 'https://www.163.com/dy/article/JTTEBB9705149IKJ.html'],
+      ['临浦外滩10号足球公园报道（2026-09-09）', 'https://www.sohu.com/a/1073885682_121123734'],
+      ['小红书：萧山浦阳江绿道｜5公里休闲骑行路线', 'https://www.xiaohongshu.com/explore/6ab11893000000003100d1cf'],
+      ['OpenStreetMap版权与许可', 'https://www.openstreetmap.org/copyright']
+    ],
+    checked: '2026-10-20', reviewedAt: '2026-10-20',
+    reviewOutcome: '真实慢行路网已连通；停车实体和完整免费窗口仍待核实，保留研究状态。',
+    status: '道路已绘 · 停车与接驳待核查',
+    query: '浦阳江绿道 临浦外滩 渔浦公园',
+    preview: 'maps/puyang-greenway-research.svg',
+    previewNote: puyangPlan.distance.toFixed(1) + ' km为沿公开道路节点计算的往返研究里程，不含停车接驳。此图没有停车标记、停车导航或免费承诺。',
+    familyId: 'puyang-greenway-research', photoTarget: 3,
+    photoMissing: 0, photoGap: '当前图注已注明拍摄段未标明；如后续拆分短线方案，再补能定位到具体短线的照片。',
+    places: [{
+      name: '外滩撤离点', kind: '咖啡',
+      location: '临浦外滩10号足球公园桥下集装箱空间 · 店门待定位',
+      note: '报道记录果汁、咖啡并称报道时营业至凌晨2点；当前营业与到店支线未核，不计正式补给。',
+      source: 'https://www.sohu.com/a/1073885682_121123734'
+    }]
+  });
+  RESEARCH_MAPS.push({
+    id: 'puyang-greenway-research', region: 'puyang', research: true,
+    title: '浦阳江沿江慢行道 · 停车接驳待核',
+    distance: puyangPlan.distance, shape: '研究往返',
+    stops: puyangPlan.anchors.map((point, index) => ({ name: puyangStops[index], point })),
+    food: [], supply: [], mapWater: { name: '浦阳江', point: [120.215, 30.055] }
+  });
 })();

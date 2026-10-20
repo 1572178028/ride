@@ -2,7 +2,7 @@
 const assert = require('node:assert/strict'), fs = require('node:fs'), path = require('node:path'), http = require('node:http');
 const { chromium } = require('playwright');
 const root = path.resolve(__dirname, '..');
-const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg' };
+const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp' };
 const server = http.createServer((req, res) => {
   const file = path.resolve(root, '.' + decodeURIComponent(new URL(req.url, 'http://localhost').pathname).replace(/\/$/, '/index.html'));
   if (!file.startsWith(root + path.sep)) { res.writeHead(403).end(); return; }
@@ -178,9 +178,18 @@ const server = http.createServer((req, res) => {
     await page.locator('#reset-map').click(); assert.equal(await page.locator('#map-container svg').getAttribute('viewBox'), '0 0 1000 610');
     const downloading = page.waitForEvent('download'); await page.locator('#download-map').click(); const download = await downloading;
     assert.equal(await download.failure(), null); assert.ok(download.suggestedFilename().endsWith('.png'));
-    for (const [region, count] of [['huzhou', 4], ['shaoxing', 3], ['hangzhou', 3]]) { await page.selectOption('#research-region', region); assert.equal(await page.locator('.expansion-card').count(), count); }
+    for (const [region, count] of [['huzhou', 4], ['shaoxing', 3], ['hangzhou', 4]]) { await page.selectOption('#research-region', region); assert.equal(await page.locator('.expansion-card').count(), count); }
     await page.selectOption('#research-region', 'shaoxing'); await page.locator('.research-preview summary').click(); assert.ok(await page.locator('.research-preview img').isVisible());
     await page.locator('[data-research-id="shaoxing-eastlake-research"] .photo-open').first().click(); assert.ok((await page.locator('#photo-dialog').innerText()).includes('Logan Wenger')); await page.locator('.photo-close').click();
+    await page.selectOption('#research-region', 'hangzhou');
+    const puyangCard=page.locator('[data-research-id="puyang-greenway-research"]');
+    assert.ok((await puyangCard.innerText()).includes('停车'));
+    assert.equal(await puyangCard.locator('.photo-open').count(),3);
+    await puyangCard.locator('.research-preview summary').click();
+    assert.ok(await puyangCard.locator('.research-preview img').isVisible());
+    await puyangCard.locator('.photo-open').first().click();
+    assert.ok((await page.locator('#photo-dialog').innerText()).includes('具体拍摄段未标明'));
+    await page.keyboard.press('Escape');
     assert.ok((await page.locator('.expansion-links a').evaluateAll(ns => ns.map(n => n.href))).every(u => !u.includes('/navigation?') && !u.includes('/direction?')));
     await select(page, 'nanhu-roads'); await page.locator('#selected-heading').scrollIntoViewIfNeeded(); await page.screenshot({ path: '/private/tmp/ride-desktop.png' });
     const context = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' }), mobile = await context.newPage(); watch(mobile);
@@ -206,6 +215,10 @@ const server = http.createServer((req, res) => {
     await mobile.screenshot({path:'/private/tmp/ride-photo-binjiang-mobile.png'});
     await switchFromSupply(mobile);
     await mobile.selectOption('#research-region', 'shaoxing'); assert.equal(await mobile.locator('.expansion-card').count(), 3);
+    await mobile.selectOption('#research-region', 'hangzhou'); assert.equal(await mobile.locator('.expansion-card').count(), 4);
+    await mobile.locator('[data-research-id="puyang-greenway-research"] .research-preview summary').click();
+    await mobile.locator('[data-research-id="puyang-greenway-research"]').scrollIntoViewIfNeeded();
+    await mobile.screenshot({path:'/private/tmp/ride-puyang-research-mobile.png'});
     assert.ok(await mobile.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     assert.deepEqual(errors, []); console.log(JSON.stringify({ routes: ids.length, desktop: 1440, mobile: 390, errors }));
   } finally { if (browser) await browser.close(); server.close(); }
