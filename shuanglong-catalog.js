@@ -11,6 +11,8 @@
  window.EXPANSION_CANDIDATES=EXPANSION_CANDIDATES.filter(c=>c.id!==candidate.id);
  const east=EXPANSION_CANDIDATES.find(c=>c.id==='shaoxing-eastlake-research');
  Object.assign(east,{preview:'maps/eastlake-connection-research.svg',previewNote:'3.2公里仅为东湖路/人民东路—湖山北路—敬宾路的南侧公共道路研究往返；不是景区完整接驳，无停车P、不计正式方案。G104独立辅路几何仍缺，未用主车道替代。',missing:'补齐景区入口到敬宾路之间G104/永和大道独立辅路的可用公开几何，再验证去回方向。南侧公共道路已生成3.2公里研究图。',roadNote:east.roadNote+' 2026-10-21新快照补齐了景区停车场内部通道，停车点距允许节点约5米；但到敬宾路仍不连通，主道trunk过滤继续保留。旧242米只是旧快照缺口，不代表当前入口距离。'});
+ east.parkingOptions[0].note='已定位具名车场；高德已规划至外围泊位的自行车路线，百度已规划独立入口至外围路口。项目仍缺独立辅路几何，未核现场通行，不生成正式骑行停车导航。';
+ east.parkingOptions[1].note='与景区车场约1.6公里直线；高德骑行规划至景区选中2.8公里、反向2.3公里，端点与方向不同。仅作区域备选，项目完整接驳几何及当日现场通行仍待核。';
  const ep=REGIONAL_PLANS['eastlake-connection-research'];
  RESEARCH_MAPS.push({id:'eastlake-connection-research',region:'eastlake-connection',research:true,title:'东湖南侧道路 · 辅路缺口待补',distance:ep.distance,shape:'研究往返',stops:ep.anchors.map((point,i)=>({name:['东湖路/人民东路','湖山北路路口','敬宾路北端研究折返点','返回湖山北路','返回东湖路'][i],point})),food:[],supply:[]});
 })();
