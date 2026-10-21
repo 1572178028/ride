@@ -1,11 +1,11 @@
 {
-  "version": "1.0.4",
+  "version": "1.1.5",
   "date": "2026-10-21",
   "status": "release",
-  "description": "新增金华双龙罗电线12.6公里公共山路往返；东湖补充南侧道路研究图，独立辅路仍待补。",
+  "description": "新增绍兴东湖南侧外围2.4公里公共道路短线；景区入口延伸仍保留研究，不作为环湖或到门方案。",
   "increments": {
     "routes": 1,
-    "cities": 0,
+    "cities": 1,
     "provinces": 0
   }
 }

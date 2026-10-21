@@ -1,0 +1,33 @@
+{
+  "checked": "2026-10-21",
+  "mode": "自行车",
+  "from": {
+    "name": "湖山北路北侧停车场",
+    "poi": "B0M26N85VM",
+    "gcj": [
+      120.639789,
+      29.995421
+    ]
+  },
+  "to": {
+    "name": "敬宾路北段公共道路折返点",
+    "gcj": [
+      120.63822661974035,
+      30.001003594160256
+    ]
+  },
+  "metres": 744,
+  "minutes": 4,
+  "roads": [
+    "湖山北路",
+    "敬宾路"
+  ],
+  "evidenceText": "自行车\n电动车\n4分钟\n744米\n途经：湖山北路 敬宾路\n详情\n收藏\n分享\n发到手机",
+  "reverse": {
+    "metres": 775,
+    "minutes": 4,
+    "evidenceText": "自行车\n电动车\n4分钟\n775米\n途经：湖山北路\n详情\n收藏\n分享\n发到手机",
+    "url": "https://www.amap.com/ssr/dir?fname=%E6%95%AC%E5%AE%BE%E8%B7%AF%E5%8C%97%E6%AE%B5%E5%85%AC%E5%85%B1%E9%81%93%E8%B7%AF%E6%8A%98%E8%BF%94%E7%82%B9&flat=30.001003594160256&flon=120.63822661974035&dname=%E6%B9%96%E5%B1%B1%E5%8C%97%E8%B7%AF%E5%8C%97%E4%BE%A7%E5%81%9C%E8%BD%A6%E5%9C%BA&dlat=29.995421&dlon=120.639789&type=3&did=B0M26N85VM"
+  },
+  "url": "https://www.amap.com/ssr/dir?fname=%E6%B9%96%E5%B1%B1%E5%8C%97%E8%B7%AF%E5%8C%97%E4%BE%A7%E5%81%9C%E8%BD%A6%E5%9C%BA&flat=29.995421&flon=120.639789&fid=B0M26N85VM&dname=%E6%95%AC%E5%AE%BE%E8%B7%AF%E5%8C%97%E6%AE%B5%E5%85%AC%E5%85%B1%E9%81%93%E8%B7%AF%E6%8A%98%E8%BF%94%E7%82%B9&dlat=30.001003594160256&dlon=120.63822661974035&type=3"
+}
