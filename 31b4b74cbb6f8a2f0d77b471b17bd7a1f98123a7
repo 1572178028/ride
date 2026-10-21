@@ -1,0 +1,173 @@
+src/styles/app.css
+  bc379537b7e52968 2768-2774
+index.html
+  bc379537b7e52968 212-214
+research/releases/v1.1.5.md
+  bc379537b7e52968 20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "31b4b74cbb6f8a2f0d77b471b17bd7a1f98123a7",
+  "prompts": {
+    "bc379537b7e52968": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15db3-1850-78b2-a5a2-bb55fbd065cc",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 11,
+      "total_deletions": 0,
+      "accepted_lines": 863,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "assets/maps/jinhua-short.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/mogan-foothills.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/didang-research.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/tonglu-riverside.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/xianghu-two-lakes.svg": {
+          "accepted_lines": 1
+        },
+        "docs/PROJECT_HANDOFF.md": {
+          "accepted_lines": 66
+        },
+        "assets/maps/westlake-research.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/qiantang-seawall.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/westlake-road.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/wengjin-yanguan.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/xianghu-color.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/yigao-village-road.svg": {
+          "accepted_lines": 1
+        },
+        "index.html": {
+          "additions": 3,
+          "accepted_lines": 3
+        },
+        "assets/maps/westlake-beishan-night.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/qianjiang-city-night.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/nanhu-roads.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/jiapu-lakeside.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/xianghu-shanshan.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/jiapu-research.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/huaxi-riverside.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/xianghu-lakeside.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/binjiang-wentao-night.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/wengjin-middle.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/wengjin-short.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/eastlake-connection-research.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/westlake-tea-road.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/puyang-greenway.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/westlake-nanshan-night.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/badu-ginkgo-road.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/qiandao-peninsula.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/eastlake-outskirts.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/qiandao-cafe.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/canal-streets.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/jinhua-city.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/nanhu-short.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/meiling-south-road.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/jiapu-easy.svg": {
+          "accepted_lines": 1
+        },
+        "docs/data-notes.md": {
+          "accepted_lines": 129
+        },
+        "assets/maps/xianghu-hegong.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/yucun-villages.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/shuanglong-road.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/huaxi-short.svg": {
+          "accepted_lines": 1
+        },
+        "src/styles/app.css": {
+          "additions": 7,
+          "accepted_lines": 7
+        },
+        "research/releases/v1.1.5.md": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "docs/history/TASK_PROGRESS.md": {
+          "accepted_lines": 616
+        },
+        "assets/maps/westlake-hills-loop.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/binjiang-wentao-short-night.svg": {
+          "accepted_lines": 1
+        }
+      }
+    }
+  }
+}
