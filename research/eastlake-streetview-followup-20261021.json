@@ -1,0 +1,32 @@
+{
+  "checked": "2026-10-21",
+  "method": "百度地图网页搜索、全景图层、目视检查道路及时光机选中年月；不复制商业地图几何",
+  "views": [
+    {
+      "title": "永和大道景区以东路侧",
+      "panoid": "09024900122004171442387763O",
+      "captured": "2020-04",
+      "availableDates": ["2019-11", "2020-04"],
+      "url": "https://map.baidu.com/search/绍兴%20东湖风景区/@13429603.22,3483038.54,21z,87t,24.39h#panoid=09024900122004171442387763O&panotype=street&heading=256.76&pitch=-0.62&l=21&tn=B_NORMAL_MAP&sc=0&newmap=1&shareurl=1&pid=09024900122004171442387763O",
+      "observation": "可见主道外护栏分隔的路侧空间；只覆盖这一处视角，不能据此推定全段辅路连续或可骑。"
+    },
+    {
+      "title": "敬宾路与永和大道接驳口",
+      "panoid": "0902490012191116163333552HD",
+      "captured": "2019-11",
+      "availableDates": ["2017-09", "2019-11"],
+      "url": "https://map.baidu.com/poi/敬宾路%2F永和大道(路口)/@13430259.14,3482887.9,21z,87t,-173.37h?uid=9958ef4b8fc301670a5cb3d1#panoid=0902490012191116163333552HD&panotype=street&heading=313.95&pitch=-0.33&l=21&tn=B_NORMAL_MAP&sc=0&newmap=1&shareurl=1&pid=0902490012191116163333552HD",
+      "observation": "南向敬宾路画面有蓝色自行车指示标识；转向永和大道可见路口斑马线及分隔路侧空间。日期经时光机item selected核对2019年11月，不能当当前路口准入。"
+    }
+  ],
+  "conclusion": "补充历史道路结构佐证及可直接打开的影像出处；不升级为已核实的入口延伸，不计入正式路线道路照片，不核定2026年施工后通行。",
+  "remaining": ["可使用的完整独立辅路几何", "当前自行车通行与交叉口导改", "与2.4公里外围短线对应且可展示的道路实拍"],
+  "socialSearch": [
+    {"platform":"小红书","query":"绍兴 湖山北路；绍兴 敬宾路","url":"https://www.xiaohongshu.com/explore/6537f2ce0000000020002f34","author":"无敌兔","published":"2023-10-25（编辑）","result":"原帖明确阿国饭店湖山北路店，可补充餐饮出处；已看图为店内，未纳入道路图库。"},
+    {"platform":"小红书","url":"https://www.xiaohongshu.com/explore/666502490000000015010aec","author":"西瓜🍉","published":"2024-06-09（编辑）","result":"四图逐张查看：入口题石、洞内船游、两张地图截图；正文说敬宾路停车，网友停车说法不作合法泊位/全年免费的证据，无合格道路图。"},
+    {"platform":"小红书","url":"https://www.xiaohongshu.com/explore/6a3bd1ff0000000007023b21","author":"coco","published":"06-24，页面未列年份","result":"首图28.36公里越城猫猫线沿城外高架，未见敬宾路/湖山北路行程依据；未将多区域轨迹推定为本段照片。"},
+    {"platform":"抖音","query":"绍兴 湖山北路 敬宾路","result":"可读结果多为昂桑湖、避塘、胜利西路、坂湖；本轮结果未取得本段对应图片。"},
+    {"platform":"bilibili","query":"绍兴 湖山北路 敬宾路","url":"https://www.bilibili.com/video/BV1Dqh867EWr/","author":"侯小杰和端小木","published":"2026-09-29 19:00","result":"《走进浙江三大名湖之一的绍兴东湖》原页明确未经作者授权禁止转载，保留原帖链接，不取帧入库。未全片核验本线路段，不据其判断辅路现状。"},
+    {"platform":"Google","query":"绍兴 \"湖山北路\" \"敬宾路\" 实拍","result":"只返回一条混杂转载结果，没有取得原始道路图；不当原文证据。"}
+  ]
+}
