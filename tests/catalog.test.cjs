@@ -8,7 +8,7 @@ const root = path.resolve(__dirname, '..');
 const app = {};
 app.window = app;
 vm.createContext(app);
-for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'expanded-catalog.js', 'city-catalog.js', 'research-updates.js', 'night-catalog.js', 'photo-data.js', 'meiling-map-data.js', 'meiling-catalog.js', 'westlake-circuit-map-data.js', 'westlake-circuit-catalog.js', 'puyang-map-data.js', 'puyang-catalog.js', 'huzhou-parking-updates.js', 'huzhou-expansion-map-data.js', 'huzhou-expansion-catalog.js', 'two-region-research-updates.js', 'photo-updates.js', 'catalog-metadata.js', 'map-renderer.js']) {
+for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'expanded-catalog.js', 'city-catalog.js', 'research-updates.js', 'night-catalog.js', 'photo-data.js', 'meiling-map-data.js', 'meiling-catalog.js', 'westlake-circuit-map-data.js', 'westlake-circuit-catalog.js', 'puyang-map-data.js', 'puyang-catalog.js', 'huzhou-parking-updates.js', 'huzhou-expansion-map-data.js', 'huzhou-expansion-catalog.js', 'two-region-research-updates.js', 'shuanglong-map-data.js', 'shuanglong-catalog.js', 'photo-updates.js', 'catalog-metadata.js', 'map-renderer.js']) {
   vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), app, { filename: file });
 }
 function km(a, b) {
@@ -17,7 +17,7 @@ function km(a, b) {
   return 12742 * Math.atan2(Math.sqrt(q), Math.sqrt(1 - q));
 }
 test('route IDs and map paths are unique and complete', () => {
-  assert.equal(app.ROUTES.length, 35);
+  assert.equal(app.ROUTES.length, 36);
   assert.equal(new Set(app.ROUTES.map(route => route.id)).size, app.ROUTES.length);
   for (const route of app.ROUTES) {
     const points = app.MAP_DATA.paths[route.id];
@@ -30,11 +30,11 @@ test('route IDs and map paths are unique and complete', () => {
     if (route.shape !== '原路往返') assert.ok(km(points[0], points.at(-1)) < 0.01, `${route.id}: closed loop`);
   }
 });
-test('distance variants belong to eighteen route families across eighteen actual areas', () => {
+test('distance variants belong to nineteen route families across nineteen actual areas', () => {
   const mains = app.ROUTES.filter(route => route.id === route.familyId);
-  assert.equal(mains.length, 18);
-  assert.equal(app.ROUTE_METADATA.familyCount, 18);
-  assert.equal(app.ROUTE_METADATA.regionCount, 18);
+  assert.equal(mains.length, 19);
+  assert.equal(app.ROUTE_METADATA.familyCount, 19);
+  assert.equal(app.ROUTE_METADATA.regionCount, 19);
   for (const variant of app.ROUTES) {
     const main = mains.find(route => route.id === variant.familyId);
     assert.ok(main, variant.id);
@@ -45,7 +45,7 @@ test('distance variants belong to eighteen route families across eighteen actual
   }
 });
 test('research directions cannot claim free parking or inflate the ride catalog', () => {
-  assert.equal(app.EXPANSION_CANDIDATES.length, 10);
+  assert.equal(app.EXPANSION_CANDIDATES.length, 9);
   assert.ok(app.ROUTES.some(route => route.region === 'westlake'));
   assert.ok(app.RESEARCH_MAPS.some(route => route.region === 'jiapu'));
   assert.ok(app.ROUTES.some(route => route.region === 'qiandao'));
@@ -91,7 +91,7 @@ test('every plan preserves parking evidence and exposes overnight restrictions',
     assert.ok(route.parking.id || route.parking.poiid);
     assert.ok(route.parking.condition && route.parking.evidence);
     assert.match(route.parking.source, /^https?:\/\//);
-    assert.equal(route.parking.checked, ['puyang-greenway','badu-ginkgo-road','yigao-village-road'].includes(route.id)?'2026-10-20':['meiling-south-road','westlake-hills-loop'].includes(route.id) ? '2026-10-19' : ['huaxi','nanhu','jinhua','canal','binjiang','qianjiang'].includes(route.region) ? '2026-10-16' : '2026-10-15');
+    assert.equal(route.parking.checked, route.id==='shuanglong-road'?'2026-10-21':['puyang-greenway','badu-ginkgo-road','yigao-village-road'].includes(route.id)?'2026-10-20':['meiling-south-road','westlake-hills-loop'].includes(route.id) ? '2026-10-19' : ['huaxi','nanhu','jinhua','canal','binjiang','qianjiang'].includes(route.region) ? '2026-10-16' : '2026-10-15');
     assert.match(route.parking.verification, /读取|声明|对照/);
     if (route.parking.feeType === 'free') assert.equal(route.parking.price, '¥0');
     else { assert.ok(['paid','unknown'].includes(route.parking.feeType)); assert.notEqual(route.parking.price, '¥0'); assert.ok(route.parking.priceSummary && route.parking.condition); }
@@ -108,8 +108,8 @@ test('every plan preserves parking evidence and exposes overnight restrictions',
     }
     assert.equal(route.dedicated, false, 'shared paths must not become dedicated cycleways');
   }
-  assert.equal(app.ROUTE_METADATA.parkingCount, 19);
-  assert.equal(app.ROUTE_METADATA.freeParkingCount, 6);
+  assert.equal(app.ROUTE_METADATA.parkingCount, 20);
+  assert.equal(app.ROUTE_METADATA.freeParkingCount, 7);
   assert.equal(app.ROUTE_METADATA.paidParkingCount, 7);
   assert.equal(app.ROUTE_METADATA.shopCount, 34, 'shared stores must be counted once');
 });
@@ -229,7 +229,7 @@ test('paid routes keep reference charges separate from free parking and unpublis
   const mogan = paid.find(r => r.region === 'mogan');
   assert.match(mogan.parking.condition, /30分钟/);
   assert.match(mogan.parking.condition, /参考价格/);
-  assert.equal(app.ROUTES.filter(r => r.parking.feeType === 'free').length, 13);
+  assert.equal(app.ROUTES.filter(r => r.parking.feeType === 'free').length, 14);
 });
 
 test('research previews use real edges and never draw a free parking pin', () => {
@@ -251,7 +251,7 @@ test('research previews use real edges and never draw a free parking pin', () =>
 test('new cities and parking fee categories remain explicit and deduplicated', () => {
   assert.equal(app.ROUTE_METADATA.cityCount, 4);
   assert.equal(app.ROUTE_METADATA.unknownParkingCount, 6);
-  assert.equal(app.ROUTE_METADATA.restSuggestionCount, 47);
+  assert.equal(app.ROUTE_METADATA.restSuggestionCount, 49);
   for (const r of app.ROUTES) {
     assert.ok(app.CITY_LABELS[r.cityGroup] && app.REGION_LABELS[r.region], r.id);
     if (['nanhu', 'jinhua', 'canal'].includes(r.region)) assert.equal(r.city, { nanhu: '嘉兴市', jinhua: '金华市', canal: '杭州市' }[r.region]);
@@ -301,7 +301,7 @@ test('new city lakes preserve actual shoreline and island polygons', () => {
 
 test('local and external licensed photos are attributed and attached to their actual subject', () => {
   const licenses = JSON.parse(fs.readFileSync(path.join(root, 'research/photo-licenses.json')));
-  assert.equal(licenses.length, 52);
+  assert.equal(licenses.length, 53);
   for (const r of [...app.ROUTES, ...app.EXPANSION_CANDIDATES]) for (const photo of r.photos || []) {
     const record = licenses.find(p => p.src === photo.src);
     assert.ok(record && record.author === photo.author && record.license === photo.license);
@@ -313,7 +313,7 @@ test('local and external licensed photos are attributed and attached to their ac
     }else if(photo.sourceType==='social-original-image'){
       assert.equal(host,'www.xiaohongshu.com');assert.ok(photo.sourceImageIndex>0);assert.ok(photo.downloadDate);assert.ok(photo.pixelWidth>0&&photo.pixelHeight>0);assert.match(photo.license,/未注明开放许可/);
     }else if(['social-screenshot','social-image','press-photo','video-frame'].includes(photo.sourceType)){
-      assert.ok(['www.xiaohongshu.com','pic.hangzhou.com.cn','hznews.hangzhou.com.cn','www.bilibili.com','www.sohu.com'].includes(host));assert.ok(photo.captureDate);assert.match(photo.license,/未声明开放许可/);assert.ok(!photo.licenseUrl);
+      assert.ok(['www.xiaohongshu.com','pic.hangzhou.com.cn','hznews.hangzhou.com.cn','www.bilibili.com','www.sohu.com','jhwcw.zjol.com.cn'].includes(host));assert.ok(photo.captureDate);assert.match(photo.license,/未声明开放许可/);assert.ok(!photo.licenseUrl);
     }else{assert.ok(photo.source.startsWith('https://commons.wikimedia.org/wiki/File:'));assert.ok(photo.licenseUrl);}
     assert.ok(photo.date && photo.modification && photo.caption);
     if (photo.storage === 'external') assert.ok(['upload.wikimedia.org','thumb.wikimedia.org'].includes(new URL(photo.src).hostname));
@@ -323,7 +323,7 @@ test('local and external licensed photos are attributed and attached to their ac
     else if(record.candidateIds){assert.ok(record.candidateIds.includes(r.id),r.id+': photo assigned to an unreviewed research candidate');assert.equal(record.group,r.region);}
     else assert.equal(photo.group, expected);
   }
-  assert.equal(app.ROUTE_METADATA.photoCount, 29, 'reviewed photographs are counted once across variants');
+  assert.equal(app.ROUTE_METADATA.photoCount, 30, 'reviewed photographs are counted once across variants');
 });
 
 test('webpage and export generator load the same final data files', () => {
@@ -453,8 +453,8 @@ test('Map markers show only short identifiers, with accessible full names for in
  }
 });
 test('Photo coverage and gaps stay explicit and every added assignment targets a real route', () => {
- assert.equal(app.ROUTE_METADATA.photoFamilyCount,12);
- assert.equal(app.ROUTE_METADATA.photoRouteCount,25);
+ assert.equal(app.ROUTE_METADATA.photoFamilyCount,13);
+ assert.equal(app.ROUTE_METADATA.photoRouteCount,26);
  const licenses=JSON.parse(fs.readFileSync(path.join(root,'research/photo-licenses.json')));
  for(const p of licenses.filter(p=>p.checked==='2026-10-19')){
   assert.ok(p.relation&&p.verification&&p.kind);
@@ -525,8 +525,8 @@ test('Huzhou parking options distinguish user roadside defaults from known charg
  }
  assert.equal(app.ROUTES.find(r=>r.id==='badu-ginkgo-road').parking.feeType,'paid');
  assert.ok(options.find(p=>p.poiId==='7db98ae511fa742fd518b73a').note.includes('不是荻港古村门口'));
- assert.equal(app.ROUTE_METADATA.familyCount,18);
- assert.equal(app.ROUTE_METADATA.parkingCount,19,'research options are not formal parking starts');
+ assert.equal(app.ROUTE_METADATA.familyCount,19);
+ assert.equal(app.ROUTE_METADATA.parkingCount,20,'research options are not formal parking starts');
 });
 
 
@@ -579,13 +579,13 @@ test('photo association thresholds distinguish 60, 70, 85 and 86 without claimin
  }
 });
 
-test('Shuanglong and East Lake research retain parking evidence without publishing disconnected rides',()=>{
- const s=app.EXPANSION_CANDIDATES.find(c=>c.id==='jinhua-shuanglong-research');
- const e=app.EXPANSION_CANDIDATES.find(c=>c.id==='shaoxing-eastlake-research');
- assert.equal(s.parkingOptions[0].poiId,'B0MDB6G8XL');assert.equal(s.parkingOptions[0].feeBasis,'user-default-roadside');assert.match(s.roadNote,/500米/);assert.match(s.roadNote,/阶梯/);assert.match(e.roadNote,/2.2公里/);
- assert.equal(e.parkingOptions[0].poiId,'B023F0P6XD');assert.equal(e.parkingOptions[0].feeType,'paid');assert.match(e.parkingOptions[0].rule,/超时规则/);
- assert.match(e.roadNote,/242米/);assert.ok(!s.parking&&!e.parking);
- assert.ok(!app.ROUTES.some(r=>['shuanglong','shaoxing-eastlake'].includes(r.region)));
- const audit=JSON.parse(fs.readFileSync(path.join(root,'research/shuanglong-eastlake-geometry-audit.json')));
- assert.equal(audit.snapshotDate,'2026-10-16');assert.equal(audit.results.eastlake.snapMetres,242);assert.match(audit.results.eastlake.error,/no permitted connection/);
+test('Shuanglong publishes only public roads while East Lake keeps the isolated auxiliary-road gap',()=>{
+ const s=app.ROUTES.find(r=>r.id==='shuanglong-road');const e=app.EXPANSION_CANDIDATES.find(c=>c.id==='shaoxing-eastlake-research');
+ assert.equal(s.distance,12.6);assert.equal(s.parking.poiid,'B0MDB6G8XL');assert.equal(s.parking.feeBasis,'user-default-roadside');
+ assert.ok(s.notes.some(n=>n.includes('累计爬升未独立')));assert.match(s.description,/不骑进西门台阶/);
+ const plan=app.REGIONAL_PLANS[s.id];assert.equal(plan.checked,'2026-10-21');assert.ok(plan.segments.every(s=>s.kind==='tertiary'));
+ assert.equal(e.parkingOptions[0].poiId,'B023F0P6XD');assert.equal(e.parkingOptions[0].feeType,'paid');assert.match(e.roadNote,/5米/);
+ assert.ok(!app.ROUTES.some(r=>r.region==='shaoxing-eastlake'));assert.ok(!app.EXPANSION_CANDIDATES.some(r=>r.id==='jinhua-shuanglong-research'));
+ const preview=app.RESEARCH_MAPS.find(r=>r.id==='eastlake-connection-research');assert.equal(preview.distance,3.2);assert.ok(!preview.parking);assert.ok(!app.makeMapSVG(preview,{export:true}).includes('data-poi="parking"'));
+ assert.ok(fs.existsSync(path.join(root,'maps/shuanglong-road.svg')));assert.ok(fs.existsSync(path.join(root,e.preview)));
 });

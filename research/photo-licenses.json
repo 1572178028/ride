@@ -1542,5 +1542,37 @@
       "visual": 20,
       "reason": "原文明确解放东路西市街—明月街段；画面可读“西市街人行天桥”，桥下可见机动车道和道路隔离栏。只说明历史道路环境，不导向天桥骑行或夜市摊位穿行。 无独立骑行轨迹，轨迹项不加分。"
     }
+  },
+  {
+    "id": "shuanglong-luodian-press",
+    "group": "shuanglong",
+    "kind": "road",
+    "routeIds": [
+      "shuanglong-road"
+    ],
+    "src": "photos/shuanglong-luodian-road-press.jpg",
+    "storage": "local",
+    "source": "https://jhwcw.zjol.com.cn/wcnews/system/2025/07/07/035000391.shtml",
+    "originalUrl": "https://img2.zjolcdn.com/pic/003/012/109/00301210919_82446c7b.jpg",
+    "author": "曹静怡 / 婺城新闻网（文署名；摄影未单列）",
+    "date": "2025-07-07报道；拍摄日未单列",
+    "checked": "2026-10-21",
+    "captureDate": "2026-10-21",
+    "sourceType": "press-photo",
+    "license": "原作者版权 · 未声明开放许可",
+    "caption": "罗电线 · 双龙公路服务驿站旁弯道（同路参考）",
+    "relation": "报道明确罗电线，图中可读双龙公路服务驿站并可见山路路面和弯道。具体站位未定位，可能在本方案折返点外，只作同路名参考，不据此认定本方案经过该驿站。原始文件400×204，保持真实尺寸不放大。",
+    "verification": "读取原文并逐图目视原始图片；同路名合理关联，未确认摄影站位。",
+    "pixelWidth": 400,
+    "pixelHeight": 204,
+    "modification": "保存媒体原始400×204文件，未放大、改写或裁切画面",
+    "referenceOnly": true,
+    "matchAssessment": {
+      "source": 20,
+      "location": 30,
+      "track": 0,
+      "visual": 10,
+      "reason": "原文罗电线行程与道路主体清楚；摄影点未定位，仅同路参考，轨迹不加分。"
+    }
   }
 ]

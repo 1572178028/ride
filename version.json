@@ -1,10 +1,10 @@
 {
-  "version": "1.0.3",
-  "date": "2026-10-20",
+  "version": "1.0.4",
+  "date": "2026-10-21",
   "status": "release",
-  "description": "新增湖州八都岕小柏线及义皋湖薛线两条独立主线。路侧默认免费，景区车场收费参考。",
+  "description": "新增金华双龙罗电线12.6公里公共山路往返；东湖补充南侧道路研究图，独立辅路仍待补。",
   "increments": {
-    "routes": 2,
+    "routes": 1,
     "cities": 0,
     "provinces": 0
   }
