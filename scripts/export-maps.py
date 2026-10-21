@@ -15,7 +15,7 @@ with sync_playwright() as playwright:
         options['executable_path'] = executable
     browser = playwright.chromium.launch(**options)
     page = browser.new_page(viewport={'width': 1000, 'height': 610}, device_scale_factor=2)
-    for source in sorted((root / 'maps').glob('*.svg')):
+    for source in sorted((root / 'assets/maps').glob('*.svg')):
         page.set_content('<style>body{margin:0}svg{display:block}</style>' + source.read_text())
         page.evaluate('document.fonts.ready')
         target = source.with_suffix('.png')

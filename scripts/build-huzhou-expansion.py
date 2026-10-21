@@ -1,4 +1,5 @@
 """Build Huzhou public-road rides from dated OSM API snapshots (WGS84)."""
+from lib.geometry import update_geometry
 import json,runpy
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -24,7 +25,4 @@ for id,snapshot,anchors in specs:
    rings=[h['regional'].clipped_ring(r,bounds) for r in rings];rings=[r for r in rings if r]
    if rings:maps['badu' if id.startswith('badu') else 'yigao']['waterAreas'].append({'source':e['id'],'rings':rings})
  print(id,plans[id]['distance'],'km',len(points),'nodes')
-out='Object.assign(MAP_DATA.maps,'+json.dumps(maps,ensure_ascii=False,separators=(',',':'))+');\n'
-out+='Object.assign(MAP_DATA.paths,'+json.dumps(paths,separators=(',',':'))+');\n'
-out+='Object.assign(REGIONAL_PLANS,'+json.dumps(plans,ensure_ascii=False,separators=(',',':'))+');\n'
-(ROOT/'huzhou-expansion-map-data.js').write_text(out)
+update_geometry(ROOT, maps=maps, paths=paths, plans=plans)

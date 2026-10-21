@@ -1,4 +1,5 @@
 """Build the verified southern outskirts ride; never bridge the G104 data gap."""
+from lib.geometry import update_geometry
 import json, runpy
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,5 +23,5 @@ plan = {'distance':round(sum(e['km'] for e in segments),1), 'cyclewayKm':0,
 bounds=[min(p[i] for p in points)-.005 for i in (0,1)]+[max(p[i] for p in points)+.005 for i in (0,1)]
 inside=lambda p:bounds[0]<=p[0]<=bounds[2] and bounds[1]<=p[1]<=bounds[3]
 background={'roads':[r for r in roads if any(inside(p) for p in r['points'])], 'water':[w for w in water if any(inside(p) for p in w)],'waterAreas':h['regional'].water_areas('eastlake',bounds)}
-(ROOT/'eastlake-map-data.js').write_text('Object.assign(MAP_DATA.maps,'+json.dumps({'eastlake':background},separators=(',',':'))+');\nObject.assign(MAP_DATA.paths,'+json.dumps({'eastlake-outskirts':points},separators=(',',':'))+');\nObject.assign(REGIONAL_PLANS,'+json.dumps({'eastlake-outskirts':plan},ensure_ascii=False,separators=(',',':'))+');\n')
+update_geometry(ROOT, maps={'eastlake': background}, paths={'eastlake-outskirts': points}, plans={'eastlake-outskirts': plan})
 print('eastlake-outskirts',plan['distance'],'km',len(points),'nodes',plan['parkingSnapMetres'],'m parking/node difference')

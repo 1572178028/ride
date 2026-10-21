@@ -5,12 +5,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const zlib = require('node:zlib');
 const root = path.resolve(__dirname, '..');
-const app = {};
-app.window = app;
-vm.createContext(app);
-for (const file of ['map-data.js', 'catalog.js', 'planning-data.js', 'regional-map-data.js', 'regional-catalog.js', 'huzhou-research.js', 'verified-map-data.js', 'verified-catalog.js', 'expanded-catalog.js', 'city-catalog.js', 'research-updates.js', 'night-catalog.js', 'photo-data.js', 'meiling-map-data.js', 'meiling-catalog.js', 'westlake-circuit-map-data.js', 'westlake-circuit-catalog.js', 'puyang-map-data.js', 'puyang-catalog.js', 'huzhou-parking-updates.js', 'huzhou-expansion-map-data.js', 'huzhou-expansion-catalog.js', 'two-region-research-updates.js', 'shuanglong-map-data.js', 'shuanglong-catalog.js', 'eastlake-map-data.js', 'eastlake-catalog.js', 'photo-updates.js', 'catalog-metadata.js', 'map-renderer.js']) {
-  vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), app, { filename: file });
-}
+const app = { ...require('../src/data/index.js'), ...require('../src/features/map/renderer.js') };
 function km(a, b) {
   const rad = Math.PI / 180;
   const q = Math.sin((b[1] - a[1]) * rad / 2) ** 2 + Math.cos(a[1] * rad) * Math.cos(b[1] * rad) * Math.sin((b[0] - a[0]) * rad / 2) ** 2;
@@ -220,8 +215,8 @@ test('paid routes keep reference charges separate from free parking and unpublis
     const svg = app.makeMapSVG(r);
     assert.match(svg, /data-poi="parking"/);
     assert.match(svg, /data-poi="start"/, 'parking area and road start have distinct source locations');
-    assert.ok(fs.existsSync(path.join(root, 'maps', r.id + '.svg')));
-    assert.ok(fs.existsSync(path.join(root, 'maps', r.id + '.png')));
+    assert.ok(fs.existsSync(path.join(root, 'assets/maps', r.id + '.svg')));
+    assert.ok(fs.existsSync(path.join(root, 'assets/maps', r.id + '.png')));
   }
   const yucun = paid.find(r => r.region === 'yucun');
   assert.match(yucun.parking.published, /未显示年份/);
@@ -326,17 +321,8 @@ test('local and external licensed photos are attributed and attached to their ac
   assert.equal(app.ROUTE_METADATA.photoCount, 30, 'reviewed photographs are counted once across variants');
 });
 
-test('webpage and export generator load the same final data files', () => {
-  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  const files = [...html.matchAll(/<script src="([^"]+)"/g)].map(m => m[1].split('?')[0]).filter(f => f !== 'app.js');
-  const generator = fs.readFileSync(path.join(root, 'scripts/generate-maps.cjs'), 'utf8');
-  let position = -1;
-  for (const file of files) {
-    const next = generator.indexOf("'" + file + "'");
-    assert.ok(next > position, file);
-    position = next;
-  }
-  for (const r of app.ROUTES) for (const ext of ['svg', 'png']) assert.ok(fs.existsSync(path.join(root, 'maps', r.id + '.' + ext)), r.id);
+test('all published plans have SVG and PNG exports', () => {
+ for (const r of app.ROUTES) for (const ext of ['svg','png']) assert.ok(fs.existsSync(path.join(root,'assets/maps',r.id+'.'+ext)),r.id);
 });
 
 
@@ -554,7 +540,7 @@ test('Badu road photos retain explicit landmark evidence and original attributio
 });
 
 test('photo association thresholds distinguish 60, 70, 85 and 86 without claiming location probability', () => {
-  const code = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const code = fs.readFileSync(path.join(root, 'src/features/photos/index.js'), 'utf8');
   const helper = code.slice(code.indexOf('function photoMatchHTML('), code.indexOf('function photosHTML('));
   const context = { esc: s => String(s) }; vm.createContext(context); vm.runInContext(helper, context);
   for (const [score, tier] of [[60,'light'],[69,'light'],[70,'medium'],[85,'medium'],[86,'dark'],[100,'dark']]) {
@@ -587,7 +573,7 @@ test('Shuanglong publishes only public roads while East Lake keeps the isolated 
  assert.equal(e.parkingOptions[0].poiId,'B023F0P6XD');assert.equal(e.parkingOptions[0].feeType,'paid');assert.match(e.roadNote,/5米/);
  assert.ok(!app.ROUTES.some(r=>r.region==='shaoxing-eastlake'));assert.ok(!app.EXPANSION_CANDIDATES.some(r=>r.id==='jinhua-shuanglong-research'));
  const preview=app.RESEARCH_MAPS.find(r=>r.id==='eastlake-connection-research');assert.equal(preview.distance,3.2);assert.ok(!preview.parking);assert.ok(!app.makeMapSVG(preview,{export:true}).includes('data-poi="parking"'));
- assert.ok(fs.existsSync(path.join(root,'maps/shuanglong-road.svg')));assert.ok(fs.existsSync(path.join(root,e.preview)));
+ assert.ok(fs.existsSync(path.join(root,'assets/maps/shuanglong-road.svg')));assert.ok(fs.existsSync(path.join(root,e.preview)));
 });
 
 

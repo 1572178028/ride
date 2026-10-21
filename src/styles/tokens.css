@@ -1,0 +1,24 @@
+:root {
+  --ink: #172b4d;
+  --text: #25354b;
+  --muted: #526177;
+  --blue: #1d4ed8;
+  --line: #d6dee9;
+  --paper: #fff;
+  --bg: #f1f4f8;
+  --orange: #be4315;
+  --green: #0d6a51;
+  --coffee: #6636b6;
+  --food: #b23b32;
+  --rest: #116797;
+  --sans:
+    Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+}
+
+:root {
+  --scrollbar-thumb: #b7c5da;
+  --scrollbar-track: #e7edf5;
+  --scrollbar-hover: #8b9fbf;
+  --scrollbar-active: #6b82a5;
+}

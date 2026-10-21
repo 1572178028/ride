@@ -1,0 +1,25 @@
+# 骑遇交互维护约定
+
+本轮结构重构沿用现有交互，不新增业务流程。视觉依据DESIGN.md，数据规则依据README、docs/data-notes.md及research中的来源记录。
+
+## Canonical UI Map
+
+| Capability | Canonical owner | Source of truth | Allowed variants | Verification |
+| --- | --- | --- | --- | --- |
+| Select/Listbox | src/features/filters/index.js、index.html | 原生select，平台管理弹层 | 城市、片区、费用、距离、道路；城市更新片区选项 | tests/browser-check.cjs |
+| Scrollbar | src/styles/app.css | 既有文档与侧栏滚动规则 | 桌面独立侧栏、手机横向卡片 | tests/browser-check.cjs |
+| Toast | src/shared/feedback.js | 单个#toast，role=status，aria-live=polite | 收藏存储失败、复制与下载反馈 | tests/browser-check.cjs |
+| Dialog | src/features/photos/index.js、src/app.js | 原生dialog/showModal | 照片预览、覆盖说明 | tests/browser-check.cjs |
+| Route navigation | src/app.js | 路线hash与src/data/aliases.js | 主线、里程方案、历史链接 | tests/browser-check.cjs |
+| Favorites | src/features/favorites/storage.js | ride-atlas-favorites localStorage键 | 收藏过滤、刷新恢复、旧别名迁移 | tests/architecture.test.cjs、tests/browser-check.cjs |
+| Map | src/features/map/controller.js、renderer.js | 同一几何及渲染器 | 交互地图、离线导出 | tests/catalog.test.cjs、tests/browser-check.cjs |
+
+搜索与筛选保留现有页面内状态；本轮不改变URL协议（仅route hash持久化）或新增分页。地图下载和收藏保持同一方案ID。研究方向不可混入正式路线，照片关联分数不是定位概率。
+
+## 维护边界
+
+src/app.js负责页面状态协调与事件接线，features负责呈现和交互，domain不依赖DOM，data不依赖window/document。进入新地区时只更新地区数据、标签和必要的入口，不在HTML、测试和生成器复制加载顺序。来源缺口、照片失败、存储失败须提供已存在的文字说明。
+
+## 已有技术债
+
+本轮不做视觉改版。旧样式中的硬编码颜色、分散的间距/圆角及其他未触及的交互细节不视为已完成全面设计系统治理。后续变更应优先沿公共所有者收敛，避免新增分叉。

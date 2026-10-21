@@ -1,0 +1,16 @@
+{
+  "name": "ride-atlas",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "python3 -m http.server 3000 --bind 127.0.0.1",
+    "test": "node --test tests/*.test.cjs",
+    "test:browser": "node tests/browser-check.cjs",
+    "maps:generate": "node scripts/generate-maps.cjs",
+    "maps:export": "node scripts/export-maps.cjs",
+    "photos:generate": "node scripts/build-photo-updates.cjs"
+  }
+}

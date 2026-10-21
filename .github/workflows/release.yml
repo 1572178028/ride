@@ -1,4 +1,4 @@
-# Publish only the existing, validated tag named in version.json.
+# Publish the validated version tag; reconcile maintained release notes from main.
 name: Publish versioned release
 on:
   push:
@@ -22,6 +22,10 @@ jobs:
       GH_REPO: ${{ github.repository }}
       SOURCE_SHA: ${{ github.sha }}
     steps:
+      - name: Use project-supported Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - name: Check version, tag, tests and publish release
         shell: bash
         run: |
@@ -37,10 +41,12 @@ jobs:
           git merge-base --is-ancestor "$tag" HEAD
           tagged_version=$(git show "$tag:version.json" | node -e "let s='';process.stdin.on('data',x=>s+=x).on('end',()=>process.stdout.write(JSON.parse(s).version))")
           test "$tagged_version" = "$version"
-          node --test tests/catalog.test.cjs tests/puyang-route.test.cjs
-          git show "$tag:research/releases/$tag.md" > /tmp/release-notes.md
-          if gh release view "$tag" --json tagName >/dev/null 2>&1; then
-            echo "Release $tag already exists; leaving it unchanged."
+          npm test
+          touch /tmp/previous-release-notes.md
+          if gh release view "$tag" --json body --jq .body > /tmp/previous-release-notes.md; then
+            node scripts/lib/release-notes.cjs /tmp/previous-release-notes.md "research/releases/$tag.md" "$GH_REPO" "$SOURCE_SHA" /tmp/release-notes.md
+            gh release edit "$tag" --notes-file /tmp/release-notes.md
           else
+            node scripts/lib/release-notes.cjs /tmp/previous-release-notes.md "research/releases/$tag.md" "$GH_REPO" "$SOURCE_SHA" /tmp/release-notes.md
             gh release create "$tag" --verify-tag --title "V $version" --notes-file /tmp/release-notes.md
           fi

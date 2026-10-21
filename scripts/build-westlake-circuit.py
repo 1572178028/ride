@@ -1,4 +1,5 @@
 """Build the unified West Lake/Meiling circuit from dated, saved road snapshots."""
+from lib.geometry import update_geometry
 import gzip
 import json
 import runpy
@@ -19,8 +20,5 @@ bounds = [min(p[i] for p in points)-.02 for i in (0,1)] + [max(p[i] for p in poi
 inside = lambda p: bounds[0]<=p[0]<=bounds[2] and bounds[1]<=p[1]<=bounds[3]
 areas = h['regional'].water_areas('westlake',bounds) + h['regional'].water_areas('qiantang-night',bounds)
 mapdata = {'roads':[r for r in roads if any(inside(p) for p in r['points'])], 'water':[w for w in water if any(inside(p) for p in w)], 'waterAreas':areas}
-out = 'Object.assign(MAP_DATA.maps,' + json.dumps({'westlake':mapdata},ensure_ascii=False,separators=(',',':')) + ');\n'
-out += 'Object.assign(MAP_DATA.paths,' + json.dumps({'westlake-hills-loop':points},separators=(',',':')) + ');\n'
-out += 'Object.assign(REGIONAL_PLANS,' + json.dumps({'westlake-hills-loop':plan},ensure_ascii=False,separators=(',',':')) + ');\n'
-(ROOT/'westlake-circuit-map-data.js').write_text(out)
+update_geometry(ROOT, maps={'westlake': mapdata}, paths={'westlake-hills-loop': points}, plans={'westlake-hills-loop': plan})
 print(plan['distance'],'km;',plan['cyclewayKm'],'km highway=cycleway;',len(points),'road nodes')

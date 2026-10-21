@@ -1,31 +1,331 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>骑遇 · 全国 4+2 骑行路线库｜杭州站</title>
-<meta name="description" content="开车带上自行车，选择注明费用和条件的停车点。探索杭州与周边的骑行路线、清晰路线地图、沿途咖啡和餐厅。">
-<meta name="theme-color" content="#172b4d"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20261021-eastlake-streetview">
-</head>
-<body>
-<a class="skip-link" href="#route-library">跳转到路线库</a>
-<header class="site-header"><div class="shell nav"><a class="brand" href="#"><svg viewBox="0 0 44 32" aria-hidden="true"><circle cx="10" cy="22" r="8"/><circle cx="34" cy="22" r="8"/><path d="M10 22l8-15 8 15H10l10-10h9l5 10M16 7h6M27 3h4l-2 9"/></svg><span>骑遇<small>RIDE ATLAS</small></span></a><nav aria-label="主导航"><a class="active" href="#route-library">探索路线</a><a href="#parking-standard">停车条件</a><button id="saved-nav" class="nav-save">♡ 我的收藏 <span id="saved-count">0</span></button></nav><span class="header-note">四个轮子出发，两个轮子探索</span></div></header>
-<main>
-<section class="hero"><div class="hero-map" aria-hidden="true"><img src="maps/xianghu-lakeside.svg" alt=""></div><div class="shell hero-content"><div class="eyebrow"><span class="little-dot"></span> 全国 4+2 骑行路线库 · 首站杭州</div><h1>把车停好，<br>让风带你走一段。</h1><p>选一处停车点，换上自行车。<br>湖岸、树荫、咖啡香——下一段小旅行，从这里出发。</p><a class="primary hero-button" href="#route-library">挑一条路线 <span>↗</span></a><div class="hero-meta"><span><b id="total-routes">20</b> <small>主线路</small></span><span><b id="total-plans">37</b> <small>路线方案</small></span><span><b id="total-parking">21</b> <small>停车起点</small></span><span>4+2 <small>自驾 × 骑行</small></span></div></div><div class="hero-stamp">HANGZHOU<br><b>30° N / 120° E</b><span>慢一点，风景多一点</span></div></section>
-<section id="route-library" class="shell library-section"><div class="section-head"><div><div class="eyebrow">FIND YOUR NEXT RIDE</div><h2>杭州，骑着逛。</h2><p>一杯咖啡的短途，或一下午的沿江探索。</p></div><button id="coverage-button" class="city-pill"><span>⌖</span> 杭州及周边 <span>⌄</span></button></div>
-<div class="filters"><label class="search-field"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="搜索路线、咖啡、餐厅、歇脚点…" aria-label="搜索路线"></label><label><span class="filter-label">城市</span><select id="city-filter"><option value="all">全部城市</option><option value="hangzhou">杭州</option><option value="huzhou">湖州</option><option value="jiaxing">嘉兴 · 含海宁</option><option value="jinhua">金华</option><option value="shaoxing">绍兴</option></select></label><label><span class="filter-label">路线片区</span><select id="region-filter"><option value="all">全部片区</option><option value="xianghu">萧山 · 湘湖</option><option value="wengjin">海宁 · 翁金线</option><option value="qiandao">淳安 · 千岛湖</option><option value="tonglu">桐庐 · 富春江</option><option value="qiantangpark">钱塘 · 湿地外围</option><option value="westlake">杭州 · 西湖与茶山</option><option value="yucun">湖州 · 安吉余村</option><option value="mogan">湖州 · 莫干山山麓</option><option value="jiapu">湖州 · 夹浦滨湖</option><option value="huaxi">湖州 · 长兴城南画溪</option></select></label><label><span class="filter-label">骑行距离</span><select id="distance-filter"><option value="all">全部距离</option><option value="short">入门骑 · 8 km 内</option><option value="easy">轻松骑 · 20 km 内</option><option value="long">探索骑 · 20 km 以上</option></select></label><label><span class="filter-label">停车条件</span><select id="parking-filter"><option value="all">全部停车方案</option><option value="free">免费停车 · 见适用条件</option><option value="paid">收费停车 · 见参考费用</option><option value="unknown">费用待确认 · 正式车位</option><option value="day">日间方案 · 依开放条件</option><option value="night">夜间方案 · 见停车条件</option></select></label><label><span class="filter-label">骑行道类型</span><select id="lane-filter"><option value="all">全部道路类型</option><option value="isolated">与机动车隔离 · 行人共用</option><option value="cycleway">实际含骑行绿道路段</option><option value="dedicated">已确认自行车专用道</option><option value="mixed">普通道路 · 专用道未确认</option></select></label><button id="saved-filter" class="filter-button" aria-pressed="false">♡ 只看收藏</button></div>
-<div class="result-line"><span id="result-count" role="status" aria-live="polite">20 条主线 · 37 种道路方案</span><span>目录更新 <time datetime="2026-10-21">2026.10.21</time> <span class="info-tip" title="目录更新日与逐条来源读取日不同；原文日期、开放条件及证据强度见各路线。未现场核验。">ⓘ</span></span></div>
-<div class="catalog-note"><span>ⓘ</span><p>地图已改为简洁编号，点击标识可查看地点详情与导航。实拍仅展示道路；社交平台只保留图片画面，署名与出处在图注中展示。尚无对应路段照片的方案显示待补。<strong>免费、收费和费用待确认分别标注，入场核对完整取车窗口。</strong>夜骑需另外查看照明、准入和补给说明；景观实拍附作者、日期与许可，不代表当前路况。商户片区点不是精确店门，探店绕行另计。</p></div><div class="explorer"><aside class="route-list" id="route-list" tabindex="0" aria-label="骑行路线列表；桌面可独立上下滚动"></aside><div id="route-view" class="route-view"><div id="selected-heading"></div><div class="map-card"><div class="map-toolbar"><span><i></i> 路线地图</span><div><button id="zoom-out" aria-label="缩小地图">−</button><button id="zoom-in" aria-label="放大地图">+</button><button id="reset-map">全线</button><button id="download-map" class="download">↓ 保存地图</button></div></div><div id="map-container" class="map-container" tabindex="0" aria-label="路线地图；可使用加减键缩放，方向键移动"></div><div id="poi-popup" class="poi-popup" role="region" aria-label="选中地点详情" aria-live="polite" hidden></div><div class="map-legend"><span><i class="legend-route"></i>完整规划路线</span><span><i class="legend-cycleway"></i>实际含骑行绿道</span><span><i class="legend-parking">P</i>停车 / 起点</span><span><i class="legend-stop"></i>途经点</span><span><i class="legend-food">F</i>餐厅</span><span><i class="legend-coffee">C</i>咖啡</span><span><i class="legend-coffee">T</i>茶饮</span><span><i class="legend-rest">R</i>歇脚建议</span></div><p class="map-note">橙线显示完整主线，绿色叠线是规划实际经过的路网骑行道（可能行人共用）。往返短线只绘去程；道路起点 S 与停车片区 P 可分开。点击标识查看地点名称、说明与导航；F/C/T/R后的编号对应补给列表，数字圆点对应途经点。片区点不是精确入口。补给绕行不计入里程。</p></div><div id="route-detail"></div></div></div>
-</section>
-<section id="next-regions" class="shell next-regions"><div class="section-head"><div><div class="eyebrow">A LITTLE FURTHER</div><h2>向外骑，换一种风景。</h2><p>8个方向已梳理，卡片列出新发现与仍缺的依据。停车、接驳或准入未明确的方向继续保留研究状态。</p></div><label class="research-filter"><span class="filter-label">查看调研区域</span><select id="research-region" aria-label="筛选调研区域"><option value="all">全部待核查方向</option><option value="huzhou">湖州</option><option value="jiaxing">嘉兴 · 秀洲</option><option value="shaoxing">绍兴</option><option value="hangzhou">杭州</option></select></label></div><div id="expansion-cards" class="expansion-grid"></div><p class="expansion-note"><span id="research-summary" role="status" aria-live="polite"></span> 研究方向与研究图未计入上方正式路线。迪荡湖图仅为西南外围公共道路研究；没有据无名地块生成停车导航。</p></section>
-<section id="parking-standard" class="parking-section"><div class="shell standards"><div><div class="eyebrow">PARK FIRST, RIDE FREE</div><h2>免费停车，<br>要有明确依据。</h2><p>免费依据、收费参考与开放条件分别说明。路侧泊位按用户约定默认免费，实际收费及禁停以现场标志为准。</p></div><div class="standards-content"><article><span>01</span><div><h3>免费方案，费用覆盖整段行程</h3><p>公园、商场和单位共享车位按各自公开免费规则使用。湘湖限夜间，桐庐日间优先双休日及法定节假日；千岛湖运营方页面无日期，需先联系。免费条件必须覆盖从入场到取车的全过程。</p></div></article><article><span>02</span><div><h3>收费方案，写清参考规则</h3><p>西湖按工作日、旺季与假日计费；余村采用个人到访记录，莫干山采用平台参考价。原文日期与读取日期分开显示，入场确认现价、停放和取车窗口。</p></div></article><article><span>03</span><div><h3>停车与道路都要可追溯</h3><p>短时免停、消费抵扣和住店权益不算常态免费停车。收费路线使用正式车位；道路按公开节点规划，仍须服从现场准入和临时管理标志。</p></div></article><div class="evidence-note">本批信息来自公开资料，尚未进行现场或电话核实。湘湖景区停车咨询：<a href="tel:057182200955">0571-82200955</a>。</div></div></div></section>
-<section class="shell ending"><div><span class="eyebrow">从杭州开始，把更多风景装进路线库</span><h2>全国的路，慢慢骑。</h2><p>当前正式覆盖杭州、嘉兴（含海宁）、湖州、金华与绍兴 <span id="ending-count">20</span> 条主线路、<span class="plan-count">37</span> 种道路方案，覆盖西湖、运河、南湖、夹浦、金华江北与双龙等方向；东湖景区入口延伸仍在研究区；支持城市、片区、停车费用与夜间条件筛选。</p></div><a class="secondary" href="#route-library">回到路线库 ↑</a></section>
-</main>
-<footer class="shell footer"><a class="brand" href="#">骑遇<small>RIDE ATLAS</small></a><p>路线长度与骑行时间为规划估算；店铺营业以当日信息为准。</p><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">地图数据 © OpenStreetMap 贡献者 · ODbL</a></footer>
-<dialog id="coverage-dialog"><button class="dialog-close" aria-label="关闭">×</button><div class="eyebrow">ROUTE ATLAS / 001</div><h2>从杭州出发</h2><p>当前正式覆盖<span id="coverage-region-count">20</span>个片区，含杭州滨江、钱江新城、运河、嘉兴南湖、长兴与金华江北。停车分为免费条件、收费参考和费用待确认；东湖入口延伸及其他证据不足方向在调研区。</p><div class="coverage-row"><span>浙江 · 杭州与周边</span><b><span id="coverage-count">20</span> 条主线 · <span class="plan-count">37</span> 种道路方案</b></div><p class="small">本站逐条说明停车依据、参考费用与路线地图。</p><button class="primary dialog-close-action">探索全部路线 ↗</button></dialog>
-<div id="toast" class="toast" role="status" aria-live="polite"></div>
-<script src="map-data.js"></script><script src="catalog.js"></script><script src="planning-data.js"></script><script src="regional-map-data.js"></script><script src="regional-catalog.js"></script><script src="huzhou-research.js"></script><script src="verified-map-data.js?v=20261016-night-final"></script><script src="verified-catalog.js"></script><script src="expanded-catalog.js"></script><script src="city-catalog.js"></script><script src="research-updates.js?v=20261020-puyang-audit"></script><script src="night-catalog.js?v=20261016-night-final"></script><script src="photo-data.js"></script><script src="meiling-map-data.js"></script><script src="meiling-catalog.js"></script><script src="westlake-circuit-map-data.js"></script><script src="westlake-circuit-catalog.js"></script><script src="puyang-map-data.js"></script><script src="puyang-catalog.js"></script><script src="huzhou-parking-updates.js"></script><script src="huzhou-expansion-map-data.js?v=20261020-huzhou-expansion"></script>
-  <script src="huzhou-expansion-catalog.js?v=20261020-huzhou-expansion"></script>
-  <script src="two-region-research-updates.js?v=20261021"></script><script src="shuanglong-map-data.js?v=20261021"></script><script src="shuanglong-catalog.js?v=20261021"></script><script src="eastlake-map-data.js?v=20261021-eastlake"></script>
-<script src="eastlake-catalog.js?v=20261021-eastlake-streetview"></script>
-<script src="photo-updates.js?v=20261021-eastlake-streetview"></script><script src="catalog-metadata.js?v=1.1.5"></script><script src="map-renderer.js?v=20261020-huzhou-expansion"></script><script src="app.js?v=20261021-eastlake-streetview"></script>
-</body></html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>骑遇 · 全国 4+2 骑行路线库｜杭州站</title>
+    <meta
+      name="description"
+      content="开车带上自行车，选择注明费用和条件的停车点。探索杭州与周边的骑行路线、清晰路线地图、沿途咖啡和餐厅。"
+    />
+    <meta name="theme-color" content="#172b4d" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="src/styles/index.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#route-library">跳转到路线库</a>
+    <header class="site-header">
+      <div class="shell nav">
+        <a class="brand" href="#"
+          ><svg viewBox="0 0 44 32" aria-hidden="true">
+            <circle cx="10" cy="22" r="8" />
+            <circle cx="34" cy="22" r="8" />
+            <path
+              d="M10 22l8-15 8 15H10l10-10h9l5 10M16 7h6M27 3h4l-2 9"
+            /></svg
+          ><span>骑遇<small>RIDE ATLAS</small></span></a
+        >
+        <nav aria-label="主导航">
+          <a class="active" href="#route-library">探索路线</a
+          ><a href="#parking-standard">停车条件</a
+          ><button id="saved-nav" class="nav-save">
+            ♡ 我的收藏 <span id="saved-count">0</span>
+          </button>
+        </nav>
+        <span class="header-note">四个轮子出发，两个轮子探索</span>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-map" aria-hidden="true">
+          <img src="assets/maps/xianghu-lakeside.svg" alt="" />
+        </div>
+        <div class="shell hero-content">
+          <div class="eyebrow">
+            <span class="little-dot"></span> 全国 4+2 骑行路线库 · 首站杭州
+          </div>
+          <h1>把车停好，<br />让风带你走一段。</h1>
+          <p>
+            选一处停车点，换上自行车。<br />湖岸、树荫、咖啡香——下一段小旅行，从这里出发。
+          </p>
+          <a class="primary hero-button" href="#route-library"
+            >挑一条路线 <span>↗</span></a
+          >
+          <div class="hero-meta">
+            <span><b id="total-routes">20</b> <small>主线路</small></span
+            ><span><b id="total-plans">37</b> <small>路线方案</small></span
+            ><span><b id="total-parking">21</b> <small>停车起点</small></span
+            ><span>4+2 <small>自驾 × 骑行</small></span>
+          </div>
+        </div>
+        <div class="hero-stamp">
+          HANGZHOU<br /><b>30° N / 120° E</b><span>慢一点，风景多一点</span>
+        </div>
+      </section>
+      <section id="route-library" class="shell library-section">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">FIND YOUR NEXT RIDE</div>
+            <h2>杭州，骑着逛。</h2>
+            <p>一杯咖啡的短途，或一下午的沿江探索。</p>
+          </div>
+          <button id="coverage-button" class="city-pill">
+            <span>⌖</span> 杭州及周边 <span>⌄</span>
+          </button>
+        </div>
+        <div class="filters">
+          <label class="search-field"
+            ><span aria-hidden="true">⌕</span
+            ><input
+              id="search"
+              type="search"
+              placeholder="搜索路线、咖啡、餐厅、歇脚点…"
+              aria-label="搜索路线" /></label
+          ><label
+            ><span class="filter-label">城市</span
+            ><select id="city-filter">
+              <option value="all">全部城市</option>
+              <option value="hangzhou">杭州</option>
+              <option value="huzhou">湖州</option>
+              <option value="jiaxing">嘉兴 · 含海宁</option>
+              <option value="jinhua">金华</option>
+              <option value="shaoxing">绍兴</option>
+            </select></label
+          ><label
+            ><span class="filter-label">路线片区</span
+            ><select id="region-filter">
+              <option value="all">全部片区</option>
+              <option value="xianghu">萧山 · 湘湖</option>
+              <option value="wengjin">海宁 · 翁金线</option>
+              <option value="qiandao">淳安 · 千岛湖</option>
+              <option value="tonglu">桐庐 · 富春江</option>
+              <option value="qiantangpark">钱塘 · 湿地外围</option>
+              <option value="westlake">杭州 · 西湖与茶山</option>
+              <option value="yucun">湖州 · 安吉余村</option>
+              <option value="mogan">湖州 · 莫干山山麓</option>
+              <option value="jiapu">湖州 · 夹浦滨湖</option>
+              <option value="huaxi">湖州 · 长兴城南画溪</option>
+            </select></label
+          ><label
+            ><span class="filter-label">骑行距离</span
+            ><select id="distance-filter">
+              <option value="all">全部距离</option>
+              <option value="short">入门骑 · 8 km 内</option>
+              <option value="easy">轻松骑 · 20 km 内</option>
+              <option value="long">探索骑 · 20 km 以上</option>
+            </select></label
+          ><label
+            ><span class="filter-label">停车条件</span
+            ><select id="parking-filter">
+              <option value="all">全部停车方案</option>
+              <option value="free">免费停车 · 见适用条件</option>
+              <option value="paid">收费停车 · 见参考费用</option>
+              <option value="unknown">费用待确认 · 正式车位</option>
+              <option value="day">日间方案 · 依开放条件</option>
+              <option value="night">夜间方案 · 见停车条件</option>
+            </select></label
+          ><label
+            ><span class="filter-label">骑行道类型</span
+            ><select id="lane-filter">
+              <option value="all">全部道路类型</option>
+              <option value="isolated">与机动车隔离 · 行人共用</option>
+              <option value="cycleway">实际含骑行绿道路段</option>
+              <option value="dedicated">已确认自行车专用道</option>
+              <option value="mixed">普通道路 · 专用道未确认</option>
+            </select></label
+          ><button id="saved-filter" class="filter-button" aria-pressed="false">
+            ♡ 只看收藏
+          </button>
+        </div>
+        <div class="result-line">
+          <span id="result-count" role="status" aria-live="polite"
+            >20 条主线 · 37 种道路方案</span
+          ><span
+            >目录更新 <time datetime="2026-10-21">2026.10.21</time>
+            <span
+              class="info-tip"
+              title="目录更新日与逐条来源读取日不同；原文日期、开放条件及证据强度见各路线。未现场核验。"
+              >ⓘ</span
+            ></span
+          >
+        </div>
+        <div class="catalog-note">
+          <span>ⓘ</span>
+          <p>
+            地图已改为简洁编号，点击标识可查看地点详情与导航。实拍仅展示道路；社交平台只保留图片画面，署名与出处在图注中展示。尚无对应路段照片的方案显示待补。<strong>免费、收费和费用待确认分别标注，入场核对完整取车窗口。</strong>夜骑需另外查看照明、准入和补给说明；景观实拍附作者、日期与许可，不代表当前路况。商户片区点不是精确店门，探店绕行另计。
+          </p>
+        </div>
+        <div class="explorer">
+          <aside
+            class="route-list"
+            id="route-list"
+            tabindex="0"
+            aria-label="骑行路线列表；桌面可独立上下滚动"
+          ></aside>
+          <div id="route-view" class="route-view">
+            <div id="selected-heading"></div>
+            <div class="map-card">
+              <div class="map-toolbar">
+                <span><i></i> 路线地图</span>
+                <div>
+                  <button id="zoom-out" aria-label="缩小地图">−</button
+                  ><button id="zoom-in" aria-label="放大地图">+</button
+                  ><button id="reset-map">全线</button
+                  ><button id="download-map" class="download">
+                    ↓ 保存地图
+                  </button>
+                </div>
+              </div>
+              <div
+                id="map-container"
+                class="map-container"
+                tabindex="0"
+                aria-label="路线地图；可使用加减键缩放，方向键移动"
+              ></div>
+              <div
+                id="poi-popup"
+                class="poi-popup"
+                role="region"
+                aria-label="选中地点详情"
+                aria-live="polite"
+                hidden
+              ></div>
+              <div class="map-legend">
+                <span><i class="legend-route"></i>完整规划路线</span
+                ><span><i class="legend-cycleway"></i>实际含骑行绿道</span
+                ><span><i class="legend-parking">P</i>停车 / 起点</span
+                ><span><i class="legend-stop"></i>途经点</span
+                ><span><i class="legend-food">F</i>餐厅</span
+                ><span><i class="legend-coffee">C</i>咖啡</span
+                ><span><i class="legend-coffee">T</i>茶饮</span
+                ><span><i class="legend-rest">R</i>歇脚建议</span>
+              </div>
+              <p class="map-note">
+                橙线显示完整主线，绿色叠线是规划实际经过的路网骑行道（可能行人共用）。往返短线只绘去程；道路起点
+                S 与停车片区 P
+                可分开。点击标识查看地点名称、说明与导航；F/C/T/R后的编号对应补给列表，数字圆点对应途经点。片区点不是精确入口。补给绕行不计入里程。
+              </p>
+            </div>
+            <div id="route-detail"></div>
+          </div>
+        </div>
+      </section>
+      <section id="next-regions" class="shell next-regions">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">A LITTLE FURTHER</div>
+            <h2>向外骑，换一种风景。</h2>
+            <p>
+              8个方向已梳理，卡片列出新发现与仍缺的依据。停车、接驳或准入未明确的方向继续保留研究状态。
+            </p>
+          </div>
+          <label class="research-filter"
+            ><span class="filter-label">查看调研区域</span
+            ><select id="research-region" aria-label="筛选调研区域">
+              <option value="all">全部待核查方向</option>
+              <option value="huzhou">湖州</option>
+              <option value="jiaxing">嘉兴 · 秀洲</option>
+              <option value="shaoxing">绍兴</option>
+              <option value="hangzhou">杭州</option>
+            </select></label
+          >
+        </div>
+        <div id="expansion-cards" class="expansion-grid"></div>
+        <p class="expansion-note">
+          <span id="research-summary" role="status" aria-live="polite"></span>
+          研究方向与研究图未计入上方正式路线。迪荡湖图仅为西南外围公共道路研究；没有据无名地块生成停车导航。
+        </p>
+      </section>
+      <section id="parking-standard" class="parking-section">
+        <div class="shell standards">
+          <div>
+            <div class="eyebrow">PARK FIRST, RIDE FREE</div>
+            <h2>免费停车，<br />要有明确依据。</h2>
+            <p>
+              免费依据、收费参考与开放条件分别说明。路侧泊位按用户约定默认免费，实际收费及禁停以现场标志为准。
+            </p>
+          </div>
+          <div class="standards-content">
+            <article>
+              <span>01</span>
+              <div>
+                <h3>免费方案，费用覆盖整段行程</h3>
+                <p>
+                  公园、商场和单位共享车位按各自公开免费规则使用。湘湖限夜间，桐庐日间优先双休日及法定节假日；千岛湖运营方页面无日期，需先联系。免费条件必须覆盖从入场到取车的全过程。
+                </p>
+              </div>
+            </article>
+            <article>
+              <span>02</span>
+              <div>
+                <h3>收费方案，写清参考规则</h3>
+                <p>
+                  西湖按工作日、旺季与假日计费；余村采用个人到访记录，莫干山采用平台参考价。原文日期与读取日期分开显示，入场确认现价、停放和取车窗口。
+                </p>
+              </div>
+            </article>
+            <article>
+              <span>03</span>
+              <div>
+                <h3>停车与道路都要可追溯</h3>
+                <p>
+                  短时免停、消费抵扣和住店权益不算常态免费停车。收费路线使用正式车位；道路按公开节点规划，仍须服从现场准入和临时管理标志。
+                </p>
+              </div>
+            </article>
+            <div class="evidence-note">
+              本批信息来自公开资料，尚未进行现场或电话核实。湘湖景区停车咨询：<a
+                href="tel:057182200955"
+                >0571-82200955</a
+              >。
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="shell ending">
+        <div>
+          <span class="eyebrow">从杭州开始，把更多风景装进路线库</span>
+          <h2>全国的路，慢慢骑。</h2>
+          <p>
+            当前正式覆盖杭州、嘉兴（含海宁）、湖州、金华与绍兴
+            <span id="ending-count">20</span> 条主线路、<span class="plan-count"
+              >37</span
+            >
+            种道路方案，覆盖西湖、运河、南湖、夹浦、金华江北与双龙等方向；东湖景区入口延伸仍在研究区；支持城市、片区、停车费用与夜间条件筛选。
+          </p>
+        </div>
+        <a class="secondary" href="#route-library">回到路线库 ↑</a>
+      </section>
+    </main>
+    <footer class="shell footer">
+      <a class="brand" href="#">骑遇<small>RIDE ATLAS</small></a>
+      <p>路线长度与骑行时间为规划估算；店铺营业以当日信息为准。</p>
+      <a
+        href="https://www.openstreetmap.org/copyright"
+        target="_blank"
+        rel="noopener noreferrer"
+        >地图数据 © OpenStreetMap 贡献者 · ODbL</a
+      >
+    </footer>
+    <dialog id="coverage-dialog">
+      <button class="dialog-close" aria-label="关闭">×</button>
+      <div class="eyebrow">ROUTE ATLAS / 001</div>
+      <h2>从杭州出发</h2>
+      <p>
+        当前正式覆盖<span id="coverage-region-count">20</span
+        >个片区，含杭州滨江、钱江新城、运河、嘉兴南湖、长兴与金华江北。停车分为免费条件、收费参考和费用待确认；东湖入口延伸及其他证据不足方向在调研区。
+      </p>
+      <div class="coverage-row">
+        <span>浙江 · 杭州与周边</span
+        ><b
+          ><span id="coverage-count">20</span> 条主线 ·
+          <span class="plan-count">37</span> 种道路方案</b
+        >
+      </div>
+      <p class="small">本站逐条说明停车依据、参考费用与路线地图。</p>
+      <button class="primary dialog-close-action">探索全部路线 ↗</button>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

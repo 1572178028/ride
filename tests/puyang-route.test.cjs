@@ -1,8 +1,8 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),zlib=require('node:zlib');
-const root=path.resolve(__dirname,'..'),ctx={};ctx.window=ctx;vm.createContext(ctx);
-for(const f of ['map-data.js','catalog.js','planning-data.js','regional-map-data.js','verified-map-data.js','puyang-map-data.js','puyang-catalog.js','map-renderer.js'])vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),ctx);
+const root=path.resolve(__dirname,'..');
+const ctx={...require('../src/data/index.js'),...require('../src/features/map/renderer.js')};
 const r=ctx.ROUTES.find(r=>r.id==='puyang-greenway'),p=ctx.REGIONAL_PLANS[r.id],points=ctx.MAP_DATA.paths[r.id];
 const snapshot=JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(root,'research/puyangjiang-osm.json.gz'))));
 const ways=new Map(snapshot.elements.filter(e=>e.type==='way').map(e=>[e.id,e]));

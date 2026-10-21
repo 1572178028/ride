@@ -1,4 +1,5 @@
 """Rebuild Meiling South from the dated OSM API snapshot (WGS84, ODbL)."""
+from lib.geometry import update_geometry
 import gzip
 import json
 import runpy
@@ -16,8 +17,5 @@ anchors = [[120.0835362, 30.2072162], [120.0824675, 30.1912208], [120.0938297, 3
 points, segments, anchors = helpers['route_path'](coords, graph, turns, anchors)
 plan = {'distance': round(sum(s['km'] for s in segments), 1), 'cyclewayKm': 0, 'anchors': anchors, 'segments': segments, 'wayIds': list(dict.fromkeys(s['way'] for s in segments)), 'checked': '2026-10-19', 'coordinateSystem': 'WGS84', 'snapshot': 'meiling-south', 'geometrySource': data['source']['url']}
 mapdata = {'roads': roads, 'water': water, 'waterAreas': []}
-out = 'Object.assign(MAP_DATA.maps,' + json.dumps({'meiling-south': mapdata},ensure_ascii=False,separators=(',',':')) + ');\n'
-out += 'Object.assign(MAP_DATA.paths,' + json.dumps({'meiling-south-road': points},separators=(',',':')) + ');\n'
-out += 'Object.assign(REGIONAL_PLANS,' + json.dumps({'meiling-south-road': plan},ensure_ascii=False,separators=(',',':')) + ');\n'
-(ROOT / 'meiling-map-data.js').write_text(out)
+update_geometry(ROOT, maps={'meiling-south': mapdata}, paths={'meiling-south-road': points}, plans={'meiling-south-road': plan})
 print(plan['distance'], 'km;', len(points), 'road nodes;', plan['wayIds'])

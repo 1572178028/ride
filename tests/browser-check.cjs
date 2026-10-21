@@ -2,9 +2,14 @@
 const assert = require('node:assert/strict'), fs = require('node:fs'), path = require('node:path'), http = require('node:http');
 const { chromium } = require('playwright');
 const root = path.resolve(__dirname, '..');
+const { ROUTES } = require('../src/data/index.js');
+const routeLookup = Object.fromEntries(ROUTES.map(r => [r.id, r]));
+const basePath = process.env.RIDE_TEST_BASE_PATH || '';
 const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp' };
 const server = http.createServer((req, res) => {
-  const file = path.resolve(root, '.' + decodeURIComponent(new URL(req.url, 'http://localhost').pathname).replace(/\/$/, '/index.html'));
+  const requested = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+  if (!requested.startsWith(basePath + '/')) { res.writeHead(404).end(); return; }
+  const file = path.resolve(root, '.' + requested.slice(basePath.length).replace(/\/$/, '/index.html'));
   if (!file.startsWith(root + path.sep)) { res.writeHead(403).end(); return; }
   fs.readFile(file, (err, data) => { if (err) { res.writeHead(404).end(); return; } res.writeHead(200, { 'Content-Type': mime[path.extname(file)] || 'application/octet-stream' }); res.end(data); });
 });
@@ -14,7 +19,7 @@ const server = http.createServer((req, res) => {
   try {
     const chrome = process.env.CHROME_EXECUTABLE_PATH || (process.platform === 'darwin' && fs.existsSync('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome') ? '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' : undefined);
     browser = await chromium.launch({ headless: true, ...(chrome ? { executablePath: chrome } : {}) });
-    const url = `http://127.0.0.1:${server.address().port}/`, errors = [];
+    const url = `http://127.0.0.1:${server.address().port}${basePath}/`, errors = [];
     const watch = p => { p.on('pageerror', e => errors.push(e.message)); p.on('response', r => { if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`); }); };
     const page = await browser.newPage({ viewport: { width: 1440, height: 1050 }, reducedMotion: 'reduce', acceptDownloads: true });
     watch(page); await page.goto(url); await page.waitForSelector('.route-card');
@@ -22,8 +27,8 @@ const server = http.createServer((req, res) => {
     assert.equal(await page.locator('.route-card').count(), 20);
     assert.equal(await page.locator('#total-plans').innerText(), '37');
     assert.equal(await page.locator('#total-parking').innerText(), '21');
-    const ids = await page.evaluate(() => ROUTES.map(r => r.id));
-    const select = async (p, id) => { await p.evaluate(id => { location.hash = 'route=' + id; }, id); await p.waitForFunction(id => document.querySelector('#selected-heading h2').textContent === ROUTES.find(r => r.id === id).title, id); };
+    const ids = ROUTES.map(r => r.id);
+    const select = async (p, id) => { await p.evaluate(id => { location.hash = 'route=' + id; }, id); await p.waitForFunction(title => document.querySelector('#selected-heading h2').textContent === title, routeLookup[id].title); };
     await page.selectOption('#region-filter','xianghu');
     assert.equal(await page.locator('.route-card').count(),1);
     assert.equal(await page.locator('.variant-picker button').count(),5);
@@ -41,7 +46,7 @@ const server = http.createServer((req, res) => {
     assert.equal(await page.locator('.variant-picker button').count(),3);
     for (const id of ['wengjin-short','wengjin-middle','wengjin-yanguan']) {
       await page.locator(`[data-variant="${id}"]`).click();
-      assert.equal(await page.locator('#selected-heading h2').innerText(),await page.evaluate(id=>ROUTES.find(r=>r.id===id).title,id));
+      assert.equal(await page.locator('#selected-heading h2').innerText(),routeLookup[id].title);
       assert.equal(await page.locator('.route-card').count(),1);
       assert.equal(await page.locator('#route-detail .photo-open').count(),3);
     }
@@ -69,7 +74,7 @@ const server = http.createServer((req, res) => {
       await page.locator(`[data-variant="${id}"]`).click();
       assert.equal(await page.locator('.route-card').count(),1);
       assert.equal(await page.locator('#map-container svg').count(),1);
-      assert.equal(await page.locator('#selected-heading h2').innerText(),await page.evaluate(id=>ROUTES.find(r=>r.id===id).title,id));
+      assert.equal(await page.locator('#selected-heading h2').innerText(),routeLookup[id].title);
     }
     await page.locator('#selected-heading').scrollIntoViewIfNeeded();
     await page.screenshot({path:'/private/tmp/ride-unified-westlake-desktop.png'});
@@ -93,8 +98,8 @@ const server = http.createServer((req, res) => {
       assert.ok((await page.locator('#poi-popup b').innerText()).length>0);
       await page.locator('#close-poi').click();
       for(const badge of await page.locator('#route-detail .photo-match:not(.unscored)').allTextContents())assert.match(badge,/^\d+%$/);
-      const locals=page.locator('#route-detail .photo-open img[src^="photos/"]:visible');
-      if(await locals.count())await page.waitForFunction(()=>[...document.querySelectorAll('#route-detail .photo-open img[src^="photos/"]')].filter(i=>i.getClientRects().length>0).every(i=>i.complete&&i.naturalWidth>0));
+      const locals=page.locator('#route-detail .photo-open img[src^="assets/photos/"]:visible');
+      if(await locals.count())await page.waitForFunction(()=>[...document.querySelectorAll('#route-detail .photo-open img[src^="assets/photos/"]')].filter(i=>i.getClientRects().length>0).every(i=>i.complete&&i.naturalWidth>0));
 
       assert.equal(await page.locator('#map-container [data-poi="parking"]').count(), 1);
       const links = await page.locator('.navigation-actions a').evaluateAll(ns => ns.map(n => n.href));
@@ -102,7 +107,7 @@ const server = http.createServer((req, res) => {
       const a = new URL(links[2]), b = new URL(links[3]);
       assert.equal(a.searchParams.get('coordinate'), 'gaode'); assert.equal(a.searchParams.get('mode'), 'ride');
       assert.equal(b.searchParams.get('coord_type'), 'gcj02'); assert.equal(b.searchParams.get('mode'), 'riding');
-      const r = await page.evaluate(id => { const r = ROUTES.find(r => r.id === id); return { city: r.city, region: r.region, point: r.start.gcj, fee: r.parking.feeType }; }, id);
+      const r = { ...routeLookup[id], point: routeLookup[id].start.gcj, fee: routeLookup[id].parking.feeType };
       assert.ok(a.searchParams.get('to').startsWith(r.point.join(',')));
       if (['nanhu', 'jinhua', 'canal'].includes(r.region)) { assert.equal(new URL(links[0]).searchParams.get('city'), r.city); assert.equal(new URL(links[1]).searchParams.get('region'), r.city); }
       if (r.fee !== 'free') assert.ok(!(await page.locator('.parking-box').innerText()).includes('¥0'));
@@ -232,7 +237,7 @@ const server = http.createServer((req, res) => {
     const eastlake=page.locator('[data-research-id="shaoxing-eastlake-research"]');
     await page.locator('.route-extension-research .photo-open img').evaluateAll(async ns=>{for(const img of ns){img.loading='eager';await img.decode();}});
     assert.ok((await eastlake.innerText()).includes('4小时内10元'));
-    await eastlake.locator('.research-evidence summary').click();
+    await eastlake.locator('.research-evidence summary').first().click();
     assert.ok((await eastlake.innerText()).includes('242米'));
     await eastlake.scrollIntoViewIfNeeded();
     await page.screenshot({path:'/private/tmp/ride-eastlake-research-desktop.png'});

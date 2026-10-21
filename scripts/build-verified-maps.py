@@ -1,4 +1,5 @@
 """Build the newly checked directions without overwriting regional-map-data.js."""
+from lib.geometry import update_geometry
 import collections
 import gzip
 import heapq
@@ -179,10 +180,7 @@ def build(specs):
                 rings = [r for r in rings if r]
                 if rings:
                     maps[region]['waterAreas'].append({'source': element['id'], 'rings': rings})
-    out = 'Object.assign(MAP_DATA.maps,' + json.dumps(maps, ensure_ascii=False, separators=(',', ':')) + ');\n'
-    out += 'Object.assign(MAP_DATA.paths,' + json.dumps(paths, ensure_ascii=False, separators=(',', ':')) + ');\n'
-    out += 'Object.assign(REGIONAL_PLANS,' + json.dumps(plans, ensure_ascii=False, separators=(',', ':')) + ');\n'
-    (ROOT / 'verified-map-data.js').write_text(out)
+    update_geometry(ROOT, maps=maps, paths=paths, plans=plans)
 
 
 if __name__ == '__main__':

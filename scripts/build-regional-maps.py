@@ -1,3 +1,4 @@
+from lib.geometry import update_geometry
 import json,math,heapq,collections,gzip
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
@@ -123,4 +124,4 @@ if __name__=='__main__':
   # Segment-level metadata is retained for validation and lane overlays.
   plans[name]={'distance':round(distance,1),'anchors':stops,'wayIds':ways,'cyclewayKm':round(cycle,2),'segments':segments,'checked':'2026-10-15','coordinateSystem':'WGS84'}
   print(name,round(distance,1),'km',len(points),'points',round(cycle,2),'km mapped cycleway')
- (ROOT/'regional-map-data.js').write_text('Object.assign(MAP_DATA.maps,'+json.dumps(maps,ensure_ascii=False,separators=(',',':'))+');\nObject.assign(MAP_DATA.paths,'+json.dumps(paths,ensure_ascii=False,separators=(',',':'))+');\nwindow.REGIONAL_PLANS='+json.dumps(plans,ensure_ascii=False,separators=(',',':'))+';\n')
+ update_geometry(ROOT, maps=maps, paths=paths, plans=plans)

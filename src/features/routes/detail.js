@@ -1,0 +1,22 @@
+import { esc } from "../../shared/dom.js";
+import { external } from "../../shared/links.js";
+import {
+  amap,
+  amapSearch,
+  baidu,
+  baiduNamed,
+  navCity,
+} from "../../shared/navigation.js";
+import { photosHTML } from "../photos/index.js";
+import { researchPlacesHTML, routeResearchHTML } from "../research/index.js";
+import { supplyHTML } from "./supply.js";
+function nightHTML(r) {
+  const n = r.nightRide;
+  if (!n) return "";
+  return `<section class="night-box"><div class="detail-label">NIGHT RIDE / 夜骑条件</div><h3>${esc(n.window)}</h3><dl><div><dt>照明与通行</dt><dd>${esc(n.lighting)}</dd></div><div><dt>停车与取车</dt><dd>${esc(n.parking)}</dd></div><div><dt>补给</dt><dd>${esc(n.supply || "商户夜间营业未核实，自带水与基础补给。")}</dd></div></dl>${external(n.source, "停车资料来源 ↗")}${n.lightingSource ? external(n.lightingSource, "秋冬亮灯来源 ↗") : ""}</section>`;
+}
+
+export function routeDetailHTML(r, { supplyKind }) {
+  const p = r.parking;
+  return `<p class="detail-intro">${esc(r.description)}</p>${photosHTML(r)}${nightHTML(r)}${r.planBasis ? `<p class="plan-basis">↳ ${esc(r.planBasis)}</p>` : ""}<section class="parking-box ${p.feeType !== "free" ? "paid-parking" : r.region === "qiandao" ? "needs-confirmation" : ""}"><div class="parking-icon">P</div><div class="parking-main"><div class="detail-label">${p.feeType === "unknown" ? "停车费用待确认" : p.feeType === "paid" ? "收费停车" : "免费停车"} · 骑行起点</div><h3>${esc(p.name)}</h3><div class="price">${esc(p.feeBasis === "user-default-roadside" ? "默认免费 · 现场标志优先" : p.price)}</div><p class="address">⌖ ${esc(p.address)}</p><p class="parking-rule">${esc(p.rule)}</p><p>${esc(p.condition)}</p><div>${external(p.source, esc(p.sourceTitle) + " ↗", "source-link")}<span class="source-meta">原文 ${p.published}</span></div><p class="verification-note">${esc(p.verification)} · 资料核对日 ${p.checked}。${p.feeType !== "free" ? "费用与开放窗口以当日入口公示为准。" : "入口公示不一致时，本方案不满足免费条件。"}</p><div class="navigation-actions">${external(p.namedNavigation ? amapSearch(p.query || p.name, navCity(r)) : amap(p.gcj, p.name), p.namedNavigation ? "高德 · 查找停车入口 ↗" : "高德 · 开车到停车点 ↗", "nav-primary")}${external(p.namedNavigation ? baiduNamed(p.query || p.name, r) : baidu(p.gcj, p.name), "百度 · 开车到停车点 ↗")}${external(amap(r.start.gcj, r.start.name, "ride"), "高德 · 骑行到起点 ↗")}${external(baidu(r.start.gcj, r.start.name, "riding"), "百度 · 骑行到起点 ↗")}</div><div class="nav-explainer">${esc(p.precision || "高德支持手机调起 App；百度使用 GCJ-02 坐标参数。")} 精确道路起点可用上方骑行导航打开；停车入口仍需遵守场所公示。</div></div></section><section class="lane-box"><span class="lane-symbol">↝</span><div><h3>专用骑行道情况：${esc(r.lane)}</h3><p>${esc(r.laneDetail)}</p><p class="lane-verdict">${r.mapCyclewayKm > 0.1 ? `规划实际含约 ${r.mapCyclewayKm.toFixed(1)} km 路网骑行道；绿色线段可能行人共用。` : r.dedicated ? "部分路段有专用道，接驳段另计。" : r.isolated ? "结论：有与机动车分隔的路段，行人共用；未确认连续自行车专用道。" : "结论：未确认专用骑行道，按普通道路混行安排。"}</p></div></section><div class="detail-columns"><section class="detail-section"><h3>一路怎么骑 <small>THE WAY</small></h3><ol class="waypoints">${r.stops.map((s, i) => `<li><span class="step-number">${i + 1}</span><div><b>${esc(s.name)}</b><p>${esc(s.note)}</p></div></li>`).join("")}<li><span class="step-number">P</span><div><b>返回停车点</b><p>${r.shape === "原路往返" ? "沿去程原路返骑，取车回家" : r.shape === "往返环路" ? "按允许通行方向返回；双向道路两侧不逆行" : "完成环线，返回停车点取车"}</p></div></li></ol><button class="waypoint-copy" id="copy-stops">复制途经点 ↓</button></section><section class="detail-section supply-section"><h3>值得停一停 <small>COFFEE · FOOD · REST</small></h3><p class="supply-explainer">每处地点单独列明来源与核查状态。标为“片区”的点只表示所在街区，导航按店名搜索；营业及服务开放以当天为准。</p><p class="supply-gaps">${r.food.some((p) => p.kind === "咖啡") ? "咖啡点的当前营业以到店为准。" : "暂无已核实的沿线咖啡分店，自备饮水。"} ${r.food.some((p) => p.kind === "餐厅") ? "" : "暂无已核实的沿线餐厅，正餐请提前安排。"}</p>${researchPlacesHTML({ ...r, places: r.leads || [] })}<div id="supply-content" aria-live="polite">${supplyHTML(r, supplyKind)}</div></section></div><section class="notes-box"><h3>出发前看一眼</h3><ul>${r.notes.map((n) => `<li>${esc(n)}</li>`).join("")}</ul></section>${routeResearchHTML(r)}<details class="sources-details"><summary>资料依据与核对说明 · ${r.sourceChecked}</summary><p>停车公开来源已读取；商家、设施的来源状态见各卡片。未做电话或现场复核。${esc(p.evidence)}</p><ul>${r.sources.map(([title, url]) => `<li>${external(url, esc(title) + " ↗")}</li>`).join("")}<li>${external("https://www.openstreetmap.org/copyright", "底图与路线道路数据：OpenStreetMap · ODbL ↗")}</li></ul><p>路线按开放道路几何规划；未完成路况实测或全程通行核实。歇脚建议的位置不代表专门休息设施；餐饮未标注实时营业时段及未核实的评分、价格。</p></details>`;
+}

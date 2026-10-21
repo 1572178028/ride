@@ -1,4 +1,5 @@
 """Build Puyang road plan and its parking connector from the saved OSM snapshot."""
+from lib.geometry import update_geometry
 import json, runpy
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -13,7 +14,5 @@ connector,connector_segments,_=h['route_path'](c,g,turns,actual[:2])
 points+=back[1:];segments+=back_segments
 plan={'distance':round(sum(s['km'] for s in segments),1),'cyclewayKm':round(sum(s['km'] for s in segments if s['kind']=='cycleway'),2),'anchors':actual,'segments':segments,'wayIds':list(dict.fromkeys(s['way'] for s in segments)),'checked':'2026-10-20','coordinateSystem':'WGS84','snapshot':'puyangjiang','geometrySource':d['source']['url'],'connectorKm':round(sum(s['km'] for s in connector_segments),3),'parkingPoiGcj':[120.252843,30.036164]}
 id='puyang-greenway'
-out='Object.assign(MAP_DATA.paths,'+json.dumps({id:points},separators=(',',':'))+');\n'
-out+='Object.assign(REGIONAL_PLANS,'+json.dumps({id:plan},ensure_ascii=False,separators=(',',':'))+');\n'
-(ROOT/'puyang-map-data.js').write_text(out)
+update_geometry(ROOT, paths={id: points}, plans={id: plan})
 print(plan['distance'],'km; connector',plan['connectorKm'],'km; cycleway',plan['cyclewayKm'],'km;',len(points),'nodes')

@@ -1,4 +1,5 @@
 """Build public-road Shuanglong ride and a partial East Lake research preview."""
+from lib.geometry import update_geometry
 import json,runpy
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];h=runpy.run_path(str(ROOT/'scripts/build-verified-maps.py'))
@@ -15,4 +16,4 @@ for id,region,snapshot,anchors in specs:
  inside=lambda p:bounds[0]<=p[0]<=bounds[2] and bounds[1]<=p[1]<=bounds[3]
  maps[region]={'roads':[r for r in roads if any(inside(p) for p in r['points'])],'water':[w for w in water if any(inside(p) for p in w)],'waterAreas':[]}
  print(id,plans[id]['distance'],len(points),'anchors',actual)
-(ROOT/'shuanglong-map-data.js').write_text('Object.assign(MAP_DATA.maps,'+json.dumps(maps,separators=(',',':'))+');\nObject.assign(MAP_DATA.paths,'+json.dumps(paths,separators=(',',':'))+');\nObject.assign(REGIONAL_PLANS,'+json.dumps(plans,ensure_ascii=False,separators=(',',':'))+');\n')
+update_geometry(ROOT, maps=maps, paths=paths, plans=plans)
