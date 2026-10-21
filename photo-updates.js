@@ -1047,7 +1047,7 @@
   r.photoGap=r.photoMissing?(r.photos.length?'道路图目标3张，仍待补'+r.photoMissing+'张。已展示图片含关联参考，详见评分依据。':'暂无达到60%关联评分的道路实拍；保留缺口，不用同片区景点替代。'):'';
   r.notes=r.notes.filter(n=>!n.startsWith('对应本方案的道路实拍')&&!n.startsWith('已补两张2026年报道'));
  }
- for(const r of EXPANSION_CANDIDATES){
+ for(const r of [...EXPANSION_CANDIDATES,...ROUTES.flatMap(r=>r.researchExtensions||[])]){
   const candidatePhotos=additions.filter(p=>(p.candidateIds||[]).includes(r.id)&&eligible(p));
   if(candidatePhotos.length)r.photos=candidatePhotos;
  }

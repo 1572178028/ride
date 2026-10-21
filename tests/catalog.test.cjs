@@ -45,7 +45,7 @@ test('distance variants belong to twenty route families across twenty actual are
   }
 });
 test('research directions cannot claim free parking or inflate the ride catalog', () => {
-  assert.equal(app.EXPANSION_CANDIDATES.length, 9);
+  assert.equal(app.EXPANSION_CANDIDATES.length, 8);
   assert.ok(app.ROUTES.some(route => route.region === 'westlake'));
   assert.ok(app.RESEARCH_MAPS.some(route => route.region === 'jiapu'));
   assert.ok(app.ROUTES.some(route => route.region === 'qiandao'));
@@ -302,7 +302,7 @@ test('new city lakes preserve actual shoreline and island polygons', () => {
 test('local and external licensed photos are attributed and attached to their actual subject', () => {
   const licenses = JSON.parse(fs.readFileSync(path.join(root, 'research/photo-licenses.json')));
   assert.equal(licenses.length, 53);
-  for (const r of [...app.ROUTES, ...app.EXPANSION_CANDIDATES]) for (const photo of r.photos || []) {
+  for (const r of [...app.ROUTES, ...app.EXPANSION_CANDIDATES, ...app.ROUTES.flatMap(r=>r.researchExtensions||[])]) for (const photo of r.photos || []) {
     const record = licenses.find(p => p.src === photo.src);
     assert.ok(record && record.author === photo.author && record.license === photo.license);
     const host=new URL(photo.source).hostname;
@@ -460,7 +460,7 @@ test('Photo coverage and gaps stay explicit and every added assignment targets a
   assert.ok(p.relation&&p.verification&&p.kind);
   assert.equal(p.storage,'local');
   for(const id of p.routeIds||[])assert.ok(app.ROUTES.some(r=>r.id===id),id);
-  for(const id of p.candidateIds||[])assert.ok(app.EXPANSION_CANDIDATES.some(r=>r.id===id),id);
+  for(const id of p.candidateIds||[])assert.ok([...app.EXPANSION_CANDIDATES,...app.ROUTES.flatMap(r=>r.researchExtensions||[])].some(r=>r.id===id),id);
  }
  for(const r of app.ROUTES.filter(r=>!r.photos.length))assert.ok(r.photoGap,r.id);
  for(const p of app.ROUTES.find(r=>r.id==='wengjin-short').photos){assert.ok(p.referenceOnly);assert.match(p.relation,/不据此认定/);}
@@ -580,7 +580,7 @@ test('photo association thresholds distinguish 60, 70, 85 and 86 without claimin
 });
 
 test('Shuanglong publishes only public roads while East Lake keeps the isolated auxiliary-road gap',()=>{
- const s=app.ROUTES.find(r=>r.id==='shuanglong-road');const e=app.EXPANSION_CANDIDATES.find(c=>c.id==='shaoxing-eastlake-research');
+ const s=app.ROUTES.find(r=>r.id==='shuanglong-road');const e=app.ROUTES.find(r=>r.id==='eastlake-outskirts').researchExtensions.find(c=>c.id==='shaoxing-eastlake-research');
  assert.equal(s.distance,12.6);assert.equal(s.parking.poiid,'B0MDB6G8XL');assert.equal(s.parking.feeBasis,'user-default-roadside');
  assert.ok(s.notes.some(n=>n.includes('累计爬升未独立')));assert.match(s.description,/不骑进西门台阶/);
  const plan=app.REGIONAL_PLANS[s.id];assert.equal(plan.checked,'2026-10-21');assert.ok(plan.segments.every(s=>s.kind==='tertiary'));
@@ -603,7 +603,7 @@ test('East Lake outskirts has a complete roadside-parking ride without implying 
  const points=app.MAP_DATA.paths[r.id];assert.deepEqual(Array.from(points[0]),Array.from(points.at(-1)));
  assert.ok(points.every(q=>q[1]>29.996 && q[1]<=30.0036195));
  assert.equal(r.food.length,1);assert.equal(r.food[0].poiid,'B023F0QVIQ');assert.equal(r.photos.length,0);assert.equal(r.photoMissing,3);
- const gate=app.EXPANSION_CANDIDATES.find(c=>c.id==='shaoxing-eastlake-research');assert.match(gate.title,/入口接驳延伸/);
- assert.match(gate.missing,/独立辅路/);assert.ok(!gate.parking);
+ const gate=app.ROUTES.find(r=>r.id==='eastlake-outskirts').researchExtensions.find(c=>c.id==='shaoxing-eastlake-research');assert.match(gate.title,/入口接驳延伸/);
+ assert.match(gate.missing,/独立辅路/);assert.ok(!gate.parking);assert.equal(app.ROUTE_METADATA.researchCount,8);assert.ok(!app.EXPANSION_CANDIDATES.some(c=>c.id===gate.id));assert.equal(gate.photos.length,2);
  const evidence=JSON.parse(fs.readFileSync(path.join(root,'research/eastlake-north-parking-amap-20261021.json')));assert.equal(evidence.metres,744);assert.equal(evidence.reverse.metres,775);
 });

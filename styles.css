@@ -2341,3 +2341,7 @@ dialog .small {
 .research-parking{margin:18px 0}.research-parking h4{margin:0 0 8px}.parking-option{margin-top:12px;padding:14px;border:1px solid var(--line);border-radius:10px;background:#f4f8fc;overflow-wrap:anywhere}.parking-option p{margin:7px 0}.parking-option strong{color:#8b5718}.parking-option a{display:inline-block;margin:5px 10px 5px 0;font-size:12px}.parking-option small{color:var(--muted)}
 
 .photo-match{display:inline-block;border:1px solid;border-radius:5px;padding:4px 7px;font-size:11px;font-weight:600;line-height:1.5}.photo-match.light{background:#e5f5dc;color:#35582a;border-color:#afcf99}.photo-match.medium{background:#77bc83;color:#102f1b;border-color:#428451}.photo-match.dark{background:#185b36;color:#fff;border-color:#185b36}.photo-match.unscored{background:#f2f4f6;color:#526177;border-color:#cbd2db}.photo-assessment{margin-bottom:8px}.photo-assessment summary{cursor:pointer}.photo-assessment p{font-size:12px;line-height:1.6;margin:6px 0}
+
+.route-extension-research { margin:24px 0; }
+.route-extension-research>summary { padding:16px 0; cursor:pointer; color:var(--blue); font-weight:700; }
+.route-extension-research .expansion-card { margin-top:8px; }
