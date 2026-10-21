@@ -1,0 +1,165 @@
+TASK_PROGRESS.md
+  3f45d0fac59df6b4 594-596
+scripts/build-shuanglong-route.py
+  3f45d0fac59df6b4 1-18
+tests/browser-check.cjs
+  3f45d0fac59df6b4 22-24,163,209-215,223,247-249
+scripts/generate-maps.cjs
+  3f45d0fac59df6b4 10
+CHANGELOG.md
+  3f45d0fac59df6b4 3-9
+tests/catalog.test.cjs
+  3f45d0fac59df6b4 11,20,33,35-37,48,94,111-112,232,254,304,316,326,456-457,528-529,582-590
+shuanglong-map-data.js
+  3f45d0fac59df6b4 1-3
+research/shuanglong-eastlake-progress-20261020.md
+  3f45d0fac59df6b4 64-74
+photo-updates.js
+  3f45d0fac59df6b4 1007-1038
+maps/shuanglong-road.svg
+  3f45d0fac59df6b4 1
+research/photo-licenses.json
+  3f45d0fac59df6b4 1545-1576
+data-notes.md
+  3f45d0fac59df6b4 115-119
+README.md
+  3f45d0fac59df6b4 5
+index.html
+  3f45d0fac59df6b4 13,16,19,21,24,28
+catalog-metadata.js
+  3f45d0fac59df6b4 4,6,45
+version.json
+  3f45d0fac59df6b4 2-3,5,7
+maps/eastlake-connection-research.svg
+  3f45d0fac59df6b4 1
+shuanglong-catalog.js
+  3f45d0fac59df6b4 1-16
+research/releases/v1.0.4.md
+  3f45d0fac59df6b4 1-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "23d450efecfa0ec1ff6b74b6eef786dd51f35206",
+  "prompts": {
+    "3f45d0fac59df6b4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15761-67bc-73f2-8c41-840f2d17843e",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 3326,
+      "total_deletions": 60,
+      "accepted_lines": 3322,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "research/photo-licenses.json": {
+          "additions": 32,
+          "accepted_lines": 32
+        },
+        "research/releases/v1.0.4.md": {
+          "additions": 14,
+          "accepted_lines": 14
+        },
+        "maps/shuanglong-road.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "data-notes.md": {
+          "additions": 5,
+          "accepted_lines": 5
+        },
+        "index.html": {
+          "additions": 9,
+          "deletions": 9,
+          "accepted_lines": 6
+        },
+        "README.md": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "shuanglong-map-data.js": {
+          "additions": 3,
+          "accepted_lines": 3
+        },
+        "maps/eastlake-connection-research.png": {
+          "additions": 575,
+          "accepted_lines": 575
+        },
+        "TASK_PROGRESS.md": {
+          "additions": 3,
+          "accepted_lines": 3
+        },
+        "CHANGELOG.md": {
+          "additions": 7,
+          "accepted_lines": 7
+        },
+        "research/shuanglong-eastlake-progress-20261020.md": {
+          "additions": 11,
+          "accepted_lines": 11
+        },
+        "scripts/generate-maps.cjs": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "tests/browser-check.cjs": {
+          "additions": 16,
+          "deletions": 13,
+          "accepted_lines": 16
+        },
+        "shuanglong-catalog.js": {
+          "additions": 17,
+          "deletions": 1,
+          "accepted_lines": 16
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 28,
+          "deletions": 28,
+          "accepted_lines": 28
+        },
+        "research/eastlake-connection-osm.json.gz": {
+          "additions": 1049,
+          "accepted_lines": 1049
+        },
+        "photos/shuanglong-luodian-road-press.jpg": {
+          "additions": 212,
+          "accepted_lines": 212
+        },
+        "maps/eastlake-connection-research.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "catalog-metadata.js": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 3
+        },
+        "scripts/build-shuanglong-route.py": {
+          "additions": 18,
+          "accepted_lines": 18
+        },
+        "maps/shuanglong-road.png": {
+          "additions": 478,
+          "accepted_lines": 478
+        },
+        "photo-updates.js": {
+          "additions": 32,
+          "accepted_lines": 32
+        },
+        "version.json": {
+          "additions": 4,
+          "deletions": 4,
+          "accepted_lines": 4
+        },
+        "research/shuanglong-connection-osm.json.gz": {
+          "additions": 806,
+          "accepted_lines": 806
+        }
+      }
+    }
+  }
+}
