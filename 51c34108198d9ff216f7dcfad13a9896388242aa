@@ -1,0 +1,80 @@
+research/shuanglong-baidu-connectivity-20261021.json
+  3f45d0fac59df6b4 1-9
+research/shuanglong-eastlake-progress-20261020.md
+  3f45d0fac59df6b4 52-63
+research/eastlake-baidu-connectivity-20261021.json
+  3f45d0fac59df6b4 1-8
+index.html
+  3f45d0fac59df6b4 28
+research/eastlake-amap-connectivity-20261020.json
+  3f45d0fac59df6b4 1-46
+tests/catalog.test.cjs
+  3f45d0fac59df6b4 355,585
+two-region-research-updates.js
+  3f45d0fac59df6b4 28-33
+TASK_PROGRESS.md
+  3f45d0fac59df6b4 591-593
+research/shuanglong-amap-connectivity-20261020.json
+  3f45d0fac59df6b4 1-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "51c34108198d9ff216f7dcfad13a9896388242aa",
+  "prompts": {
+    "3f45d0fac59df6b4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15761-67bc-73f2-8c41-840f2d17843e",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 102,
+      "total_deletions": 4,
+      "accepted_lines": 101,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "research/shuanglong-amap-connectivity-20261020.json": {
+          "additions": 14,
+          "accepted_lines": 14
+        },
+        "two-region-research-updates.js": {
+          "additions": 6,
+          "accepted_lines": 6
+        },
+        "index.html": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "TASK_PROGRESS.md": {
+          "additions": 3,
+          "accepted_lines": 3
+        },
+        "research/shuanglong-eastlake-progress-20261020.md": {
+          "additions": 12,
+          "accepted_lines": 12
+        },
+        "research/eastlake-baidu-connectivity-20261021.json": {
+          "additions": 8,
+          "accepted_lines": 8
+        },
+        "research/eastlake-amap-connectivity-20261020.json": {
+          "additions": 47,
+          "deletions": 1,
+          "accepted_lines": 46
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        },
+        "research/shuanglong-baidu-connectivity-20261021.json": {
+          "additions": 9,
+          "accepted_lines": 9
+        }
+      }
+    }
+  }
+}
