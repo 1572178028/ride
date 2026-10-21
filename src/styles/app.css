@@ -2765,3 +2765,10 @@ dialog .small {
     scrollbar-color: auto;
   }
 }
+
+/* Return to selection before entering the longer research section. */
+.library-return {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
