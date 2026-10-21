@@ -1,0 +1,42 @@
+research/shuanglong-eastlake-progress-20261020.md
+  3f45d0fac59df6b4 75-81
+shuanglong-catalog.js
+  3f45d0fac59df6b4 14-15
+index.html
+  3f45d0fac59df6b4 21,28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "1630c8d71f5d70f1803d02aac264fc8bbd3bb3cf",
+  "prompts": {
+    "3f45d0fac59df6b4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15761-67bc-73f2-8c41-840f2d17843e",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 11,
+      "total_deletions": 2,
+      "accepted_lines": 11,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "shuanglong-catalog.js": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "research/shuanglong-eastlake-progress-20261020.md": {
+          "additions": 7,
+          "accepted_lines": 7
+        },
+        "index.html": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        }
+      }
+    }
+  }
+}
