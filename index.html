@@ -214,30 +214,48 @@
         </div>
       </section>
       <section id="next-regions" class="shell next-regions">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">A LITTLE FURTHER</div>
-            <h2>向外骑，换一种风景。</h2>
-            <p>
-              8个方向已梳理，卡片列出新发现与仍缺的依据。停车、接驳或准入未明确的方向继续保留研究状态。
+        <details id="research-library" class="research-library">
+          <summary class="research-library-toggle">
+            <span class="research-library-heading">
+              <strong>待核实路线库</strong>
+              <span>集中收录研究资料，尚未计入正式路线</span>
+            </span>
+            <span class="research-library-count"
+              ><span id="research-count">8</span> 个方向</span
+            >
+            <span class="research-library-cue" aria-hidden="true"></span>
+          </summary>
+          <div class="research-library-content">
+            <div class="section-head">
+              <div>
+                <div class="eyebrow">ROUTES IN RESEARCH</div>
+                <h2>待核实方向与证据</h2>
+                <p>
+                  按区域查看已有资料与待补依据。停车、接驳或准入尚未明确的方向，继续保留研究状态。
+                </p>
+              </div>
+              <label class="research-filter"
+                ><span class="filter-label">查看调研区域</span
+                ><select id="research-region" aria-label="筛选调研区域">
+                  <option value="all">全部待核查方向</option>
+                  <option value="huzhou">湖州</option>
+                  <option value="jiaxing">嘉兴 · 秀洲</option>
+                  <option value="shaoxing">绍兴</option>
+                  <option value="hangzhou">杭州</option>
+                </select></label
+              >
+            </div>
+            <div id="expansion-cards" class="expansion-grid"></div>
+            <p class="expansion-note">
+              <span
+                id="research-summary"
+                role="status"
+                aria-live="polite"
+              ></span>
+              研究方向与研究图未计入上方正式路线。迪荡湖图仅为西南外围公共道路研究；没有据无名地块生成停车导航。
             </p>
           </div>
-          <label class="research-filter"
-            ><span class="filter-label">查看调研区域</span
-            ><select id="research-region" aria-label="筛选调研区域">
-              <option value="all">全部待核查方向</option>
-              <option value="huzhou">湖州</option>
-              <option value="jiaxing">嘉兴 · 秀洲</option>
-              <option value="shaoxing">绍兴</option>
-              <option value="hangzhou">杭州</option>
-            </select></label
-          >
-        </div>
-        <div id="expansion-cards" class="expansion-grid"></div>
-        <p class="expansion-note">
-          <span id="research-summary" role="status" aria-live="polite"></span>
-          研究方向与研究图未计入上方正式路线。迪荡湖图仅为西南外围公共道路研究；没有据无名地块生成停车导航。
-        </p>
+        </details>
       </section>
       <section id="parking-standard" class="parking-section">
         <div class="shell standards">

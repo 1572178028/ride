@@ -2772,3 +2772,83 @@ dialog .small {
   justify-content: flex-end;
   margin-top: 24px;
 }
+
+/* Research is available on demand without extending the main browsing path. */
+.research-library {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+}
+.research-library-toggle {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  cursor: pointer;
+  list-style: none;
+  border-radius: 10px;
+}
+.research-library-toggle::-webkit-details-marker {
+  display: none;
+}
+.research-library-toggle:hover {
+  background: var(--bg);
+}
+.research-library-heading {
+  flex: 1;
+  min-width: 0;
+}
+.research-library-heading strong {
+  display: block;
+  font-size: 22px;
+  color: var(--ink);
+}
+.research-library-heading > span {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.research-library-count {
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.research-library-cue {
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.research-library-cue::after {
+  content: "查看资料 ＋";
+}
+.research-library[open] .research-library-cue::after {
+  content: "收起资料 −";
+}
+.research-library-content {
+  padding: 24px;
+  border-top: 1px solid var(--line);
+}
+.research-library-content .expansion-note {
+  margin-bottom: 0;
+}
+@media (max-width: 760px) {
+  .research-library-toggle {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 18px;
+  }
+  .research-library-heading {
+    flex-basis: 100%;
+  }
+  .research-library-heading strong {
+    font-size: 20px;
+  }
+  .research-library-cue {
+    margin-left: auto;
+  }
+  .research-library-content {
+    padding: 18px;
+  }
+}

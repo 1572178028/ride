@@ -184,6 +184,17 @@ const server = http.createServer((req, res) => {
     await page.locator('#reset-map').click(); assert.equal(await page.locator('#map-container svg').getAttribute('viewBox'), '0 0 1000 610');
     const downloading = page.waitForEvent('download'); await page.locator('#download-map').click(); const download = await downloading;
     assert.equal(await download.failure(), null); assert.ok(download.suggestedFilename().endsWith('.png'));
+    assert.equal(await page.locator('#research-library').getAttribute('open'), null);
+    assert.equal(await page.locator('#expansion-cards').isVisible(), false);
+    assert.equal(await page.locator('#research-count').innerText(), '8');
+    await page.locator('#research-library > summary').click();
+    assert.equal(await page.locator('#expansion-cards').isVisible(), true);
+    await page.selectOption('#research-region', 'huzhou');
+    await page.locator('#research-library > summary').click();
+    assert.equal(await page.locator('#expansion-cards').isVisible(), false);
+    await page.locator('#research-library > summary').focus();
+    await page.keyboard.press('Enter');
+    assert.equal(await page.locator('#research-region').inputValue(), 'huzhou');
     for (const [region, count] of [['huzhou', 2], ['shaoxing', 2], ['hangzhou', 3]]) { await page.selectOption('#research-region', region); assert.equal(await page.locator('#expansion-cards .expansion-card').count(), count); }
     for(const id of ['badu-ginkgo-road','yigao-village-road']){
       await select(page,id);
@@ -293,6 +304,9 @@ const server = http.createServer((req, res) => {
     await mobile.locator('#route-detail .route-photos').scrollIntoViewIfNeeded();
     await mobile.screenshot({path:'/private/tmp/ride-photo-binjiang-mobile.png'});
     await switchFromSupply(mobile);
+    assert.equal(await mobile.locator('#expansion-cards').isVisible(), false);
+    await mobile.locator('#research-library > summary').click();
+    assert.equal(await mobile.locator('#expansion-cards').isVisible(), true);
     await mobile.selectOption('#research-region', 'shaoxing'); assert.equal(await mobile.locator('#expansion-cards .expansion-card').count(), 2);
     await mobile.selectOption('#research-region', 'hangzhou'); assert.equal(await mobile.locator('#expansion-cards .expansion-card').count(), 3);
     await select(mobile,'puyang-greenway');

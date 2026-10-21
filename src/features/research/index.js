@@ -40,6 +40,7 @@ function renderResearch() {
     .join("");
 }
 export function initResearch() {
+  $("#research-count").textContent = EXPANSION_CANDIDATES.length;
 $("#expansion-cards").addEventListener("click", (e) => {
   const button = e.target.closest("[data-photo]");
   if (!button) return;

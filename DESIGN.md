@@ -81,7 +81,7 @@ primary对应--blue，ink对应--ink，text对应--text，muted对应--muted，b
 
 ### Navigation and data display
 
-路线与方案拥有稳定ID；hash链接和旧别名保持可用；收藏沿用现有localStorage键。研究方向与正式路线分别展示，不能因为目录迁移计入正式方案。
+路线与方案拥有稳定ID；hash链接和旧别名保持可用；收藏沿用现有localStorage键。研究方向与正式路线分别展示，不能因为目录迁移计入正式方案。待核实方向集中为默认折叠的路线库入口，主页面只显示方向数与状态摘要，展开后按区域查看证据；沿用原生details，避免让长研究卡片打断选线浏览。
 
 ### Forms and overlays
 
