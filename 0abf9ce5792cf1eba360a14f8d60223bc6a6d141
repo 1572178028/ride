@@ -1,0 +1,64 @@
+app.js
+  3f45d0fac59df6b4 136-137
+index.html
+  3f45d0fac59df6b4 7,29-30
+research/eastlake-completion-progress-20261021.md
+  3f45d0fac59df6b4 51-60
+TASK_PROGRESS.md
+  3f45d0fac59df6b4 608-610
+research/eastlake-streetview-followup-20261021.json
+  3f45d0fac59df6b4 1-32
+eastlake-catalog.js
+  3f45d0fac59df6b4 15-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "0abf9ce5792cf1eba360a14f8d60223bc6a6d141",
+  "prompts": {
+    "3f45d0fac59df6b4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15761-67bc-73f2-8c41-840f2d17843e",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 59,
+      "total_deletions": 8,
+      "accepted_lines": 55,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "research/eastlake-completion-progress-20261021.md": {
+          "additions": 11,
+          "deletions": 1,
+          "accepted_lines": 10
+        },
+        "index.html": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 3
+        },
+        "research/eastlake-streetview-followup-20261021.json": {
+          "additions": 32,
+          "accepted_lines": 32
+        },
+        "app.js": {
+          "additions": 2,
+          "deletions": 1,
+          "accepted_lines": 2
+        },
+        "TASK_PROGRESS.md": {
+          "additions": 5,
+          "deletions": 2,
+          "accepted_lines": 3
+        },
+        "eastlake-catalog.js": {
+          "additions": 6,
+          "deletions": 1,
+          "accepted_lines": 5
+        }
+      }
+    }
+  }
+}
