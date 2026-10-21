@@ -352,7 +352,7 @@ test('published route galleries contain road images only and social screenshots 
 
 test('follow-up audit excludes closed parking and retains new map evidence without publishing research rides', () => {
   for (const c of app.EXPANSION_CANDIDATES) {
-    assert.equal(c.reviewedAt, ['puyang-greenway-research','jinhua-shuanglong-research','shaoxing-eastlake-research'].includes(c.id)?'2026-10-20':'2026-10-16');
+    assert.equal(c.reviewedAt, ['jinhua-shuanglong-research','shaoxing-eastlake-research'].includes(c.id)?'2026-10-21':c.id==='puyang-greenway-research'?'2026-10-20':'2026-10-16');
     assert.ok(c.reviewOutcome && c.missing && c.parkingNote && c.roadNote);
     assert.ok(!app.ROUTES.some(r => r.id === c.id));
   }
@@ -582,7 +582,7 @@ test('photo association thresholds distinguish 60, 70, 85 and 86 without claimin
 test('Shuanglong and East Lake research retain parking evidence without publishing disconnected rides',()=>{
  const s=app.EXPANSION_CANDIDATES.find(c=>c.id==='jinhua-shuanglong-research');
  const e=app.EXPANSION_CANDIDATES.find(c=>c.id==='shaoxing-eastlake-research');
- assert.equal(s.parkingOptions[0].poiId,'B0MDB6G8XL');assert.equal(s.parkingOptions[0].feeBasis,'user-default-roadside');assert.match(s.roadNote,/500米/);
+ assert.equal(s.parkingOptions[0].poiId,'B0MDB6G8XL');assert.equal(s.parkingOptions[0].feeBasis,'user-default-roadside');assert.match(s.roadNote,/500米/);assert.match(s.roadNote,/阶梯/);assert.match(e.roadNote,/2.2公里/);
  assert.equal(e.parkingOptions[0].poiId,'B023F0P6XD');assert.equal(e.parkingOptions[0].feeType,'paid');assert.match(e.parkingOptions[0].rule,/超时规则/);
  assert.match(e.roadNote,/242米/);assert.ok(!s.parking&&!e.parking);
  assert.ok(!app.ROUTES.some(r=>['shuanglong','shaoxing-eastlake'].includes(r.region)));
