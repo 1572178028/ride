@@ -1,0 +1,149 @@
+index.html
+  3f45d0fac59df6b4 13,15-16,28-30
+tests/browser-check.cjs
+  3f45d0fac59df6b4 22-24,163,209-221,264-267
+CHANGELOG.md
+  3f45d0fac59df6b4 3-8
+catalog-metadata.js
+  3f45d0fac59df6b4 4,6
+research/eastlake-north-parking-amap-20261021.json
+  3f45d0fac59df6b4 1-33
+tests/catalog.test.cjs
+  3f45d0fac59df6b4 11,20,33,35-37,94,111-112,114,232,252,254,528-529,592-608
+version.json
+  3f45d0fac59df6b4 2,5,8
+research/releases/v1.1.5.md
+  3f45d0fac59df6b4 1-11
+data-notes.md
+  3f45d0fac59df6b4 120-125
+TASK_PROGRESS.md
+  3f45d0fac59df6b4 597-599
+scripts/build-eastlake-route.py
+  3f45d0fac59df6b4 1-26
+maps/eastlake-outskirts.svg
+  3f45d0fac59df6b4 1
+research/eastlake-completion-progress-20261021.md
+  3f45d0fac59df6b4 1-36
+scripts/generate-maps.cjs
+  3f45d0fac59df6b4 10
+eastlake-map-data.js
+  3f45d0fac59df6b4 1-3
+eastlake-catalog.js
+  3f45d0fac59df6b4 1-15
+README.md
+  3f45d0fac59df6b4 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "5f76a57cede394faec6cce20aaf3c0a7cc101ae8",
+  "prompts": {
+    "3f45d0fac59df6b4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15761-67bc-73f2-8c41-840f2d17843e",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 764,
+      "total_deletions": 40,
+      "accepted_lines": 754,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "research/eastlake-overture-audit-20261021.geojson.gz": {
+          "additions": 224,
+          "accepted_lines": 224
+        },
+        "eastlake-map-data.js": {
+          "additions": 4,
+          "deletions": 1,
+          "accepted_lines": 3
+        },
+        "research/eastlake-water.json.gz": {
+          "additions": 15,
+          "accepted_lines": 15
+        },
+        "data-notes.md": {
+          "additions": 6,
+          "accepted_lines": 6
+        },
+        "scripts/generate-maps.cjs": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "index.html": {
+          "additions": 6,
+          "deletions": 4,
+          "accepted_lines": 6
+        },
+        "TASK_PROGRESS.md": {
+          "additions": 3,
+          "accepted_lines": 3
+        },
+        "scripts/build-eastlake-route.py": {
+          "additions": 27,
+          "deletions": 1,
+          "accepted_lines": 26
+        },
+        "research/eastlake-completion-progress-20261021.md": {
+          "additions": 36,
+          "accepted_lines": 36
+        },
+        "eastlake-catalog.js": {
+          "additions": 19,
+          "deletions": 4,
+          "accepted_lines": 15
+        },
+        "version.json": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 3
+        },
+        "CHANGELOG.md": {
+          "additions": 6,
+          "accepted_lines": 6
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 33,
+          "deletions": 15,
+          "accepted_lines": 33
+        },
+        "README.md": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "research/releases/v1.1.5.md": {
+          "additions": 11,
+          "accepted_lines": 11
+        },
+        "maps/eastlake-outskirts.svg": {
+          "additions": 2,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "research/eastlake-north-parking-amap-20261021.json": {
+          "additions": 36,
+          "deletions": 3,
+          "accepted_lines": 33
+        },
+        "tests/browser-check.cjs": {
+          "additions": 22,
+          "deletions": 4,
+          "accepted_lines": 22
+        },
+        "catalog-metadata.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        },
+        "maps/eastlake-outskirts.png": {
+          "additions": 307,
+          "accepted_lines": 307
+        }
+      }
+    }
+  }
+}
