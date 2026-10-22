@@ -7,6 +7,7 @@ export default {
     jinhua: "金华",
   },
   regions: {
+    tongjianhu: "西湖 · 铜鉴湖南岸",
     eastlake: "绍兴 · 东湖南侧外围",
     shuanglong: "金华 · 双龙山路",
     badu: "长兴 · 八都岕",

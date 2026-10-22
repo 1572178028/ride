@@ -1,0 +1,12 @@
+{
+  "checked": "2026-10-22",
+  "ways": {
+    "1180699649": {
+      "basis": "南岸同走廊双向高德骑行规划与官方环湖骑行推荐交叉核对；不是OSM自行车标签",
+      "routingSnapshot": "tongjianhu-cycling-amap-20261021.json",
+      "source": "https://hwyst.hangzhou.com.cn/z/rhdzqxyhcs/content/content_8828429.html",
+      "scope": "仅本段南岸，不外推至木栈道、水上森林、园内其他步道或全湖",
+      "restriction": "步骑共用；人多、桥面及现场要求推行时下车，遇禁骑或封闭取消该段"
+    }
+  }
+}

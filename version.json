@@ -1,11 +1,7 @@
 {
-  "version": "1.1.5",
-  "date": "2026-10-21",
+  "version": "1.1.6",
+  "date": "2026-10-22",
   "status": "release",
-  "description": "新增绍兴东湖南侧外围2.4公里公共道路短线；景区入口延伸仍保留研究，不作为环湖或到门方案。",
-  "increments": {
-    "routes": 1,
-    "cities": 1,
-    "provinces": 0
-  }
+  "description": "新增铜鉴湖南岸3.8公里往返短线；P1收费参考，完整环线延伸继续核查。",
+  "increments": { "routes": 1, "cities": 0, "provinces": 0 }
 }

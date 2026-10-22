@@ -18,6 +18,7 @@ import badu from "./badu.js";
 import yigao from "./yigao.js";
 import shuanglong from "./shuanglong.js";
 import eastlake from "./eastlake.js";
+import tongjianhu from "./tongjianhu.js";
 import order from "./order.js";
 const positions = new Map(order.map((id, index) => [id, index]));
 export const ROUTES = [
@@ -41,6 +42,7 @@ export const ROUTES = [
   ...yigao,
   ...shuanglong,
   ...eastlake,
+  ...tongjianhu,
 ].sort(
   (a, b) =>
     (positions.get(a.id) ?? Infinity) - (positions.get(b.id) ?? Infinity),

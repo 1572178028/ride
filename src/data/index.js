@@ -29,5 +29,5 @@ export const RIDE_COORDS = { wgs84ToGcj02 };
 export const ROUTE_METADATA = summarizeCatalog(
   ROUTES,
   EXPANSION_CANDIDATES,
-  "2026-10-21",
+  "2026-10-22",
 );
