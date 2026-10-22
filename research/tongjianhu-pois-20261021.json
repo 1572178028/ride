@@ -1,0 +1,387 @@
+{
+  "checked": "2026-10-21",
+  "provider": "高德地图，经用户安装gaode-map-pro查询",
+  "results": [
+    {
+      "query": "铜鉴湖花海P1停车场",
+      "pois": [
+        {
+          "id": "B0ID4LQKY4",
+          "name": "铜鉴湖花海P1停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "袁浦路201号",
+          "location": "120.072434,30.117177",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": "24小时营业",
+            "opentime2": "周一至周日 00:00-24:00"
+          }
+        },
+        {
+          "id": "B0ID4LQDCC",
+          "name": "铜鉴湖花海P1地面停车场(入口)",
+          "type": "交通设施服务;停车场;停车场入口",
+          "address": "袁富路201号",
+          "location": "120.071084,30.113556",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0K1CAENKN",
+          "name": "铜鉴湖花海P1地面停车场(出口)",
+          "type": "交通设施服务;停车场;停车场出口",
+          "address": "袁浦路201号铜鉴湖花海P1停车场",
+          "location": "120.073085,30.118090",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0MR1ZC6P7",
+          "name": "如厕泊位(铜鉴湖花海P1停车场公厕)",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "铜鉴湖花海P1停车场公厕车位边上",
+          "location": "120.072789,30.118799",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0K317M2O1",
+          "name": "铜鉴湖昙山p5停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "灵龙路1号",
+          "location": "120.062456,30.121388",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0MDN5F682",
+          "name": "Nextbloom花海驿站",
+          "type": "住宿服务;旅馆招待所;旅馆招待所",
+          "address": "双浦镇铜鉴湖花海P1停车场边",
+          "location": "120.072122,30.118476",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "hotel_ordering": "0",
+            "lowest_price": [],
+            "star": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        }
+      ]
+    },
+    {
+      "query": "铜鉴湖 咖啡",
+      "pois": [
+        {
+          "id": "B0LKN9R6LZ",
+          "name": "稀客XIKE咖啡",
+          "type": "餐饮服务;咖啡厅;咖啡厅",
+          "address": "转塘街道龙山298号之江云上集22幢",
+          "location": "120.070556,30.130274",
+          "biz_ext": {
+            "rating": "4.7",
+            "cost": "52.00",
+            "meal_ordering": "0",
+            "open_time": "10:00-18:00",
+            "opentime2": "周一至周日 10:00-18:00"
+          }
+        },
+        {
+          "id": "B0L3253DAE",
+          "name": "OAK Fields橡树地",
+          "type": "餐饮服务;咖啡厅;咖啡厅",
+          "address": "转塘街道龙山298号23幢",
+          "location": "120.070712,30.130325",
+          "biz_ext": {
+            "rating": "4.5",
+            "cost": "38.00",
+            "meal_ordering": "0",
+            "open_time": "10:00-19:00",
+            "opentime2": "周一至周日 10:00-19:00"
+          }
+        },
+        {
+          "id": "B0L0L9AP0U",
+          "name": "序场Art Park",
+          "type": "风景名胜;风景名胜相关;旅游景点",
+          "address": "石龙村路365号之江云上集15号楼",
+          "location": "120.069658,30.129791",
+          "biz_ext": {
+            "rating": "4.5",
+            "cost": [],
+            "ticket_ordering": "0",
+            "open_time": "10:00-22:00",
+            "opentime2": "周一至周日 10:00-22:00",
+            "level": []
+          }
+        },
+        {
+          "id": "B0M6BSGM9L",
+          "name": "No.sweet布田咖啡(云栖小镇店)",
+          "type": "餐饮服务;咖啡厅;咖啡厅",
+          "address": "双浦镇双富路280号",
+          "location": "120.078437,30.127111",
+          "biz_ext": {
+            "rating": "4.8",
+            "cost": "54.00",
+            "meal_ordering": "0",
+            "open_time": "10:00-20:00",
+            "opentime2": "周一至周日 10:00-20:00"
+          }
+        },
+        {
+          "id": "B0I0MKWZDO",
+          "name": "荷维式研究室HARFEST LAB",
+          "type": "餐饮服务;咖啡厅;咖啡厅|公司企业;公司企业;公司企业",
+          "address": "转塘街道艺创小镇凤凰创意园区A4-2-106",
+          "location": "120.066278,30.136147",
+          "biz_ext": {
+            "rating": "4.5",
+            "cost": [],
+            "meal_ordering": "0",
+            "open_time": "09:00-18:00",
+            "opentime2": "周一至周日 09:00-18:00"
+          }
+        },
+        {
+          "id": "B0HRVCUAG6",
+          "name": "Cement Coffee Bar",
+          "type": "餐饮服务;咖啡厅;咖啡厅|购物服务;购物相关场所;购物相关场所",
+          "address": "创意路凤凰创意园A4-3111(喷泉处二楼大平层)",
+          "location": "120.066114,30.136039",
+          "biz_ext": {
+            "rating": "4.6",
+            "cost": "36.00",
+            "meal_ordering": "0",
+            "open_time": "08:00-18:30",
+            "opentime2": "周一至周日 08:00-18:30"
+          }
+        },
+        {
+          "id": "B0FFKQOT1W",
+          "name": "瑞幸咖啡(六和金座店)",
+          "type": "餐饮服务;咖啡厅;咖啡厅",
+          "address": "云展路99号一层",
+          "location": "120.084399,30.133648",
+          "biz_ext": {
+            "rating": "4.5",
+            "cost": "13.00",
+            "meal_ordering": "0",
+            "open_time": "08:00-18:00",
+            "opentime2": "周一至周五 07:00-20:00；周六至周日 08:00-18:00"
+          }
+        },
+        {
+          "id": "B0JRJZBBV9",
+          "name": "库迪咖啡(云栖中大银座店)",
+          "type": "餐饮服务;咖啡厅;咖啡厅",
+          "address": "转塘街道河山街369号中大银座5幢102室(全家便利店对面)",
+          "location": "120.080776,30.129521",
+          "biz_ext": {
+            "rating": "4.1",
+            "cost": "9.00",
+            "meal_ordering": "0",
+            "open_time": "07:30-20:00",
+            "opentime2": "周一至周五 07:30-20:00"
+          }
+        },
+        {
+          "id": "B0L32U3EGG",
+          "name": "山回咖啡",
+          "type": "餐饮服务;咖啡厅;咖啡厅",
+          "address": "鲤鱼山街与山景路交叉口西北60米",
+          "location": "120.081925,30.127625",
+          "biz_ext": {
+            "rating": "4.5",
+            "cost": "27.00",
+            "meal_ordering": "0",
+            "open_time": "08:30-19:00",
+            "opentime2": "周一至周日 08:30-19:00"
+          }
+        },
+        {
+          "id": "B0G2CM6L2D",
+          "name": "星巴克(杭州之江新天地店)",
+          "type": "餐饮服务;咖啡厅;星巴克咖啡",
+          "address": "科海路126号之江新天地2幢一楼(南区西门南80米)",
+          "location": "120.086968,30.128413",
+          "biz_ext": {
+            "rating": "4.5",
+            "cost": "30.00",
+            "meal_ordering": "0",
+            "open_time": "06:30-22:00",
+            "opentime2": "周一至周日 06:30-22:00"
+          }
+        }
+      ]
+    },
+    {
+      "query": "铜鉴湖 餐厅",
+      "pois": [
+        {
+          "id": "B0LUY6V2Z3",
+          "name": "公侬社自选餐厅",
+          "type": "餐饮服务;中餐厅;中餐厅",
+          "address": "河山街与石龙山街交叉口西480米",
+          "location": "120.069925,30.130475",
+          "biz_ext": {
+            "rating": "4.2",
+            "cost": "29.00",
+            "meal_ordering": "0",
+            "open_time": "09:00-21:00",
+            "opentime2": "周一至周日 09:00-21:00"
+          }
+        },
+        {
+          "id": "B0MAUDRLL1",
+          "name": "满香楼中餐厅",
+          "type": "餐饮服务;中餐厅;中餐厅",
+          "address": "序场EPI南侧",
+          "location": "120.069575,30.130675",
+          "biz_ext": {
+            "rating": "3.7",
+            "cost": [],
+            "meal_ordering": "0",
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0M6PRN9JJ",
+          "name": "火柚星球·农场餐厅",
+          "type": "餐饮服务;外国餐厅;西餐厅(综合风味)",
+          "address": "转塘街道润丰园区3幢1楼",
+          "location": "120.082525,30.128625",
+          "biz_ext": {
+            "rating": "4.6",
+            "cost": "80.00",
+            "meal_ordering": "0",
+            "open_time": "10:30-20:30",
+            "opentime2": "周一至周日 10:30-20:30"
+          }
+        },
+        {
+          "id": "B0LBPS0NW7",
+          "name": "梨山餐厅",
+          "type": "餐饮服务;中餐厅;中餐厅",
+          "address": "转塘街道创意路凤凰创意园区A4-4-101",
+          "location": "120.066779,30.136100",
+          "biz_ext": {
+            "rating": "4.5",
+            "cost": "79.00",
+            "meal_ordering": "0",
+            "open_time": "11:00-19:00",
+            "opentime2": "周一至周日 11:00-19:00"
+          }
+        },
+        {
+          "id": "B0FFIR2L7G",
+          "name": "原野餐厅",
+          "type": "餐饮服务;中餐厅;中餐厅",
+          "address": "双浦镇下杨村418号",
+          "location": "120.071165,30.112837",
+          "biz_ext": {
+            "rating": "4.6",
+            "cost": "90.00",
+            "meal_ordering": "0",
+            "open_time": "09:00-13:30 16:00-20:30",
+            "opentime2": "周一至周日 09:00-13:30,16:00-20:30"
+          }
+        },
+        {
+          "id": "B0J3R9T3V9",
+          "name": "菲滋意式餐厅(杭州转塘奥莱金街店)",
+          "type": "餐饮服务;外国餐厅;意式菜品餐厅",
+          "address": "转塘街道创意路208号久耀商业中心1号楼一层1-117/1-130号",
+          "location": "120.070020,30.145221",
+          "biz_ext": {
+            "rating": "4.5",
+            "cost": "68.00",
+            "meal_ordering": "0",
+            "open_time": "10:00-21:30",
+            "opentime2": "周一至周日 10:00-21:30"
+          }
+        },
+        {
+          "id": "B0I2UCY8JV",
+          "name": "称称先生自选称重餐厅(云栖店)",
+          "type": "餐饮服务;中餐厅;中餐厅",
+          "address": "河山街369号中大银座F1层",
+          "location": "120.081002,30.129984",
+          "biz_ext": {
+            "rating": "4.0",
+            "cost": "26.00",
+            "meal_ordering": "0",
+            "open_time": "09:00-21:00",
+            "opentime2": "周一至周日 09:00-21:00"
+          }
+        },
+        {
+          "id": "B0FFJCSBEW",
+          "name": "旺点餐厅(快乐美食)",
+          "type": "餐饮服务;中餐厅;中餐厅",
+          "address": "转塘街道霞鸣街155号之江商务中心2号楼115号商铺二层",
+          "location": "120.071375,30.141875",
+          "biz_ext": {
+            "rating": "4.5",
+            "cost": "29.00",
+            "meal_ordering": "0",
+            "open_time": "09:00-22:00",
+            "opentime2": "周一至周日 09:00-22:00"
+          }
+        },
+        {
+          "id": "B0L1K5UKFW",
+          "name": "雲坊餐厅(转塘店)",
+          "type": "餐饮服务;中餐厅;中餐厅",
+          "address": "创意路1号艺创小镇凤凰创意大厦",
+          "location": "120.069225,30.139775",
+          "biz_ext": {
+            "rating": "4.3",
+            "cost": "68.00",
+            "meal_ordering": "0",
+            "open_time": "10:00-14:00 16:00-22:00",
+            "opentime2": "周一至周日 10:00-14:00,16:00-22:00"
+          }
+        },
+        {
+          "id": "B0KKBXY3HX",
+          "name": "灵湖阁餐厅",
+          "type": "餐饮服务;中餐厅;中餐厅",
+          "address": [],
+          "location": "120.058006,30.127031",
+          "biz_ext": {
+            "rating": "4.5",
+            "cost": "39.00",
+            "meal_ordering": "0",
+            "open_time": "09:00-20:00",
+            "opentime2": "周一至周日 09:00-20:00"
+          }
+        }
+      ]
+    },
+    {
+      "query": "莼乡寻味",
+      "pois": []
+    }
+  ]
+}
