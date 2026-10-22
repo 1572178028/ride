@@ -1,0 +1,329 @@
+tests/architecture.test.cjs
+  bc379537b7e52968 9-10
+index.html
+  bc379537b7e52968 55-57,142,144,312-313,336,342-343
+docs/data-notes.md
+  bc379537b7e52968 130-134
+src/data/generated/paths.js
+  bc379537b7e52968 2
+README.md
+  bc379537b7e52968 3
+tests/fixtures/catalog-migration-sha256.json
+  bc379537b7e52968 2-4,6,12
+tests/tongjianhu.test.cjs
+  bc379537b7e52968 1-41
+src/data/routes/index.js
+  bc379537b7e52968 21,45
+src/data/labels.js
+  bc379537b7e52968 10
+tests/catalog.test.cjs
+  bc379537b7e52968 15,28,30-32,89,106,108-109,210,249,514-515
+src/data/index.js
+  bc379537b7e52968 32
+tests/browser-check.cjs
+  bc379537b7e52968 27-29,168,334-343
+research/releases/v1.1.6.md
+  bc379537b7e52968 1-19
+src/data/routes/order.js
+  bc379537b7e52968 39
+src/data/routes/tongjianhu.js
+  bc379537b7e52968 1-362
+docs/architecture/route-maintenance.md
+  bc379537b7e52968 27
+scripts/build-tongjianhu-route.py
+  bc379537b7e52968 1-43
+src/data/generated/maps.js
+  bc379537b7e52968 2
+CHANGELOG.md
+  bc379537b7e52968 3-8
+research/tongjianhu-progress-20261022.md
+  bc379537b7e52968 1-42
+version.json
+  bc379537b7e52968 2-3,5-6
+research/tongjianhu-access.json
+  bc379537b7e52968 1-12
+src/data/generated/plans.js
+  bc379537b7e52968 2
+research/tongjianhu-cycling-amap-20261021.json
+  bc379537b7e52968 1-248
+research/tongjianhu-pois-20261021.json
+  bc379537b7e52968 1-387
+research/tongjianhu-waypoints-20261021.json
+  bc379537b7e52968 1-130
+assets/maps/tongjianhu-south.svg
+  bc379537b7e52968 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "f289bdbfea4fdf46b56c9fafc2ccc0dc0e2ae04d",
+  "prompts": {
+    "bc379537b7e52968": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15db3-1850-78b2-a5a2-bb55fbd065cc",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 1357,
+      "total_deletions": 51,
+      "accepted_lines": 2206,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "assets/maps/qiantang-seawall.svg": {
+          "accepted_lines": 1
+        },
+        "research/tongjianhu-progress-20261022.md": {
+          "additions": 43,
+          "deletions": 1,
+          "accepted_lines": 42
+        },
+        "assets/maps/mogan-foothills.svg": {
+          "accepted_lines": 1
+        },
+        "docs/data-notes.md": {
+          "additions": 5,
+          "accepted_lines": 134
+        },
+        "assets/maps/westlake-research.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/westlake-beishan-night.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/canal-streets.svg": {
+          "accepted_lines": 1
+        },
+        "tests/tongjianhu.test.cjs": {
+          "additions": 41,
+          "accepted_lines": 41
+        },
+        "assets/maps/badu-ginkgo-road.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/tongjianhu-south.svg": {
+          "additions": 2,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "assets/maps/tonglu-riverside.svg": {
+          "accepted_lines": 1
+        },
+        "src/data/generated/maps.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "assets/maps/xianghu-color.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/qiandao-cafe.svg": {
+          "accepted_lines": 1
+        },
+        "research/tongjianhu-waypoints-20261021.json": {
+          "additions": 130,
+          "accepted_lines": 130
+        },
+        "assets/maps/eastlake-connection-research.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/xianghu-lakeside.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/binjiang-wentao-night.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/jinhua-city.svg": {
+          "accepted_lines": 1
+        },
+        "tests/fixtures/catalog-migration-sha256.json": {
+          "additions": 5,
+          "deletions": 5,
+          "accepted_lines": 5
+        },
+        "assets/maps/jiapu-lakeside.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/westlake-tea-road.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/qiandao-peninsula.svg": {
+          "accepted_lines": 1
+        },
+        "src/data/labels.js": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "research/tongjianhu-pois-20261021.json": {
+          "additions": 387,
+          "accepted_lines": 387
+        },
+        "src/data/generated/plans.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "assets/maps/didang-research.svg": {
+          "accepted_lines": 1
+        },
+        "research/releases/v1.1.6.md": {
+          "additions": 19,
+          "accepted_lines": 19
+        },
+        "docs/architecture/route-maintenance.md": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "assets/maps/jiapu-research.svg": {
+          "accepted_lines": 1
+        },
+        "research/tongjianhu-cycling-amap-20261021.json": {
+          "additions": 248,
+          "accepted_lines": 248
+        },
+        "src/data/routes/order.js": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "assets/maps/wengjin-middle.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/shuanglong-road.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/wengjin-short.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/wengjin-yanguan.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/xianghu-shanshan.svg": {
+          "accepted_lines": 1
+        },
+        "tests/browser-check.cjs": {
+          "additions": 14,
+          "deletions": 4,
+          "accepted_lines": 14
+        },
+        "CHANGELOG.md": {
+          "additions": 6,
+          "accepted_lines": 6
+        },
+        "src/data/generated/paths.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "assets/maps/yigao-village-road.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/westlake-nanshan-night.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/eastlake-outskirts.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/nanhu-short.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/puyang-greenway.svg": {
+          "accepted_lines": 1
+        },
+        "README.md": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "docs/history/TASK_PROGRESS.md": {
+          "accepted_lines": 616
+        },
+        "assets/maps/xianghu-hegong.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/meiling-south-road.svg": {
+          "accepted_lines": 1
+        },
+        "src/data/routes/tongjianhu.js": {
+          "additions": 363,
+          "deletions": 1,
+          "accepted_lines": 362
+        },
+        "assets/maps/xianghu-two-lakes.svg": {
+          "accepted_lines": 1
+        },
+        "tests/architecture.test.cjs": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        },
+        "scripts/build-tongjianhu-route.py": {
+          "additions": 43,
+          "accepted_lines": 43
+        },
+        "docs/PROJECT_HANDOFF.md": {
+          "accepted_lines": 66
+        },
+        "assets/maps/yucun-villages.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/jinhua-short.svg": {
+          "accepted_lines": 1
+        },
+        "src/data/index.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "assets/maps/westlake-hills-loop.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/huaxi-short.svg": {
+          "accepted_lines": 1
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 13,
+          "deletions": 13,
+          "accepted_lines": 13
+        },
+        "index.html": {
+          "additions": 10,
+          "deletions": 10,
+          "accepted_lines": 10
+        },
+        "assets/maps/binjiang-wentao-short-night.svg": {
+          "accepted_lines": 1
+        },
+        "version.json": {
+          "additions": 4,
+          "deletions": 8,
+          "accepted_lines": 4
+        },
+        "assets/maps/huaxi-riverside.svg": {
+          "accepted_lines": 1
+        },
+        "research/tongjianhu-access.json": {
+          "additions": 12,
+          "accepted_lines": 12
+        },
+        "assets/maps/westlake-road.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/jiapu-easy.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/nanhu-roads.svg": {
+          "accepted_lines": 1
+        },
+        "assets/maps/qianjiang-city-night.svg": {
+          "accepted_lines": 1
+        },
+        "src/data/routes/index.js": {
+          "additions": 2,
+          "accepted_lines": 2
+        }
+      }
+    }
+  }
+}
