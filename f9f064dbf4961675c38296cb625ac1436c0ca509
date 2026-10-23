@@ -1,0 +1,293 @@
+tests/fixtures/catalog-migration-sha256.json
+  bc379537b7e52968 2-6,12
+research/hangzhou-xingzhe-pois-20261023.json
+  bc379537b7e52968 1-637
+src/data/routes/xiasha-riverside.js
+  bc379537b7e52968 1-313
+CHANGELOG.md
+  bc379537b7e52968 3-8
+tests/browser-check.cjs
+  bc379537b7e52968 27-29,168,189,198,311,344-355
+scripts/build-hangzhou-xingzhe-routes.py
+  bc379537b7e52968 1-48
+version.json
+  bc379537b7e52968 2-3,5-10
+research/hangzhou-expansion-specs.json
+  bc379537b7e52968 1-227
+src/data/generated/plans.js
+  bc379537b7e52968 2
+research/releases/v1.1.10.md
+  bc379537b7e52968 1-22
+src/data/routes/jingshan-shuangxi.js
+  bc379537b7e52968 1-290
+research/hangzhou-xingzhe-expansion-20261023.md
+  bc379537b7e52968 1-58
+src/data/generated/maps.js
+  bc379537b7e52968 2
+src/data/routes/order.js
+  bc379537b7e52968 40-43
+src/data/index.js
+  bc379537b7e52968 32
+research/hangzhou-xingzhe-pois-extra-20261023.json
+  bc379537b7e52968 1-352
+assets/maps/liangzhu-village-streets.svg
+  bc379537b7e52968 1
+tests/tongjianhu.test.cjs
+  bc379537b7e52968 39
+tests/hangzhou-expansion.test.cjs
+  bc379537b7e52968 1-34
+src/data/routes/liangzhu-village.js
+  bc379537b7e52968 1-394
+src/data/candidates/index.js
+  bc379537b7e52968 331-355
+docs/architecture/route-maintenance.md
+  bc379537b7e52968 27
+src/data/routes/chaoshan.js
+  bc379537b7e52968 1-348
+assets/maps/chaoshan-roads.svg
+  bc379537b7e52968 1
+tests/catalog.test.cjs
+  bc379537b7e52968 15,28,30-32,43,89,106-107,109,227,249,341,514-515,593
+docs/data-notes.md
+  bc379537b7e52968 1-2
+tests/architecture.test.cjs
+  bc379537b7e52968 9-10
+src/data/labels.js
+  bc379537b7e52968 10-14
+assets/maps/jingshan-shuangxi-short.svg
+  bc379537b7e52968 1
+src/data/routes/tongjianhu.js
+  bc379537b7e52968 359-380
+research/hangzhou-xingzhe-clues-20261023.json
+  bc379537b7e52968 1-10
+src/data/generated/paths.js
+  bc379537b7e52968 2
+research/hangzhou-xingzhe-supply-20261023.json
+  bc379537b7e52968 1-42
+index.html
+  bc379537b7e52968 55-57,142,144,224,312-313,336,342-343
+README.md
+  bc379537b7e52968 3
+src/data/routes/index.js
+  bc379537b7e52968 22-25,50-53
+assets/maps/xiasha-greenway.svg
+  bc379537b7e52968 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "f9f064dbf4961675c38296cb625ac1436c0ca509",
+  "prompts": {
+    "bc379537b7e52968": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15db3-1850-78b2-a5a2-bb55fbd065cc",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 12222,
+      "total_deletions": 67,
+      "accepted_lines": 12208,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "research/hangzhou-xingzhe-pois-20261023.json": {
+          "additions": 637,
+          "accepted_lines": 637
+        },
+        "index.html": {
+          "additions": 11,
+          "deletions": 11,
+          "accepted_lines": 11
+        },
+        "assets/maps/xiasha-greenway.png": {
+          "additions": 514,
+          "accepted_lines": 514
+        },
+        "research/hangzhou-xingzhe-supply-20261023.json": {
+          "additions": 50,
+          "deletions": 8,
+          "accepted_lines": 42
+        },
+        "assets/maps/liangzhu-village-streets.png": {
+          "additions": 947,
+          "accepted_lines": 947
+        },
+        "research/hangzhou-xingzhe-expansion-20261023.md": {
+          "additions": 58,
+          "accepted_lines": 58
+        },
+        "src/data/labels.js": {
+          "additions": 5,
+          "accepted_lines": 5
+        },
+        "src/data/routes/tongjianhu.js": {
+          "additions": 22,
+          "accepted_lines": 22
+        },
+        "research/hangzhou-xingzhe-pois-extra-20261023.json": {
+          "additions": 352,
+          "accepted_lines": 352
+        },
+        "assets/maps/xiasha-greenway.svg": {
+          "additions": 2,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "research/jingshan-shuangxi-osm.json.gz": {
+          "additions": 769,
+          "accepted_lines": 769
+        },
+        "src/data/routes/xiasha-riverside.js": {
+          "additions": 313,
+          "accepted_lines": 313
+        },
+        "research/hangzhou-xingzhe-clues-20261023.json": {
+          "additions": 10,
+          "accepted_lines": 10
+        },
+        "src/data/generated/maps.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "assets/maps/chaoshan-roads.png": {
+          "additions": 1142,
+          "accepted_lines": 1142
+        },
+        "README.md": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/generated/paths.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "research/liangzhu-village-osm.json.gz": {
+          "additions": 1940,
+          "accepted_lines": 1940
+        },
+        "assets/maps/jingshan-shuangxi-short.png": {
+          "additions": 863,
+          "accepted_lines": 863
+        },
+        "src/data/routes/chaoshan.js": {
+          "additions": 348,
+          "accepted_lines": 348
+        },
+        "src/data/routes/index.js": {
+          "additions": 8,
+          "accepted_lines": 8
+        },
+        "research/releases/v1.1.10.md": {
+          "additions": 22,
+          "accepted_lines": 22
+        },
+        "tests/tongjianhu.test.cjs": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/generated/plans.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "assets/maps/chaoshan-roads.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 16,
+          "deletions": 16,
+          "accepted_lines": 16
+        },
+        "src/data/index.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/candidates/index.js": {
+          "additions": 25,
+          "accepted_lines": 25
+        },
+        "research/hangzhou-expansion-specs.json": {
+          "additions": 227,
+          "accepted_lines": 227
+        },
+        "version.json": {
+          "additions": 8,
+          "deletions": 4,
+          "accepted_lines": 8
+        },
+        "assets/maps/liangzhu-village-streets.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "tests/hangzhou-expansion.test.cjs": {
+          "additions": 34,
+          "accepted_lines": 34
+        },
+        "docs/architecture/route-maintenance.md": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "tests/architecture.test.cjs": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        },
+        "src/data/routes/liangzhu-village.js": {
+          "additions": 394,
+          "accepted_lines": 394
+        },
+        "research/xiasha-riverside-osm.json.gz": {
+          "additions": 1738,
+          "accepted_lines": 1738
+        },
+        "tests/browser-check.cjs": {
+          "additions": 19,
+          "deletions": 7,
+          "accepted_lines": 19
+        },
+        "src/data/routes/jingshan-shuangxi.js": {
+          "additions": 292,
+          "deletions": 2,
+          "accepted_lines": 290
+        },
+        "tests/fixtures/catalog-migration-sha256.json": {
+          "additions": 7,
+          "deletions": 7,
+          "accepted_lines": 6
+        },
+        "research/chaoshan-osm.json.gz": {
+          "additions": 1375,
+          "accepted_lines": 1375
+        },
+        "CHANGELOG.md": {
+          "additions": 6,
+          "accepted_lines": 6
+        },
+        "scripts/build-hangzhou-xingzhe-routes.py": {
+          "additions": 48,
+          "accepted_lines": 48
+        },
+        "src/data/routes/order.js": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "assets/maps/jingshan-shuangxi-short.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "docs/data-notes.md": {
+          "additions": 2,
+          "accepted_lines": 2
+        }
+      }
+    }
+  }
+}
