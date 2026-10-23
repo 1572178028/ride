@@ -1,0 +1,247 @@
+research/hangzhou-road-photos-20261023.md
+  bc379537b7e52968 1-31
+tests/browser-check.cjs
+  bc379537b7e52968 354-364
+research/releases/v1.1.10.md
+  bc379537b7e52968 22-29
+CHANGELOG.md
+  bc379537b7e52968 3-6
+tests/hangzhou-expansion.test.cjs
+  bc379537b7e52968 27,35-49
+tests/fixtures/catalog-migration-sha256.json
+  bc379537b7e52968 3-4
+src/data/routes/xiasha-riverside.js
+  bc379537b7e52968 23-29,258-323,327-328
+src/data/routes/liangzhu-village.js
+  bc379537b7e52968 275-309,311-312
+src/data/routes/chaoshan.js
+  bc379537b7e52968 263-298,300-301
+src/data/routes/jingshan-shuangxi.js
+  bc379537b7e52968 13,200-303,305-306
+tests/catalog.test.cjs
+  bc379537b7e52968 299,321,442-443
+research/photo-licenses.json
+  bc379537b7e52968 1577-1811
+docs/data-notes.md
+  bc379537b7e52968 1-2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "5f0f48f8eb1b452e58e360a8a436313f6aede13a",
+  "prompts": {
+    "bc379537b7e52968": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15db3-1850-78b2-a5a2-bb55fbd065cc",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 45630,
+      "total_deletions": 24298,
+      "accepted_lines": 32007,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "src/data/routes/jinhua.js": {
+          "additions": 1084,
+          "deletions": 1084,
+          "accepted_lines": 468
+        },
+        "research/photo-licenses.json": {
+          "additions": 243,
+          "deletions": 8,
+          "accepted_lines": 235
+        },
+        "src/data/routes/eastlake.js": {
+          "additions": 758,
+          "deletions": 758,
+          "accepted_lines": 336
+        },
+        "src/data/routes/qiandao.js": {
+          "additions": 1516,
+          "deletions": 1516,
+          "accepted_lines": 640
+        },
+        "tests/browser-check.cjs": {
+          "additions": 11,
+          "accepted_lines": 11
+        },
+        "src/data/routes/nanhu.js": {
+          "additions": 1117,
+          "deletions": 1117,
+          "accepted_lines": 468
+        },
+        "src/data/routes/jiapu.js": {
+          "additions": 601,
+          "deletions": 601,
+          "accepted_lines": 255
+        },
+        "assets/photos/xiasha-riverside-press-4.jpg": {
+          "additions": 5022,
+          "accepted_lines": 5022
+        },
+        "src/data/routes/badu.js": {
+          "additions": 525,
+          "deletions": 525,
+          "accepted_lines": 230
+        },
+        "src/data/routes/tongjianhu.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "assets/photos/xiasha-riverside-press-1.jpg": {
+          "additions": 8077,
+          "accepted_lines": 8077
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 4,
+          "deletions": 4,
+          "accepted_lines": 4
+        },
+        "assets/photos/jingshan-xhs-road-3.webp": {
+          "additions": 1532,
+          "accepted_lines": 1532
+        },
+        "src/data/routes/puyang.js": {
+          "additions": 613,
+          "deletions": 613,
+          "accepted_lines": 259
+        },
+        "assets/photos/jingshan-xhs-road-6.webp": {
+          "additions": 2391,
+          "accepted_lines": 2391
+        },
+        "docs/data-notes.md": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "src/data/routes/westlake.js": {
+          "additions": 5164,
+          "deletions": 5164,
+          "accepted_lines": 2240
+        },
+        "src/data/routes/yigao.js": {
+          "additions": 462,
+          "deletions": 462,
+          "accepted_lines": 197
+        },
+        "CHANGELOG.md": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "src/data/routes/xiasha-riverside.js": {
+          "additions": 77,
+          "deletions": 4,
+          "accepted_lines": 77
+        },
+        "src/data/routes/tonglu.js": {
+          "additions": 853,
+          "deletions": 853,
+          "accepted_lines": 379
+        },
+        "research/releases/v1.1.10.md": {
+          "additions": 8,
+          "accepted_lines": 8
+        },
+        "assets/photos/chaoshan-linping-road-2024.webp": {
+          "additions": 631,
+          "accepted_lines": 631
+        },
+        "src/data/routes/mogan.js": {
+          "additions": 729,
+          "deletions": 729,
+          "accepted_lines": 317
+        },
+        "research/hangzhou-road-photos-20261023.md": {
+          "additions": 31,
+          "accepted_lines": 31
+        },
+        "src/data/routes/canal.js": {
+          "additions": 560,
+          "deletions": 560,
+          "accepted_lines": 226
+        },
+        "src/data/routes/xianghu.js": {
+          "additions": 3809,
+          "deletions": 3809,
+          "accepted_lines": 1761
+        },
+        "src/data/routes/wengjin.js": {
+          "additions": 1841,
+          "deletions": 1841,
+          "accepted_lines": 858
+        },
+        "src/data/routes/huaxi.js": {
+          "additions": 738,
+          "deletions": 738,
+          "accepted_lines": 295
+        },
+        "src/data/candidates/index.js": {
+          "additions": 539,
+          "deletions": 539,
+          "accepted_lines": 278
+        },
+        "assets/photos/jingshan-xhs-road-1.webp": {
+          "additions": 2786,
+          "accepted_lines": 2786
+        },
+        "src/data/routes/chaoshan.js": {
+          "additions": 40,
+          "deletions": 5,
+          "accepted_lines": 38
+        },
+        "tests/fixtures/catalog-migration-sha256.json": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 2
+        },
+        "src/data/routes/shuanglong.js": {
+          "additions": 441,
+          "deletions": 441,
+          "accepted_lines": 195
+        },
+        "src/data/routes/qiantangpark.js": {
+          "additions": 376,
+          "deletions": 376,
+          "accepted_lines": 162
+        },
+        "src/data/routes/binjiang.js": {
+          "additions": 1233,
+          "deletions": 1233,
+          "accepted_lines": 541
+        },
+        "src/data/routes/liangzhu-village.js": {
+          "additions": 37,
+          "deletions": 3,
+          "accepted_lines": 37
+        },
+        "assets/photos/liangzhu-shejilu-road-2023.jpg": {
+          "additions": 341,
+          "accepted_lines": 341
+        },
+        "tests/hangzhou-expansion.test.cjs": {
+          "additions": 17,
+          "deletions": 1,
+          "accepted_lines": 17
+        },
+        "src/data/routes/jingshan-shuangxi.js": {
+          "additions": 113,
+          "deletions": 10,
+          "accepted_lines": 107
+        },
+        "src/data/routes/yucun.js": {
+          "additions": 516,
+          "deletions": 516,
+          "accepted_lines": 217
+        },
+        "src/data/routes/qianjiang.js": {
+          "additions": 783,
+          "deletions": 783,
+          "accepted_lines": 331
+        }
+      }
+    }
+  }
+}
