@@ -19,19 +19,22 @@ const amapSearch = (name, region) =>
     src: "ride-atlas",
     callnative: "1",
   });
-const baidu = (gcj, name, mode = "driving") =>
-  "https://api.map.baidu.com/direction?" +
-  new URLSearchParams({
-    origin: "我的位置",
-    destination: "latlng:" + gcj[1] + "," + gcj[0] + "|name:" + name,
-    mode,
+// The legacy direction URI drops unsupported web modes and treats “我的位置”
+// as a POI keyword. Show the target first; Baidu owns departure/mode selection.
+const baiduParams = (params) => new URLSearchParams(params).toString().replace(/\+/g, "%20");
+const baidu = (gcj, name) =>
+  "https://api.map.baidu.com/marker?" +
+  baiduParams({
+    location: gcj[1] + "," + gcj[0],
+    title: name,
+    content: "目标位置参考；请选择到这去，并确认出发位置和出行方式。",
     coord_type: "gcj02",
     output: "html",
     src: "webapp.rideatlas.routes",
   });
 const baiduSearch = (name, region) =>
   "https://api.map.baidu.com/place/search?" +
-  new URLSearchParams({
+  baiduParams({
     query: name,
     region,
     output: "html",
@@ -48,17 +51,8 @@ function navCity(r) {
   );
 }
 function baiduNamed(name, r) {
-  return (
-    "https://api.map.baidu.com/direction?" +
-    new URLSearchParams({
-      origin: "我的位置",
-      destination: navCity(r) + " " + name,
-      mode: "driving",
-      region: navCity(r),
-      output: "html",
-      src: "webapp.rideatlas.routes",
-    })
-  );
+  // An approximate entrance remains a named lookup, not a precise marker.
+  return baiduSearch(name, navCity(r));
 }
 function placeLinks(f, r) {
   const name = f.query || f.name;
@@ -75,7 +69,7 @@ function placeLinks(f, r) {
         ? amap(coords, f.name, "ride")
         : amapSearch(name, navCity(r)),
     baidu: coords
-      ? baidu(coords, f.name, "riding")
+      ? baidu(coords, f.name)
       : baiduSearch(name, navCity(r)),
   };
 }
