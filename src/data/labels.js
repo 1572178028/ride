@@ -7,6 +7,8 @@ export default {
     jinhua: "金华",
   },
   regions: {
+    "lijiaxiang-roads": "长兴 · 李家巷广福桥",
+    "hefu-digang": "南浔 · 和孚荻港外围",
     "jingshan-shuangxi": "余杭 · 双溪北苕溪",
     "liangzhu-village": "余杭 · 良渚文化村街道",
     "chaoshan": "临平 · 超山外围",

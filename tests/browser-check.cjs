@@ -24,9 +24,9 @@ const server = http.createServer((req, res) => {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1050 }, reducedMotion: 'reduce', acceptDownloads: true });
     watch(page); await page.goto(url); await page.waitForSelector('.route-card');
     assert.equal(await page.evaluate(() => innerWidth), 1440);
-    assert.equal(await page.locator('.route-card').count(), 25);
-    assert.equal(await page.locator('#total-plans').innerText(), '42');
-    assert.equal(await page.locator('#total-parking').innerText(), '26');
+    assert.equal(await page.locator('.route-card').count(), 27);
+    assert.equal(await page.locator('#total-plans').innerText(), '44');
+    assert.equal(await page.locator('#total-parking').innerText(), '28');
     const ids = ROUTES.map(r => r.id);
     const select = async (p, id) => { await p.evaluate(id => { location.hash = 'route=' + id; }, id); await p.waitForFunction(title => document.querySelector('#selected-heading h2').textContent === title, routeLookup[id].title); };
     await page.selectOption('#region-filter','xianghu');
@@ -165,7 +165,7 @@ const server = http.createServer((req, res) => {
     await page.selectOption('#city-filter', 'jinhua'); assert.equal(await page.locator('#region-filter').inputValue(), 'all');
     await page.selectOption('#city-filter', 'all'); await page.selectOption('#parking-filter', 'unknown'); assert.equal(await page.locator('.route-card').count(), 6);
     await page.selectOption('#lane-filter', 'dedicated'); assert.ok(await page.locator('#route-view').isHidden());
-    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 25);
+    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 27);
     await page.locator('#route-library').scrollIntoViewIfNeeded();
     assert.ok(await page.locator('#route-list').evaluate(el => el.scrollHeight > el.clientHeight && getComputedStyle(el).overflowY === 'auto'));
     await page.locator('.card-select').last().click();
@@ -186,16 +186,16 @@ const server = http.createServer((req, res) => {
     assert.equal(await download.failure(), null); assert.ok(download.suggestedFilename().endsWith('.png'));
     assert.equal(await page.locator('#research-library').getAttribute('open'), null);
     assert.equal(await page.locator('#expansion-cards').isVisible(), false);
-    assert.equal(await page.locator('#research-count').innerText(), '9');
+    assert.equal(await page.locator('#research-count').innerText(), '7');
     await page.locator('#research-library > summary').click();
     assert.equal(await page.locator('#expansion-cards').isVisible(), true);
-    await page.selectOption('#research-region', 'huzhou');
+    await page.selectOption('#research-region', 'jiaxing');
     await page.locator('#research-library > summary').click();
     assert.equal(await page.locator('#expansion-cards').isVisible(), false);
     await page.locator('#research-library > summary').focus();
     await page.keyboard.press('Enter');
-    assert.equal(await page.locator('#research-region').inputValue(), 'huzhou');
-    for (const [region, count] of [['huzhou', 2], ['shaoxing', 2], ['hangzhou', 4]]) { await page.selectOption('#research-region', region); assert.equal(await page.locator('#expansion-cards .expansion-card').count(), count); }
+    assert.equal(await page.locator('#research-region').inputValue(), 'jiaxing');
+    for (const [region, count] of [['jiaxing', 1], ['shaoxing', 2], ['hangzhou', 4]]) { await page.selectOption('#research-region', region); assert.equal(await page.locator('#expansion-cards .expansion-card').count(), count); }
     for(const id of ['badu-ginkgo-road','yigao-village-road']){
       await select(page,id);
       assert.ok((await page.locator('.parking-box').innerText()).includes(id.startsWith('badu')?'当前价格待入场确认':'默认免费'));
@@ -214,14 +214,18 @@ const server = http.createServer((req, res) => {
       await page.locator('#map-container').scrollIntoViewIfNeeded();
       await page.screenshot({path:'/private/tmp/ride-'+id+'-desktop.png'});
     }
-    await page.selectOption('#research-region','huzhou');
-    assert.equal(await page.locator('#expansion-cards .parking-option').count(),3);
-    assert.equal(await page.locator('#expansion-cards [data-fee-basis="user-default-roadside"]').count(),2);
-    const hzParkingLinks=await page.locator('#expansion-cards .parking-option a').evaluateAll(ns=>ns.map(n=>n.href));
-    assert.equal(hzParkingLinks.length,9);
-    assert.ok(hzParkingLinks.every(u=>!u.includes('undefined')&&!u.includes('NaN')));
-    await page.locator('[data-research-id="huzhou-nanxun-research"] .research-parking').scrollIntoViewIfNeeded();
-    await page.screenshot({path:'/private/tmp/ride-huzhou-parking-desktop.png'});
+    for (const id of ['lijiaxiang-guangfu','hefu-digang-road']) {
+      await select(page,id);
+      const extension=page.locator('#route-detail .route-extension-research').first();
+      await extension.locator('summary').first().click();
+      const old=page.locator('[data-research-id="'+(id==='lijiaxiang-guangfu'?'huzhou-lijiaxiang-research':'huzhou-nanxun-research')+'"]');
+      assert.equal(await old.locator('.parking-option').count(),id==='lijiaxiang-guangfu'?1:2);
+      assert.ok(!(await old.innerText()).includes('上方2.4公里'));
+      const links=await old.locator('.parking-option a').evaluateAll(ns=>ns.map(n=>n.href));
+      assert.ok(links.every(u=>!u.includes('undefined')&&!u.includes('NaN')));
+      await page.locator('#map-container').scrollIntoViewIfNeeded();
+      await page.screenshot({path:'/private/tmp/ride-'+id+'-desktop.png'});
+    }
     await page.selectOption('#city-filter','shaoxing');
     await page.selectOption('#region-filter','eastlake');
     assert.equal(await page.locator('.route-card').count(),1);
@@ -326,11 +330,14 @@ const server = http.createServer((req, res) => {
 
       assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
     }
-    await mobile.selectOption('#research-region','huzhou');
-    assert.equal(await mobile.locator('#expansion-cards .parking-option').count(),3);
-    await mobile.locator('[data-research-id="huzhou-lijiaxiang-research"] .research-parking').scrollIntoViewIfNeeded();
-    await mobile.screenshot({path:'/private/tmp/ride-huzhou-parking-mobile.png'});
-    assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+    for (const id of ['lijiaxiang-guangfu','hefu-digang-road']) {
+      await select(mobile,id);
+      await mobile.locator('#route-detail .route-extension-research').first().locator('summary').first().click();
+      assert.equal(await mobile.locator('#route-detail .parking-option').count(),id==='lijiaxiang-guangfu'?1:2);
+      await mobile.locator('#map-container').scrollIntoViewIfNeeded();
+      await mobile.screenshot({path:'/private/tmp/ride-'+id+'-mobile.png'});
+      assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+    }
     for (const target of [page, mobile]) {
       await select(target, 'tongjianhu-south');
       await target.locator('#map-container').scrollIntoViewIfNeeded();

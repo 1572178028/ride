@@ -23,9 +23,13 @@ import jingshan_shuangxi from "./jingshan-shuangxi.js";
 import liangzhu_village from "./liangzhu-village.js";
 import chaoshan from "./chaoshan.js";
 import xiasha_riverside from "./xiasha-riverside.js";
+import lijiaxiang_roads from "./lijiaxiang-roads.js";
+import hefu_digang from "./hefu-digang.js";
 import order from "./order.js";
 const positions = new Map(order.map((id, index) => [id, index]));
 export const ROUTES = [
+  ...lijiaxiang_roads,
+  ...hefu_digang,
   ...xianghu,
   ...wengjin,
   ...qiandao,

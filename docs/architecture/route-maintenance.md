@@ -24,6 +24,6 @@ app.js只协调选中路线、筛选、收藏与视图。features/routes维护�
 
 ## 验证与部署
 
-npm test覆盖数据完整性和模块边界；npm run test:browser覆盖1440/390px、42方案、筛选、地图、导航、收藏、照片和下载。以RIDE_TEST_BASE_PATH=/ride运行同一浏览器检查验证子路径。迁移指纹位于tests/fixtures/catalog-migration-sha256.json；有意修改资料时，在核对相应字段和专项测试后更新指纹，不应为通过测试盲目替换。
+npm test覆盖数据完整性和模块边界；npm run test:browser覆盖1440/390px、44方案、筛选、地图、导航、收藏、照片和下载。以RIDE_TEST_BASE_PATH=/ride运行同一浏览器检查验证子路径。迁移指纹位于tests/fixtures/catalog-migration-sha256.json；有意修改资料时，在核对相应字段和专项测试后更新指纹，不应为通过测试盲目替换。
 
 静态部署仍发布仓库根目录，没有public映射或dist构建步骤。仅结构重构不修改版本号、标签或Release。根README与本说明优先于历史文档和旧扩线skill参考中的目录说明；原有业务证据规则仍适用。
