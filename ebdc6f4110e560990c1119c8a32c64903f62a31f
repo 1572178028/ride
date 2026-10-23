@@ -1,0 +1,119 @@
+docs/data-notes.md
+  bc379537b7e52968 143-144
+tests/fixtures/catalog-migration-sha256.json
+  bc379537b7e52968 3-4
+tests/browser-check.cjs
+  bc379537b7e52968 219-228,345-351
+CHANGELOG.md
+  bc379537b7e52968 3-6
+research/huzhou-road-photos-20261023.md
+  bc379537b7e52968 1-33
+src/data/routes/hefu-digang.js
+  bc379537b7e52968 301-344,346-347
+research/releases/v1.1.12.md
+  bc379537b7e52968 19-26
+src/data/routes/lijiaxiang-roads.js
+  bc379537b7e52968 301-410,412-413
+tests/catalog.test.cjs
+  bc379537b7e52968 299,308-309,323,444-445
+research/photo-licenses.json
+  bc379537b7e52968 1812-1961
+tests/huzhou-completion.test.cjs
+  bc379537b7e52968 15,28-43
+research/huzhou-road-photo-sources-20261023.json
+  bc379537b7e52968 1-67
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "ebdc6f4110e560990c1119c8a32c64903f62a31f",
+  "prompts": {
+    "bc379537b7e52968": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15db3-1850-78b2-a5a2-bb55fbd065cc",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 7469,
+      "total_deletions": 24,
+      "accepted_lines": 7458,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "src/data/routes/hefu-digang.js": {
+          "additions": 46,
+          "deletions": 3,
+          "accepted_lines": 46
+        },
+        "assets/photos/hefu-yuanjiahui-douyin-29s.webp": {
+          "additions": 1105,
+          "accepted_lines": 1105
+        },
+        "research/huzhou-road-photos-20261023.md": {
+          "additions": 34,
+          "deletions": 1,
+          "accepted_lines": 33
+        },
+        "CHANGELOG.md": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "assets/photos/lijiaxiang-guangfu-street-west.webp": {
+          "additions": 2329,
+          "accepted_lines": 2329
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 6,
+          "deletions": 4,
+          "accepted_lines": 6
+        },
+        "assets/photos/lijiaxiang-guangfu-street-east.webp": {
+          "additions": 2051,
+          "accepted_lines": 2051
+        },
+        "tests/huzhou-completion.test.cjs": {
+          "additions": 18,
+          "deletions": 1,
+          "accepted_lines": 18
+        },
+        "docs/data-notes.md": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "research/releases/v1.1.12.md": {
+          "additions": 8,
+          "accepted_lines": 8
+        },
+        "research/huzhou-road-photo-sources-20261023.json": {
+          "additions": 70,
+          "deletions": 3,
+          "accepted_lines": 67
+        },
+        "assets/photos/lijiaxiang-guangfu-g104-junction.webp": {
+          "additions": 1508,
+          "accepted_lines": 1508
+        },
+        "research/photo-licenses.json": {
+          "additions": 153,
+          "deletions": 3,
+          "accepted_lines": 150
+        },
+        "tests/browser-check.cjs": {
+          "additions": 17,
+          "accepted_lines": 17
+        },
+        "src/data/routes/lijiaxiang-roads.js": {
+          "additions": 115,
+          "deletions": 6,
+          "accepted_lines": 112
+        },
+        "tests/fixtures/catalog-migration-sha256.json": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 2
+        }
+      }
+    }
+  }
+}
