@@ -7,6 +7,11 @@ export default {
     jinhua: "金华",
   },
   regions: {
+    "jingshan-shuangxi": "余杭 · 双溪北苕溪",
+    "liangzhu-village": "余杭 · 良渚文化村街道",
+    "chaoshan": "临平 · 超山外围",
+    "xiasha-riverside": "钱塘 · 下沙沿江",
+
     tongjianhu: "西湖 · 铜鉴湖南岸",
     eastlake: "绍兴 · 东湖南侧外围",
     shuanglong: "金华 · 双龙山路",
