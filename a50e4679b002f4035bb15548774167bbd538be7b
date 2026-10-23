@@ -1,0 +1,252 @@
+CHANGELOG.md
+  bc379537b7e52968 3-8
+src/data/generated/maps.js
+  bc379537b7e52968 2
+docs/architecture/route-maintenance.md
+  bc379537b7e52968 27
+version.json
+  bc379537b7e52968 2,5,7
+src/data/generated/plans.js
+  bc379537b7e52968 2
+scripts/build-huzhou-completion-routes.py
+  bc379537b7e52968 1-44
+src/data/routes/lijiaxiang-roads.js
+  bc379537b7e52968 1-428
+research/huzhou-completion-20261023.md
+  bc379537b7e52968 1-55
+tests/huzhou-completion.test.cjs
+  bc379537b7e52968 1-27
+research/huzhou-cycling-plans-20261023.json
+  bc379537b7e52968 1-447
+src/data/routes/order.js
+  bc379537b7e52968 44-45
+src/data/routes/index.js
+  bc379537b7e52968 26-27,31-32
+research/releases/v1.1.12.md
+  bc379537b7e52968 1-19
+tests/catalog.test.cjs
+  bc379537b7e52968 15,28,30-32,43,89,106-107,109,186-188,227,249,500,514-515,593
+research/huzhou-ui-audit-20261023.json
+  bc379537b7e52968 1-41
+research/huzhou-supply-pois-20261023.json
+  bc379537b7e52968 1-248
+src/data/labels.js
+  bc379537b7e52968 10-11
+tests/browser-check.cjs
+  bc379537b7e52968 27-29,168,189,192,197-198,217-228,333-340
+tests/fixtures/catalog-migration-sha256.json
+  bc379537b7e52968 2-6,12
+docs/data-notes.md
+  bc379537b7e52968 139-142
+src/data/routes/hefu-digang.js
+  bc379537b7e52968 1-458
+tests/architecture.test.cjs
+  bc379537b7e52968 9-10
+assets/maps/hefu-digang-road.svg
+  bc379537b7e52968 1
+src/features/research/index.js
+  bc379537b7e52968 21
+UX-CONTRACT.md
+  bc379537b7e52968 30-31
+README.md
+  bc379537b7e52968 3
+research/huzhou-completion-specs-20261023.json
+  bc379537b7e52968 1-101
+assets/maps/lijiaxiang-guangfu.svg
+  bc379537b7e52968 1
+index.html
+  bc379537b7e52968 55-57,142,311-312,335,341-342
+research/huzhou-pois-20261023.json
+  bc379537b7e52968 1-719
+src/data/generated/paths.js
+  bc379537b7e52968 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "a50e4679b002f4035bb15548774167bbd538be7b",
+  "prompts": {
+    "bc379537b7e52968": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15db3-1850-78b2-a5a2-bb55fbd065cc",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 5882,
+      "total_deletions": 590,
+      "accepted_lines": 5668,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "docs/architecture/route-maintenance.md": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/generated/maps.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/routes/index.js": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "research/huzhou-pois-20261023.json": {
+          "additions": 719,
+          "accepted_lines": 719
+        },
+        "research/hefu-digang-20261023-osm.json.gz": {
+          "additions": 334,
+          "accepted_lines": 334
+        },
+        "research/lijiaxiang-west-20261023-osm.json.gz": {
+          "additions": 914,
+          "accepted_lines": 914
+        },
+        "research/huzhou-ui-audit-20261023.json": {
+          "additions": 41,
+          "accepted_lines": 41
+        },
+        "index.html": {
+          "additions": 9,
+          "deletions": 10,
+          "accepted_lines": 9
+        },
+        "assets/maps/lijiaxiang-guangfu.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "premium-audit.json": {
+          "additions": 41,
+          "deletions": 41
+        },
+        "tests/architecture.test.cjs": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        },
+        "src/data/routes/order.js": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "research/lijiaxiang-20261023-osm.json.gz": {
+          "additions": 1020,
+          "accepted_lines": 1020
+        },
+        "src/data/labels.js": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "tests/huzhou-completion.test.cjs": {
+          "additions": 27,
+          "accepted_lines": 27
+        },
+        "src/data/generated/plans.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "scripts/build-huzhou-completion-routes.py": {
+          "additions": 44,
+          "accepted_lines": 44
+        },
+        "src/data/candidates/index.js": {
+          "additions": 332,
+          "deletions": 468,
+          "accepted_lines": 173
+        },
+        "assets/maps/lijiaxiang-guangfu.png": {
+          "additions": 282,
+          "accepted_lines": 282
+        },
+        "src/features/research/index.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "research/releases/v1.1.12.md": {
+          "additions": 19,
+          "accepted_lines": 19
+        },
+        "README.md": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "UX-CONTRACT.md": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "research/huzhou-cycling-plans-20261023.json": {
+          "additions": 447,
+          "accepted_lines": 447
+        },
+        "tests/fixtures/catalog-migration-sha256.json": {
+          "additions": 7,
+          "deletions": 7,
+          "accepted_lines": 6
+        },
+        "version.json": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 3
+        },
+        "assets/maps/hefu-digang-road.png": {
+          "additions": 263,
+          "accepted_lines": 263
+        },
+        "src/data/generated/paths.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "research/huzhou-supply-pois-20261023.json": {
+          "additions": 248,
+          "accepted_lines": 248
+        },
+        "research/huzhou-completion-specs-20261023.json": {
+          "additions": 101,
+          "accepted_lines": 101
+        },
+        "src/data/routes/hefu-digang.js": {
+          "additions": 462,
+          "deletions": 4,
+          "accepted_lines": 458
+        },
+        "CHANGELOG.md": {
+          "additions": 6,
+          "accepted_lines": 6
+        },
+        "assets/maps/hefu-digang-road.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/routes/lijiaxiang-roads.js": {
+          "additions": 432,
+          "deletions": 4,
+          "accepted_lines": 428
+        },
+        "docs/data-notes.md": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 21,
+          "deletions": 21,
+          "accepted_lines": 19
+        },
+        "research/huzhou-completion-20261023.md": {
+          "additions": 55,
+          "accepted_lines": 55
+        },
+        "tests/browser-check.cjs": {
+          "additions": 31,
+          "deletions": 24,
+          "accepted_lines": 28
+        }
+      }
+    }
+  }
+}
