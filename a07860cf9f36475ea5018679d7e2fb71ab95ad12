@@ -1,0 +1,75 @@
+tests/browser-check.cjs
+  bc379537b7e52968 109-113
+CHANGELOG.md
+  bc379537b7e52968 3-6
+UX-CONTRACT.md
+  bc379537b7e52968 32-35
+research/baidu-destination-fix-20261023.md
+  bc379537b7e52968 1-40
+research/releases/v1.1.12.md
+  bc379537b7e52968 27-33
+src/features/routes/detail.js
+  bc379537b7e52968 21
+src/shared/navigation.js
+  bc379537b7e52968 22-30,37,54-55,72
+tests/navigation.test.cjs
+  bc379537b7e52968 1-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "a07860cf9f36475ea5018679d7e2fb71ab95ad12",
+  "prompts": {
+    "bc379537b7e52968": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15db3-1850-78b2-a5a2-bb55fbd065cc",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 98,
+      "total_deletions": 23,
+      "accepted_lines": 96,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "research/baidu-destination-fix-20261023.md": {
+          "additions": 40,
+          "accepted_lines": 40
+        },
+        "tests/navigation.test.cjs": {
+          "additions": 23,
+          "deletions": 1,
+          "accepted_lines": 22
+        },
+        "src/shared/navigation.js": {
+          "additions": 13,
+          "deletions": 19,
+          "accepted_lines": 13
+        },
+        "src/features/routes/detail.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "UX-CONTRACT.md": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "CHANGELOG.md": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "research/releases/v1.1.12.md": {
+          "additions": 7,
+          "accepted_lines": 7
+        },
+        "tests/browser-check.cjs": {
+          "additions": 6,
+          "deletions": 2,
+          "accepted_lines": 5
+        }
+      }
+    }
+  }
+}
