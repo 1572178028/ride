@@ -106,7 +106,11 @@ const server = http.createServer((req, res) => {
       assert.ok(links.every(u => !/undefined|NaN/.test(u)), id);
       const a = new URL(links[2]), b = new URL(links[3]);
       assert.equal(a.searchParams.get('coordinate'), 'gaode'); assert.equal(a.searchParams.get('mode'), 'ride');
-      assert.equal(b.searchParams.get('coord_type'), 'gcj02'); assert.equal(b.searchParams.get('mode'), 'riding');
+      assert.equal(b.pathname, '/marker'); assert.equal(b.searchParams.get('coord_type'), 'gcj02'); assert.equal(b.searchParams.get('title'),routeLookup[id].start.name); assert.equal(b.searchParams.get('location'),routeLookup[id].start.gcj[1]+','+routeLookup[id].start.gcj[0]); assert.ok(!b.searchParams.has('origin')); assert.ok(!b.searchParams.has('mode'));
+      const parkingBaidu=new URL(links[1]);
+      assert.equal(parkingBaidu.pathname,routeLookup[id].parking.namedNavigation?'/place/search':'/marker');
+      assert.ok((await page.locator('.nav-explainer').innerText()).includes('到这去'));
+      assert.ok((await page.locator('.navigation-actions a').nth(3).innerText()).includes('查看骑行起点'));
       const r = { ...routeLookup[id], point: routeLookup[id].start.gcj, fee: routeLookup[id].parking.feeType };
       assert.ok(a.searchParams.get('to').startsWith(r.point.join(',')));
       if (['nanhu', 'jinhua', 'canal'].includes(r.region)) { assert.equal(new URL(links[0]).searchParams.get('city'), r.city); assert.equal(new URL(links[1]).searchParams.get('region'), r.city); }

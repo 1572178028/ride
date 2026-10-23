@@ -29,3 +29,7 @@ src/app.js负责页面状态协调与事件接线，features负责呈现和交�
 研究方向集中在#research-library原生details中，默认折叠，summary始终显示真实方向数与状态说明；用户主动展开后才显示筛选、卡片和证据。展开/收起支持键盘，保留当前城市筛选；不写入收藏或改变正式路线选择。路线关联的入口延伸研究仍保留在对应详情中。公共所有者为index.html与src/features/research/index.js。
 
 路线详情中的研究资料说明使用当前方案通用表述，不写死其他路线里程；旧停车备选不计入正式停车起点。
+
+## 百度外部地图
+
+坐标地点使用官方marker接口先展示目标（GCJ-02、纬度在前）；近似停车入口保持带城市的具名搜索。百度按钮明确“查看停车点/骑行起点”或“查找停车入口”，由百度页面“到这去”选择出发位置与交通方式，不把本站完整路线自动导入的能力写入文案。不得将“我的位置”作为普通地名交给旧direction接口，也不向网页direction接口传riding；不收集用户定位、不引入AK或服务端算路依赖。共享所有者src/shared/navigation.js，详情说明所有者src/features/routes/detail.js，验证tests/navigation.test.cjs及浏览器检查。
