@@ -298,10 +298,53 @@ export default [
         "mapLabel": "折返点附近短休"
       }
     ],
-    "photos": [],
+    "photos": [
+      {
+        "id": "hefu-yuanjiahui-douyin-29s",
+        "group": "hefu-digang-road",
+        "kind": "road",
+        "routeIds": [
+          "hefu-digang-road"
+        ],
+        "src": "assets/photos/hefu-yuanjiahui-douyin-29s.webp",
+        "storage": "local",
+        "source": "https://www.douyin.com/video/7420378568477232410",
+        "originalUrl": "https://www.douyin.com/video/7420378568477232410",
+        "author": "南湖田园鱼",
+        "date": "2024-09-30发布；拍摄日未单列",
+        "checked": "2026-10-23",
+        "captureDate": "2026-10-23",
+        "assessmentDate": "2026-10-23",
+        "sourceType": "social-video-frame",
+        "license": "原作者版权 · 未声明开放许可；保留原视频字幕",
+        "caption": "和孚袁家汇路 · 路侧通道与桥头方向（同走廊参考）",
+        "relation": "南湖田园鱼原帖明确和孚镇西南袁家汇路，约00:29画面可见具名道路行程中的机动车道、路侧铺装通道、绿化隔带及桥头。属于本方案采用的袁家汇路同走廊参考，但没有GPS或骑行轨迹，不能确认此桥头即本线252米连接段，不据此声明本线有隔离骑行道或当前可通行。",
+        "verification": "实际打开原视频并选择最高可用1080P，原媒体下载超时后在放大播放器暂停约00:29截帧；逐张核对纯画面，无播放按钮、作者栏、互动区或播放器控件。",
+        "pixelWidth": 1512,
+        "pixelHeight": 790,
+        "videoPixelWidth": 1920,
+        "videoPixelHeight": 1080,
+        "frameTime": "00:29",
+        "crop": {
+          "left": 0,
+          "top": 50,
+          "width": 1512,
+          "height": 790
+        },
+        "modification": "原视频1080P在1512×949播放器视图截取纯画面区域，裁去黑边和底部控件；不插值放大、不重绘，保留视频字幕。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 0,
+          "visual": 20,
+          "reason": "南湖田园鱼原帖明确和孚镇西南袁家汇路，约00:29画面可见具名道路行程中的机动车道、路侧铺装通道、绿化隔带及桥头。属于本方案采用的袁家汇路同走廊参考，但没有GPS或骑行轨迹，不能确认此桥头即本线252米连接段，不据此声明本线有隔离骑行道或当前可通行。"
+        }
+      }
+    ],
     "photoTarget": 3,
-    "photoMissing": 3,
-    "photoGap": "本方案道路实拍待补3张；尚无能对应这条短线的合格照片，不以矿坑、水景或古街照片替代。",
+    "photoMissing": 2,
+    "photoGap": "道路图目标3张，仍待补2张。已展示图片含关联参考，详见评分依据。",
     "sourceChecked": "2026-10-23",
     "geometrySource": "https://www.openstreetmap.org/api/0.6/map?bbox=120.125,30.735,120.180,30.785",
     "geometryWays": [

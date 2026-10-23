@@ -216,6 +216,16 @@ const server = http.createServer((req, res) => {
     }
     for (const id of ['lijiaxiang-guangfu','hefu-digang-road']) {
       await select(page,id);
+      const expected=id==='lijiaxiang-guangfu'?3:1;
+      assert.equal(await page.locator('#route-detail .photo-open').count(),expected);
+      for(let photo=0;photo<expected;photo++){
+        await page.locator('#route-detail .photo-open').nth(photo).click();
+        await page.waitForFunction(()=>document.querySelector('#photo-dialog img').complete&&document.querySelector('#photo-dialog img').naturalWidth>=1512);
+        assert.ok((await page.locator('#photo-dialog').innerText()).includes(id==='lijiaxiang-guangfu'?'源義信':'南湖田园鱼'));
+        await page.keyboard.press('Escape');
+      }
+      await page.locator('#route-detail .route-photos').scrollIntoViewIfNeeded();
+      await page.screenshot({path:'/private/tmp/ride-'+id+'-photos-desktop.png'});
       const extension=page.locator('#route-detail .route-extension-research').first();
       await extension.locator('summary').first().click();
       const old=page.locator('[data-research-id="'+(id==='lijiaxiang-guangfu'?'huzhou-lijiaxiang-research':'huzhou-nanxun-research')+'"]');
@@ -332,6 +342,13 @@ const server = http.createServer((req, res) => {
     }
     for (const id of ['lijiaxiang-guangfu','hefu-digang-road']) {
       await select(mobile,id);
+      const expected=id==='lijiaxiang-guangfu'?3:1;
+      assert.equal(await mobile.locator('#route-detail .photo-open').count(),expected);
+      await mobile.locator('#route-detail .photo-open').first().click();
+      await mobile.waitForFunction(()=>document.querySelector('#photo-dialog img').complete&&document.querySelector('#photo-dialog img').naturalWidth>=1512);
+      await mobile.keyboard.press('Escape');
+      await mobile.locator('#route-detail .route-photos').scrollIntoViewIfNeeded();
+      await mobile.screenshot({path:'/private/tmp/ride-'+id+'-photos-mobile.png'});
       await mobile.locator('#route-detail .route-extension-research').first().locator('summary').first().click();
       assert.equal(await mobile.locator('#route-detail .parking-option').count(),id==='lijiaxiang-guangfu'?1:2);
       await mobile.locator('#map-container').scrollIntoViewIfNeeded();
