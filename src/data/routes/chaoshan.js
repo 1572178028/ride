@@ -260,10 +260,45 @@ export default [
         "placement": "along"
       }
     ],
-    "photos": [],
+    "photos": [
+      {
+        "id": "chaoshan-linping-road-2024",
+        "group": "chaoshan-roads",
+        "kind": "road",
+        "routeIds": [
+          "chaoshan-roads"
+        ],
+        "src": "assets/photos/chaoshan-linping-road-2024.webp",
+        "storage": "local",
+        "source": "https://www.xiaohongshu.com/explore/67559602000000000600cd44",
+        "originalUrl": "https://sns-webpic-qc.xhscdn.com/202610231451/e9746fdf6f49fb5da56a4d4e9c0493d3/spectrum/1040g34o31b58l4ovmm0g5o3rbk50bgosufv2bi0!nd_dft_wlteh_webp_3",
+        "author": "临平文旅 / 小红书（摄影未单列）",
+        "date": "2024-12-08发布；拍摄日未单列",
+        "checked": "2026-10-23",
+        "downloadDate": "2026-10-23",
+        "assessmentDate": "2026-10-23",
+        "sourceType": "social-original-image",
+        "license": "临平文旅原图版权 · 未注明开放许可；保留宣传水印",
+        "caption": "超山外围 · 梧桐道路纵深（2024赛事历史参考）",
+        "relation": "临平文旅2024-12-08原帖明确超山路—超梅路—龙超路—超山路环线；P2可见道路纵深、虚线、护栏与沿线梧桐。与本方案共有公共道路走廊，具体机位未确认，仅同环线参考。无逐图轨迹，不计轨迹分；赛事临时围挡和封路不代表日常道路条件，不据此允许占用机动车道。",
+        "verification": "已读取原帖正文和图序，下载网页实际提供的文件并逐张目视；无平台界面，保留原图水印。",
+        "pixelWidth": 1080,
+        "pixelHeight": 1439,
+        "modification": "保存网页实际提供的图片，不放大、不重绘、不裁切；网页文件不等同相机原片。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 0,
+          "visual": 20,
+          "reason": "临平文旅2024-12-08原帖明确超山路—超梅路—龙超路—超山路环线；P2可见道路纵深、虚线、护栏与沿线梧桐。与本方案共有公共道路走廊，具体机位未确认，仅同环线参考。无逐图轨迹，不计轨迹分；赛事临时围挡和封路不代表日常道路条件，不据此允许占用机动车道。"
+        },
+        "sourceImageIndex": 2
+      }
+    ],
     "photoTarget": 3,
-    "photoMissing": 3,
-    "photoGap": "本方案道路实拍待补3张；原帖关联与转载条件未完成核验，暂保留来源链接。",
+    "photoMissing": 2,
+    "photoGap": "道路图目标3张，仍待补2张。已展示图片含关联参考，详见评分依据。",
     "sourceChecked": "2026-10-23",
     "geometrySource": "https://www.openstreetmap.org/api/0.6/map?bbox=120.195,30.410,120.245,30.452",
     "geometryWays": [

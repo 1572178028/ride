@@ -272,10 +272,44 @@ export default [
         "placement": "along"
       }
     ],
-    "photos": [],
+    "photos": [
+      {
+        "id": "liangzhu-shejilu-road-2023",
+        "group": "liangzhu-village-streets",
+        "kind": "road",
+        "routeIds": [
+          "liangzhu-village-streets"
+        ],
+        "src": "assets/photos/liangzhu-shejilu-road-2023.jpg",
+        "storage": "local",
+        "source": "https://tidenews.com.cn/news.html?id=2649688",
+        "originalUrl": "https://meizi-chao-pub.8531.cn/1730364033137262596_720px.jpg?width=720&height=539",
+        "author": "余杭良渚街道供图 / 潮新闻；报道施雯、金良瓶",
+        "date": "2023-12-01报道；拍摄日未单列",
+        "checked": "2026-10-23",
+        "downloadDate": "2026-10-23",
+        "assessmentDate": "2026-10-23",
+        "sourceType": "news-original-image",
+        "license": "原作者版权 · 原文注明“转载请注明出处”",
+        "caption": "良渚设计路 · 路面与分流岛（2023历史参考）",
+        "relation": "潮新闻2023-12-01设计路报道，余杭良渚街道供图；图可见双向道路、方向箭头、分流岛和路旁树木。与本方案设计路同名公共道路相关，具体摄影机位未定位，不能据此认定本方案经过图中每个路口。没有独立骑行轨迹，不计轨迹分；不把报道中的游步道描述套用到骑行准入。",
+        "verification": "已读取原帖正文和图序，下载网页实际提供的文件并逐张目视；无平台界面，保留原图水印。",
+        "pixelWidth": 720,
+        "pixelHeight": 539,
+        "modification": "保存网页实际提供的图片，不放大、不重绘、不裁切；网页文件不等同相机原片。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 0,
+          "visual": 20,
+          "reason": "潮新闻2023-12-01设计路报道，余杭良渚街道供图；图可见双向道路、方向箭头、分流岛和路旁树木。与本方案设计路同名公共道路相关，具体摄影机位未定位，不能据此认定本方案经过图中每个路口。没有独立骑行轨迹，不计轨迹分；不把报道中的游步道描述套用到骑行准入。"
+        }
+      }
+    ],
     "photoTarget": 3,
-    "photoMissing": 3,
-    "photoGap": "本方案道路实拍待补3张；原帖关联与转载条件未完成核验，暂保留来源链接。",
+    "photoMissing": 2,
+    "photoGap": "道路图目标3张，仍待补2张。已展示图片含关联参考，详见评分依据。",
     "sourceChecked": "2026-10-23",
     "geometrySource": "https://www.openstreetmap.org/api/0.6/map?bbox=119.995,30.345,120.035,30.385",
     "geometryWays": [
