@@ -20,7 +20,13 @@ export default [
     "isolated": true,
     "lane": "沿江绿道 · 行人共用",
     "laneDetail": "实际经过三江两岸绿道下沙段的3条cycleway，OSM同时标foot=yes；杭州网有之江东路沿江骑行推荐。与机动车道路分隔，不等于自行车独享；行人优先，支路、桥下及堤岸开放按现场标志执行，不进入施工围挡或下堤观潮。",
-    "mapWater": {"name": "钱塘江", "point": [120.3985,30.3095]},
+    "mapWater": {
+      "name": "钱塘江",
+      "point": [
+        120.3985,
+        30.3095
+      ]
+    },
     "mapCyclewayKm": 5.32,
     "tags": [
       "杭州",
@@ -249,10 +255,77 @@ export default [
         "placement": "along"
       }
     ],
-    "photos": [],
+    "photos": [
+      {
+        "id": "xiasha-riverside-press-1",
+        "group": "xiasha-greenway",
+        "kind": "road",
+        "routeIds": [
+          "xiasha-greenway"
+        ],
+        "src": "assets/photos/xiasha-riverside-press-1.jpg",
+        "storage": "local",
+        "source": "https://tidenews.com.cn/tmh_news.html?id=69e5b1690b162a0001111d12",
+        "originalUrl": "https://mc-gxlmmz-public.8531.cn/16930372081796.jpg?x-oss-process=image/watermark,g_se,x_0,y_0,image_MTY4ODAzMDI3NTMyODQucG5nP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLFBfNTA",
+        "author": "石上夫 / 潮新闻潮客（原图水印；正文署陈少非作品）",
+        "date": "2026-04-20发布；拍摄日未单列",
+        "checked": "2026-10-23",
+        "downloadDate": "2026-10-23",
+        "assessmentDate": "2026-10-23",
+        "sourceType": "news-original-image",
+        "license": "原作者版权 · 未声明开放许可；保留石上夫及潮新闻水印",
+        "caption": "下沙江滨绿道 · 沿江慢行道纵向全景（同走廊参考）",
+        "relation": "石上夫在潮新闻发布的下沙江滨绿道文章，明确聚首河—江东大桥16.2公里走廊，图可见红蓝灰慢行路面及岸线。原文范围大于本5.3公里方案，缺少逐图机位或对应行程，不认定照片落在本短段；只作同一江滨道路走廊参考。地点项按同一道路走廊30分，不按精确地点40分，轨迹项0分；历史图片不代表当前施工恢复。",
+        "verification": "已读取原帖正文和图序，下载网页实际提供的文件并逐张目视；无平台界面，保留原图水印。",
+        "pixelWidth": 1349,
+        "pixelHeight": 897,
+        "modification": "保存网页实际提供的图片，不放大、不重绘、不裁切；网页文件不等同相机原片。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 0,
+          "visual": 20,
+          "reason": "石上夫在潮新闻发布的下沙江滨绿道文章，明确聚首河—江东大桥16.2公里走廊，图可见红蓝灰慢行路面及岸线。原文范围大于本5.3公里方案，缺少逐图机位或对应行程，不认定照片落在本短段；只作同一江滨道路走廊参考。地点项按同一道路走廊30分，不按精确地点40分，轨迹项0分；历史图片不代表当前施工恢复。"
+        }
+      },
+      {
+        "id": "xiasha-riverside-press-4",
+        "group": "xiasha-greenway",
+        "kind": "road",
+        "routeIds": [
+          "xiasha-greenway"
+        ],
+        "src": "assets/photos/xiasha-riverside-press-4.jpg",
+        "storage": "local",
+        "source": "https://tidenews.com.cn/tmh_news.html?id=69e5b1690b162a0001111d12",
+        "originalUrl": "https://mc-gxlmmz-public.8531.cn/16930372122692.jpg?x-oss-process=image/watermark,g_se,x_0,y_0,image_MTY4ODAzMDI3NTMyODQucG5nP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLFBfNTA",
+        "author": "石上夫 / 潮新闻潮客（原图水印；正文署陈少非作品）",
+        "date": "2026-04-20发布；拍摄日未单列",
+        "checked": "2026-10-23",
+        "downloadDate": "2026-10-23",
+        "assessmentDate": "2026-10-23",
+        "sourceType": "news-original-image",
+        "license": "原作者版权 · 未声明开放许可；保留石上夫及潮新闻水印",
+        "caption": "下沙江滨绿道 · 慢行道与绿地连接（同走廊参考）",
+        "relation": "石上夫在潮新闻发布的下沙江滨绿道文章，明确聚首河—江东大桥16.2公里走廊，图可见红蓝灰慢行路面及岸线。原文范围大于本5.3公里方案，缺少逐图机位或对应行程，不认定照片落在本短段；只作同一江滨道路走廊参考。地点项按同一道路走廊30分，不按精确地点40分，轨迹项0分；历史图片不代表当前施工恢复。",
+        "verification": "已读取原帖正文和图序，下载网页实际提供的文件并逐张目视；无平台界面，保留原图水印。",
+        "pixelWidth": 1496,
+        "pixelHeight": 895,
+        "modification": "保存网页实际提供的图片，不放大、不重绘、不裁切；网页文件不等同相机原片。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 0,
+          "visual": 20,
+          "reason": "石上夫在潮新闻发布的下沙江滨绿道文章，明确聚首河—江东大桥16.2公里走廊，图可见红蓝灰慢行路面及岸线。原文范围大于本5.3公里方案，缺少逐图机位或对应行程，不认定照片落在本短段；只作同一江滨道路走廊参考。地点项按同一道路走廊30分，不按精确地点40分，轨迹项0分；历史图片不代表当前施工恢复。"
+        }
+      }
+    ],
     "photoTarget": 3,
-    "photoMissing": 3,
-    "photoGap": "本方案道路实拍待补3张；原帖关联与转载条件未完成核验，暂保留来源链接。",
+    "photoMissing": 1,
+    "photoGap": "道路图目标3张，仍待补1张。已展示图片含关联参考，详见评分依据。",
     "sourceChecked": "2026-10-23",
     "geometrySource": "https://www.openstreetmap.org/api/0.6/map?bbox=120.330,30.280,120.395,30.310",
     "geometryWays": [

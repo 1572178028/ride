@@ -351,6 +351,17 @@ const server = http.createServer((req, res) => {
         assert.ok((await target.locator('#route-detail').innerText()).includes('实际收费及禁停'));
         assert.ok(await target.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
         await target.screenshot({path:'/private/tmp/ride-'+id+'-'+(target===page?'desktop':'mobile')+'.png'});
+        await target.locator('#route-detail .route-photos').scrollIntoViewIfNeeded();
+        assert.equal(await target.locator('#route-detail .photo-open').count(), routeLookup[id].photos.length);
+        await target.locator('#route-detail .photo-open img').evaluateAll(async ns=>Promise.all(ns.map(async i=>{i.loading='eager';await i.decode();})));
+        await target.screenshot({path:'/private/tmp/ride-'+id+'-photos-'+(target===page?'desktop':'mobile')+'.png'});
+        for(let i=0;i<routeLookup[id].photos.length;i++){
+          await target.locator('#route-detail .photo-open').nth(i).click();
+          await target.locator('#photo-dialog img').evaluate(async i=>i.decode());
+          assert.ok((await target.locator('#photo-dialog').innerText()).includes(routeLookup[id].photos[i].author));
+          await target.keyboard.press('Escape');
+        }
+
       }
     }
     assert.deepEqual(errors, []); console.log(JSON.stringify({ routes: ids.length, desktop: 1440, mobile: 390, errors }));

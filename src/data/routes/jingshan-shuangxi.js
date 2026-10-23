@@ -10,7 +10,7 @@ export default [
     "area": "余杭 · 径山双溪",
     "title": "双溪 · 北苕溪绿道往返",
     "subtitle": "以已核道路规划出发，费用、通行和补给条件分别列明。",
-    "distance": 5.0,
+    "distance": 5,
     "duration": "约半小时—1小时",
     "level": "绿道休闲",
     "shape": "完整往返",
@@ -197,10 +197,113 @@ export default [
         "placement": "along"
       }
     ],
-    "photos": [],
+    "photos": [
+      {
+        "id": "jingshan-xhs-road-1",
+        "group": "jingshan-shuangxi-short",
+        "kind": "road",
+        "routeIds": [
+          "jingshan-shuangxi-short"
+        ],
+        "src": "assets/photos/jingshan-xhs-road-1.webp",
+        "storage": "local",
+        "source": "https://www.xiaohongshu.com/explore/68e5d37c00000000040058a6",
+        "originalUrl": "https://sns-webpic-qc.xhscdn.com/202610231456/29c93bd461fbab99ed2758a758dccb6b/notes_pre_post/1040g3k031nc49ir66g0g43mck5kdc2qikuap6e8!nd_dft_wlteh_webp_3",
+        "author": "铁蛋 / 小红书",
+        "date": "2025-10-08发布；拍摄日未单列",
+        "checked": "2026-10-23",
+        "downloadDate": "2026-10-23",
+        "assessmentDate": "2026-10-23",
+        "sourceType": "social-original-image",
+        "license": "原作者版权 · 未注明开放许可；不标为CC",
+        "caption": "双溪绿道 · 竹林直道（同走廊参考）",
+        "relation": "铁蛋原帖明确陆羽泉—吴山公园双溪绿道骑行，P1可见竹林直道及红色路面、白色边线；与本线双溪走廊有关联，摄影点未精确定位，不据此认定本方案经过茶壶雕塑或全部原帖行程。无原始轨迹可逐图对齐，轨迹项只按明确行程计10分；历史图片不代表当前准入和路况。",
+        "verification": "已读取原帖正文和图序，下载网页实际提供的文件并逐张目视；无平台界面，保留原图水印。",
+        "pixelWidth": 1080,
+        "pixelHeight": 1440,
+        "modification": "保存网页实际提供的图片，不放大、不重绘、不裁切；网页文件不等同相机原片。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 10,
+          "visual": 20,
+          "reason": "铁蛋原帖明确陆羽泉—吴山公园双溪绿道骑行，P1可见竹林直道及红色路面、白色边线；与本线双溪走廊有关联，摄影点未精确定位，不据此认定本方案经过茶壶雕塑或全部原帖行程。无原始轨迹可逐图对齐，轨迹项只按明确行程计10分；历史图片不代表当前准入和路况。"
+        },
+        "sourceImageIndex": 1
+      },
+      {
+        "id": "jingshan-xhs-road-3",
+        "group": "jingshan-shuangxi-short",
+        "kind": "road",
+        "routeIds": [
+          "jingshan-shuangxi-short"
+        ],
+        "src": "assets/photos/jingshan-xhs-road-3.webp",
+        "storage": "local",
+        "source": "https://www.xiaohongshu.com/explore/68e5d37c00000000040058a6",
+        "originalUrl": "https://sns-webpic-qc.xhscdn.com/202610231456/7ab9d6c6e67cdd1367bbba3d3e2b4984/notes_pre_post/1040g3k031nc49ir66g2043mck5kdc2qih82kpe0!nd_dft_wlteh_webp_3",
+        "author": "铁蛋 / 小红书",
+        "date": "2025-10-08发布；拍摄日未单列",
+        "checked": "2026-10-23",
+        "downloadDate": "2026-10-23",
+        "assessmentDate": "2026-10-23",
+        "sourceType": "social-original-image",
+        "license": "原作者版权 · 未注明开放许可；不标为CC",
+        "caption": "双溪绿道 · 竹林弯道（同走廊参考）",
+        "relation": "铁蛋原帖明确陆羽泉—吴山公园双溪绿道骑行，P3可见竹林弯道及红色路面、白色边线；与本线双溪走廊有关联，摄影点未精确定位，不据此认定本方案经过茶壶雕塑或全部原帖行程。无原始轨迹可逐图对齐，轨迹项只按明确行程计10分；历史图片不代表当前准入和路况。",
+        "verification": "已读取原帖正文和图序，下载网页实际提供的文件并逐张目视；无平台界面，保留原图水印。",
+        "pixelWidth": 1080,
+        "pixelHeight": 1440,
+        "modification": "保存网页实际提供的图片，不放大、不重绘、不裁切；网页文件不等同相机原片。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 10,
+          "visual": 20,
+          "reason": "铁蛋原帖明确陆羽泉—吴山公园双溪绿道骑行，P3可见竹林弯道及红色路面、白色边线；与本线双溪走廊有关联，摄影点未精确定位，不据此认定本方案经过茶壶雕塑或全部原帖行程。无原始轨迹可逐图对齐，轨迹项只按明确行程计10分；历史图片不代表当前准入和路况。"
+        },
+        "sourceImageIndex": 3
+      },
+      {
+        "id": "jingshan-xhs-road-6",
+        "group": "jingshan-shuangxi-short",
+        "kind": "road",
+        "routeIds": [
+          "jingshan-shuangxi-short"
+        ],
+        "src": "assets/photos/jingshan-xhs-road-6.webp",
+        "storage": "local",
+        "source": "https://www.xiaohongshu.com/explore/68e5d37c00000000040058a6",
+        "originalUrl": "https://sns-webpic-qc.xhscdn.com/202610231456/b307454a45f9f256ca6baf3551e8e3cd/notes_pre_post/1040g3k031nc49ir66g1g43mck5kdc2qi733dvu0!nd_dft_wgth_webp_3",
+        "author": "铁蛋 / 小红书",
+        "date": "2025-10-08发布；拍摄日未单列",
+        "checked": "2026-10-23",
+        "downloadDate": "2026-10-23",
+        "assessmentDate": "2026-10-23",
+        "sourceType": "social-original-image",
+        "license": "原作者版权 · 未注明开放许可；不标为CC",
+        "caption": "双溪绿道 · 茶壶雕塑旁绿道入口（同走廊参考）",
+        "relation": "铁蛋原帖明确陆羽泉—吴山公园双溪绿道骑行，P6可见茶壶雕塑旁绿道入口及红色路面、白色边线；与本线双溪走廊有关联，摄影点未精确定位，不据此认定本方案经过茶壶雕塑或全部原帖行程。无原始轨迹可逐图对齐，轨迹项只按明确行程计10分；历史图片不代表当前准入和路况。",
+        "verification": "已读取原帖正文和图序，下载网页实际提供的文件并逐张目视；无平台界面，保留原图水印。",
+        "pixelWidth": 1440,
+        "pixelHeight": 1080,
+        "modification": "保存网页实际提供的图片，不放大、不重绘、不裁切；网页文件不等同相机原片。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 10,
+          "visual": 20,
+          "reason": "铁蛋原帖明确陆羽泉—吴山公园双溪绿道骑行，P6可见茶壶雕塑旁绿道入口及红色路面、白色边线；与本线双溪走廊有关联，摄影点未精确定位，不据此认定本方案经过茶壶雕塑或全部原帖行程。无原始轨迹可逐图对齐，轨迹项只按明确行程计10分；历史图片不代表当前准入和路况。"
+        },
+        "sourceImageIndex": 6
+      }
+    ],
     "photoTarget": 3,
-    "photoMissing": 3,
-    "photoGap": "本方案道路实拍待补3张；原帖关联与转载条件未完成核验，暂保留来源链接。",
+    "photoMissing": 0,
+    "photoGap": "",
     "sourceChecked": "2026-10-23",
     "geometrySource": "https://www.openstreetmap.org/api/0.6/map?bbox=119.825,30.375,119.885,30.410",
     "geometryWays": [
