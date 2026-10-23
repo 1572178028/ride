@@ -36,6 +36,6 @@ test('Tongjianhu publishes a paid southern return, while the complete ring and s
  assert.match(r.description,/非|区别于/);assert.match(r.description,/未计.*探店绕行/);
  const p=data.MAP_DATA.paths[r.id];assert.deepEqual(p[0],p.at(-1));
  assert.deepEqual(p.slice(0,76),p.slice(75).reverse(),'outward and return are both stored and counted');
- assert.equal(r.researchExtensions.length,1);assert.match(r.researchExtensions[0].missing,/连接缺少连续OSM几何/);
+ assert.equal(r.researchExtensions.length,2);assert.match(r.researchExtensions[0].missing,/连接缺少连续OSM几何/);
  assert.ok(r.food.every(p=>p.placement==='nearby'));assert.equal(r.photoMissing,3);
 });

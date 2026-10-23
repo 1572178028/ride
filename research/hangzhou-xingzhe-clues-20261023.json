@@ -1,0 +1,10 @@
+[
+ {"id":3202398,"title":"灵山铜鉴湖","distanceKm":23.18,"ascentMetres":179,"published":"2022-06-06","target":"tongjianhu-south","missing":"灵山与乡村段的完整可重建轨迹、逐段准入及返回P1的接驳仍缺；不是现有南岸3.8公里或7.58公里环湖推荐。"},
+ {"id":3023203,"title":"径山双溪绿道＋北苕溪绿道＋中苕溪","distanceKm":18.03,"ascentMetres":71,"published":"2021-06-27","target":"jingshan-shuangxi-short","missing":"三溪完整连接、潘陶线/毛潘线及无名段需逐段重建；本次只确认竹海路附近至北苕溪已映射绿道段，不冒充18.03公里全线。"},
+ {"id":509517,"title":"径山环线","distanceKm":31.2,"ascentMetres":317,"published":"2016-03-09","target":"jingshan-shuangxi-short","missing":"原简介另写上升382米，与平台当前317米不一致，且有305公里/小时异常速度；31.2公里完整路网及当前道路属性未核，不能标成短绿道变体已完成。"},
+ {"id":3735646,"title":"良渚环线 文化村—古城遗址—苕溪","distanceKm":25.13,"ascentMetres":110,"published":"2023-07-22","target":"liangzhu-village-streets","missing":"文化村至古城外围和苕溪的完整路段仍缺；古城园内租车活动不等于允许自带车通行。不得穿园内步道补接。"},
+ {"id":1414856,"title":"良渚文化村一圈","distanceKm":15.33,"ascentMetres":134,"published":"2018-05-15","target":"liangzhu-village-streets","missing":"原15.33公里完整环线未取得可复用轨迹；本次独立街道方案5.2公里，不沿用原里程或爬升。"},
+ {"id":1011632,"title":"杭州临平超山","distanceKm":8.24,"ascentMetres":48,"published":"2017-03-29","target":"chaoshan-roads","missing":"旧帖称可夜骑，当前照明和当日管控未核。本次外围道路方案与原8.24公里轨迹不同；用户线索49米与当前页48米存在小差异，均不作为新方案爬升。"},
+ {"id":859931,"title":"杭州下沙沿江日常拉练路线1号路—6号路方向","distanceKm":9.96,"ascentMetres":29,"published":"2016-10-17","target":"xiasha-greenway","missing":"原9.96公里完整范围及南向连接仍需核；本次选择之江东路泊位北向已映射绿道5.3公里双程，与临江街道湿地外围主线不重合。"},
+ {"id":2720833,"title":"杭州富阳安顶山—石牛山—林峰山环线","distanceKm":40,"ascentMetres":1236,"published":"2019-11-03","target":"anding-linfeng-research","missing":"具名公众停车费用/取车条件、完整40公里道路几何、林道与公共道路属性、近期施工封闭和连续陡坡下撤均待核；1236米爬升为平台旧路书数据，不是实测当前轨迹。"}
+]

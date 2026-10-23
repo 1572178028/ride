@@ -1,0 +1,637 @@
+{
+  "checked": "2026-10-23",
+  "results": [
+    {
+      "query": "双溪竹海漂流 停车场",
+      "pois": [
+        {
+          "id": "B0FFLB8ALP",
+          "name": "径山寺停车点",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "径山寺",
+          "location": "119.839695,30.395708",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B023B07UKF",
+          "name": "双溪竹海漂流景区起点停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "径山镇双溪竹海路7号双溪竹海漂流景区(西北角)",
+          "location": "119.835381,30.402534",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": "24小时营业",
+            "opentime2": "周一至周日 00:00-24:00"
+          }
+        },
+        {
+          "id": "B0H0GUEB1M",
+          "name": "大径山国家乡村公园集散中心停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "双溪村凉亭头118号余杭大径山乡村国家公园",
+          "location": "119.839688,30.395710",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0H0CARFHO",
+          "name": "杭州淡竹元精品民宿停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "径山镇双溪村竹海路6号朝夕山野·淡竹元",
+          "location": "119.840297,30.399588",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0IAG7ELUJ",
+          "name": "沐野·竹溪Camp营地停车点",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "杭州径山双溪沐野·竹溪Camp营地",
+          "location": "119.841523,30.398227",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        }
+      ]
+    },
+    {
+      "query": "潘板桥 路侧停车场",
+      "pois": [
+        {
+          "id": "B0M2MPBRZZ",
+          "name": "路侧停车场",
+          "type": "交通设施服务;停车场;路边停车场",
+          "address": "俞顺西路与俞顺路交叉口北40米",
+          "location": "119.879560,30.385948",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0MD2X7ZGG",
+          "name": "田园路-路侧停车场",
+          "type": "交通设施服务;停车场;路边停车场",
+          "address": "田园路与金桥路交叉口南100米",
+          "location": "119.872525,30.381875",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0L0BLV2PQ",
+          "name": "求是路-路侧停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "求是路与毛潘线交叉口东220米",
+          "location": "119.879084,30.379142",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0MBFS3JW7",
+          "name": "大径山绿道-路侧停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "大径山绿道与锦城街交叉口西北60米",
+          "location": "119.867875,30.383325",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0MRYXREXT",
+          "name": "路侧停车场",
+          "type": "交通设施服务;停车场;路边停车场",
+          "address": "龙皇路与沉璧路交叉口西北140米",
+          "location": "119.866225,30.382425",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        }
+      ]
+    },
+    {
+      "query": "径山 旅游集散中心 停车场",
+      "pois": [
+        {
+          "id": "B0FFHNDSL6",
+          "name": "大径山旅游集散中心",
+          "type": "生活服务;生活服务场所;生活服务场所",
+          "address": "羽泉路与漕雅线交叉口西北280米",
+          "location": "119.838766,30.395018",
+          "biz_ext": {
+            "rating": "4.9",
+            "cost": [],
+            "open_time": "07:30-15:00",
+            "opentime2": "周一至周五 07:30-15:00；周六至周日 07:00-15:30"
+          }
+        },
+        {
+          "id": "B0MBZ4BEY4",
+          "name": "中国石化汽车充电站(中国石化凯能大径山旅游集散中心充电站)",
+          "type": "汽车服务;充电站;充电站",
+          "address": "径山镇大径山旅游集散中心1号停车场F区",
+          "location": "119.839671,30.396049",
+          "biz_ext": {
+            "rating": "4.7",
+            "cost": [],
+            "open_time": "24小时营业",
+            "opentime2": "周一至周日 00:00-24:00"
+          }
+        },
+        {
+          "id": "B0G33LYHRY",
+          "name": "国家电网汽车充电站(大径山旅游集散中心)",
+          "type": "汽车服务;充电站;充电站",
+          "address": "径山镇羽泉路大径山旅游集散中心地下二层",
+          "location": "119.838987,30.396294",
+          "biz_ext": {
+            "rating": "3.8",
+            "cost": [],
+            "open_time": "24小时营业",
+            "opentime2": "周一至周日 00:00-24:00"
+          }
+        }
+      ]
+    },
+    {
+      "query": "良渚文化村 路侧停车场",
+      "pois": [
+        {
+          "id": "B0M61RJJPN",
+          "name": "大雄讲寺-东侧路侧停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "大陆路与白鹭路交叉口西北480米",
+          "location": "120.018775,30.362025",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0MRH5DSVO",
+          "name": "福田路-路侧停车场",
+          "type": "交通设施服务;停车场;路边停车场",
+          "address": "大陆路与福田路交叉口西200米",
+          "location": "120.022325,30.362425",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0G355U68S",
+          "name": "白鹭路-路侧停车位",
+          "type": "交通设施服务;停车场;停车场相关",
+          "address": "白鹭路附近",
+          "location": "120.024759,30.357381",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0G35UV97K",
+          "name": "良上线-路侧停车位",
+          "type": "交通设施服务;停车场;停车场相关",
+          "address": "良上线附近",
+          "location": "120.026260,30.367338",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0MDDOQ7XX",
+          "name": "路侧停车场",
+          "type": "交通设施服务;停车场;路边停车场",
+          "address": "运溪高架路出口与运溪路交叉口西北480米",
+          "location": "120.004875,30.350225",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        }
+      ]
+    },
+    {
+      "query": "良渚博物院 停车场",
+      "pois": [
+        {
+          "id": "B0HR5MBDDG",
+          "name": "良渚博物院P6停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "良渚街道美丽洲路1号良渚博物院",
+          "location": "120.026354,30.377495",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0HR5MBL5R",
+          "name": "良渚博物院东停车点",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "良渚街道美丽洲路1号良渚博物院",
+          "location": "120.031103,30.376679",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0K37MSSSW",
+          "name": "良渚博物院地上停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "良渚街道美丽洲路1号良渚博物院",
+          "location": "120.028275,30.378025",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B023B13YYX",
+          "name": "美丽洲公园6号停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "良渚街道美丽洲路1号美丽洲公园",
+          "location": "120.026338,30.377367",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": "24小时营业",
+            "opentime2": "周一至周日 00:00-24:00"
+          }
+        },
+        {
+          "id": "B0HAHUIN18",
+          "name": "良渚古城遗址公园P5停车场",
+          "type": "交通设施服务;停车场;停车场相关",
+          "address": "美丽洲路良渚文化村(东北角)",
+          "location": "120.031077,30.376644",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        }
+      ]
+    },
+    {
+      "query": "超山 路侧停车场",
+      "pois": [
+        {
+          "id": "B0MDVKM0Q3",
+          "name": "路侧停车场",
+          "type": "交通设施服务;停车场;路边停车场",
+          "address": "宏达路与超山路交叉口西北460米",
+          "location": "120.223025,30.441025",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0G04P6Q4S",
+          "name": "S304(望梅路)-路侧停车位",
+          "type": "交通设施服务;停车场;停车场相关",
+          "address": "S304(望梅路)附近",
+          "location": "120.227355,30.453274",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0MA11FXCM",
+          "name": "南九线路-路侧停车场",
+          "type": "交通设施服务;停车场;路边停车场",
+          "address": "南九线路与龙超路交叉口西180米",
+          "location": "120.221775,30.415075",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0MRH5E3F3",
+          "name": "香梅路-路侧停车场",
+          "type": "交通设施服务;停车场;路边停车场",
+          "address": "香梅路与咏梅街交叉口东南100米",
+          "location": "120.239775,30.428675",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0MD3OGVD1",
+          "name": "路侧停车场",
+          "type": "交通设施服务;停车场;路边停车场",
+          "address": "小横山路与香岸路交叉口东北100米",
+          "location": "120.241775,30.437075",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        }
+      ]
+    },
+    {
+      "query": "超山风景区 停车场",
+      "pois": [
+        {
+          "id": "B0JKDU3MBL",
+          "name": "超山风景名胜区东小门停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "超山风景名胜区(东北角)",
+          "location": "120.219244,30.441127",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0JGCAK18P",
+          "name": "忆梅山居地面停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "宏鑫·忆梅山居(超山赏梅风景区店)",
+          "location": "120.220386,30.437130",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0MU9HZD6Z",
+          "name": "杭州超山风景区庭冉云居酒店停车场-地上停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "超山路196号",
+          "location": "120.219979,30.441187",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": "24小时营业",
+            "opentime2": "周一至周日 00:00-24:00"
+          }
+        },
+        {
+          "id": "B0JKSH3889",
+          "name": "超山风景名胜区北园东停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "超山风景名胜区(东北角)",
+          "location": "120.219090,30.444462",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0FFGK2SOI",
+          "name": "超山风景名胜区北园停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "塘栖镇龙超线超山风景区(北园)北",
+          "location": "120.215167,30.445997",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": "24小时营业",
+            "opentime2": "周一至周日 00:00-24:00"
+          }
+        }
+      ]
+    },
+    {
+      "query": "下沙 之江东路 路侧停车场",
+      "pois": [
+        {
+          "id": "B0FFHB8IAC",
+          "name": "地面停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "之江东路附近",
+          "location": "120.392119,30.299774",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": "24小时营业",
+            "opentime2": "周一至周日 00:00-24:00"
+          }
+        },
+        {
+          "id": "B0H0BO44YI",
+          "name": "之江东路-路侧停车位",
+          "type": "交通设施服务;停车场;停车场相关",
+          "address": "之江东路322附近",
+          "location": "120.390900,30.296774",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0GUJOT4IP",
+          "name": "之江东路-路侧停车位",
+          "type": "交通设施服务;停车场;停车场相关",
+          "address": "之江东路与12号大街交叉口北160米",
+          "location": "120.389673,30.294232",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0MBFD52CP",
+          "name": "江潮巷-路侧停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "江潮巷与6号大街交叉口东北140米",
+          "location": "120.391475,30.303625",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0GRHZRMVK",
+          "name": "六号大街-路侧停车位",
+          "type": "交通设施服务;停车场;停车场相关",
+          "address": "云水地铁站D口步行300米",
+          "location": "120.385515,30.302692",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        }
+      ]
+    },
+    {
+      "query": "安顶山 停车场",
+      "pois": []
+    },
+    {
+      "query": "里山镇 停车场",
+      "pois": [
+        {
+          "id": "B0IDDUI0VS",
+          "name": "浙江大华智联有限公司地面停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "大华智联有限公司",
+          "location": "120.073061,30.066379",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": "24小时营业",
+            "opentime2": "周一至周日 00:00-24:00"
+          }
+        },
+        {
+          "id": "B0L3A7VMEE",
+          "name": "亚洲一号杭州智慧物流园停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "京东亚洲一号杭州智慧物流园",
+          "location": "120.070760,30.071803",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0JRBZM9JQ",
+          "name": "杭州京东亚洲一号智能仓储基地地面停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "一号路与四号路交叉口西南160米",
+          "location": "120.072166,30.072799",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0LUMCHLN7",
+          "name": "大华智慧物联网产业园地下停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "东洲路28号",
+          "location": "120.076580,30.069794",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        },
+        {
+          "id": "B0HBFUZPF0",
+          "name": "渔山村沙头停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "address": "金伯士路1号",
+          "location": "120.095568,30.062351",
+          "biz_ext": {
+            "rating": [],
+            "cost": [],
+            "open_time": [],
+            "opentime2": []
+          }
+        }
+      ]
+    },
+    {
+      "query": "径山 咖啡",
+      "pois": []
+    },
+    {
+      "query": "双溪竹海 饭店",
+      "pois": []
+    },
+    {
+      "query": "良渚文化村 咖啡",
+      "pois": []
+    },
+    {
+      "query": "超山 咖啡",
+      "pois": []
+    },
+    {
+      "query": "之江东路 下沙 咖啡",
+      "pois": []
+    },
+    {
+      "query": "里山镇 餐厅",
+      "pois": []
+    }
+  ]
+}

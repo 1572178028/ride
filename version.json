@@ -1,7 +1,11 @@
 {
-  "version": "1.1.6",
-  "date": "2026-10-22",
+  "version": "1.1.10",
+  "date": "2026-10-23",
   "status": "release",
-  "description": "新增铜鉴湖南岸3.8公里往返短线；P1收费参考，完整环线延伸继续核查。",
-  "increments": { "routes": 1, "cities": 0, "provinces": 0 }
+  "description": "新增双溪、良渚文化村、超山外围及下沙沿江4条独立道路方案；8条行者原路书保留研究边界。",
+  "increments": {
+    "routes": 4,
+    "cities": 0,
+    "provinces": 0
+  }
 }

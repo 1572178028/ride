@@ -19,6 +19,10 @@ import yigao from "./yigao.js";
 import shuanglong from "./shuanglong.js";
 import eastlake from "./eastlake.js";
 import tongjianhu from "./tongjianhu.js";
+import jingshan_shuangxi from "./jingshan-shuangxi.js";
+import liangzhu_village from "./liangzhu-village.js";
+import chaoshan from "./chaoshan.js";
+import xiasha_riverside from "./xiasha-riverside.js";
 import order from "./order.js";
 const positions = new Map(order.map((id, index) => [id, index]));
 export const ROUTES = [
@@ -43,6 +47,10 @@ export const ROUTES = [
   ...shuanglong,
   ...eastlake,
   ...tongjianhu,
+  ...jingshan_shuangxi,
+  ...liangzhu_village,
+  ...chaoshan,
+  ...xiasha_riverside,
 ].sort(
   (a, b) =>
     (positions.get(a.id) ?? Infinity) - (positions.get(b.id) ?? Infinity),

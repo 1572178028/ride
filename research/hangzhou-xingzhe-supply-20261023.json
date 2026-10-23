@@ -1,0 +1,42 @@
+[
+  {
+    "region": "jingshan-shuangxi",
+    "query": "咖啡",
+    "error": "proxy error 403: {\"code\": 403, \"error\": \"Forbidden: burst-5s\"}"
+  },
+  {
+    "region": "jingshan-shuangxi",
+    "query": "餐厅",
+    "error": "proxy error 403: {\"code\": 403, \"error\": \"Forbidden: burst-5s\"}"
+  },
+  {
+    "region": "liangzhu-village",
+    "query": "咖啡",
+    "error": "proxy error 403: {\"code\": 403, \"error\": \"Forbidden: burst-5s\"}"
+  },
+  {
+    "region": "liangzhu-village",
+    "query": "餐厅",
+    "error": "proxy error 403: {\"code\": 403, \"error\": \"Forbidden: burst-5s\"}"
+  },
+  {
+    "region": "chaoshan",
+    "query": "咖啡",
+    "error": "proxy error 403: {\"code\": 403, \"error\": \"Forbidden: burst-5s\"}"
+  },
+  {
+    "region": "chaoshan",
+    "query": "餐厅",
+    "error": "proxy error 403: {\"code\": 403, \"error\": \"Forbidden: burst-5s\"}"
+  },
+  {
+    "region": "xiasha-riverside",
+    "query": "咖啡",
+    "error": "proxy error 403: {\"code\": 403, \"error\": \"Forbidden: burst-5s\"}"
+  },
+  {
+    "region": "xiasha-riverside",
+    "query": "餐厅",
+    "error": "proxy error 403: {\"code\": 403, \"error\": \"Forbidden: burst-5s\"}"
+  }
+]
