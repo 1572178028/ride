@@ -298,10 +298,119 @@ export default [
         "mapLabel": "折返点附近短休"
       }
     ],
-    "photos": [],
+    "photos": [
+      {
+        "id": "lijiaxiang-guangfu-street-east",
+        "group": "lijiaxiang-guangfu",
+        "kind": "road",
+        "routeIds": [
+          "lijiaxiang-guangfu"
+        ],
+        "src": "assets/photos/lijiaxiang-guangfu-street-east.webp",
+        "storage": "local",
+        "source": "https://commons.wikimedia.org/wiki/File:%E6%B9%96%E5%B7%9E%E5%B8%82%E9%95%BF%E5%85%B4%E5%8E%BF%E6%9D%8E%E5%AE%B6%E5%B7%B7%E9%95%87%E5%B9%BF%E7%A6%8F%E8%B7%AF%E8%A1%97%E6%99%AF.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/06/%E6%B9%96%E5%B7%9E%E5%B8%82%E9%95%BF%E5%85%B4%E5%8E%BF%E6%9D%8E%E5%AE%B6%E5%B7%B7%E9%95%87%E5%B9%BF%E7%A6%8F%E8%B7%AF%E8%A1%97%E6%99%AF.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "源義信",
+        "date": "2022-08-14 11:31:44拍摄；历史照片",
+        "checked": "2026-10-23",
+        "downloadDate": "2026-10-23",
+        "assessmentDate": "2026-10-23",
+        "sourceType": "commons-original-image",
+        "license": "CC BY-SA 4.0 · 源義信；网页尺寸缩小，按相同许可分享",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "广福路 · 镇区道路纵向街景（同走廊参考）",
+        "relation": "原始文件题名及描述明确李家巷广福路，属于本方案起点连接的同一道路走廊；没有GPS或原帖轨迹，不能确认画面位于本8.6公里短段内。普通街景缺少逐图定位特征，画面项仅10分，作为线路参考。",
+        "verification": "已读取Commons文件原始描述、作者、拍摄时间与许可，下载4032×3024原图并逐张目视。",
+        "pixelWidth": 1600,
+        "pixelHeight": 1200,
+        "originalPixelWidth": 4032,
+        "originalPixelHeight": 3024,
+        "modification": "下载原图后缩小为1600×1200 WebP供网页加载；不放大、不裁切、不重绘，原图链接保留。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 0,
+          "visual": 10,
+          "reason": "原始文件题名及描述明确李家巷广福路，属于本方案起点连接的同一道路走廊；没有GPS或原帖轨迹，不能确认画面位于本8.6公里短段内。普通街景缺少逐图定位特征，画面项仅10分，作为线路参考。"
+        }
+      },
+      {
+        "id": "lijiaxiang-guangfu-street-west",
+        "group": "lijiaxiang-guangfu",
+        "kind": "road",
+        "routeIds": [
+          "lijiaxiang-guangfu"
+        ],
+        "src": "assets/photos/lijiaxiang-guangfu-street-west.webp",
+        "storage": "local",
+        "source": "https://commons.wikimedia.org/wiki/File:%E9%95%BF%E5%85%B4%E5%8E%BF%E6%9D%8E%E5%AE%B6%E5%B7%B7%E9%95%87%E5%B9%BF%E7%A6%8F%E8%B7%AF%E8%A1%97%E6%99%AF.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/%E9%95%BF%E5%85%B4%E5%8E%BF%E6%9D%8E%E5%AE%B6%E5%B7%B7%E9%95%87%E5%B9%BF%E7%A6%8F%E8%B7%AF%E8%A1%97%E6%99%AF.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "源義信",
+        "date": "2022-08-14 12:17:30拍摄；历史照片",
+        "checked": "2026-10-23",
+        "downloadDate": "2026-10-23",
+        "assessmentDate": "2026-10-23",
+        "sourceType": "commons-original-image",
+        "license": "CC BY-SA 4.0 · 源義信；网页尺寸缩小，按相同许可分享",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "广福路 · 反向街景与路侧泊位（同走廊参考）",
+        "relation": "原始文件题名及描述明确李家巷广福路，属于本方案起点连接的同一道路走廊；没有GPS或原帖轨迹，不能确认画面位于本8.6公里短段内。普通街景缺少逐图定位特征，画面项仅10分，作为线路参考。",
+        "verification": "已读取Commons文件原始描述、作者、拍摄时间与许可，下载4032×3024原图并逐张目视。",
+        "pixelWidth": 1600,
+        "pixelHeight": 1200,
+        "originalPixelWidth": 4032,
+        "originalPixelHeight": 3024,
+        "modification": "下载原图后缩小为1600×1200 WebP供网页加载；不放大、不裁切、不重绘，原图链接保留。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 0,
+          "visual": 10,
+          "reason": "原始文件题名及描述明确李家巷广福路，属于本方案起点连接的同一道路走廊；没有GPS或原帖轨迹，不能确认画面位于本8.6公里短段内。普通街景缺少逐图定位特征，画面项仅10分，作为线路参考。"
+        }
+      },
+      {
+        "id": "lijiaxiang-guangfu-g104-junction",
+        "group": "lijiaxiang-guangfu",
+        "kind": "road",
+        "routeIds": [
+          "lijiaxiang-guangfu"
+        ],
+        "src": "assets/photos/lijiaxiang-guangfu-g104-junction.webp",
+        "storage": "local",
+        "source": "https://commons.wikimedia.org/wiki/File:%E9%95%BF%E5%85%B4%E5%8E%BF%E6%9D%8E%E5%AE%B6%E5%B7%B7%E9%95%87%E5%B9%BF%E7%A6%8F%E8%B7%AF%E4%B8%8E104%E5%9B%BD%E9%81%93%E4%BA%A4%E5%8F%89%E8%B7%AF%E5%8F%A3%EF%BC%8C%E5%AF%B9%E9%9D%A2%E6%98%AF%E5%B9%BF%E7%A6%8F%E6%A1%A5%E6%9D%91%E7%9F%B3%E7%A2%91.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/31/%E9%95%BF%E5%85%B4%E5%8E%BF%E6%9D%8E%E5%AE%B6%E5%B7%B7%E9%95%87%E5%B9%BF%E7%A6%8F%E8%B7%AF%E4%B8%8E104%E5%9B%BD%E9%81%93%E4%BA%A4%E5%8F%89%E8%B7%AF%E5%8F%A3%EF%BC%8C%E5%AF%B9%E9%9D%A2%E6%98%AF%E5%B9%BF%E7%A6%8F%E6%A1%A5%E6%9D%91%E7%9F%B3%E7%A2%91.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "源義信",
+        "date": "2022-08-14 12:39:54拍摄；历史照片",
+        "checked": "2026-10-23",
+        "downloadDate": "2026-10-23",
+        "assessmentDate": "2026-10-23",
+        "sourceType": "commons-original-image",
+        "license": "CC BY-SA 4.0 · 源義信；网页尺寸缩小，按相同许可分享",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "广福路与G104交叉口 · 广福桥村石碑方向",
+        "relation": "原始文件题名明确广福路与104国道交叉口，画面可见广福桥村石碑、路口与过街标线，对应本线国道路口走廊；无原帖骑行轨迹及精确机位，轨迹0分，不能证明当前过街方式或准入。",
+        "verification": "已读取Commons文件原始描述、作者、拍摄时间与许可，下载4032×3024原图并逐张目视。",
+        "pixelWidth": 1600,
+        "pixelHeight": 1200,
+        "originalPixelWidth": 4032,
+        "originalPixelHeight": 3024,
+        "modification": "下载原图后缩小为1600×1200 WebP供网页加载；不放大、不裁切、不重绘，原图链接保留。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 40,
+          "track": 0,
+          "visual": 20,
+          "reason": "原始文件题名明确广福路与104国道交叉口，画面可见广福桥村石碑、路口与过街标线，对应本线国道路口走廊；无原帖骑行轨迹及精确机位，轨迹0分，不能证明当前过街方式或准入。"
+        }
+      }
+    ],
     "photoTarget": 3,
-    "photoMissing": 3,
-    "photoGap": "本方案道路实拍待补3张；尚无能对应这条短线的合格照片，不以矿坑、水景或古街照片替代。",
+    "photoMissing": 0,
+    "photoGap": "",
     "sourceChecked": "2026-10-23",
     "geometrySource": "https://www.openstreetmap.org/api/0.6/map?bbox=119.935,30.935,120.000,30.977",
     "geometryWays": [
