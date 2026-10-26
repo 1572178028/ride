@@ -3,6 +3,7 @@ import { ROUTES, ROUTE_ALIASES, ROUTE_METADATA } from "./data/index.js";
 import { $, esc } from "./shared/dom.js";
 import { loadFavorites, saveFavorites } from "./features/favorites/storage.js";
 import { matchesRoute, sortVariants } from "./domain/route-filters.js";
+import { browseGroupId } from "./domain/route-groups.js";
 import { routeCardHTML } from "./features/routes/card.js";
 import { routeDetailHTML } from "./features/routes/detail.js";
 import { supplyHTML } from "./features/routes/supply.js";
@@ -64,8 +65,9 @@ export function startApp() {
     const filtered = ROUTES.filter(matches),
       families = new Map();
     for (const route of filtered) {
-      if (!families.has(route.familyId)) families.set(route.familyId, []);
-      families.get(route.familyId).push(route);
+      const group = browseGroupId(route);
+      if (!families.has(group)) families.set(group, []);
+      families.get(group).push(route);
     }
     if (filtered.length && !filtered.some((r) => r.id === selected?.id)) {
       selected =
@@ -82,7 +84,7 @@ export function startApp() {
       if (picker.outerHTML !== html) picker.outerHTML = html;
     }
     $("#result-count").textContent =
-      `${families.size} 条主线 · ${filtered.length} 种里程方案${favoritesOnly ? " · 我的收藏" : ""}`;
+      `${new Set(filtered.map(r => r.familyId)).size} 条主线 · ${filtered.length} 种里程方案${favoritesOnly ? " · 我的收藏" : ""}`;
     $("#route-list").innerHTML = [...families.values()]
       .map((variants) => routeCardHTML(variants, { selected, saved }))
       .join("");
@@ -114,7 +116,7 @@ export function startApp() {
   }
   function variantPickerHTML(r) {
     const variants = ROUTES.filter(
-      (v) => v.familyId === r.familyId && matches(v),
+      (v) => browseGroupId(v) === browseGroupId(r) && matches(v),
     ).sort(sortVariants);
     return `<div class="variant-picker" role="group" aria-label="选择本路线里程方案"><span>同一片区 · 选择骑行方案</span><div>${variants.map((v) => `<button data-variant="${v.id}" aria-pressed="${v.id === r.id}">${v.distance.toFixed(1)} km <small>${esc(v.shortTitle || v.shape)}</small></button>`).join("")}</div><p>同一片区只显示一个路线入口。各方案的道路与停车起点可能不同，请按当前方案的地图和导航出发。</p></div>`;
   }

@@ -1,6 +1,6 @@
 # 骑遇 · Ride Atlas
 
-自驾带车，选择注明费用与开放条件的停车点，再换上自行车。当前46种道路方案、29条主线、29个片区、5个城市组。资料目录不代表到访当天准入、收费、车位或营业已现场确认。
+自驾带车，选择注明费用与开放条件的停车点，再换上自行车。当前46种道路方案、29条主线、27个片区、5个城市组。资料目录不代表到访当天准入、收费、车位或营业已现场确认。
 
 原生HTML/CSS/JavaScript ES Modules，无框架、无运行时第三方依赖、无需打包；支持GitHub Pages项目子路径。
 
@@ -71,3 +71,5 @@ PNG导出需要sharp；Python替代入口scripts/export-maps.py需要Playwright�
 [项目交接](docs/PROJECT_HANDOFF.md)、[历史过程](docs/history/TASK_PROGRESS.md)、[迁移前README](docs/history/README-before-modules.md)、[会话归档](docs/conversation-archive-2026-10-21.md)。历史记录中的旧文件名、数量和加载顺序仅反映当时状态，当前维护以本README及src/data/index.js为准。
 
 地图数据 © OpenStreetMap contributors，ODbL；照片逐条保留出处、作者、许可与关联范围。
+
+千岛湖的秀水、排岭半岛、上江埠、东北湖区统一在一个区域入口切换，按钮同时显示名称和距离；各方案的停车、照片、地图与导航独立保留。29条独立主线分布于27个浏览片区，列表卡片按区域集中展示。

@@ -719,7 +719,8 @@ a {
   font-size: 20px;
   color: var(--ink);
   display: block;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 .route-summary strong .km {
   font-size: 28px;

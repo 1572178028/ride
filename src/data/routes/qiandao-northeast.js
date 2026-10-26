@@ -625,6 +625,13 @@ export default [
       1570983451,
       1570983450,
       395036761
-    ]
+    ],
+    "browseGroup": {
+      "id": "qiandao-cafe",
+      "title": "千岛湖",
+      "region": "qiandao",
+      "area": "淳安 · 千岛湖"
+    },
+    "shortTitle": "东北湖区环线"
   }
 ];

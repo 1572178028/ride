@@ -1,3 +1,5 @@
+import { browseRegion } from "./route-groups.js";
+
 export function matchesRoute(r, filters, saved) {
   const term = filters.search.trim().toLowerCase(),
     distance = filters.distance,
@@ -16,7 +18,7 @@ export function matchesRoute(r, filters, saved) {
         .join(" ")
         .toLowerCase()
         .includes(term)) &&
-    (filters.region === "all" || r.region === filters.region) &&
+    (filters.region === "all" || browseRegion(r) === filters.region) &&
     (distance === "all" ||
       (distance === "short" && r.distance <= 8) ||
       (distance === "easy" && r.distance <= 20) ||

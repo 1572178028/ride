@@ -25,11 +25,11 @@ test('route IDs and map paths are unique and complete', () => {
     if (route.shape !== '原路往返') assert.ok(km(points[0], points.at(-1)) < 0.01, `${route.id}: closed loop`);
   }
 });
-test('distance variants belong to twenty-nine route families across twenty-nine actual areas', () => {
+test('distance variants belong to twenty-nine route families across twenty-seven browsing areas', () => {
   const mains = app.ROUTES.filter(route => route.id === route.familyId);
   assert.equal(mains.length, 29);
   assert.equal(app.ROUTE_METADATA.familyCount, 29);
-  assert.equal(app.ROUTE_METADATA.regionCount, 29);
+  assert.equal(app.ROUTE_METADATA.regionCount, 27);
   for (const variant of app.ROUTES) {
     const main = mains.find(route => route.id === variant.familyId);
     assert.ok(main, variant.id);

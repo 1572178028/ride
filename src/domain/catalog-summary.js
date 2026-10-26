@@ -1,3 +1,5 @@
+import { browseRegion } from "./route-groups.js";
+
 /** Derive counts from the catalogue; never maintain totals in patch files. */
 export function summarizeCatalog(ROUTES, EXPANSION_CANDIDATES, updated) {
   const count = (values) => new Set(values).size;
@@ -8,7 +10,7 @@ export function summarizeCatalog(ROUTES, EXPANSION_CANDIDATES, updated) {
     updated,
     routeCount: ROUTES.length,
     familyCount: count(ROUTES.map((r) => r.familyId)),
-    regionCount: count(ROUTES.map((r) => r.region)),
+    regionCount: count(ROUTES.map(browseRegion)),
     cityCount: count(ROUTES.map((r) => r.cityGroup)),
     parkingCount: count(ROUTES.map(parkingId)),
     freeParkingCount: parkingCount("free"),
