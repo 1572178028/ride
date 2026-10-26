@@ -1092,6 +1092,11 @@ a {
 .navigation-actions a:hover {
   background: #e9effa;
 }
+.navigation-actions .route-test-link {
+  grid-column: 1 / -1;
+  border-color: var(--blue);
+  color: var(--blue);
+}
 .navigation-actions .nav-primary {
   background: var(--blue);
   border-color: var(--blue);

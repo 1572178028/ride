@@ -278,7 +278,9 @@ const server = http.createServer((req, res) => {
     assert.equal(await page.locator('#map-container [data-poi="parking"]').count(),1);
     assert.equal(await page.locator('#route-detail .photo-open').count(),1);
     const puyangLinks=await page.locator('.navigation-actions a').evaluateAll(ns=>ns.map(n=>n.href));
-    assert.equal(puyangLinks.length,4);
+    assert.equal(puyangLinks.length,5);
+    assert.equal(new URL(puyangLinks[4]).pathname,basePath+'/experiments/puyang-baidu/');
+    assert.ok((await page.locator('.route-test-link').innerText()).includes('待验证'));
     assert.ok(puyangLinks.every(u=>!u.includes('undefined')&&!u.includes('NaN')));
     await page.locator('#selected-heading').scrollIntoViewIfNeeded();
     await page.screenshot({path:'/private/tmp/ride-puyang-desktop.png'});
@@ -328,6 +330,17 @@ const server = http.createServer((req, res) => {
     await mobile.selectOption('#research-region', 'shaoxing'); assert.equal(await mobile.locator('#expansion-cards .expansion-card').count(), 2);
     await mobile.selectOption('#research-region', 'hangzhou'); assert.equal(await mobile.locator('#expansion-cards .expansion-card').count(), 4);
     await select(mobile,'puyang-greenway');
+    const testEntry=mobile.locator('.route-test-link');
+    await testEntry.scrollIntoViewIfNeeded();
+    const testPopupPromise=mobile.waitForEvent('popup');
+    await testEntry.click();
+    const testPopup=await testPopupPromise; watch(testPopup);
+    await testPopup.waitForSelector('.open-route');
+    assert.equal(await testPopup.locator('.open-route').count(),4);
+    assert.equal(new URL(testPopup.url()).pathname,basePath+'/experiments/puyang-baidu/');
+    await testPopup.close();
+    await mobile.locator('.navigation-actions').scrollIntoViewIfNeeded();
+    await mobile.screenshot({path:'/private/tmp/ride-puyang-mobile-test-entry.png'});
     await mobile.locator('#selected-heading').scrollIntoViewIfNeeded();
     await mobile.screenshot({path:'/private/tmp/ride-puyang-mobile.png'});
     assert.ok(await mobile.evaluate(() => document.documentElement.scrollWidth <= innerWidth));

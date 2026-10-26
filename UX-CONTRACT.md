@@ -33,3 +33,5 @@ src/app.js负责页面状态协调与事件接线，features负责呈现和交�
 ## 百度外部地图
 
 坐标地点使用官方marker接口先展示目标（GCJ-02、纬度在前）；近似停车入口保持带城市的具名搜索。百度按钮明确“查看停车点/骑行起点”或“查找停车入口”，由百度页面“到这去”选择出发位置与交通方式，不把本站完整路线自动导入的能力写入文案。不得将“我的位置”作为普通地名交给旧direction接口，也不向网页direction接口传riding；不收集用户定位、不引入AK或服务端算路依赖。共享所有者src/shared/navigation.js，详情说明所有者src/features/routes/detail.js，验证tests/navigation.test.cjs及浏览器检查。
+
+浦阳江详情在上述四个目的地按钮后，单独显示“百度 · 整线手机测试（待验证）”，链接到experiments/puyang-baidu/。该入口仅供手机App兼容性试验，不表示途经点或完整往返已经验证成功；保持站点相对路径以支持/ride/部署。
