@@ -51,8 +51,47 @@ test('route details offer direct whole-route and tested fallback only for Puyang
   if(r.id==='puyang-greenway'){
    assert.match(html,/class="nav-primary full-route-open" href="baidumap:/);
    assert.match(html,/class="full-route-fallback" href="baidumap:/);
-   assert.doesNotMatch(html,/<a[^>]*class="(?:nav-primary full-route-open|full-route-fallback)"[^>]*target=/);
+   assert.match(html,/class="full-route-outbound" href="baidumap:/);
+   assert.match(html,/class="full-route-inbound" href="baidumap:/);
+   assert.doesNotMatch(html,/<a[^>]*class="(?:nav-primary full-route-open|full-route-fallback|full-route-outbound|full-route-inbound)"[^>]*target=/);
    assert.doesNotMatch(html,/route-test-link/);
   }else assert.doesNotMatch(html,/full-route-open/);
  }
+});
+
+test('Puyang one-way plans split the dense loop at its real turnaround and keep each direction in travel order',()=>{
+ const {buildRoutePlans}=domain();assert.equal(typeof buildRoutePlans,'function');
+ const r=ROUTES.find(r=>r.id==='puyang-greenway');
+ const plans=buildRoutePlans(MAP_DATA.paths[r.id],r.stops,r.shape);
+ assert.equal(plans.full.length,13);
+ assert.equal(plans.outbound.length,7);assert.equal(plans.inbound.length,7);
+ assert.deepEqual(plans.outbound.map(p=>p.index),[0,21,58,104,127,148,192]);
+ assert.deepEqual(plans.inbound.map(p=>p.index),[192,236,257,280,326,363,384]);
+ assert.equal(plans.inbound[0].km,0);
+ for(const leg of [plans.outbound,plans.inbound]){
+  assert.ok(leg.at(-1).km>8.3&&leg.at(-1).km<8.4);
+  const u=new URL(navigation.baiduCyclingRoute(leg,'杭州市'));
+  assert.notEqual(u.searchParams.get('origin'),u.searchParams.get('destination'));
+  assert.equal(JSON.parse(u.searchParams.get('viaPoints')).viaPoints.length,5);
+ }
+ const out=new URL(navigation.baiduCyclingRoute(plans.outbound,'杭州市'));
+ const back=new URL(navigation.baiduCyclingRoute(plans.inbound,'杭州市'));
+ assert.equal(out.searchParams.get('origin'),back.searchParams.get('destination'));
+ assert.equal(out.searchParams.get('destination'),back.searchParams.get('origin'));
+});
+
+test('closed circuits stay one plan even though they return to the same origin',()=>{
+ const {buildRoutePlans}=domain();assert.equal(typeof buildRoutePlans,'function');
+ const a=[120,30],b=[120.01,30],c=[120.01,30.01],d=[120,30.01];
+ for(const shape of ['环线','双环线','闭合道路方案']){
+  const plans=buildRoutePlans([a,b,c,d,a],[{point:c,name:'沿途地点'}],shape);
+  assert.deepEqual(Object.keys(plans),['full']);
+  const r=ROUTES.find(r=>r.id==='puyang-greenway');
+  const html=require('../src/features/routes/full-route.js').fullRouteHTML({...r,shape});
+  assert.match(html,/full-route-open/);
+  assert.doesNotMatch(html,/class="full-route-(?:outbound|inbound|fallback)"/);
+ }
+ // Return geometry may use different permitted roads; never just reverse outbound.
+ const plans=buildRoutePlans([a,b,c,d,a],[{point:b,name:'去程道路'},{point:d,name:'返程道路'},{point:c,name:'折返点'}],'往返环路');
+ assert.deepEqual(plans.inbound.map(p=>p.point),[c,d,a]);
 });

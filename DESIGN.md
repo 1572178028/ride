@@ -79,7 +79,7 @@ primary对应--blue，ink对应--ink，text对应--text，muted对应--muted，b
 
 导航使用链接，收藏和方案切换使用按钮。地图标记维持Enter/Space操作，缩放和平移有键盘替代。提示消息由shared/feedback.js统一维护。
 
-浦阳江完整路线区沿用纸白卡片与navigation-actions按钮：蓝色主链接直接调起iPhone百度App，次链接使用已实测的5点方案；默认折叠途经点清单，区分目的地定位与完整路线重算，明确新点数的验证范围。复用既有颜色、字体与原生details，不改变其他路线视觉。
+浦阳江完整路线区沿用纸白卡片与navigation-actions按钮：蓝色主链接直接调起iPhone百度App查看完整往返，下方提供“仅去程/仅返程”并标明本站估算单程里程；原5点备用收在故障帮助details中。闭合环线只提供一个完整环线入口。默认折叠途经点清单，区分目的地定位与完整路线重算，明确验证范围。复用既有颜色、字体与原生details，不改变其他路线视觉。
 
 ### Navigation and data display
 

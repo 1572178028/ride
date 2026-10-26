@@ -52,3 +52,24 @@ export function selectRouteWaypoints(path, anchors = [], spacingKm = 1.5) {
     name: names.get(path[index].join(",")) || `沿线约${km[index].toFixed(1)}公里处`,
   }));
 }
+
+export function buildRoutePlans(path, anchors, shape) {
+  const full = selectRouteWaypoints(path, anchors);
+  const plans = { full };
+  // A circuit also ends at its origin: endpoint equality cannot identify a return ride.
+  if (!/往返|折返/.test(shape) || full.length < 3 || !anchors.length) return plans;
+  // For enabled return routes the last maintained stop is the explicit turnaround.
+  const turnKey = anchors.at(-1).point.join(",");
+  const halfway = full.at(-1).km / 2;
+  const candidates = full.map((p, i) => ({ p, i })).filter(({ p, i }) =>
+    i > 0 && i < full.length - 1 && p.point.join(",") === turnKey);
+  const turn = candidates.sort((a, b) => Math.abs(a.p.km - halfway) - Math.abs(b.p.km - halfway))[0];
+  if (!turn) return plans;
+  const anchorKeys = new Set(anchors.map(anchor => anchor.point.join(",")));
+  const leg = (points, label) => points.map(p => ({
+    ...p, km: p.km - points[0].km,
+    name: anchorKeys.has(p.point.join(",")) ? p.name : `${label}约${(p.km - points[0].km).toFixed(1)}公里处`,
+  }));
+  // Slice the actual stored return direction; do not reverse the outbound route.
+  return { ...plans, outbound: leg(full.slice(0, turn.i + 1), "去程"), inbound: leg(full.slice(turn.i), "返程") };
+}

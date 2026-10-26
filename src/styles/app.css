@@ -1100,6 +1100,8 @@ a {
   border-radius: 12px;
 }
 .full-route-box h3 { margin: 8px 0; color: var(--ink); }
+.full-route-open { grid-column: 1 / -1; }
+.full-route-options summary { cursor: pointer; color: var(--blue); }
 .full-route-points { margin-top: 16px; }
 .full-route-points summary { cursor: pointer; color: var(--blue); }
 .full-route-points ol { padding-left: 22px; }
