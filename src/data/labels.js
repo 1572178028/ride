@@ -23,6 +23,8 @@ export default {
     xianghu: "萧山 · 湘湖",
     wengjin: "海宁 · 翁金线",
     qiandao: "淳安 · 千岛湖",
+    "qiandao-shangjiang": "淳安 · 千岛湖上江埠",
+    "qiandao-northeast": "淳安 · 千岛湖东北湖区",
     tonglu: "桐庐 · 富春江",
     qiantangpark: "钱塘 · 湿地外围",
     westlake: "西湖 · 龙井与梅灵茶山",

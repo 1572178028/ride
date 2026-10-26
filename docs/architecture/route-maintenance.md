@@ -26,6 +26,6 @@ app.js只协调选中路线、筛选、收藏与视图。features/routes维护�
 
 完整骑行路程入口由src/features/routes/full-route.js自动覆盖所有正式方案，src/domain/route-navigation.js归一化几何及折返，route-waypoints.js按长度和弯道选点。新增路线须命名明确折返点；闭合环线不能按起终点相同误拆。新方案优先存完整合法回程，旧“原路往返”单程数据只有在可逆方向已核对时才展开。单行接驳需独立生成方向参考，由scripts/build-navigation-geometry.py及scripts/lib/geometry.py合并src/data/generated/navigation.js，通过src/data/index.js导出NAVIGATION_GEOMETRY；不得手工改生成坐标。主/备用点数由实际路线确定，不把浦阳江的手机实测结论外推给其他路线。新增接入要求也维护在项目expand-cycling-routes skill中。
 
-npm test覆盖数据完整性和模块边界；npm run test:browser覆盖1440/390px、44方案、筛选、地图、导航、收藏、照片和下载。以RIDE_TEST_BASE_PATH=/ride运行同一浏览器检查验证子路径。迁移指纹位于tests/fixtures/catalog-migration-sha256.json；有意修改资料时，在核对相应字段和专项测试后更新指纹，不应为通过测试盲目替换。
+npm test覆盖数据完整性和模块边界；npm run test:browser覆盖1440/390px、46方案、筛选、地图、导航、收藏、照片和下载。以RIDE_TEST_BASE_PATH=/ride运行同一浏览器检查验证子路径。迁移指纹位于tests/fixtures/catalog-migration-sha256.json；有意修改资料时，在核对相应字段和专项测试后更新指纹，不应为通过测试盲目替换。
 
 静态部署仍发布仓库根目录，没有public映射或dist构建步骤。仅结构重构不修改版本号、标签或Release。根README与本说明优先于历史文档和旧扩线skill参考中的目录说明；原有业务证据规则仍适用。
