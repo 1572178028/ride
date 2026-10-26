@@ -25,9 +25,9 @@ const server = http.createServer((req, res) => {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1050 }, reducedMotion: 'reduce', acceptDownloads: true });
     watch(page); await page.goto(url); await page.waitForSelector('.route-card');
     assert.equal(await page.evaluate(() => innerWidth), 1440);
-    assert.equal(await page.locator('.route-card').count(), 27);
-    assert.equal(await page.locator('#total-plans').innerText(), '44');
-    assert.equal(await page.locator('#total-parking').innerText(), '28');
+    assert.equal(await page.locator('.route-card').count(), 29);
+    assert.equal(await page.locator('#total-plans').innerText(), '46');
+    assert.equal(await page.locator('#total-parking').innerText(), '30');
     const ids = ROUTES.map(r => r.id);
     const select = async (p, id) => { await p.evaluate(id => { location.hash = 'route=' + id; }, id); await p.waitForFunction(title => document.querySelector('#selected-heading h2').textContent === title, routeLookup[id].title); };
     await page.selectOption('#region-filter','xianghu');
@@ -177,7 +177,7 @@ const server = http.createServer((req, res) => {
     await page.selectOption('#city-filter', 'jinhua'); assert.equal(await page.locator('#region-filter').inputValue(), 'all');
     await page.selectOption('#city-filter', 'all'); await page.selectOption('#parking-filter', 'unknown'); assert.equal(await page.locator('.route-card').count(), 6);
     await page.selectOption('#lane-filter', 'dedicated'); assert.ok(await page.locator('#route-view').isHidden());
-    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 27);
+    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 29);
     await page.locator('#route-library').scrollIntoViewIfNeeded();
     assert.ok(await page.locator('#route-list').evaluate(el => el.scrollHeight > el.clientHeight && getComputedStyle(el).overflowY === 'auto'));
     await page.locator('.card-select').last().click();
@@ -402,6 +402,36 @@ const server = http.createServer((req, res) => {
       await mobile.locator('#map-container').scrollIntoViewIfNeeded();
       await mobile.screenshot({path:'/private/tmp/ride-'+id+'-mobile.png'});
       assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+    }
+    for (const target of [page, mobile]) {
+      for (const id of ['qiandao-shangjiang', 'qiandao-northeast']) {
+        await select(target, id);
+        assert.match(await target.locator('#route-detail').innerText(), /实际收费及禁停/);
+        if (id === 'qiandao-northeast') assert.match(await target.locator('#route-detail').innerText(), /1.43km.*推行/);
+        await target.locator('#map-container').scrollIntoViewIfNeeded();
+        await target.screenshot({path: '/private/tmp/ride-' + id + '-' + (target === page ? 'desktop' : 'mobile') + '.png'});
+        const downloading = target.waitForEvent('download');
+        await target.locator('#download-map').click();
+        const download = await downloading;
+        assert.equal(await download.failure(), null);
+        assert.ok(download.suggestedFilename().endsWith('.png'));
+        assert.equal(await target.locator('#route-detail .photo-open').count(), 3);
+        await target.locator('#route-detail .photo-open img').evaluateAll(async ns => Promise.all(ns.map(async i => { i.loading = 'eager'; await i.decode(); })));
+        await target.locator('#route-detail .route-photos').scrollIntoViewIfNeeded();
+        await target.screenshot({path: '/private/tmp/ride-' + id + '-photos-' + (target === page ? 'desktop' : 'mobile') + '.png'});
+        for (let i = 0; i < 3; i++) {
+          await target.locator('#route-detail .photo-open').nth(i).click();
+          await target.locator('#photo-dialog img').evaluate(async i => i.decode());
+          const p = routeLookup[id].photos[i];
+          const dimensions = await target.locator('#photo-dialog img').evaluate(i => [i.naturalWidth, i.naturalHeight]);
+          assert.deepEqual(dimensions, [p.pixelWidth, p.pixelHeight]);
+          assert.ok((await target.locator('#photo-dialog').innerText()).includes(p.author));
+          await target.keyboard.press('Escape');
+        }
+        await target.locator('.full-route-box').scrollIntoViewIfNeeded();
+        await target.screenshot({path: '/private/tmp/ride-' + id + '-navigation-' + (target === page ? 'desktop' : 'mobile') + '.png'});
+        assert.ok(await target.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+      }
     }
     for (const target of [page, mobile]) {
       await select(target, 'tongjianhu-south');

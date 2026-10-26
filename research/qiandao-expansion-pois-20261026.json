@@ -1,0 +1,162 @@
+{
+  "checked": "2026-10-26",
+  "source": "Installed gaode-map-pro public POI search/detail; GCJ-02; no fees field is treated as proof of free parking",
+  "pois": [
+    {
+      "id": "B0I6SADGYG",
+      "name": "水下古城停车场",
+      "address": "淳开线北40米",
+      "location": "119.033867,29.642764",
+      "type": "交通设施服务;停车场;公共停车场",
+      "typecode": "150904",
+      "adname": "淳安县",
+      "biz_ext": {
+        "rating": [],
+        "cost": [],
+        "open_time": [],
+        "opentime2": []
+      },
+      "parking_type": "地面"
+    },
+    {
+      "id": "B0H2GCVECD",
+      "name": "渔港路-道路停车位",
+      "address": "渔港路与里联路交叉口西北120米",
+      "location": "119.030121,29.598165",
+      "type": "交通设施服务;停车场;路边停车场",
+      "typecode": "150906",
+      "adname": "淳安县",
+      "biz_ext": {
+        "rating": [],
+        "cost": [],
+        "open_time": [],
+        "opentime2": []
+      }
+    },
+    {
+      "id": "B0KD1RK2EM",
+      "name": "杭州千岛湖·雲渡咖啡",
+      "address": "千岛湖港口路3100-1号",
+      "location": "118.969634,29.546179",
+      "type": "餐饮服务;咖啡厅;咖啡厅",
+      "typecode": "050500",
+      "adname": "淳安县",
+      "biz_ext": {
+        "rating": "4.6",
+        "cost": "26.00",
+        "meal_ordering": "0",
+        "open_time": "09:00-18:00",
+        "opentime2": "周一至周日 09:00-18:00"
+      }
+    },
+    {
+      "id": "B0K1FAQLEK",
+      "name": "道路停车位",
+      "address": [],
+      "location": "119.070996,29.679570",
+      "type": "交通设施服务;停车场;路边停车场",
+      "typecode": "150906",
+      "adname": "淳安县",
+      "biz_ext": {
+        "rating": [],
+        "cost": [],
+        "open_time": [],
+        "opentime2": []
+      },
+      "parking_type": "路边"
+    },
+    {
+      "id": "B0FFKZI4KW",
+      "name": "千岛湖东北湖区游客中心",
+      "address": "舍后桥附近",
+      "location": "119.168027,29.731932",
+      "type": "生活服务;生活服务场所;生活服务场所",
+      "typecode": "070000",
+      "adname": "淳安县",
+      "biz_ext": {
+        "rating": [],
+        "cost": [],
+        "open_time": "09:00-17:00",
+        "opentime2": "周一至周日 09:00-17:00"
+      }
+    },
+    {
+      "id": "B0FFLMDOOT",
+      "name": "千岛湖旅游度假区排岭半岛游客中心",
+      "address": "千岛湖镇港口路158号",
+      "location": "119.007962,29.586429",
+      "type": "生活服务;生活服务场所;生活服务场所",
+      "typecode": "070000",
+      "adname": "淳安县",
+      "biz_ext": {
+        "rating": [],
+        "cost": [],
+        "open_time": "08:30-17:30",
+        "opentime2": "周一至周日 08:30-17:30"
+      }
+    },
+    {
+      "id": "B0I6NUCMWV",
+      "name": "千岛湖慢生活广场驿站",
+      "address": "千岛湖镇港口路158号",
+      "location": "119.008338,29.586858",
+      "type": "生活服务;生活服务场所;生活服务场所",
+      "typecode": "070000",
+      "adname": "淳安县",
+      "biz_ext": {
+        "rating": "4.4",
+        "cost": [],
+        "open_time": "08:00-17:00",
+        "opentime2": "周一至周日 08:00-17:00"
+      }
+    },
+    {
+      "id": "B0JDSANMXC",
+      "name": "七里香餐厅(鱼街店)",
+      "address": "千岛湖镇鱼街3号",
+      "location": "119.029037,29.598745",
+      "type": "餐饮服务;中餐厅;中餐厅",
+      "typecode": "050100",
+      "adname": "淳安县",
+      "biz_ext": {
+        "rating": "4.4",
+        "cost": "75.00",
+        "meal_ordering": "0",
+        "open_time": "11:00-23:00",
+        "opentime2": "周一至周日 11:00-23:00"
+      }
+    },
+    {
+      "id": "B0LR37EV1U",
+      "name": "千岛湖望湖开元颐居酒店·丰味餐厅",
+      "address": "千岛湖大道与新长线交叉口西480米",
+      "location": "119.078207,29.648026",
+      "type": "餐饮服务;中餐厅;中餐厅",
+      "typecode": "050100",
+      "adname": "淳安县",
+      "biz_ext": {
+        "rating": "4.1",
+        "cost": "100.00",
+        "meal_ordering": "0",
+        "open_time": [],
+        "opentime2": []
+      }
+    },
+    {
+      "id": "B0M6GHODI1",
+      "name": "隐野1078Cafe",
+      "address": "左光线与环左线交叉口东南220米",
+      "location": "119.077737,29.697191",
+      "type": "餐饮服务;咖啡厅;咖啡厅",
+      "typecode": "050500",
+      "adname": "淳安县",
+      "biz_ext": {
+        "rating": "4.4",
+        "cost": "22.00",
+        "meal_ordering": "0",
+        "open_time": "09:00-17:00",
+        "opentime2": "周一至周日 09:00-17:00"
+      }
+    }
+  ]
+}

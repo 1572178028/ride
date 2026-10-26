@@ -9,6 +9,8 @@ export default [
   "wengjin-middle",
   "qiandao-cafe",
   "qiandao-peninsula",
+  "qiandao-shangjiang",
+  "qiandao-northeast",
   "tonglu-riverside",
   "qiantang-seawall",
   "westlake-road",
