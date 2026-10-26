@@ -1,0 +1,55 @@
+src/styles/app.css
+  bc379537b7e52968 1095-1099
+research/releases/v1.1.12.md
+  bc379537b7e52968 40
+UX-CONTRACT.md
+  bc379537b7e52968 36-37
+src/features/routes/detail.js
+  bc379537b7e52968 21
+tests/browser-check.cjs
+  bc379537b7e52968 281-283,333-343
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "ff182e6985ce96337db7e9a9fb758fa596ee29e0",
+  "prompts": {
+    "bc379537b7e52968": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15db3-1850-78b2-a5a2-bb55fbd065cc",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 23,
+      "total_deletions": 2,
+      "accepted_lines": 23,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "src/features/routes/detail.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "UX-CONTRACT.md": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "research/releases/v1.1.12.md": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "tests/browser-check.cjs": {
+          "additions": 14,
+          "deletions": 1,
+          "accepted_lines": 14
+        },
+        "src/styles/app.css": {
+          "additions": 5,
+          "accepted_lines": 5
+        }
+      }
+    }
+  }
+}
