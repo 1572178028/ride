@@ -2,37 +2,29 @@
 
 这是当前静态站的接入参考，不是不可修改的架构。执行前读取实际代码；不要假设将来的字段、路径和统计仍与本文完全相同。
 
-## 文件与加载顺序
+## 当前模块与维护入口
 
-网页与Node地图生成器目前均按以下顺序加载：
+项目已于2026-10-21迁移至原生ES Modules。README.md和docs/architecture/route-maintenance.md优先于旧扩线记录；不得恢复根目录catalog/update脚本或window业务数据。
 
-```text
-map-data.js → catalog.js → planning-data.js
-→ regional-map-data.js → regional-catalog.js → map-renderer.js
-```
-
-`app.js`最后加载，负责渲染、筛选、收藏、地图交互和导航。
-
-| 文件 | 接入要求 |
+| 位置 | 职责 |
 | --- | --- |
-| `catalog.js` | 初始路线数据，避免无关覆盖 |
-| `planning-data.js` | 旧路线变体、坐标转换器 `RIDE_COORDS`、研究候选初始化 |
-| `regional-catalog.js` | 当前新增区域路线、商家和证据，末尾计算 `ROUTE_METADATA` |
-| `map-data.js` / `regional-map-data.js` | `MAP_DATA.maps[region]`、`MAP_DATA.paths[id]` 和 `REGIONAL_PLANS[id]` |
-| `scripts/build-regional-maps.py` | 读取研究快照，生成新增区域几何和分段属性 |
-| `scripts/generate-maps.cjs` | 用网站同一渲染器生成各方案SVG和研究图 |
-| `scripts/export-maps.py` | 将所有SVG导出为PNG，使用Playwright/Chromium |
-| `index.html` | 片区选项、覆盖介绍、默认计数、来源读取日期等静态文案 |
-| `app.js` | `navCity()` 当前对少数区域有硬编码，跨城新增时必须接入正确城市 |
-| `research/` | 道路、水域快照及逐区域证据笔记 |
-| `data-notes.md` / `README.md` | 来源、边界、当前覆盖及运行方式 |
-| `tests/` | 目录与浏览器检查，部分断言写死初始数量、日期和杭州经纬度范围 |
+| src/data/index.js | 网页、测试、工具的统一数据入口 |
+| src/data/routes/<region>.js | 正式路线最终记录；order.js维护顺序 |
+| src/data/candidates/ | 待核方向及研究地图，不混入正式统计 |
+| src/data/generated/ | 道路几何、分段元数据和必要的导航方向调整；通过生成器维护 |
+| src/features/routes/full-route.js | 全程、去程、返程和关键点备用入口，自动覆盖正式方案 |
+| src/domain/route-navigation.js、route-waypoints.js | 完整几何归一化、折返拆分、按长度和弯道选点 |
+| src/shared/navigation.js | 坐标与原生百度骑行URI；高德/百度目的地导航 |
+| src/features/map/renderer.js | 网页和离线资源统一渲染器 |
+| assets/maps、assets/photos | 地图与照片资源，使用站点相对路径 |
+| scripts/lib/geometry.py | 生成器只合并其拥有的键，保留其他地区 |
+| research/ | 道路快照、来源和核对记录 |
 
-可以增设区域文件以避免单文件过大；新增文件必须同时接入网页、地图生成器和测试的加载顺序，放在元数据汇总之前。不能只让浏览器或导出工具中的一个看见新数据。
+新增路线从统一入口载入，统计由src/domain/catalog-summary.js计算，不维护另一套脚本加载顺序。视觉/交互沿用DESIGN.md和UX-CONTRACT.md。
 
 ## 路线结构
 
-参考 `regional-catalog.js` 的 `records` 及其归一化过程。下列是字段说明，不是可复制的虚构路线：
+参考 `src/data/routes/` 的最终记录和统一数据入口。下列是字段说明，不是可复制的虚构路线：
 
 ```text
 id                     稳定唯一的英文短横线ID；对应地图资源文件名
@@ -113,7 +105,7 @@ out body geom;
 
 路网有缺口时扩大必要范围或获取另一合法数据源，不可凭空补线；水域relation可单独查询补足岸线与岛屿。
 
-`build-regional-maps.py` 当前的 `specs` 写死了若干方案，**每次重建会覆盖整个 `regional-map-data.js`**。扩充时必须同时保留旧方案和快照。它还按方案裁切背景并覆盖同片区地图，增加路线时应汇总同片区所有方案的bounds，避免最后一条方案把其他路线的背景路网裁掉。
+历史生成器的specs含多个区域。按当前维护说明只运行目标生成器，通过scripts/lib/geometry.py合并其拥有的键，保留旧方案和快照，不运行无关全量重建。它还按方案裁切背景并覆盖同片区地图，增加路线时应汇总同片区所有方案的bounds，避免最后一条方案把其他路线的背景路网裁掉。
 
 路径生成注意检查：
 
@@ -142,9 +134,9 @@ out body geom;
 
 ## 地图、导航与数量
 
-- `MAP_DATA.maps[region]` 需要实际道路、水域（无水域可为空数组）；`MAP_DATA.paths[id]`存完整主线路径。
+- `MAP_DATA.maps[region]` 需要实际道路、水域（无水域可为空数组）；`MAP_DATA.paths[id]`新方案应存完整主线路径；原路往返旧记录可能只存去程，不能重复翻倍已闭合的完整路线。
 - 有新城市时检查 `navCity()`，优先复用记录中的city等结构化字段，不能默认所有新区域均为杭州市。
-- 高德坐标导航使用现有 `navigation` 构造器，`coordinate=gaode`、骑行 `mode=ride`；百度现有direction构造器使用 `coord_type=gcj02`、骑行 `mode=riding`。遵循当时提供方接口，不把搜索链接宣传成精准入口导航。
+- 高德坐标导航使用现有 `navigation` 构造器，`coordinate=gaode`、骑行 `mode=ride`；百度目的地坐标定位使用官方marker，近似入口按名称/城市检索；完整路线使用原生App direction/riding接口，详见[完整骑行导航](full-route-navigation.md)。网页direction不传riding，也不把“我的位置”当普通地名。遵循当时提供方接口，不把搜索链接宣传成精准入口导航。
 - `ROUTE_METADATA` 在所有新增记录载入后汇总。主线按familyId、区域按真实region、停车按稳定实体ID、店铺按真实分店去重；同一家店的名称别名先归一化。
 - 更新 `index.html` 中片区筛选和覆盖范围文字、无JS时的默认计数，`README.md`与数据说明要一致。不要只修改页面数字而漏掉真实数据。
 - 研究方向目前使用 `EXPANSION_CANDIDATES`，研究图还存在西湖专用渲染文案。新增其他区域预览时需将文案和资源循环改为通用，不能出现“安吉研究图”却写“西湖”。
@@ -154,11 +146,12 @@ out body geom;
 先检查依赖：Node、Python、Python Playwright与Chromium。网站运行本身不需要在线地图API或新增依赖；导出工具需要浏览器。
 
 ```sh
-python3 scripts/build-regional-maps.py
-node scripts/generate-maps.cjs
-python3 scripts/export-maps.py
-node tests/catalog.test.cjs
-python3 tests/browser-check.py
+python3 scripts/build-目标区域.py  # 仅运行实际存在的目标生成器
+npm run maps:generate
+npm run maps:export
+npm test
+npm run test:browser
+RIDE_TEST_BASE_PATH=/ride npm run test:browser
 git diff --check
 ```
 

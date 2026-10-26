@@ -23,6 +23,8 @@ RIDE_TEST_BASE_PATH=/ride npm run test:browser
 
 页面通过HTTP打开；ES Modules不支持直接以file://打开。
 
+全部44方案在详情提供iPhone百度完整骑行路程查看：往返方案有全程、去程、返程，闭合环线只显示全程，关键点备用收在折叠帮助内。百度按点重新规划，非精确轨迹导入；各线真机验证范围和贺公堤单行接驳调整见[接入记录](research/all-route-baidu-navigation-20261026.md)。
+
 ## 目录与职责
 
 ```text

@@ -34,6 +34,8 @@ src/app.js负责页面状态协调与事件接线，features负责呈现和交�
 
 坐标地点使用官方marker接口先展示目标（GCJ-02、纬度在前）；近似停车入口保持带城市的具名搜索。百度按钮明确“查看停车点/骑行起点”或“查找停车入口”，由百度页面“到这去”选择出发位置与交通方式，不把本站完整路线自动导入的能力写入文案。不得将“我的位置”作为普通地名交给旧direction接口，也不向网页direction接口传riding；不收集用户定位、不引入AK或服务端算路依赖。共享所有者src/shared/navigation.js，详情说明所有者src/features/routes/detail.js，验证tests/navigation.test.cjs及浏览器检查。
 
-浦阳江详情在停车/起点导航之后显示独立完整路线区，由src/features/routes/full-route.js维护。主按钮“百度 · 查看完整骑行路线”直接使用iOS原生direction/riding调起，不开空白新标签页；src/domain/route-waypoints.js按实际道路长度选取已有节点，保留折返及返程重复点，src/shared/navigation.js统一转换GCJ-02与编码。约1.5km/点的数量预算、内部15点上限不代表百度容量保证；当前16.7km生成11途经点，并提供已由用户iPhone Safari实测的5点备用方案。明确百度重新规划，里程可能不同，用户已确认11点比原5点更贴合。安卓兼容本次不在范围内。原experiments/puyang-baidu/保留供对照，不能将5点结果扩大成11点或全平台通过。
+所有正式方案详情在停车/起点导航之后显示独立完整路线区，由src/features/routes/full-route.js维护。主按钮直接使用iOS原生direction/riding调起，不开空白新标签页；src/domain/route-navigation.js统一处理完整参考道路，src/domain/route-waypoints.js按实际长度选取已有道路节点，保留折返及返程重复点；src/shared/navigation.js统一转换GCJ-02与编码。约1.5km/点、内部15点预算不代表百度容量保证；必经维护节点优先保留。关键点备用方案默认收在故障帮助details中，点数按路线复杂度生成，不固定5点。明确百度会重新规划，里程可能不同。
 
-折返型路线的完整导航可额外显示仅去程、仅返程，单程沿现有加密点集在维护的明确折返点拆分，保持实际返程道路顺序；单程里程从零计。闭合环线、双环线和闭合道路方案只显示完整路线，不因起终点相同而拆分；无明确折返点不猜测。当前仍仅浦阳江启用。原5点备用完整往返移入故障帮助details。
+往返方案提供全程、仅去程、仅返程，在维护的明确折返点拆分，保持实际返程道路顺序；单程里程从零计。多支线方案按最后明确折返点拆分，去程包含此前支线折返并说明。闭合环线、双环线和闭合道路方案只显示完整路线主入口，不因起终点相同而误拆；无明确折返点不猜测。历史只存去程的方案，确认道路可双向后才补回程；已经完整的路径不重复扩展。贺公堤按单行规则独立生成导航参考并显示差异，原地图与历史里程保持不变。
+
+仅浦阳江已有用户iPhone Safari截图及11点更贴合的反馈；其余方案完成网页参数、几何与浏览器检查，不能借用浦阳江结果宣称真机通过。安卓兼容不在本次范围。原experiments/puyang-baidu/保留供对照。未来扩线遵循.agents/skills/expand-cycling-routes/references/full-route-navigation.md，并同步验证根路径及/ride/子路径。

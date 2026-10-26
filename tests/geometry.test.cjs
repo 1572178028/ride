@@ -12,7 +12,7 @@ test("regional geometry merge preserves unrelated maps, paths and plans", () => 
     "// Generated geometry; use scripts/build-*.py to update.\nexport default ";
   fs.mkdirSync(output, { recursive: true });
   try {
-    for (const name of ["maps", "paths", "plans"])
+    for (const name of ["maps", "paths", "plans", "navigation"])
       fs.writeFileSync(
         path.join(output, name + ".js"),
         prefix +
@@ -26,7 +26,7 @@ test("regional geometry merge preserves unrelated maps, paths and plans", () => 
       "python3",
       [
         "-c",
-        "from lib.geometry import update_geometry; import sys; update_geometry(sys.argv[1], paths={'target': {'source': 'new'}})",
+        "from lib.geometry import update_geometry; import sys; update_geometry(sys.argv[1], paths={'target': {'source': 'new'}}, navigation={'target': {'source': 'new-nav'}})",
         root,
       ],
       {
@@ -51,6 +51,10 @@ test("regional geometry merge preserves unrelated maps, paths and plans", () => 
     assert.deepEqual(read("plans"), {
       existing: { source: "keep" },
       target: { source: "old" },
+    });
+    assert.deepEqual(read("navigation"), {
+      existing: { source: "keep" },
+      target: { source: "new-nav" },
     });
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
