@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1050 }, reducedMotion: 'reduce', acceptDownloads: true });
     watch(page); await page.goto(url); await page.waitForSelector('.route-card');
     assert.equal(await page.evaluate(() => innerWidth), 1440);
-    assert.equal(await page.locator('.route-card').count(), 29);
+    assert.equal(await page.locator('.route-card').count(), 27);
     assert.equal(await page.locator('#total-plans').innerText(), '46');
     assert.equal(await page.locator('#total-parking').innerText(), '30');
     const ids = ROUTES.map(r => r.id);
@@ -177,7 +177,7 @@ const server = http.createServer((req, res) => {
     await page.selectOption('#city-filter', 'jinhua'); assert.equal(await page.locator('#region-filter').inputValue(), 'all');
     await page.selectOption('#city-filter', 'all'); await page.selectOption('#parking-filter', 'unknown'); assert.equal(await page.locator('.route-card').count(), 6);
     await page.selectOption('#lane-filter', 'dedicated'); assert.ok(await page.locator('#route-view').isHidden());
-    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 29);
+    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 27);
     await page.locator('#route-library').scrollIntoViewIfNeeded();
     assert.ok(await page.locator('#route-list').evaluate(el => el.scrollHeight > el.clientHeight && getComputedStyle(el).overflowY === 'auto'));
     await page.locator('.card-select').last().click();
@@ -465,6 +465,40 @@ const server = http.createServer((req, res) => {
         }
 
       }
+    }
+    for (const target of [page, mobile]) {
+      await select(target, 'qiandao-northeast');
+      await target.selectOption('#region-filter', 'qiandao');
+      assert.equal(await target.locator('.route-card').count(), 1);
+      assert.equal(await target.locator('.route-card h3').innerText(), '千岛湖');
+      assert.equal(await target.locator('#region-filter option[value^="qiandao"]').count(), 1);
+      assert.equal(await target.locator('.variant-picker button').count(), 4);
+      for (const id of ['qiandao-cafe','qiandao-peninsula','qiandao-shangjiang','qiandao-northeast']) {
+        const button = target.locator(`[data-variant="${id}"]`);
+        assert.ok((await button.innerText()).includes(routeLookup[id].shortTitle));
+        await button.focus();
+        await target.keyboard.press('Enter');
+        assert.equal(await target.locator('#selected-heading h2').innerText(), routeLookup[id].title);
+        assert.equal(await target.locator('.route-card.selected').count(), 1);
+        assert.equal(await target.locator('.route-card').count(), 1);
+        assert.equal(await target.locator('#route-detail .photo-open').count(), routeLookup[id].photos.length);
+      }
+      await target.locator('.variant-picker').scrollIntoViewIfNeeded();
+      await target.screenshot({path:'/private/tmp/ride-qiandao-group-'+(target===page?'desktop':'mobile')+'.png'});
+      assert.ok(await target.locator('.route-summary strong').evaluateAll(ns=>ns.every(n=>n.scrollWidth<=n.clientWidth+1)), 'long route summaries must wrap within their cells');
+      assert.ok(await target.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+      await target.selectOption('#distance-filter', 'easy');
+      assert.equal(await target.locator('.variant-picker button').count(), 2);
+      await target.selectOption('#distance-filter', 'long');
+      assert.equal(await target.locator('.variant-picker button').count(), 2);
+      await target.locator('#search').fill('东北湖区');
+      assert.equal(await target.locator('.variant-picker button').count(), 1);
+      assert.equal(await target.locator('#selected-heading h2').innerText(), routeLookup['qiandao-northeast'].title);
+      await target.locator('#search').fill('没有这条千岛湖线路');
+      assert.ok(await target.locator('#route-view').isHidden());
+      await target.locator('#clear-filters').click();
+      await select(target, 'qiandao-shangjiang');
+      assert.equal(await target.locator('.variant-picker button').count(), 4);
     }
     for(const id of ids){
       await select(mobile,id);

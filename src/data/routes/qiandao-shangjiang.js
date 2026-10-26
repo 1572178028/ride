@@ -579,6 +579,13 @@ export default [
       1570600056,
       1570600055,
       820234291
-    ]
+    ],
+    "browseGroup": {
+      "id": "qiandao-cafe",
+      "title": "千岛湖",
+      "region": "qiandao",
+      "area": "淳安 · 千岛湖"
+    },
+    "shortTitle": "上江埠往返"
   }
 ];

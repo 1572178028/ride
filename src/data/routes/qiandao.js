@@ -1,9 +1,11 @@
 export default [
   {
     id: "qiandao-cafe",
+    shortTitle: "秀水咖啡慢骑",
     number: "09",
     familyId: "qiandao-cafe",
     familyTitle: "千岛湖 · 秀水与半岛",
+    browseGroup: { id: "qiandao-cafe", title: "千岛湖", region: "qiandao", area: "淳安 · 千岛湖" },
     region: "qiandao",
     city: "杭州市",
     area: "淳安 · 千岛湖阳光路",
@@ -323,9 +325,11 @@ export default [
   },
   {
     id: "qiandao-peninsula",
+    shortTitle: "排岭半岛",
     number: "10",
     familyId: "qiandao-cafe",
     familyTitle: "千岛湖 · 秀水与半岛",
+    browseGroup: { id: "qiandao-cafe", title: "千岛湖", region: "qiandao", area: "淳安 · 千岛湖" },
     region: "qiandao",
     city: "杭州市",
     area: "淳安 · 秀水广场至排岭半岛",

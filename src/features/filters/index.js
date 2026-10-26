@@ -1,5 +1,6 @@
 import { $, esc } from "../../shared/dom.js";
 import { ROUTES, REGION_LABELS } from "../../data/index.js";
+import { browseRegion } from "../../domain/route-groups.js";
 
 export function readFilters(favoritesOnly) {
   return {
@@ -19,7 +20,7 @@ export function updateRegions() {
   const regions = [
     ...new Set(
       ROUTES.filter((r) => city === "all" || r.cityGroup === city).map(
-        (r) => r.region,
+        browseRegion,
       ),
     ),
   ];
