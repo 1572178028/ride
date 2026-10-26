@@ -40,6 +40,20 @@ const baiduSearch = (name, region) =>
     output: "html",
     src: "webapp.rideatlas.routes",
   });
+function baiduCyclingRoute(points, region) {
+  if (points.length < 2) return null;
+  const places = points.map(({ point, name }) => {
+    const [lng, lat] = wgs84ToGcj02(point).map(value => Number(value.toFixed(6)));
+    return { name, lat, lng };
+  });
+  const endpoint = ({ name, lat, lng }) => `name:${name}|latlng:${lat},${lng}`;
+  const params = {
+    origin: endpoint(places[0]), destination: endpoint(places.at(-1)),
+    mode: "riding", coord_type: "gcj02", region, src: "ios.rideatlas.routes",
+  };
+  if (places.length > 2) params.viaPoints = JSON.stringify({ viaPoints: places.slice(1, -1) });
+  return "baidumap://map/direction?" + baiduParams(params);
+}
 function navCity(r) {
   return (
     r.navigationCity ||
@@ -80,6 +94,7 @@ export {
   amapSearch,
   baidu,
   baiduSearch,
+  baiduCyclingRoute,
   navCity,
   baiduNamed,
   placeLinks,

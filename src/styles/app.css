@@ -1092,11 +1092,18 @@ a {
 .navigation-actions a:hover {
   background: #e9effa;
 }
-.navigation-actions .route-test-link {
-  grid-column: 1 / -1;
-  border-color: var(--blue);
-  color: var(--blue);
+.full-route-box {
+  margin: 24px 0;
+  padding: 22px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
 }
+.full-route-box h3 { margin: 8px 0; color: var(--ink); }
+.full-route-points { margin-top: 16px; }
+.full-route-points summary { cursor: pointer; color: var(--blue); }
+.full-route-points ol { padding-left: 22px; }
+.full-route-points small { color: var(--muted); }
 .navigation-actions .nav-primary {
   background: var(--blue);
   border-color: var(--blue);
