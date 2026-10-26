@@ -1,0 +1,263 @@
+version.json
+  bc379537b7e52968 2-3,5
+tests/catalog.test.cjs
+  bc379537b7e52968 15,22,28,30-32,89,106-107,109,227,249,299,323,444-445,516-517
+index.html
+  bc379537b7e52968 55-57,142,144,311-312,314,335,341-342
+research/qiandao-expansion-pois-20261026.json
+  bc379537b7e52968 1-162
+src/data/generated/maps.js
+  bc379537b7e52968 2
+src/data/generated/paths.js
+  bc379537b7e52968 2
+src/data/index.js
+  bc379537b7e52968 34
+research/qiandao-expansion-20261026.md
+  bc379537b7e52968 1-67
+src/data/generated/plans.js
+  bc379537b7e52968 2
+src/data/routes/index.js
+  bc379537b7e52968 4-5,38-39
+research/qiandao-expansion-specs-20261026.json
+  bc379537b7e52968 1-157
+research/releases/v1.1.14.md
+  bc379537b7e52968 1-21
+assets/maps/qiandao-northeast.svg
+  bc379537b7e52968 1
+tests/architecture.test.cjs
+  bc379537b7e52968 9-10
+docs/superpowers/plans/2026-10-26-qiandao-expansion.md
+  bc379537b7e52968 1-11
+research/photo-licenses.json
+  bc379537b7e52968 1962-2171
+tests/browser-check.cjs
+  bc379537b7e52968 28-30,180,407-435
+docs/architecture/route-maintenance.md
+  bc379537b7e52968 29
+tests/qiandao-expansion.test.cjs
+  bc379537b7e52968 1-46
+tests/fixtures/catalog-migration-sha256.json
+  bc379537b7e52968 2-4,6,12
+src/data/routes/qiandao-shangjiang.js
+  bc379537b7e52968 1-584
+src/data/labels.js
+  bc379537b7e52968 26-27
+tests/full-route-navigation.test.cjs
+  bc379537b7e52968 114
+src/data/routes/order.js
+  bc379537b7e52968 12-13
+docs/data-notes.md
+  bc379537b7e52968 1-2
+assets/maps/qiandao-shangjiang.svg
+  bc379537b7e52968 1
+README.md
+  bc379537b7e52968 3,26
+CHANGELOG.md
+  bc379537b7e52968 3-10
+src/data/routes/qiandao-northeast.js
+  bc379537b7e52968 1-630
+scripts/build-qiandao-expansion.py
+  bc379537b7e52968 1-63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "d9663fcb799f1c9ce9ade4cc593838427f00b004",
+  "prompts": {
+    "bc379537b7e52968": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15db3-1850-78b2-a5a2-bb55fbd065cc",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 18822,
+      "total_deletions": 1083,
+      "accepted_lines": 17790,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "tests/qiandao-expansion.test.cjs": {
+          "additions": 46,
+          "accepted_lines": 46
+        },
+        "research/photo-licenses.json": {
+          "additions": 210,
+          "accepted_lines": 210
+        },
+        "tests/architecture.test.cjs": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        },
+        "assets/maps/qiandao-northeast.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/index.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "assets/photos/qiandao-shangjiang-side.webp": {
+          "additions": 970,
+          "accepted_lines": 970
+        },
+        "assets/photos/qiandao-northeast-art.webp": {
+          "additions": 327,
+          "accepted_lines": 327
+        },
+        "docs/superpowers/plans/2026-10-26-qiandao-expansion.md": {
+          "additions": 11,
+          "accepted_lines": 11
+        },
+        "src/data/routes/qiandao-northeast.js": {
+          "additions": 646,
+          "deletions": 16,
+          "accepted_lines": 630
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 18,
+          "deletions": 18,
+          "accepted_lines": 18
+        },
+        "docs/data-notes.md": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "README.md": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        },
+        "research/qiandao-south-20261026-osm.json.gz": {
+          "additions": 2968,
+          "accepted_lines": 2968
+        },
+        "research/qiandao-expansion-20261026.md": {
+          "additions": 67,
+          "accepted_lines": 67
+        },
+        "CHANGELOG.md": {
+          "additions": 8,
+          "accepted_lines": 8
+        },
+        "src/data/routes/qiandao-shangjiang.js": {
+          "additions": 598,
+          "deletions": 14,
+          "accepted_lines": 584
+        },
+        "src/data/routes/qiandao-expansion.js": {
+          "additions": 1000,
+          "deletions": 1000
+        },
+        "assets/photos/qiandao-shangjiang-approach.webp": {
+          "additions": 2165,
+          "accepted_lines": 2165
+        },
+        "src/data/generated/paths.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/routes/order.js": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "scripts/build-qiandao-expansion.py": {
+          "additions": 63,
+          "accepted_lines": 63
+        },
+        "research/qiandao-northeast-20261026-osm.json.gz": {
+          "additions": 4815,
+          "accepted_lines": 4815
+        },
+        "research/releases/v1.1.14.md": {
+          "additions": 21,
+          "accepted_lines": 21
+        },
+        "research/qiandao-expansion-specs-20261026.json": {
+          "additions": 157,
+          "accepted_lines": 157
+        },
+        "assets/photos/qiandao-northeast-colour.webp": {
+          "additions": 698,
+          "accepted_lines": 698
+        },
+        "assets/maps/qiandao-shangjiang.png": {
+          "additions": 766,
+          "accepted_lines": 766
+        },
+        "assets/photos/qiandao-shangjiang-bridge.webp": {
+          "additions": 848,
+          "accepted_lines": 848
+        },
+        "index.html": {
+          "additions": 11,
+          "deletions": 11,
+          "accepted_lines": 11
+        },
+        "tests/full-route-navigation.test.cjs": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "docs/architecture/route-maintenance.md": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "version.json": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 3
+        },
+        "src/data/labels.js": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "src/data/routes/index.js": {
+          "additions": 6,
+          "deletions": 2,
+          "accepted_lines": 4
+        },
+        "assets/maps/qiandao-northeast.png": {
+          "additions": 1332,
+          "accepted_lines": 1332
+        },
+        "tests/browser-check.cjs": {
+          "additions": 34,
+          "deletions": 4,
+          "accepted_lines": 34
+        },
+        "research/qiandao-expansion-pois-20261026.json": {
+          "additions": 162,
+          "accepted_lines": 162
+        },
+        "tests/fixtures/catalog-migration-sha256.json": {
+          "additions": 5,
+          "deletions": 5,
+          "accepted_lines": 5
+        },
+        "src/data/generated/maps.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/generated/plans.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "assets/maps/qiandao-shangjiang.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "assets/photos/qiandao-northeast-forest.webp": {
+          "additions": 849,
+          "accepted_lines": 849
+        }
+      }
+    }
+  }
+}
