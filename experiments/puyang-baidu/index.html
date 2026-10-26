@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>浦阳江 · 百度手机路线验证 | 骑遇</title>
+  <link rel="stylesheet" href="../../src/styles/tokens.css">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./page.js"></script>
+</head>
+<body>
+<main>
+  <a href="../../#route=puyang-greenway">← 返回浦阳江路线</a>
+  <h1>浦阳江 · 百度手机路线验证</h1>
+  <p class="notice">待手机实测：这是独立验证页。链接按百度官方 App 调起接口生成，不代表已成功显示整条路线。</p>
+  <p>请在已安装百度地图的手机上，用 Safari 或系统浏览器打开此页。微信等内置浏览器可能拦截调起，请从菜单选择“在浏览器打开”。</p>
+  <label for="platform">手机系统</label>
+  <select id="platform"><option value="ios">iPhone / iOS</option><option value="android">Android / 安卓</option></select>
+  <p>先测试去程与返程，再测试完整往返。每次打开后，检查是否为<strong>自行车骑行</strong>，起终点和途经点是否齐全，线路是否沿浦阳江。</p>
+  <p id="loading" role="status">正在读取浦阳江路线…</p>
+  <div id="cases"></div>
+  <section>
+    <h2>与本站路线对照</h2>
+    <p>本站为约 16.7 公里完整往返。百度会按起终点与途经点重新规划，不是导入本站轨迹；请检查是否换岸、绕路，或把往返压缩成零距离。</p>
+    <img src="../../assets/maps/puyang-greenway.svg" width="1000" height="610" alt="本站浦阳江完整往返规划路线，供与百度结果对照">
+    <p>地图数据 © OpenStreetMap contributors · ODbL。规划路线，非实骑轨迹。</p>
+  </section>
+  <section>
+    <h2>测试结果怎么反馈</h2>
+    <p>请记录手机系统、百度版本，以及哪项测试成功。截图尽量同时包含起终点、途经点、地图路线和公里数。打开 App 成功，不等于途经点或往返成功。</p>
+    <p>若“完整往返”失败、去返程成功，可以先分两段使用；若途经点被忽略，则不能据此声称复现了本站线路。</p>
+    <noscript><p>此页需要启用 JavaScript 才能从项目数据生成路线链接。</p></noscript>
+  </section>
+</main>
+</body>
+</html>
