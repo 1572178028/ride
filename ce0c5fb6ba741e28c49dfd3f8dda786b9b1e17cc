@@ -1,0 +1,59 @@
+experiments/puyang-baidu/style.css
+  bc379537b7e52968 1-18
+experiments/puyang-baidu/index.html
+  bc379537b7e52968 1-37
+experiments/puyang-baidu/page.js
+  bc379537b7e52968 1-21
+experiments/puyang-baidu/links.js
+  bc379537b7e52968 1-36
+research/releases/v1.1.12.md
+  bc379537b7e52968 34-39
+research/puyang-baidu-mobile-20261026.md
+  bc379537b7e52968 1-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "ce0c5fb6ba741e28c49dfd3f8dda786b9b1e17cc",
+  "prompts": {
+    "bc379537b7e52968": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15db3-1850-78b2-a5a2-bb55fbd065cc",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 154,
+      "total_deletions": 0,
+      "accepted_lines": 154,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "experiments/puyang-baidu/page.js": {
+          "additions": 21,
+          "accepted_lines": 21
+        },
+        "research/puyang-baidu-mobile-20261026.md": {
+          "additions": 36,
+          "accepted_lines": 36
+        },
+        "experiments/puyang-baidu/index.html": {
+          "additions": 37,
+          "accepted_lines": 37
+        },
+        "experiments/puyang-baidu/links.js": {
+          "additions": 36,
+          "accepted_lines": 36
+        },
+        "experiments/puyang-baidu/style.css": {
+          "additions": 18,
+          "accepted_lines": 18
+        },
+        "research/releases/v1.1.12.md": {
+          "additions": 6,
+          "accepted_lines": 6
+        }
+      }
+    }
+  }
+}
