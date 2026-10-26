@@ -278,11 +278,12 @@ const server = http.createServer((req, res) => {
     assert.equal(await page.locator('#map-container [data-poi="parking"]').count(),1);
     assert.equal(await page.locator('#route-detail .photo-open').count(),1);
     const puyangLinks=await page.locator('.navigation-actions a').evaluateAll(ns=>ns.map(n=>n.href));
-    assert.equal(puyangLinks.length,6);
-    for(const [index,count] of [[4,11],[5,5]]){
+    assert.equal(puyangLinks.length,8);
+    for(const [index,count] of [[4,11],[5,5],[6,5],[7,5]]){
       const link=new URL(puyangLinks[index]);
       assert.equal(link.protocol,'baidumap:');assert.equal(link.searchParams.get('mode'),'riding');
-      assert.equal(link.searchParams.get('origin'),link.searchParams.get('destination'));
+      if(index===5||index===6) assert.notEqual(link.searchParams.get('origin'),link.searchParams.get('destination'));
+      else assert.equal(link.searchParams.get('origin'),link.searchParams.get('destination'));
       assert.equal(JSON.parse(link.searchParams.get('viaPoints')).viaPoints.length,count);
     }
     assert.equal(await page.locator('.full-route-open').getAttribute('target'),null);
@@ -349,6 +350,18 @@ const server = http.createServer((req, res) => {
     await mobile.locator('.full-route-points > summary').click();
     const fallback=new URL(await mobile.locator('.full-route-fallback').getAttribute('href'));
     assert.equal(JSON.parse(fallback.searchParams.get('viaPoints')).viaPoints.length,5);
+    for(const selector of ['.full-route-outbound','.full-route-inbound']){
+      const entry=mobile.locator(selector);
+      assert.equal(await entry.getAttribute('target'),null);
+      await entry.evaluate(a=>a.addEventListener('click',e=>{e.preventDefault();a.dataset.requested=a.href;},{once:true}));
+      await entry.click();
+      const leg=new URL(await entry.getAttribute('data-requested'));
+      assert.notEqual(leg.searchParams.get('origin'),leg.searchParams.get('destination'));
+      assert.equal(JSON.parse(leg.searchParams.get('viaPoints')).viaPoints.length,5);
+    }
+    await mobile.locator('.full-route-options > summary').click();
+    assert.ok(await mobile.locator('.full-route-fallback').isVisible());
+    await mobile.locator('.full-route-options > summary').click();
     await mobile.locator('.full-route-box').scrollIntoViewIfNeeded();
     await mobile.screenshot({path:'/private/tmp/ride-puyang-full-route-mobile.png'});
     await mobile.locator('#selected-heading').scrollIntoViewIfNeeded();
