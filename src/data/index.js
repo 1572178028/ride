@@ -6,6 +6,7 @@ import maps from "./generated/maps.js";
 import paths from "./generated/paths.js";
 import metadata from "./generated/metadata.js";
 import REGIONAL_PLANS from "./generated/plans.js";
+import NAVIGATION_GEOMETRY from "./generated/navigation.js";
 import ROUTE_ALIASES from "./aliases.js";
 import labels from "./labels.js";
 import { summarizeCatalog } from "../domain/catalog-summary.js";
@@ -17,6 +18,7 @@ export {
   RESEARCH_MAPS,
   PHOTO_CATALOG,
   REGIONAL_PLANS,
+  NAVIGATION_GEOMETRY,
   ROUTE_ALIASES,
 };
 export const MAP_DATA = { ...metadata, maps, paths };

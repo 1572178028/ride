@@ -44,18 +44,19 @@ test('Baidu whole-route URI preserves loop endpoints and ordered repeated waypoi
  assert.equal(navigation.baiduCyclingRoute([],'杭州市'),null);
 });
 
-test('route details offer direct whole-route and tested fallback only for Puyang without opening blank tabs',()=>{
+test('every route detail offers a direct full route and fallback without blank tabs or copied Puyang claims',()=>{
  const {routeDetailHTML}=require('../src/features/routes/detail.js');
  for(const r of ROUTES){
   const html=routeDetailHTML(r,{supplyKind:'all'});
-  if(r.id==='puyang-greenway'){
    assert.match(html,/class="nav-primary full-route-open" href="baidumap:/);
    assert.match(html,/class="full-route-fallback" href="baidumap:/);
+  if(/往返|折返/.test(r.shape)){
    assert.match(html,/class="full-route-outbound" href="baidumap:/);
    assert.match(html,/class="full-route-inbound" href="baidumap:/);
    assert.doesNotMatch(html,/<a[^>]*class="(?:nav-primary full-route-open|full-route-fallback|full-route-outbound|full-route-inbound)"[^>]*target=/);
    assert.doesNotMatch(html,/route-test-link/);
-  }else assert.doesNotMatch(html,/full-route-open/);
+  }else assert.doesNotMatch(html,/class="full-route-(?:outbound|inbound)"/);
+  if(r.id!=='puyang-greenway') assert.doesNotMatch(html,/临浦|义桥|用户已|先前已测/);
  }
 });
 
@@ -89,9 +90,38 @@ test('closed circuits stay one plan even though they return to the same origin',
   const r=ROUTES.find(r=>r.id==='puyang-greenway');
   const html=require('../src/features/routes/full-route.js').fullRouteHTML({...r,shape});
   assert.match(html,/full-route-open/);
-  assert.doesNotMatch(html,/class="full-route-(?:outbound|inbound|fallback)"/);
+  assert.doesNotMatch(html,/class="full-route-(?:outbound|inbound)"/);
  }
  // Return geometry may use different permitted roads; never just reverse outbound.
  const plans=buildRoutePlans([a,b,c,d,a],[{point:b,name:'去程道路'},{point:d,name:'返程道路'},{point:c,name:'折返点'}],'往返环路');
  assert.deepEqual(plans.inbound.map(p=>p.point),[c,d,a]);
+});
+
+test('all navigation plans close the full route and split at the maintained actual turnaround',()=>{
+ const {buildRouteNavigation}=require('../src/domain/route-navigation.js');
+ const {NAVIGATION_GEOMETRY}=require('../src/data/index.js');
+ let returns=0,circuits=0;
+ for(const r of ROUTES){
+  const n=buildRouteNavigation(r,MAP_DATA.paths[r.id],NAVIGATION_GEOMETRY[r.id]);
+  assert.deepEqual(n.plans.full[0].point,n.plans.full.at(-1).point,r.id);
+  assert.ok(n.plans.full.length>=5&&n.plans.full.length<=17,r.id);
+  assert.ok(n.fallback.length>=3&&n.fallback.length<n.plans.full.length,r.id+': fallback must reduce waypoints');
+  assert.notEqual(navigation.baiduCyclingRoute(n.fallback,'测试城市'),navigation.baiduCyclingRoute(n.plans.full,'测试城市'),r.id);
+  if(n.plans.outbound){returns++;assert.deepEqual(n.plans.outbound.at(-1).point,n.plans.inbound[0].point);assert.equal(n.plans.inbound[0].km,0);}
+  else circuits++;
+  if(r.id!=='xianghu-hegong') assert.ok(Math.abs(n.plans.full.at(-1).km-r.distance)<0.25,r.id);
+ }
+ assert.equal(returns,32);assert.equal(circuits,12);
+ for(const[id,index]of[['westlake-tea-road',601],['meiling-south-road',228],['eastlake-outskirts',22]]){
+  const r=ROUTES.find(r=>r.id===id),n=buildRouteNavigation(r,MAP_DATA.paths[id]);
+  assert.equal(n.plans.outbound.at(-1).index,index,id);
+ }
+});
+
+test('a complete stored return path is not doubled just because its label says original-road return',()=>{
+ const {buildRouteNavigation}=require('../src/domain/route-navigation.js');
+ const r=ROUTES.find(r=>r.id==='puyang-greenway');
+ const n=buildRouteNavigation({...r,shape:'原路往返'},MAP_DATA.paths[r.id]);
+ assert.equal(n.path.length,385);
+ assert.ok(n.plans.full.at(-1).km<16.8);
 });

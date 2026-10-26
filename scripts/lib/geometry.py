@@ -9,12 +9,17 @@ from pathlib import Path
 PREFIX = '// Generated geometry; use scripts/build-*.py to update.\nexport default '
 
 
-def update_geometry(root, *, maps=None, paths=None, plans=None):
-    for name, additions in (('maps', maps), ('paths', paths), ('plans', plans)):
+def update_geometry(root, *, maps=None, paths=None, plans=None, navigation=None):
+    for name, additions in (('maps', maps), ('paths', paths), ('plans', plans), ('navigation', navigation)):
         if additions is None:
             continue
         target = Path(root) / 'src/data/generated' / (name + '.js')
-        text = target.read_text(encoding='utf-8')
+        if target.exists():
+            text = target.read_text(encoding='utf-8')
+        elif name == 'navigation':
+            text = PREFIX + '{};\n'
+        else:
+            raise FileNotFoundError(target)
         if not text.startswith(PREFIX) or not text.endswith(';\n'):
             raise ValueError(f'Unexpected generated module format: {target}')
         data = json.loads(text[len(PREFIX):-2])

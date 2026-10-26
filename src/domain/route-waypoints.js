@@ -14,18 +14,19 @@ function deviationKm(point, a, b) {
   return 111.195 * Math.hypot(x - t * dx, y - t * dy);
 }
 
-// Infinity keeps only anchors, for the previously phone-tested fallback.
-export function selectRouteWaypoints(path, anchors = [], spacingKm = 1.5) {
+// Infinity keeps anchors, plus any explicitly requested minimum for a fallback.
+export function selectRouteWaypoints(path, anchors = [], spacingKm = 1.5, minimumVia = 0) {
   if (path.length < 2) return [];
   const km = [0];
   for (let i = 1; i < path.length; i++) km.push(km[i - 1] + distanceKm(path[i - 1], path[i]));
   const total = km.at(-1);
   if (!total) return [];
-  const names = new Map(anchors.map(anchor => [anchor.point.join(","), anchor.name]));
+  const names = new Map();
+  for (const anchor of anchors) if (!names.has(anchor.point.join(","))) names.set(anchor.point.join(","), anchor.name);
   const selected = new Set([0, path.length - 1]);
   path.forEach((point, i) => { if (names.has(point.join(","))) selected.add(i); });
   // Internal URL-size budget, not a documented Baidu capacity guarantee.
-  const target = Math.min(path.length, Math.max(selected.size, Math.min(17, Math.ceil(total / spacingKm) + 1)));
+  const target = Math.min(path.length, Math.max(selected.size, Math.min(17, Math.max(minimumVia + 2, Math.ceil(total / spacingKm) + 1))));
   while (selected.size < target) {
     const indices = [...selected].sort((a, b) => a - b);
     let next = null, longest = -1;
@@ -54,12 +55,18 @@ export function selectRouteWaypoints(path, anchors = [], spacingKm = 1.5) {
 }
 
 export function buildRoutePlans(path, anchors, shape) {
-  const full = selectRouteWaypoints(path, anchors);
+  // Keep a denser road constraint beyond the required key points. The circuit
+  // fallback needs at least three via points to avoid collapsing a closed route.
+  const keyPoints = selectRouteWaypoints(path, anchors, Infinity);
+  const full = selectRouteWaypoints(path, anchors, 1.5, Math.max(4, keyPoints.length - 1));
   const plans = { full };
   // A circuit also ends at its origin: endpoint equality cannot identify a return ride.
   if (!/往返|折返/.test(shape) || full.length < 3 || !anchors.length) return plans;
-  // For enabled return routes the last maintained stop is the explicit turnaround.
-  const turnKey = anchors.at(-1).point.join(",");
+  // Many maintained stop lists end with “返回起点”, not the turnaround.
+  const turnAnchor = anchors.findLast(a => /折返/.test(a.name)) ||
+    anchors.findLast(a => !/返回|回到/.test(a.name) && a.point.join(",") !== path[0].join(","));
+  if (!turnAnchor) return plans;
+  const turnKey = turnAnchor.point.join(",");
   const halfway = full.at(-1).km / 2;
   const candidates = full.map((p, i) => ({ p, i })).filter(({ p, i }) =>
     i > 0 && i < full.length - 1 && p.point.join(",") === turnKey);

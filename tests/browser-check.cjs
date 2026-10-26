@@ -3,6 +3,7 @@ const assert = require('node:assert/strict'), fs = require('node:fs'), path = re
 const { chromium } = require('playwright');
 const root = path.resolve(__dirname, '..');
 const { ROUTES } = require('../src/data/index.js');
+const {navCity}=require('../src/shared/navigation.js');
 const routeLookup = Object.fromEntries(ROUTES.map(r => [r.id, r]));
 const basePath = process.env.RIDE_TEST_BASE_PATH || '';
 const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp' };
@@ -85,7 +86,7 @@ const server = http.createServer((req, res) => {
     await page.waitForFunction(()=>location.hash==='#route=westlake-hills-loop');
     assert.equal(await page.locator('#map-container svg').count(),1);
     assert.equal(await page.locator('img[src*="my-rides"]').count(),0);
-    assert.equal(await page.locator('.navigation-actions a').count(),4);
+    assert.equal(await page.locator('.parking-box .navigation-actions a').count(),4);
     for (const id of ids) {
       await select(page, id);
       assert.equal(await page.locator('#map-container svg').count(), 1);
@@ -111,6 +112,13 @@ const server = http.createServer((req, res) => {
       assert.equal(parkingBaidu.pathname,routeLookup[id].parking.namedNavigation?'/place/search':'/marker');
       assert.ok((await page.locator('.parking-box .nav-explainer').innerText()).includes('到这去'));
       assert.ok((await page.locator('.navigation-actions a').nth(3).innerText()).includes('查看骑行起点'));
+      const complete=new URL(await page.locator('.full-route-open').getAttribute('href'));
+      assert.equal(complete.protocol,'baidumap:',id);
+      assert.equal(complete.searchParams.get('origin'),complete.searchParams.get('destination'),id);
+      assert.equal(complete.searchParams.get('region'),navCity(routeLookup[id]),id);
+      assert.ok(JSON.parse(complete.searchParams.get('viaPoints')).viaPoints.length>=3,id);
+      assert.equal(await page.locator('.full-route-outbound').count(),/往返|折返/.test(routeLookup[id].shape)?1:0,id);
+      assert.equal(await page.locator('.full-route-fallback').count(),1,id);
       const r = { ...routeLookup[id], point: routeLookup[id].start.gcj, fee: routeLookup[id].parking.feeType };
       assert.ok(a.searchParams.get('to').startsWith(r.point.join(',')));
       if (['nanhu', 'jinhua', 'canal'].includes(r.region)) { assert.equal(new URL(links[0]).searchParams.get('city'), r.city); assert.equal(new URL(links[1]).searchParams.get('region'), r.city); }
@@ -203,7 +211,7 @@ const server = http.createServer((req, res) => {
     for(const id of ['badu-ginkgo-road','yigao-village-road']){
       await select(page,id);
       assert.ok((await page.locator('.parking-box').innerText()).includes(id.startsWith('badu')?'当前价格待入场确认':'默认免费'));
-      assert.equal(await page.locator('.navigation-actions a').count(),4);
+      assert.equal(await page.locator('.parking-box .navigation-actions a').count(),4);
       assert.equal(await page.locator('#map-container [data-poi="parking"]').count(),1);
       assert.equal(await page.locator('#map-container [data-poi="start"]').count(),1);
       if(id==='badu-ginkgo-road'){
@@ -426,6 +434,22 @@ const server = http.createServer((req, res) => {
           await target.keyboard.press('Escape');
         }
 
+      }
+    }
+    for(const id of ids){
+      await select(mobile,id);
+      const full=mobile.locator('.full-route-open');
+      await full.scrollIntoViewIfNeeded();
+      assert.equal(await full.getAttribute('target'),null,id);
+      assert.equal(await mobile.locator('.full-route-outbound').count(),/往返|折返/.test(routeLookup[id].shape)?1:0,id);
+      assert.equal(await mobile.locator('.full-route-options').getAttribute('open'),null,id);
+      await mobile.locator('.full-route-options > summary').click();
+      assert.ok(await mobile.locator('.full-route-fallback').isVisible(),id);
+      assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),id);
+      if(['xianghu-hegong','westlake-hills-loop','eastlake-outskirts','wengjin-yanguan'].includes(id)){
+        await mobile.locator('.full-route-options > summary').click();
+        await mobile.locator('.full-route-box').scrollIntoViewIfNeeded();
+        await mobile.screenshot({path:'/private/tmp/ride-navigation-'+id+'.png'});
       }
     }
     assert.deepEqual(errors, []); console.log(JSON.stringify({ routes: ids.length, desktop: 1440, mobile: 390, errors }));
