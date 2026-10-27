@@ -1,0 +1,380 @@
+research/huzhou-extra-supplies-20261027.json
+  bc379537b7e52968 1-72
+assets/maps/yucun-north-road.svg
+  bc379537b7e52968 1
+assets/maps/longshan-chuanbu.svg
+  bc379537b7e52968 1
+research/huzhou-extra-food-20261027.json
+  bc379537b7e52968 1-106
+src/data/routes/order.js
+  bc379537b7e52968 19,24,50-54
+src/data/labels.js
+  bc379537b7e52968 10-16,40
+src/data/routes/longshan-chuanbu.js
+  bc379537b7e52968 1-380
+research/huzhou-expansion-specs-20261027.json
+  bc379537b7e52968 1-411
+tests/catalog.test.cjs
+  bc379537b7e52968 15,28,30-32,43,89,106-107,109,210,227,249,516-517,595
+src/data/routes/index.js
+  bc379537b7e52968 31-37,40-46
+assets/maps/miaoxin-road-return.svg
+  bc379537b7e52968 1
+src/data/generated/maps.js
+  bc379537b7e52968 2
+tests/huzhou-expansion-20261027.test.cjs
+  bc379537b7e52968 1-51
+assets/maps/xishanyang-ring.svg
+  bc379537b7e52968 1
+src/data/routes/taihu-nine-long.js
+  bc379537b7e52968 1-456
+assets/maps/xiazhuhu-west-road-return.svg
+  bc379537b7e52968 1
+CHANGELOG.md
+  bc379537b7e52968 3-10
+src/data/generated/paths.js
+  bc379537b7e52968 2
+assets/maps/nanxun-city-ring.svg
+  bc379537b7e52968 1
+tests/huzhou-candidates-20261027.test.cjs
+  bc379537b7e52968 5-7,9
+src/data/routes/xiazhuhu-west-road-return.js
+  bc379537b7e52968 1-450
+assets/maps/taihu-nine-long.svg
+  bc379537b7e52968 1
+docs/PROJECT_HANDOFF.md
+  bc379537b7e52968 3-4
+README.md
+  bc379537b7e52968 3,26,75-77
+tests/full-route-navigation.test.cjs
+  bc379537b7e52968 114
+docs/architecture/route-maintenance.md
+  bc379537b7e52968 29
+research/huzhou-expansion-20261027.md
+  bc379537b7e52968 1-53
+src/data/routes/nanxun-city-ring.js
+  bc379537b7e52968 1-412
+tests/qiandao-grouping.test.cjs
+  bc379537b7e52968 11-12
+src/data/routes/jiapu.js
+  bc379537b7e52968 4,155
+research/releases/v1.1.20.md
+  bc379537b7e52968 1-30
+research/huzhou-expansion-around-20261027.json
+  bc379537b7e52968 1-834
+src/data/index.js
+  bc379537b7e52968 34
+scripts/build-huzhou-routes-20261027.py
+  bc379537b7e52968 1-54
+tests/architecture.test.cjs
+  bc379537b7e52968 9-10
+src/data/routes/xishanyang-ring.js
+  bc379537b7e52968 1-406
+tests/fixtures/catalog-migration-sha256.json
+  bc379537b7e52968 2-6,12
+version.json
+  bc379537b7e52968 2-3,5,7
+research/huzhou-expansion-pois-20261027.json
+  bc379537b7e52968 1-687
+research/longshan-cycling-outbound-20261027.json
+  bc379537b7e52968 1-77
+src/data/routes/miaoxin-road-return.js
+  bc379537b7e52968 1-414
+src/data/generated/plans.js
+  bc379537b7e52968 2
+tests/browser-check.cjs
+  bc379537b7e52968 28-30,180,201,210,519-547
+src/data/routes/yucun-north-road.js
+  bc379537b7e52968 1-439
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "260c20d8a7b9dd59a586eccccf236e0ed1da3a6c",
+  "prompts": {
+    "bc379537b7e52968": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15db3-1850-78b2-a5a2-bb55fbd065cc",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 24659,
+      "total_deletions": 242,
+      "accepted_lines": 24575,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "assets/maps/longshan-chuanbu.png": {
+          "additions": 579,
+          "accepted_lines": 579
+        },
+        "src/data/candidates/index.js": {
+          "deletions": 3
+        },
+        "assets/maps/xishanyang-ring.png": {
+          "additions": 966,
+          "accepted_lines": 966
+        },
+        "src/data/routes/miaoxin-road-return.js": {
+          "additions": 414,
+          "accepted_lines": 414
+        },
+        "research/nanxun-20261027-osm.json.gz": {
+          "additions": 1375,
+          "accepted_lines": 1375
+        },
+        "research/releases/v1.1.20.md": {
+          "additions": 31,
+          "deletions": 1,
+          "accepted_lines": 30
+        },
+        "research/xishanyang-20261027-osm.json.gz": {
+          "additions": 364,
+          "accepted_lines": 364
+        },
+        "research/taihu-20261027-osm.json.gz": {
+          "additions": 2285,
+          "accepted_lines": 2285
+        },
+        "tests/qiandao-grouping.test.cjs": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        },
+        "tests/huzhou-candidates-20261027.test.cjs": {
+          "additions": 4,
+          "deletions": 2,
+          "accepted_lines": 4
+        },
+        "src/data/routes/xishanyang-ring.js": {
+          "additions": 406,
+          "accepted_lines": 406
+        },
+        "tests/fixtures/catalog-migration-sha256.json": {
+          "additions": 7,
+          "deletions": 7,
+          "accepted_lines": 6
+        },
+        "src/data/labels.js": {
+          "additions": 8,
+          "deletions": 1,
+          "accepted_lines": 8
+        },
+        "src/data/routes/xiazhuhu-west-road-return.js": {
+          "additions": 450,
+          "accepted_lines": 450
+        },
+        "research/longshan-cycling-outbound-20261027.json": {
+          "additions": 77,
+          "accepted_lines": 77
+        },
+        "assets/maps/yucun-north-road.png": {
+          "additions": 398,
+          "accepted_lines": 398
+        },
+        "research/huzhou-expansion-pois-20261027.json": {
+          "additions": 687,
+          "accepted_lines": 687
+        },
+        "tests/browser-check.cjs": {
+          "additions": 38,
+          "deletions": 10,
+          "accepted_lines": 35
+        },
+        "src/data/candidates/huzhou-20261027.js": {
+          "deletions": 105
+        },
+        "src/data/generated/paths.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/jiapu.js": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "research/huzhou-expansion-around-20261027.json": {
+          "additions": 843,
+          "deletions": 9,
+          "accepted_lines": 834
+        },
+        "research/xiazhuhu-20261027-osm.json.gz": {
+          "additions": 1799,
+          "accepted_lines": 1799
+        },
+        "research/huzhou-extra-supplies-20261027.json": {
+          "additions": 72,
+          "accepted_lines": 72
+        },
+        "assets/maps/nanxun-city-ring.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "research/huzhou-expansion-20261027.md": {
+          "additions": 53,
+          "accepted_lines": 53
+        },
+        "src/data/routes/yucun-north-road.js": {
+          "additions": 439,
+          "accepted_lines": 439
+        },
+        "assets/maps/taihu-nine-long.png": {
+          "additions": 905,
+          "accepted_lines": 905
+        },
+        "docs/architecture/route-maintenance.md": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "research/xiazhuhu-wide-20261027-osm.json.gz": {
+          "additions": 3822,
+          "accepted_lines": 3822
+        },
+        "README.md": {
+          "additions": 5,
+          "deletions": 3,
+          "accepted_lines": 5
+        },
+        "CHANGELOG.md": {
+          "additions": 8,
+          "accepted_lines": 8
+        },
+        "tests/huzhou-expansion-20261027.test.cjs": {
+          "additions": 51,
+          "accepted_lines": 51
+        },
+        "docs/PROJECT_HANDOFF.md": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "assets/maps/yucun-north-road.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "assets/maps/xishanyang-ring.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "assets/maps/miaoxin-road-return.png": {
+          "additions": 550,
+          "accepted_lines": 550
+        },
+        "tests/architecture.test.cjs": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        },
+        "src/data/index.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "index.html": {
+          "deletions": 1
+        },
+        "assets/maps/nanxun-city-ring.png": {
+          "additions": 769,
+          "accepted_lines": 769
+        },
+        "src/data/routes/nanxun-city-ring.js": {
+          "additions": 412,
+          "accepted_lines": 412
+        },
+        "src/data/routes/order.js": {
+          "additions": 7,
+          "accepted_lines": 7
+        },
+        "scripts/build-huzhou-routes-20261027.py": {
+          "additions": 54,
+          "accepted_lines": 54
+        },
+        "assets/maps/xiazhuhu-west-road-return.png": {
+          "additions": 1093,
+          "accepted_lines": 1093
+        },
+        "assets/maps/longshan-chuanbu.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/generated/maps.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "assets/maps/taihu-nine-long.svg": {
+          "additions": 2,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "research/yucun-20261027-osm.json.gz": {
+          "additions": 737,
+          "accepted_lines": 737
+        },
+        "research/miaoxin-20261027-osm.json.gz": {
+          "additions": 1491,
+          "accepted_lines": 1491
+        },
+        "assets/maps/miaoxin-road-return.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/routes/taihu-nine-long.js": {
+          "additions": 510,
+          "deletions": 54,
+          "accepted_lines": 456
+        },
+        "src/data/routes/index.js": {
+          "additions": 14,
+          "accepted_lines": 14
+        },
+        "research/huzhou-extra-food-20261027.json": {
+          "additions": 106,
+          "accepted_lines": 106
+        },
+        "assets/maps/xiazhuhu-west-road-return.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "research/longshan-20261027-osm.json.gz": {
+          "additions": 442,
+          "accepted_lines": 442
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 16,
+          "deletions": 16,
+          "accepted_lines": 16
+        },
+        "research/yucun-north-20261027-osm.json.gz": {
+          "additions": 1540,
+          "accepted_lines": 1540
+        },
+        "src/data/routes/longshan-chuanbu.js": {
+          "additions": 380,
+          "accepted_lines": 380
+        },
+        "src/data/generated/plans.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "tests/full-route-navigation.test.cjs": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "version.json": {
+          "additions": 4,
+          "deletions": 4,
+          "accepted_lines": 4
+        },
+        "research/huzhou-expansion-specs-20261027.json": {
+          "additions": 424,
+          "deletions": 13,
+          "accepted_lines": 411
+        }
+      }
+    }
+  }
+}
