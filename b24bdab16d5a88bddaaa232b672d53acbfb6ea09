@@ -1,0 +1,299 @@
+research/jiaxing-expansion-20261027/photo-phone-followup.md
+  bc379537b7e52968 1-41
+tests/browser-check.cjs
+  bc379537b7e52968 558-559,569-578
+scripts/generate-jiaxing-check.cjs
+  bc379537b7e52968 1-18
+src/data/routes/jiaxing-juanhu.js
+  bc379537b7e52968 421-456,458-459
+tests/catalog.test.cjs
+  bc379537b7e52968 299,323,444-445
+tests/jiaxing-phone-sheet.test.cjs
+  bc379537b7e52968 1-24
+research/releases/v1.1.33.md
+  bc379537b7e52968 36-41
+research/photo-licenses.json
+  bc379537b7e52968 2172-2273
+src/data/routes/jiaxing-xiuhu.js
+  bc379537b7e52968 408-477,479-480
+experiments/jiaxing-baidu/index.html
+  bc379537b7e52968 1-16
+tests/fixtures/catalog-migration-sha256.json
+  bc379537b7e52968 3-4
+research/jiaxing-expansion-20261027/README.md
+  bc379537b7e52968 57-60
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "b24bdab16d5a88bddaaa232b672d53acbfb6ea09",
+  "prompts": {
+    "bc379537b7e52968": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15db3-1850-78b2-a5a2-bb55fbd065cc",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 24187,
+      "total_deletions": 23861,
+      "accepted_lines": 10743,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "src/data/routes/jiaxing-juanhu.js": {
+          "additions": 44,
+          "deletions": 9,
+          "accepted_lines": 38
+        },
+        "src/data/routes/badu.js": {
+          "additions": 525,
+          "deletions": 525,
+          "accepted_lines": 230
+        },
+        "src/data/routes/qiandao.js": {
+          "additions": 1534,
+          "deletions": 1534,
+          "accepted_lines": 646
+        },
+        "src/data/routes/jiaxing-dayun.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "research/releases/v1.1.33.md": {
+          "additions": 6,
+          "accepted_lines": 6
+        },
+        "research/photo-licenses.json": {
+          "additions": 122,
+          "deletions": 20,
+          "accepted_lines": 102
+        },
+        "src/data/routes/qianjiang.js": {
+          "additions": 783,
+          "deletions": 783,
+          "accepted_lines": 331
+        },
+        "src/data/routes/yucun-north-road.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/shuanglong.js": {
+          "additions": 441,
+          "deletions": 441,
+          "accepted_lines": 195
+        },
+        "src/data/routes/xiazhuhu-west-road-return.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/canal.js": {
+          "additions": 560,
+          "deletions": 560,
+          "accepted_lines": 226
+        },
+        "src/data/routes/qiantangpark.js": {
+          "additions": 376,
+          "deletions": 376,
+          "accepted_lines": 162
+        },
+        "src/data/routes/jiaxing-xiuhu.js": {
+          "additions": 86,
+          "deletions": 17,
+          "accepted_lines": 72
+        },
+        "src/data/routes/jinhua.js": {
+          "additions": 1084,
+          "deletions": 1084,
+          "accepted_lines": 468
+        },
+        "src/data/routes/jiaxing-pinghu-donghu.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "tests/fixtures/catalog-migration-sha256.json": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 2
+        },
+        "src/data/routes/jiaxing-haiyan-coast.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "scripts/generate-jiaxing-check.cjs": {
+          "additions": 19,
+          "deletions": 1,
+          "accepted_lines": 18
+        },
+        "src/data/routes/jiaxing-nanbeihu.js": {
+          "additions": 4,
+          "deletions": 4,
+          "accepted_lines": 2
+        },
+        "src/data/routes/tongjianhu.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/taihu-nine-long.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "research/jiaxing-expansion-20261027/README.md": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "src/data/routes/westlake.js": {
+          "additions": 5164,
+          "deletions": 5164,
+          "accepted_lines": 2240
+        },
+        "src/data/routes/nanxun-city-ring.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/eastlake.js": {
+          "additions": 758,
+          "deletions": 758,
+          "accepted_lines": 336
+        },
+        "src/data/routes/xianghu.js": {
+          "additions": 3809,
+          "deletions": 3809,
+          "accepted_lines": 1761
+        },
+        "research/jiaxing-expansion-20261027/photo-phone-followup.md": {
+          "additions": 43,
+          "deletions": 2,
+          "accepted_lines": 41
+        },
+        "src/data/routes/binjiang.js": {
+          "additions": 1233,
+          "deletions": 1233,
+          "accepted_lines": 541
+        },
+        "tests/browser-check.cjs": {
+          "additions": 12,
+          "deletions": 1,
+          "accepted_lines": 12
+        },
+        "src/data/routes/jiaxing-xitang.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/jiaxing-fenghuanghu.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/jiaxing-wuzhen.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/huaxi.js": {
+          "additions": 738,
+          "deletions": 738,
+          "accepted_lines": 295
+        },
+        "src/data/routes/jiaxing-wangjiangjing.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/mogan.js": {
+          "additions": 729,
+          "deletions": 729,
+          "accepted_lines": 317
+        },
+        "src/data/routes/jiaxing-xiangjiadang.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/jiaxing-xincheng.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/puyang.js": {
+          "additions": 613,
+          "deletions": 613,
+          "accepted_lines": 259
+        },
+        "src/data/routes/longshan-chuanbu.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/jiapu.js": {
+          "additions": 615,
+          "deletions": 615,
+          "accepted_lines": 258
+        },
+        "src/data/routes/tonglu.js": {
+          "additions": 853,
+          "deletions": 853,
+          "accepted_lines": 379
+        },
+        "src/data/routes/nanhu.js": {
+          "additions": 1117,
+          "deletions": 1117,
+          "accepted_lines": 468
+        },
+        "tests/jiaxing-phone-sheet.test.cjs": {
+          "additions": 24,
+          "accepted_lines": 24
+        },
+        "src/data/routes/xishanyang-ring.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 4,
+          "deletions": 4,
+          "accepted_lines": 4
+        },
+        "experiments/jiaxing-baidu/index.html": {
+          "additions": 29,
+          "deletions": 13,
+          "accepted_lines": 16
+        },
+        "src/data/routes/jiaxing-zhapu.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/miaoxin-road-return.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/yucun.js": {
+          "additions": 516,
+          "deletions": 516,
+          "accepted_lines": 217
+        },
+        "src/data/routes/yigao.js": {
+          "additions": 462,
+          "deletions": 462,
+          "accepted_lines": 197
+        },
+        "src/data/routes/wengjin.js": {
+          "additions": 1841,
+          "deletions": 1841,
+          "accepted_lines": 858
+        }
+      }
+    }
+  }
+}
