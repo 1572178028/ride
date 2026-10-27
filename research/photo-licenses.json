@@ -2169,5 +2169,107 @@
       "visual": 20,
       "reason": "原帖明确千岛湖大桥—进贤湾—艺术隧道—丰茂大桥—东北湖区—旅游学院的51.6km环线，画面分别可见慢行道标线、艺术隧道路面、林间绿道结构。对应本线环湖走廊，未取得原始GPS或逐张机位，不认定具体米级位置，也不代表全程隔离或当前准入。"
     }
+  },
+  {
+    "group": "jiaxing",
+    "license": "原作者版权 · 未注明开放许可",
+    "checked": "2026-10-27",
+    "storage": "local",
+    "kind": "road",
+    "sourceType": "social-original-image",
+    "modification": "下载原帖提供的原始图片文件，未裁剪、未放大或重绘；原图水印保留。",
+    "referenceOnly": true,
+    "assessmentDate": "2026-10-27",
+    "id": "jiaxing-juanhu-luzi-road",
+    "source": "https://www.xiaohongshu.com/explore/6a1694a1000000000702db82",
+    "title": "空腹晨骑，绕湖3圈 · 第5张",
+    "author": "Luzi",
+    "date": "原帖05-27，年份未明确；拍摄日期未注明",
+    "src": "assets/photos/jiaxing-juanhu-luzi-road.webp",
+    "caption": "鹃湖环湖行程中的红灰铺装道路参考",
+    "relation": "原帖第1、2张轨迹显示绕鹃湖并经过南岸，第5张为同次行程道路画面；具体拍摄位置未标明，可能位于其他湖岸，不代表本站南岸每一段或西侧接驳。",
+    "routeIds": [
+      "jiaxing-juanhu"
+    ],
+    "verification": "已读取原帖5张图及正文，排除地图截图、食物湖景和以自行车为主体的照片；本图仅按行程关联参考，不称精确定位。",
+    "matchAssessment": {
+      "source": 20,
+      "location": 10,
+      "track": 10,
+      "visual": 20,
+      "reason": "出处20：原作者完整原帖与第5张原图；地点10：只确认鹃湖、没有拍摄坐标；行程10：原帖轨迹经过本站南岸范围，但本图具体湖岸未知；画面20：红灰铺装、白线、排水与路灯结构清晰。合计60，仅线路参考；同一湖名不再重复加到轨迹项。"
+    },
+    "downloadDate": "2026-10-27",
+    "pixelWidth": 1440,
+    "pixelHeight": 1080,
+    "sourceImageIndex": 5
+  },
+  {
+    "group": "jiaxing",
+    "license": "原作者版权 · 未注明开放许可",
+    "checked": "2026-10-27",
+    "storage": "local",
+    "kind": "road",
+    "sourceType": "social-original-image",
+    "modification": "下载原帖提供的原始图片文件，未裁剪、未放大或重绘；原图水印保留。",
+    "referenceOnly": true,
+    "assessmentDate": "2026-10-27",
+    "id": "jiaxing-xiuhu-dongsheng-west",
+    "source": "https://www.xiaohongshu.com/explore/69323a4f000000001e00bdd8",
+    "title": "嘉兴东升西路秀洲段通车 · 第2张",
+    "author": "嘉兴第九区",
+    "date": "原帖编辑于2025-12-05；实际拍摄日期未注明",
+    "src": "assets/photos/jiaxing-xiuhu-dongsheng-west.webp",
+    "caption": "东升西路秀洲段道路环境 · 视角一",
+    "relation": "原帖明确东升西路秀洲大道至320国道东侧；本站秀湖外围经过该道路的部分区段。图中具体机位未测，显示同名道路环境，非保证主线逐米共线或非机动车道现状。",
+    "routeIds": [
+      "jiaxing-xiuhu"
+    ],
+    "verification": "已读取原帖正文与3张原图，封面由后两图拼成不重复收录；只收录第2、3张相反视角，道路和两侧分隔带清晰。",
+    "matchAssessment": {
+      "source": 20,
+      "location": 30,
+      "track": 0,
+      "visual": 20,
+      "reason": "出处20：已读取发布者原帖正文及原图；地点30：原文明示东升西路秀洲大道至320国道东侧，与本线同名道路范围有重合，具体机位仍待核；轨迹0：无照片对应骑行轨迹；画面20：车道、交叉口、标线与分隔带清楚。合计70，同名道路关联参考，未按精确定位计满分。"
+    },
+    "downloadDate": "2026-10-27",
+    "pixelWidth": 1080,
+    "pixelHeight": 713,
+    "sourceImageIndex": 2
+  },
+  {
+    "group": "jiaxing",
+    "license": "原作者版权 · 未注明开放许可",
+    "checked": "2026-10-27",
+    "storage": "local",
+    "kind": "road",
+    "sourceType": "social-original-image",
+    "modification": "下载原帖提供的原始图片文件，未裁剪、未放大或重绘；原图水印保留。",
+    "referenceOnly": true,
+    "assessmentDate": "2026-10-27",
+    "id": "jiaxing-xiuhu-dongsheng-east",
+    "source": "https://www.xiaohongshu.com/explore/69323a4f000000001e00bdd8",
+    "title": "嘉兴东升西路秀洲段通车 · 第3张",
+    "author": "嘉兴第九区",
+    "date": "原帖编辑于2025-12-05；实际拍摄日期未注明",
+    "src": "assets/photos/jiaxing-xiuhu-dongsheng-east.webp",
+    "caption": "东升西路秀洲段道路环境 · 视角二",
+    "relation": "原帖明确东升西路秀洲大道至320国道东侧；本站秀湖外围经过该道路的部分区段。图中具体机位未测，显示同名道路环境，非保证主线逐米共线或非机动车道现状。",
+    "routeIds": [
+      "jiaxing-xiuhu"
+    ],
+    "verification": "已读取原帖正文与3张原图，封面由后两图拼成不重复收录；只收录第2、3张相反视角，道路和两侧分隔带清晰。",
+    "matchAssessment": {
+      "source": 20,
+      "location": 30,
+      "track": 0,
+      "visual": 20,
+      "reason": "出处20：已读取发布者原帖正文及原图；地点30：原文明示东升西路秀洲大道至320国道东侧，与本线同名道路范围有重合，具体机位仍待核；轨迹0：无照片对应骑行轨迹；画面20：车道、交叉口、标线与分隔带清楚。合计70，同名道路关联参考，未按精确定位计满分。"
+    },
+    "downloadDate": "2026-10-27",
+    "pixelWidth": 1080,
+    "pixelHeight": 653,
+    "sourceImageIndex": 3
   }
 ]

@@ -405,10 +405,79 @@ export default [
       "P/S坐标差约35.3米是定位偏差，不是已测得入口道路长度；停车点与道路起点分别标P/S。",
       "没有电话、现场或实骑核验；平台距离、爬升不移植给本方案。百度按途经点重新规划，不保证逐米贴合；本批未经iPhone百度App真机计算验证。"
     ],
-    "photos": [],
+    "photos": [
+      {
+        "group": "jiaxing",
+        "license": "原作者版权 · 未注明开放许可",
+        "checked": "2026-10-27",
+        "storage": "local",
+        "kind": "road",
+        "sourceType": "social-original-image",
+        "modification": "下载原帖提供的原始图片文件，未裁剪、未放大或重绘；原图水印保留。",
+        "referenceOnly": true,
+        "assessmentDate": "2026-10-27",
+        "id": "jiaxing-xiuhu-dongsheng-west",
+        "source": "https://www.xiaohongshu.com/explore/69323a4f000000001e00bdd8",
+        "title": "嘉兴东升西路秀洲段通车 · 第2张",
+        "author": "嘉兴第九区",
+        "date": "原帖编辑于2025-12-05；实际拍摄日期未注明",
+        "src": "assets/photos/jiaxing-xiuhu-dongsheng-west.webp",
+        "caption": "东升西路秀洲段道路环境 · 视角一",
+        "relation": "原帖明确东升西路秀洲大道至320国道东侧；本站秀湖外围经过该道路的部分区段。图中具体机位未测，显示同名道路环境，非保证主线逐米共线或非机动车道现状。",
+        "routeIds": [
+          "jiaxing-xiuhu"
+        ],
+        "verification": "已读取原帖正文与3张原图，封面由后两图拼成不重复收录；只收录第2、3张相反视角，道路和两侧分隔带清晰。",
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 0,
+          "visual": 20,
+          "reason": "出处20：已读取发布者原帖正文及原图；地点30：原文明示东升西路秀洲大道至320国道东侧，与本线同名道路范围有重合，具体机位仍待核；轨迹0：无照片对应骑行轨迹；画面20：车道、交叉口、标线与分隔带清楚。合计70，同名道路关联参考，未按精确定位计满分。"
+        },
+        "downloadDate": "2026-10-27",
+        "pixelWidth": 1080,
+        "pixelHeight": 713,
+        "sourceImageIndex": 2
+      },
+      {
+        "group": "jiaxing",
+        "license": "原作者版权 · 未注明开放许可",
+        "checked": "2026-10-27",
+        "storage": "local",
+        "kind": "road",
+        "sourceType": "social-original-image",
+        "modification": "下载原帖提供的原始图片文件，未裁剪、未放大或重绘；原图水印保留。",
+        "referenceOnly": true,
+        "assessmentDate": "2026-10-27",
+        "id": "jiaxing-xiuhu-dongsheng-east",
+        "source": "https://www.xiaohongshu.com/explore/69323a4f000000001e00bdd8",
+        "title": "嘉兴东升西路秀洲段通车 · 第3张",
+        "author": "嘉兴第九区",
+        "date": "原帖编辑于2025-12-05；实际拍摄日期未注明",
+        "src": "assets/photos/jiaxing-xiuhu-dongsheng-east.webp",
+        "caption": "东升西路秀洲段道路环境 · 视角二",
+        "relation": "原帖明确东升西路秀洲大道至320国道东侧；本站秀湖外围经过该道路的部分区段。图中具体机位未测，显示同名道路环境，非保证主线逐米共线或非机动车道现状。",
+        "routeIds": [
+          "jiaxing-xiuhu"
+        ],
+        "verification": "已读取原帖正文与3张原图，封面由后两图拼成不重复收录；只收录第2、3张相反视角，道路和两侧分隔带清晰。",
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 0,
+          "visual": 20,
+          "reason": "出处20：已读取发布者原帖正文及原图；地点30：原文明示东升西路秀洲大道至320国道东侧，与本线同名道路范围有重合，具体机位仍待核；轨迹0：无照片对应骑行轨迹；画面20：车道、交叉口、标线与分隔带清楚。合计70，同名道路关联参考，未按精确定位计满分。"
+        },
+        "downloadDate": "2026-10-27",
+        "pixelWidth": 1080,
+        "pixelHeight": 653,
+        "sourceImageIndex": 3
+      }
+    ],
     "photoTarget": 3,
-    "photoMissing": 3,
-    "photoGap": "本方案道路实拍待补3张；平台原帖留作参考，未经许可的图片不复制为本站照片。",
+    "photoMissing": 1,
+    "photoGap": "道路图目标3张，仍待补1张。已展示图片含关联参考，详见评分依据。",
     "researchExtensions": [
       {
         "id": "jiaxing-xiuhu-original-research",

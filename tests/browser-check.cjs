@@ -555,7 +555,8 @@ const server = http.createServer((req, res) => {
         await select(target,id);
         assert.equal(await target.locator('.full-route-open').count(),1,id);
         assert.equal(await target.locator('.full-route-outbound').count(),/往返/.test(routeLookup[id].shape)?1:0,id);
-        assert.equal(await target.locator('#route-detail .photo-empty').count(),1,id);
+        assert.equal(await target.locator('#route-detail .photo-empty').count(),routeLookup[id].photos.length?0:1,id);
+        assert.equal(await target.locator('#route-detail .photo-open').count(),routeLookup[id].photos.length,id);
         assert.ok(await target.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),id);
       }
       await target.selectOption('#city-filter','jiaxing');
@@ -565,6 +566,16 @@ const server = http.createServer((req, res) => {
         await target.screenshot({path:'/private/tmp/ride-'+id+'-'+(target===mobile?'mobile':'desktop')+'.png'});
       }
     }
+    const phoneSheet=await browser.newPage({viewport:{width:390,height:844}});
+    watch(phoneSheet);
+    await phoneSheet.goto(url+'experiments/jiaxing-baidu/');
+    assert.equal(await phoneSheet.locator('section[data-route]').count(),13);
+    assert.equal(await phoneSheet.locator('a[href^="baidumap:"]').count(),36);
+    assert.ok(await phoneSheet.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+    await phoneSheet.locator('#jiaxing-juanhu summary').click();
+    await phoneSheet.locator('#jiaxing-juanhu img').evaluate(img=>img.decode());
+    await phoneSheet.screenshot({path:'/private/tmp/ride-jiaxing-phone-sheet-mobile.png'});
+    await phoneSheet.close();
     assert.deepEqual(errors, []); console.log(JSON.stringify({ routes: ids.length, desktop: 1440, mobile: 390, errors }));
   } finally { if (browser) await browser.close(); server.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });
