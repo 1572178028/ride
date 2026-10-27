@@ -2,7 +2,7 @@
   "version": "1.1.33",
   "date": "2026-10-27",
   "status": "release",
-  "description": "新增嘉兴13条独立公共道路方案，补齐地图、路侧停车、餐咖与百度全程及去返程查看；扩线技能增加行者与Strava检索去重流程。",
+  "description": "嘉兴13条公共道路方案已接入；后续补入3张关联道路图与13线iPhone百度集中核对清单，照片仍缺36张，App逐线结果待核对。",
   "increments": {
     "routes": 13,
     "cities": 0,
