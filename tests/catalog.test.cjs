@@ -40,7 +40,7 @@ test('distance variants belong to twenty-nine route families across twenty-seven
   }
 });
 test('research directions cannot claim free parking or inflate the ride catalog', () => {
-  assert.equal(app.EXPANSION_CANDIDATES.length, 7);
+  assert.equal(app.EXPANSION_CANDIDATES.length, 14);
   assert.ok(app.ROUTES.some(route => route.region === 'westlake'));
   assert.ok(app.RESEARCH_MAPS.some(route => route.region === 'jiapu'));
   assert.ok(app.ROUTES.some(route => route.region === 'qiandao'));
@@ -340,7 +340,7 @@ test('published route galleries contain road images only and social screenshots 
 
 test('follow-up audit excludes closed parking and retains new map evidence without publishing research rides', () => {
   for (const c of app.EXPANSION_CANDIDATES) {
-    assert.equal(c.reviewedAt, c.id==='anding-linfeng-research'?'2026-10-23':['jinhua-shuanglong-research','shaoxing-eastlake-research'].includes(c.id)?'2026-10-21':c.id==='puyang-greenway-research'?'2026-10-20':'2026-10-16');
+    assert.equal(c.reviewedAt, c.researchCity==='huzhou'?'2026-10-27':c.id==='anding-linfeng-research'?'2026-10-23':['jinhua-shuanglong-research','shaoxing-eastlake-research'].includes(c.id)?'2026-10-21':c.id==='puyang-greenway-research'?'2026-10-20':'2026-10-16');
     assert.ok(c.reviewOutcome && c.missing && c.parkingNote && c.roadNote);
     assert.ok(!app.ROUTES.some(r => r.id === c.id));
   }
@@ -592,6 +592,6 @@ test('East Lake outskirts has a complete roadside-parking ride without implying 
  assert.ok(points.every(q=>q[1]>29.996 && q[1]<=30.0036195));
  assert.equal(r.food.length,1);assert.equal(r.food[0].poiid,'B023F0QVIQ');assert.equal(r.photos.length,0);assert.equal(r.photoMissing,3);
  const gate=app.ROUTES.find(r=>r.id==='eastlake-outskirts').researchExtensions.find(c=>c.id==='shaoxing-eastlake-research');assert.match(gate.title,/入口接驳延伸/);
- assert.match(gate.missing,/独立辅路/);assert.ok(!gate.parking);assert.equal(app.ROUTE_METADATA.researchCount,7);assert.ok(!app.EXPANSION_CANDIDATES.some(c=>c.id===gate.id));assert.equal(gate.photos.length,2);
+ assert.match(gate.missing,/独立辅路/);assert.ok(!gate.parking);assert.equal(app.ROUTE_METADATA.researchCount,14);assert.ok(!app.EXPANSION_CANDIDATES.some(c=>c.id===gate.id));assert.equal(gate.photos.length,2);
  const evidence=JSON.parse(fs.readFileSync(path.join(root,'research/eastlake-north-parking-amap-20261021.json')));assert.equal(evidence.metres,744);assert.equal(evidence.reverse.metres,775);
 });

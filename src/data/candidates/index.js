@@ -1,4 +1,7 @@
+import huzhouCandidates from "./huzhou-20261027.js";
+
 export default [
+  ...huzhouCandidates,
   {
     id: "jiaxing-xiuzhou-research",
     researchCity: "jiaxing",
