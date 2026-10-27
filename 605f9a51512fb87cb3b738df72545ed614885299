@@ -1,0 +1,74 @@
+tests/catalog.test.cjs
+  bc379537b7e52968 43,343,595
+tests/huzhou-candidates-20261027.test.cjs
+  bc379537b7e52968 1-16
+index.html
+  bc379537b7e52968 241
+tests/fixtures/catalog-migration-sha256.json
+  bc379537b7e52968 4-5
+src/data/candidates/huzhou-20261027.js
+  bc379537b7e52968 1-105
+tests/browser-check.cjs
+  bc379537b7e52968 201,210,346
+src/data/candidates/index.js
+  bc379537b7e52968 1-2,4
+research/huzhou-cycling-leads-20261027.md
+  bc379537b7e52968 1-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "605f9a51512fb87cb3b738df72545ed614885299",
+  "prompts": {
+    "bc379537b7e52968": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15db3-1850-78b2-a5a2-bb55fbd065cc",
+        "model": "gpt-6.1-terra"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 152,
+      "total_deletions": 7,
+      "accepted_lines": 152,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "tests/catalog.test.cjs": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 3
+        },
+        "tests/browser-check.cjs": {
+          "additions": 3,
+          "deletions": 2,
+          "accepted_lines": 3
+        },
+        "src/data/candidates/index.js": {
+          "additions": 3,
+          "accepted_lines": 3
+        },
+        "tests/huzhou-candidates-20261027.test.cjs": {
+          "additions": 16,
+          "accepted_lines": 16
+        },
+        "tests/fixtures/catalog-migration-sha256.json": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        },
+        "research/huzhou-cycling-leads-20261027.md": {
+          "additions": 19,
+          "accepted_lines": 19
+        },
+        "index.html": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/candidates/huzhou-20261027.js": {
+          "additions": 105,
+          "accepted_lines": 105
+        }
+      }
+    }
+  }
+}
