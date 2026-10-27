@@ -1,3 +1,16 @@
+import jiaxing_xiangjiadang from "./jiaxing-xiangjiadang.js";
+import jiaxing_xiuhu from "./jiaxing-xiuhu.js";
+import jiaxing_wangjiangjing from "./jiaxing-wangjiangjing.js";
+import jiaxing_xincheng from "./jiaxing-xincheng.js";
+import jiaxing_wuzhen from "./jiaxing-wuzhen.js";
+import jiaxing_fenghuanghu from "./jiaxing-fenghuanghu.js";
+import jiaxing_juanhu from "./jiaxing-juanhu.js";
+import jiaxing_dayun from "./jiaxing-dayun.js";
+import jiaxing_xitang from "./jiaxing-xitang.js";
+import jiaxing_nanbeihu from "./jiaxing-nanbeihu.js";
+import jiaxing_haiyan_coast from "./jiaxing-haiyan-coast.js";
+import jiaxing_pinghu_donghu from "./jiaxing-pinghu-donghu.js";
+import jiaxing_zhapu from "./jiaxing-zhapu.js";
 import xianghu from "./xianghu.js";
 import wengjin from "./wengjin.js";
 import qiandao from "./qiandao.js";
@@ -37,6 +50,20 @@ import yucun_north_road from "./yucun-north-road.js";
 import taihu_nine_long from "./taihu-nine-long.js";
 const positions = new Map(order.map((id, index) => [id, index]));
 export const ROUTES = [
+  ...jiaxing_xiangjiadang,
+  ...jiaxing_xiuhu,
+  ...jiaxing_wangjiangjing,
+  ...jiaxing_xincheng,
+  ...jiaxing_wuzhen,
+  ...jiaxing_fenghuanghu,
+  ...jiaxing_juanhu,
+  ...jiaxing_dayun,
+  ...jiaxing_xitang,
+  ...jiaxing_nanbeihu,
+  ...jiaxing_haiyan_coast,
+  ...jiaxing_pinghu_donghu,
+  ...jiaxing_zhapu,
+
   ...xishanyang_ring,
   ...longshan_chuanbu,
   ...miaoxin_road_return,

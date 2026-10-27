@@ -1,10 +1,10 @@
 {
-  "version": "1.1.20",
+  "version": "1.1.33",
   "date": "2026-10-27",
   "status": "release",
-  "description": "新增湖州六条独立道路主线及余村北侧乡路变体，补齐七种方案的地图、停车补给与百度全程及单程查看。",
+  "description": "新增嘉兴13条独立公共道路方案，补齐地图、路侧停车、餐咖与百度全程及去返程查看；扩线技能增加行者与Strava检索去重流程。",
   "increments": {
-    "routes": 6,
+    "routes": 13,
     "cities": 0,
     "provinces": 0
   }

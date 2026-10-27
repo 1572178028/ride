@@ -111,6 +111,8 @@ out body geom;
 
 - 起终锚点吸附到可通行且连通的道路节点，评估吸附距离与接驳；不能把隔水或隔离栏两侧的“最近点”当作可直达。
 - 除现有过滤外，检查 `bicycle/access/vehicle`、条件通行、匝道、环岛、单向、桥隧和现场管理依据。OSM没有禁行标签不等于完成通行核验。
+  `access=residents/customers/private`等不是公众穿行许可，`destination/delivery/permit`也不能直接当过境道路；检查是否确有自行车公众准入例外，再选择合法道路。具名地图泊位可能仍使用“路侧停车场”等泛名，名称搜索须附实际道路、交叉口地址与城市，不能只搜一个县区加停车。
+- 节点级的`barrier/access/bicycle/ford`也要检查；way允许通行不能覆盖节点门禁或涉水限制。未确认的涉水点不充作桥梁，改用已核道路或在其之前选择明确折返点。
 - 对 `oneway=yes/1/true/-1` 等正确解释，必要时处理明确的自行车例外。存在可用转向限制时遵循，不能忽略已知禁转关系。
 - `REGIONAL_PLANS[id].segments.length === MAP_DATA.paths[id].length - 1`，每段对应真实way边，保存kind、way、km和shared等属性。
 - 原路往返主线只存去程时，distance和cyclewayKm按双程计；环线/往返环路保存实际完整路径。
