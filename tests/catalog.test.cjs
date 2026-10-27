@@ -12,7 +12,7 @@ function km(a, b) {
   return 12742 * Math.atan2(Math.sqrt(q), Math.sqrt(1 - q));
 }
 test('route IDs and map paths are unique and complete', () => {
-  assert.equal(app.ROUTES.length, 53);
+  assert.equal(app.ROUTES.length, 66);
   assert.equal(new Set(app.ROUTES.map(route => route.id)).size, app.ROUTES.length);
   for (const route of app.ROUTES) {
     const points = app.MAP_DATA.paths[route.id];
@@ -25,11 +25,11 @@ test('route IDs and map paths are unique and complete', () => {
     if (route.shape !== '原路往返') assert.ok(km(points[0], points.at(-1)) < 0.01, `${route.id}: closed loop`);
   }
 });
-test('distance variants belong to thirty-five route families across thirty-two browsing areas', () => {
+test('distance variants belong to forty-eight route families across forty-five browsing areas', () => {
   const mains = app.ROUTES.filter(route => route.id === route.familyId);
-  assert.equal(mains.length, 35);
-  assert.equal(app.ROUTE_METADATA.familyCount, 35);
-  assert.equal(app.ROUTE_METADATA.regionCount, 32);
+  assert.equal(mains.length, 48);
+  assert.equal(app.ROUTE_METADATA.familyCount, 48);
+  assert.equal(app.ROUTE_METADATA.regionCount, 45);
   for (const variant of app.ROUTES) {
     const main = mains.find(route => route.id === variant.familyId);
     assert.ok(main, variant.id);
@@ -86,7 +86,7 @@ test('every plan preserves parking evidence and exposes overnight restrictions',
     assert.ok(route.parking.id || route.parking.poiid);
     assert.ok(route.parking.condition && route.parking.evidence);
     assert.match(route.parking.source, /^https?:\/\//);
-    assert.equal(route.parking.checked, ['xishanyang-ring','longshan-chuanbu','miaoxin-road-return','xiazhuhu-west-road-return','nanxun-city-ring','taihu-nine-long'].includes(route.id)?'2026-10-27':['qiandao-shangjiang','qiandao-northeast'].includes(route.id)?'2026-10-26':['jingshan-shuangxi','liangzhu-village','chaoshan','xiasha-riverside','lijiaxiang-roads','hefu-digang'].includes(route.region)?'2026-10-23':route.id==='tongjianhu-south'?'2026-10-22':['shuanglong-road','eastlake-outskirts'].includes(route.id)?'2026-10-21':['puyang-greenway','badu-ginkgo-road','yigao-village-road'].includes(route.id)?'2026-10-20':['meiling-south-road','westlake-hills-loop'].includes(route.id) ? '2026-10-19' : ['huaxi','nanhu','jinhua','canal','binjiang','qianjiang'].includes(route.region) ? '2026-10-16' : '2026-10-15');
+    assert.equal(route.parking.checked, route.id.startsWith('jiaxing-')?'2026-10-27':['xishanyang-ring','longshan-chuanbu','miaoxin-road-return','xiazhuhu-west-road-return','nanxun-city-ring','taihu-nine-long'].includes(route.id)?'2026-10-27':['qiandao-shangjiang','qiandao-northeast'].includes(route.id)?'2026-10-26':['jingshan-shuangxi','liangzhu-village','chaoshan','xiasha-riverside','lijiaxiang-roads','hefu-digang'].includes(route.region)?'2026-10-23':route.id==='tongjianhu-south'?'2026-10-22':['shuanglong-road','eastlake-outskirts'].includes(route.id)?'2026-10-21':['puyang-greenway','badu-ginkgo-road','yigao-village-road'].includes(route.id)?'2026-10-20':['meiling-south-road','westlake-hills-loop'].includes(route.id) ? '2026-10-19' : ['huaxi','nanhu','jinhua','canal','binjiang','qianjiang'].includes(route.region) ? '2026-10-16' : '2026-10-15');
     assert.match(route.parking.verification, /读取|声明|对照/);
     if (route.parking.feeType === 'free') assert.equal(route.parking.price, '¥0');
     else { assert.ok(['paid','unknown'].includes(route.parking.feeType)); assert.notEqual(route.parking.price, '¥0'); assert.ok(route.parking.priceSummary && route.parking.condition); }
@@ -103,10 +103,10 @@ test('every plan preserves parking evidence and exposes overnight restrictions',
     }
     assert.equal(route.dedicated, false, 'shared paths must not become dedicated cycleways');
   }
-  assert.equal(app.ROUTE_METADATA.parkingCount, 36);
-  assert.equal(app.ROUTE_METADATA.freeParkingCount, 22);
+  assert.equal(app.ROUTE_METADATA.parkingCount, 49);
+  assert.equal(app.ROUTE_METADATA.freeParkingCount, 35);
   assert.equal(app.ROUTE_METADATA.paidParkingCount, 8);
-  assert.equal(app.ROUTE_METADATA.shopCount, 58, 'shared stores must be counted once');
+  assert.equal(app.ROUTE_METADATA.shopCount, 84, 'shared stores must be counted once');
 });
 test('all supply types render distinct markers, names, evidence status and per-type filtering', () => {
   for (const route of app.ROUTES) {
@@ -224,7 +224,7 @@ test('paid routes keep reference charges separate from free parking and unpublis
   const mogan = paid.find(r => r.region === 'mogan');
   assert.match(mogan.parking.condition, /30分钟/);
   assert.match(mogan.parking.condition, /参考价格/);
-  assert.equal(app.ROUTES.filter(r => r.parking.feeType === 'free').length, 29);
+  assert.equal(app.ROUTES.filter(r => r.parking.feeType === 'free').length, 42);
 });
 
 test('research previews use real edges and never draw a free parking pin', () => {
@@ -246,7 +246,7 @@ test('research previews use real edges and never draw a free parking pin', () =>
 test('new cities and parking fee categories remain explicit and deduplicated', () => {
   assert.equal(app.ROUTE_METADATA.cityCount, 5);
   assert.equal(app.ROUTE_METADATA.unknownParkingCount, 6);
-  assert.equal(app.ROUTE_METADATA.restSuggestionCount, 82);
+  assert.equal(app.ROUTE_METADATA.restSuggestionCount, 106);
   for (const r of app.ROUTES) {
     assert.ok(app.CITY_LABELS[r.cityGroup] && app.REGION_LABELS[r.region], r.id);
     if (['nanhu', 'jinhua', 'canal'].includes(r.region)) assert.equal(r.city, { nanhu: '嘉兴市', jinhua: '金华市', canal: '杭州市' }[r.region]);
@@ -340,7 +340,7 @@ test('published route galleries contain road images only and social screenshots 
 
 test('follow-up audit excludes closed parking and retains new map evidence without publishing research rides', () => {
   for (const c of app.EXPANSION_CANDIDATES) {
-    assert.equal(c.reviewedAt, c.researchCity==='huzhou'?'2026-10-27':c.id==='anding-linfeng-research'?'2026-10-23':['jinhua-shuanglong-research','shaoxing-eastlake-research'].includes(c.id)?'2026-10-21':c.id==='puyang-greenway-research'?'2026-10-20':'2026-10-16');
+    assert.equal(c.reviewedAt, (c.researchCity==='huzhou'||c.id==='jiaxing-pinghu-rural-research')?'2026-10-27':c.id==='anding-linfeng-research'?'2026-10-23':['jinhua-shuanglong-research','shaoxing-eastlake-research'].includes(c.id)?'2026-10-21':c.id==='puyang-greenway-research'?'2026-10-20':'2026-10-16');
     assert.ok(c.reviewOutcome && c.missing && c.parkingNote && c.roadNote);
     assert.ok(!app.ROUTES.some(r => r.id === c.id));
   }
@@ -513,8 +513,8 @@ test('Huzhou parking options distinguish user roadside defaults from known charg
  }
  assert.equal(app.ROUTES.find(r=>r.id==='badu-ginkgo-road').parking.feeType,'paid');
  assert.ok(options.find(p=>p.poiId==='7db98ae511fa742fd518b73a').note.includes('不是荻港古村门口'));
- assert.equal(app.ROUTE_METADATA.familyCount,35);
- assert.equal(app.ROUTE_METADATA.parkingCount,36,'research options are not formal parking starts');
+ assert.equal(app.ROUTE_METADATA.familyCount,48);
+ assert.equal(app.ROUTE_METADATA.parkingCount,49,'research options are not formal parking starts');
 });
 
 

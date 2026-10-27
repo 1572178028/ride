@@ -1,0 +1,210 @@
+[
+  {
+    "id": "jiaxing-xiangjiadang",
+    "title": "湘家荡 · 环湖公共道路",
+    "area": "南湖 · 湘家荡",
+    "city": "嘉兴市南湖区",
+    "distance": 8.6,
+    "return": false,
+    "platformLead": 806322,
+    "scope": "环湖道路与七星接驳；平台7.45km原线未复刻，不经过收费沙滩、森林内步道。",
+    "remaining": "完整森林绿道、东外环河12.9km绿道与原路书7.45km逐段几何及准入待核。",
+    "parkingId": "B0L3SK1V12",
+    "shops": [
+      "B0LGVATT7G",
+      "B0IUUZRVAR"
+    ]
+  },
+  {
+    "id": "jiaxing-xiuhu",
+    "title": "秀湖 · 外围街道一圈",
+    "area": "秀洲 · 秀湖外围",
+    "city": "嘉兴市秀洲区",
+    "distance": 7.2,
+    "return": false,
+    "platformLead": 3173362,
+    "scope": "沿秀洲大道、东升西路、秀园路和洪高路绕行；不是园内5.32km骑行道单圈。",
+    "remaining": "园内漫步道和骑行道尚未逐段对应；石臼漾湿地内部准入和合法连续路径仍待核。",
+    "parkingId": "B0H0JRYL0L",
+    "shops": [
+      "B0MDGSOYDS",
+      "B0H3T5GO64"
+    ]
+  },
+  {
+    "id": "jiaxing-wangjiangjing",
+    "title": "王江泾 · 莲泗荡乡路往返",
+    "area": "秀洲 · 王江泾莲泗荡",
+    "city": "嘉兴市秀洲区",
+    "distance": 7.8,
+    "return": true,
+    "platformLead": 953478,
+    "scope": "从万福路周边沿王黎公路方向往返莲泗荡西侧；在OSM涉水节点12078055438之前折返，不进入刘王庙和湖岸内部步道。",
+    "remaining": "古运河绿道、陶仓理想村及湖岸内部连接未完整对应，不将骑友会名称等同轨迹经过王江泾。",
+    "parkingId": "B0MR99AQ5F",
+    "shops": [
+      "B0LRNZKODU",
+      "B0KK79J05N"
+    ]
+  },
+  {
+    "id": "jiaxing-xincheng",
+    "title": "新塍塘 · 塘南乡路往返",
+    "area": "秀洲 · 新塍塘南乡路",
+    "city": "嘉兴市秀洲区",
+    "distance": 9.3,
+    "return": true,
+    "platformLead": 331942,
+    "scope": "观音桥附近出发，沿新塍塘南侧公共乡路往返；未把北岸木栈道或古镇内部接入。",
+    "remaining": "完整北岸新塍塘绿道、自行车复线、古镇接入与停车至绿道出口仍待逐段核对。",
+    "parkingId": "B0L0KRQGI9",
+    "shops": [
+      "B0LUVHEAJP",
+      "B0HKPH8INJ"
+    ]
+  },
+  {
+    "id": "jiaxing-wuzhen",
+    "title": "乌镇 · 南部乡路与镇区环线",
+    "area": "桐乡 · 乌镇外围",
+    "city": "嘉兴市桐乡市",
+    "distance": 13.5,
+    "return": false,
+    "platformLead": 102031,
+    "scope": "甘泉西路出发，经南部乡路、镇南路和姚太公路方向回到镇区；东栅、西栅游览另作步行。",
+    "remaining": "乌村、西栅景区内通行和平台26.16km原线未核；本线不进入收费游览区或江苏方向。",
+    "parkingId": "B0JU3C1OIC",
+    "shops": [
+      "B0FFLOIJKP",
+      "B0J0KS1K79"
+    ]
+  },
+  {
+    "id": "jiaxing-fenghuanghu",
+    "title": "凤凰湖 · 辅路与凤仪路环线",
+    "area": "桐乡 · 凤凰湖外围",
+    "city": "嘉兴市桐乡市",
+    "distance": 6.5,
+    "return": false,
+    "platformLead": 718275,
+    "scope": "诚园路周边出发，沿凤仪路、凤凰大道辅路和茅盾东路闭合；按实际单行方向行进，不走湖岸未标准入的步道。",
+    "remaining": "园内贴水骑行路径、凤凰湖至濮院28.17km及长距离乡村串联仍待停车和完整道路核查。",
+    "parkingId": "B0KB4RT3G1",
+    "shops": [
+      "B0KUZUOVSL",
+      "B0GR74EYHJ"
+    ]
+  },
+  {
+    "id": "jiaxing-juanhu",
+    "title": "鹃湖 · 南岸慢行道往返",
+    "area": "海宁 · 鹃湖南岸",
+    "city": "嘉兴市海宁市",
+    "distance": 6.4,
+    "return": true,
+    "platformLead": 3710217,
+    "scope": "竞芳路周边出发，经西侧接驳至南岸慢行道后折返；不是平台7.32km完整外圈。",
+    "remaining": "东岸连续环湖路网和园内普通步道准入未完整对应；本线只使用可连通的南岸cycleway及竞芳路接驳。",
+    "parkingId": "B0MAVK5TS4",
+    "shops": [
+      "B0FFM6SED7",
+      "B0LG9DVJ0O"
+    ]
+  },
+  {
+    "id": "jiaxing-dayun",
+    "title": "大云 · 镇区与田园道路环线",
+    "area": "嘉善 · 大云镇区",
+    "city": "嘉兴市嘉善县",
+    "distance": 6.5,
+    "return": false,
+    "platformLead": 5293237,
+    "scope": "云溪路出发，沿南部村居公共道路、青云路与云寺东路回到镇区；不进温泉、巧克力或花海收费园。",
+    "remaining": "缪家村内部综合道与平台10.46km完整度假区环线仍待逐段对应；不把规划道路或建设中地名认作已通行。",
+    "parkingId": "B0IU6US4MY",
+    "shops": [
+      "B0KKHR3R3Z",
+      "B0MAM76VSQ"
+    ]
+  },
+  {
+    "id": "jiaxing-xitang",
+    "title": "西塘 · 外围公共街道环线",
+    "area": "嘉善 · 西塘外围",
+    "city": "嘉兴市嘉善县",
+    "distance": 12.4,
+    "return": false,
+    "platformLead": 5513084,
+    "scope": "祥符路附近出发，经贞观路、开源大道、西汉大道与南苑路绕回；排除环秀街、塔湾街及核心游览巷道。",
+    "remaining": "祥符荡12km休闲环湖及水乡客厅活动原线未核完整几何；本方案不等于祥符荡环线，也不穿古镇核心游览区。",
+    "parkingId": "B0I04HVCNW",
+    "shops": [
+      "B0I0GZ4WZK",
+      "B0HR9D6IAF"
+    ]
+  },
+  {
+    "id": "jiaxing-nanbeihu",
+    "title": "南北湖 · 环湖道路与澉浦接驳",
+    "area": "海盐 · 南北湖环湖道路",
+    "city": "嘉兴市海盐县",
+    "distance": 11.0,
+    "return": false,
+    "platformLead": 200632,
+    "scope": "南浦路周边出发，接驳环湖道路一圈返回；含澉浦接驳，不含鹰窠顶、谈仙石城山路及湖心岛步道。",
+    "remaining": "平台7.12km原环线未复刻；上山道路另有8—17时、节假日及单行限制，本方案未纳入山上线路。",
+    "parkingId": "B0MD3XHW3U",
+    "shops": [
+      "B0L0ZOGKF9",
+      "B0FFL6AZLV"
+    ]
+  },
+  {
+    "id": "jiaxing-haiyan-coast",
+    "title": "海盐 · 观海园至滨海街道往返",
+    "area": "海盐 · 观海园外围",
+    "city": "嘉兴市海盐县",
+    "distance": 8.5,
+    "return": true,
+    "platformLead": 3087567,
+    "scope": "滨海大道路侧出发，经观海园外围、朝阳东路和盐平塘东路方向折返；公园内游览和海堤另计。",
+    "remaining": "白洋河完整骑行绿道和大风车海堤准入、潮汐施工及取车接驳未核；不是翁金线至盐官43.81km原线。",
+    "parkingId": "B0MA2NPJK0",
+    "shops": [
+      "B0J35MUAOA",
+      "B0GRMAXZ41"
+    ]
+  },
+  {
+    "id": "jiaxing-pinghu-donghu",
+    "title": "平湖 · 东湖外围街道环线",
+    "area": "平湖 · 东湖外围",
+    "city": "嘉兴市平湖市",
+    "distance": 7.4,
+    "return": false,
+    "platformLead": 4864618,
+    "scope": "东湖大道周边出发，经城北、环北二路和城南东路绕回；东湖内部桥梁、南河头游览另计。",
+    "remaining": "明湖、漕兑港和东湖内部五孔桥的连续可骑几何未核；本方案不套用57.31km环平湖活动里程。",
+    "parkingId": "B0GRHZRZHK",
+    "shops": [
+      "B0LGCLUVKX",
+      "B0FFGITJRK"
+    ]
+  },
+  {
+    "id": "jiaxing-zhapu",
+    "title": "乍浦 · 天妃路与海岸道路往返",
+    "area": "平湖 · 乍浦海岸道路",
+    "city": "嘉兴市平湖市",
+    "distance": 10.4,
+    "return": true,
+    "platformLead": 738772,
+    "scope": "雅山中路出发，经天妃路、滨海大道和南湾路方向往返；这是港镇公共道路，非封闭海边绿道。",
+    "remaining": "九龙山登山步道、码头和度假区内部骑行准入未核；官方两条海岸徒步线不当作自行车路线。",
+    "parkingId": "B0I2K7L3GT",
+    "shops": [
+      "B0KU3LJJ1A",
+      "B0L6SS42X0"
+    ]
+  }
+]

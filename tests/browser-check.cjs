@@ -25,9 +25,9 @@ const server = http.createServer((req, res) => {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1050 }, reducedMotion: 'reduce', acceptDownloads: true });
     watch(page); await page.goto(url); await page.waitForSelector('.route-card');
     assert.equal(await page.evaluate(() => innerWidth), 1440);
-    assert.equal(await page.locator('.route-card').count(), 32);
-    assert.equal(await page.locator('#total-plans').innerText(), '53');
-    assert.equal(await page.locator('#total-parking').innerText(), '36');
+    assert.equal(await page.locator('.route-card').count(), 45);
+    assert.equal(await page.locator('#total-plans').innerText(), '66');
+    assert.equal(await page.locator('#total-parking').innerText(), '49');
     const ids = ROUTES.map(r => r.id);
     const select = async (p, id) => { await p.evaluate(id => { location.hash = 'route=' + id; }, id); await p.waitForFunction(title => document.querySelector('#selected-heading h2').textContent === title, routeLookup[id].title); };
     await page.selectOption('#region-filter','xianghu');
@@ -171,13 +171,13 @@ const server = http.createServer((req, res) => {
       assert.equal(await page.locator('#map-container [data-poi="start"]').count(), 1);
     }
     await page.selectOption('#city-filter', 'jiaxing');
-    assert.deepEqual(await page.locator('#region-filter option').evaluateAll(ns => ns.map(n => n.value)), ['all', 'wengjin', 'nanhu']);
+    assert.deepEqual(await page.locator('#region-filter option').evaluateAll(ns => ns.map(n => n.value)), ['all', 'wengjin', 'nanhu', ...require('../research/jiaxing-expansion-20261027/manifest.json').map(r=>r.id)]);
     await page.selectOption('#region-filter', 'nanhu'); assert.equal(await page.locator('.route-card').count(), 1);
     assert.equal(await page.locator('.variant-picker button').count(), 2); await page.locator('[data-variant="nanhu-short"]').click();
     await page.selectOption('#city-filter', 'jinhua'); assert.equal(await page.locator('#region-filter').inputValue(), 'all');
     await page.selectOption('#city-filter', 'all'); await page.selectOption('#parking-filter', 'unknown'); assert.equal(await page.locator('.route-card').count(), 6);
     await page.selectOption('#lane-filter', 'dedicated'); assert.ok(await page.locator('#route-view').isHidden());
-    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 32);
+    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 45);
     await page.locator('#route-library').scrollIntoViewIfNeeded();
     assert.ok(await page.locator('#route-list').evaluate(el => el.scrollHeight > el.clientHeight && getComputedStyle(el).overflowY === 'auto'));
     await page.locator('.card-select').last().click();
@@ -543,6 +543,26 @@ const server = http.createServer((req, res) => {
         assert.ok(await target.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
         await target.locator('#map-container').scrollIntoViewIfNeeded();
         await target.screenshot({path:'/private/tmp/ride-huzhou-'+id+'-'+(target===page?'desktop':'mobile')+'.png'});
+      }
+    }
+    assert.deepEqual(errors, []);
+    const jiaxingIds = require('../research/jiaxing-expansion-20261027/manifest.json').map(r=>r.id);
+    for(const target of [page,mobile]){
+      await target.selectOption('#city-filter','all');await target.selectOption('#region-filter','all');
+      await target.selectOption('#parking-filter','all');await target.selectOption('#lane-filter','all');
+      await target.selectOption('#distance-filter','all');await target.locator('#search').fill('');
+      for(const id of jiaxingIds){
+        await select(target,id);
+        assert.equal(await target.locator('.full-route-open').count(),1,id);
+        assert.equal(await target.locator('.full-route-outbound').count(),/往返/.test(routeLookup[id].shape)?1:0,id);
+        assert.equal(await target.locator('#route-detail .photo-empty').count(),1,id);
+        assert.ok(await target.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),id);
+      }
+      await target.selectOption('#city-filter','jiaxing');
+      assert.equal(await target.locator('.route-card').count(),15);
+      for(const id of ['jiaxing-xiangjiadang','jiaxing-juanhu','jiaxing-nanbeihu']){
+        await select(target,id);await target.locator('#map-container').scrollIntoViewIfNeeded();
+        await target.screenshot({path:'/private/tmp/ride-'+id+'-'+(target===mobile?'mobile':'desktop')+'.png'});
       }
     }
     assert.deepEqual(errors, []); console.log(JSON.stringify({ routes: ids.length, desktop: 1440, mobile: 390, errors }));
