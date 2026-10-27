@@ -1,0 +1,43 @@
+src/data/candidates/huzhou-20261027.js
+  bc379537b7e52968 37-38,50-51,89-90,102-103
+research/huzhou-cycling-leads-20261027.md
+  bc379537b7e52968 20-28
+tests/fixtures/catalog-migration-sha256.json
+  bc379537b7e52968 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "eb8674658397eaf5bf90998fcf750f325dcc5282",
+  "prompts": {
+    "bc379537b7e52968": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15db3-1850-78b2-a5a2-bb55fbd065cc",
+        "model": "gpt-6.1-terra"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 19,
+      "total_deletions": 10,
+      "accepted_lines": 18,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "research/huzhou-cycling-leads-20261027.md": {
+          "additions": 9,
+          "accepted_lines": 9
+        },
+        "src/data/candidates/huzhou-20261027.js": {
+          "additions": 8,
+          "deletions": 8,
+          "accepted_lines": 8
+        },
+        "tests/fixtures/catalog-migration-sha256.json": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        }
+      }
+    }
+  }
+}
