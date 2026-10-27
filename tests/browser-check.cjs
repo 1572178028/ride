@@ -25,9 +25,9 @@ const server = http.createServer((req, res) => {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1050 }, reducedMotion: 'reduce', acceptDownloads: true });
     watch(page); await page.goto(url); await page.waitForSelector('.route-card');
     assert.equal(await page.evaluate(() => innerWidth), 1440);
-    assert.equal(await page.locator('.route-card').count(), 27);
-    assert.equal(await page.locator('#total-plans').innerText(), '46');
-    assert.equal(await page.locator('#total-parking').innerText(), '30');
+    assert.equal(await page.locator('.route-card').count(), 32);
+    assert.equal(await page.locator('#total-plans').innerText(), '53');
+    assert.equal(await page.locator('#total-parking').innerText(), '36');
     const ids = ROUTES.map(r => r.id);
     const select = async (p, id) => { await p.evaluate(id => { location.hash = 'route=' + id; }, id); await p.waitForFunction(title => document.querySelector('#selected-heading h2').textContent === title, routeLookup[id].title); };
     await page.selectOption('#region-filter','xianghu');
@@ -177,7 +177,7 @@ const server = http.createServer((req, res) => {
     await page.selectOption('#city-filter', 'jinhua'); assert.equal(await page.locator('#region-filter').inputValue(), 'all');
     await page.selectOption('#city-filter', 'all'); await page.selectOption('#parking-filter', 'unknown'); assert.equal(await page.locator('.route-card').count(), 6);
     await page.selectOption('#lane-filter', 'dedicated'); assert.ok(await page.locator('#route-view').isHidden());
-    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 27);
+    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 32);
     await page.locator('#route-library').scrollIntoViewIfNeeded();
     assert.ok(await page.locator('#route-list').evaluate(el => el.scrollHeight > el.clientHeight && getComputedStyle(el).overflowY === 'auto'));
     await page.locator('.card-select').last().click();
@@ -514,6 +514,35 @@ const server = http.createServer((req, res) => {
         await mobile.locator('.full-route-options > summary').click();
         await mobile.locator('.full-route-box').scrollIntoViewIfNeeded();
         await mobile.screenshot({path:'/private/tmp/ride-navigation-'+id+'.png'});
+      }
+    }
+    const huzhouIds = require('../research/huzhou-expansion-specs-20261027.json').map(s => s.id);
+    const resetHuzhouFilters = async target => {
+      await target.locator('#search').fill('');
+      await target.selectOption('#city-filter', 'all');
+      for (const name of ['region', 'distance', 'parking', 'lane']) await target.selectOption('#'+name+'-filter', 'all');
+      if (await target.locator('#saved-filter').getAttribute('aria-pressed') === 'true') await target.locator('#saved-filter').click();
+    };
+    for (const target of [page, mobile]) {
+      await resetHuzhouFilters(target);
+      await select(target, 'taihu-nine-long');
+      await target.selectOption('#region-filter', 'jiapu');
+      assert.equal(await target.locator('.route-card').count(), 1);
+      assert.equal(await target.locator('.variant-picker button').count(), 3);
+      await resetHuzhouFilters(target);
+      await select(target, 'yucun-north-road');
+      await target.selectOption('#region-filter', 'yucun');
+      assert.equal(await target.locator('.route-card').count(), 1);
+      assert.equal(await target.locator('.variant-picker button').count(), 2);
+      await resetHuzhouFilters(target);
+      for (const id of huzhouIds) {
+        await select(target, id);
+        assert.equal(await target.locator('.full-route-open').count(), 1);
+        assert.ok((await target.locator('.full-route-open').getAttribute('href')).startsWith('baidumap://'));
+        assert.equal(await target.locator('#route-detail [data-research-id]').count(), 1);
+        assert.ok(await target.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+        await target.locator('#map-container').scrollIntoViewIfNeeded();
+        await target.screenshot({path:'/private/tmp/ride-huzhou-'+id+'-'+(target===page?'desktop':'mobile')+'.png'});
       }
     }
     assert.deepEqual(errors, []); console.log(JSON.stringify({ routes: ids.length, desktop: 1440, mobile: 390, errors }));
