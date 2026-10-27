@@ -2,9 +2,11 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { ROUTES, EXPANSION_CANDIDATES } = require('../src/data/index.js');
 
-test('new Huzhou leads preserve evidence gaps and stay out of the formal catalogue', () => {
-  const candidates = EXPANSION_CANDIDATES.filter(c => c.researchCity === 'huzhou');
+test('original Huzhou leads stay traceable beside independent road plans', () => {
+  const ids = require('../research/huzhou-expansion-specs-20261027.json').map(s => s.id);
+  const candidates = ROUTES.filter(r => ids.includes(r.id)).flatMap(r => r.researchExtensions);
   assert.equal(candidates.length, 7);
+  assert.equal(EXPANSION_CANDIDATES.filter(c => c.researchCity === 'huzhou').length, 0);
   for (const candidate of candidates) {
     assert.equal(candidate.checked, '2026-10-27');
     assert.ok(candidate.sources.length && candidate.missing && candidate.roadNote && candidate.parkingNote);

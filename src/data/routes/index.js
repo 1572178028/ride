@@ -28,8 +28,22 @@ import xiasha_riverside from "./xiasha-riverside.js";
 import lijiaxiang_roads from "./lijiaxiang-roads.js";
 import hefu_digang from "./hefu-digang.js";
 import order from "./order.js";
+import xishanyang_ring from "./xishanyang-ring.js";
+import longshan_chuanbu from "./longshan-chuanbu.js";
+import miaoxin_road_return from "./miaoxin-road-return.js";
+import xiazhuhu_west_road_return from "./xiazhuhu-west-road-return.js";
+import nanxun_city_ring from "./nanxun-city-ring.js";
+import yucun_north_road from "./yucun-north-road.js";
+import taihu_nine_long from "./taihu-nine-long.js";
 const positions = new Map(order.map((id, index) => [id, index]));
 export const ROUTES = [
+  ...xishanyang_ring,
+  ...longshan_chuanbu,
+  ...miaoxin_road_return,
+  ...xiazhuhu_west_road_return,
+  ...nanxun_city_ring,
+  ...yucun_north_road,
+  ...taihu_nine_long,
   ...lijiaxiang_roads,
   ...hefu_digang,
   ...xianghu,

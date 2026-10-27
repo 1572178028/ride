@@ -1,6 +1,7 @@
 export default [
   {
     id: "jiapu-lakeside",
+    browseGroup: { id: "jiapu-lakeside", title: "太湖9号 · 夹浦与月亮湾", region: "jiapu", area: "湖州 · 太湖沿岸" },
     number: "18",
     familyId: "jiapu-lakeside",
     familyTitle: "长兴 · 夹浦滨湖大道辅道",
@@ -151,6 +152,7 @@ export default [
   },
   {
     id: "jiapu-easy",
+    browseGroup: { id: "jiapu-lakeside", title: "太湖9号 · 夹浦与月亮湾", region: "jiapu", area: "湖州 · 太湖沿岸" },
     number: "19",
     familyId: "jiapu-lakeside",
     familyTitle: "长兴 · 夹浦滨湖大道辅道",
