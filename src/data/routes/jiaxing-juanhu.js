@@ -418,10 +418,45 @@ export default [
       "P/S坐标差约14.9米是定位偏差，不是已测得入口道路长度；停车点与道路起点分别标P/S。",
       "没有电话、现场或实骑核验；平台距离、爬升不移植给本方案。百度按途经点重新规划，不保证逐米贴合；本批未经iPhone百度App真机计算验证。"
     ],
-    "photos": [],
+    "photos": [
+      {
+        "group": "jiaxing",
+        "license": "原作者版权 · 未注明开放许可",
+        "checked": "2026-10-27",
+        "storage": "local",
+        "kind": "road",
+        "sourceType": "social-original-image",
+        "modification": "下载原帖提供的原始图片文件，未裁剪、未放大或重绘；原图水印保留。",
+        "referenceOnly": true,
+        "assessmentDate": "2026-10-27",
+        "id": "jiaxing-juanhu-luzi-road",
+        "source": "https://www.xiaohongshu.com/explore/6a1694a1000000000702db82",
+        "title": "空腹晨骑，绕湖3圈 · 第5张",
+        "author": "Luzi",
+        "date": "原帖05-27，年份未明确；拍摄日期未注明",
+        "src": "assets/photos/jiaxing-juanhu-luzi-road.webp",
+        "caption": "鹃湖环湖行程中的红灰铺装道路参考",
+        "relation": "原帖第1、2张轨迹显示绕鹃湖并经过南岸，第5张为同次行程道路画面；具体拍摄位置未标明，可能位于其他湖岸，不代表本站南岸每一段或西侧接驳。",
+        "routeIds": [
+          "jiaxing-juanhu"
+        ],
+        "verification": "已读取原帖5张图及正文，排除地图截图、食物湖景和以自行车为主体的照片；本图仅按行程关联参考，不称精确定位。",
+        "matchAssessment": {
+          "source": 20,
+          "location": 10,
+          "track": 10,
+          "visual": 20,
+          "reason": "出处20：原作者完整原帖与第5张原图；地点10：只确认鹃湖、没有拍摄坐标；行程10：原帖轨迹经过本站南岸范围，但本图具体湖岸未知；画面20：红灰铺装、白线、排水与路灯结构清晰。合计60，仅线路参考；同一湖名不再重复加到轨迹项。"
+        },
+        "downloadDate": "2026-10-27",
+        "pixelWidth": 1440,
+        "pixelHeight": 1080,
+        "sourceImageIndex": 5
+      }
+    ],
     "photoTarget": 3,
-    "photoMissing": 3,
-    "photoGap": "本方案道路实拍待补3张；平台原帖留作参考，未经许可的图片不复制为本站照片。",
+    "photoMissing": 2,
+    "photoGap": "道路图目标3张，仍待补2张。已展示图片含关联参考，详见评分依据。",
     "researchExtensions": [
       {
         "id": "jiaxing-juanhu-original-research",
