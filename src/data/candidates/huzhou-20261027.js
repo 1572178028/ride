@@ -34,8 +34,8 @@ export default [
     note: "2017 年报道下仁公路绿道可骑；旧资料不能证明整湖形成可骑闭环。",
     missing: "明确泊位及现行费用、停车接驳、完整闭环道路和景区步道准入。",
     parkingNote: "高德地图列出湿地公园 A、B 区停车场；尚未取得与完整行程匹配的现行停车费用及取车条件。",
-    roadNote: "2019 年报道的环湖观光带当时仅部分建成，不能据此认定现今已经全程连通。",
-    sources: [["行者 · 下渚湖方向 #3163133", "https://www.imxingzhe.com/routes/3163133"], ["德清新闻网 · 下仁公路绿道", "https://dqnews.zjol.com.cn/dqnews/system/2017/08/21/030333135.shtml"], ["浙江党建网 · 环湖观光带旧建设进度", "https://www.zjdj.com.cn/xbsydmtt/201909/t20190918_11034979.shtml"]],
+    roadNote: "2019年报道的观光带当时仅部分建成；2026年4月报道下仁公路—玉屏路连接线预计月底通车，‘环湖S弯’初步成形。报道不证明连接线已按期开通或整湖骑行闭环已连通。",
+    sources: [["行者 · 下渚湖方向 #3163133", "https://www.imxingzhe.com/routes/3163133"], ["德清新闻网 · 下仁公路绿道", "https://dqnews.zjol.com.cn/dqnews/system/2017/08/21/030333135.shtml"], ["浙江党建网 · 环湖观光带旧建设进度", "https://www.zjdj.com.cn/xbsydmtt/201909/t20190918_11034979.shtml"], ["德清新闻网 · 2026年连接线进度", "https://dqnews.zjol.com.cn/dqnews/system/2026/04/28/035200301.shtml"]],
   },
   {
     ...common,
@@ -47,8 +47,8 @@ export default [
     note: "历史报道介绍渚山、川步间龙山绿道；山上阶梯和索桥不能默认骑行。",
     missing: "道路停车位的实际入口与接驳、各路段当前自行车准入、可往返道路几何及单行限制。",
     parkingNote: "高德地图列有龙山绿道与长水线交叉口附近道路停车位；其具体划位、接驳和收费限制尚未现场核验。",
-    roadNote: "浙江在线曾报道绿道骑行；游记区分山下可骑与山上阶梯，不能把全程徒步线作为骑行线路。",
-    sources: [["行者 · 龙山绿道 #4828988", "https://www.imxingzhe.com/routes/4828988"], ["行者 · 龙山绿道 #3931390", "https://www.imxingzhe.com/routes/3931390"], ["浙江在线 · 龙山绿道", "https://huzhou.zjol.com.cn/sh/xlt/201903/t20190321_9725063.shtml"], ["川步村游记 · 山下骑行与山上阶梯", "https://post.smzdm.com/talk/p/allz5pop/"]],
+    roadNote: "浙江在线曾报道绿道骑行；2023年骑友视频称从山岗庙驿站骑至李家驿站，属于单程线索，停车和回程未核。游记区分山下可骑与山上阶梯，不能把全程徒步线作为骑行线路。",
+    sources: [["行者 · 龙山绿道 #4828988", "https://www.imxingzhe.com/routes/4828988"], ["行者 · 龙山绿道 #3931390", "https://www.imxingzhe.com/routes/3931390"], ["浙江在线 · 龙山绿道", "https://huzhou.zjol.com.cn/sh/xlt/201903/t20190321_9725063.shtml"], ["骑友 · 山岗庙至李家驿站视频", "https://www.xiaohongshu.com/explore/64af57690000000016026327"], ["川步村游记 · 山下骑行与山上阶梯", "https://post.smzdm.com/talk/p/allz5pop/"]],
   },
   {
     ...common,
@@ -86,8 +86,8 @@ export default [
     note: "已有余村—银坑乡路 5.5 公里；新线须先比较实际共线路段，适合时作为余村区域变体。",
     missing: "长线轨迹与现有方案重合范围、步行空间自行车准入、完整路网和停车接驳。",
     parkingNote: "现有余村1号停车场采用收费参考且未核取车窗口；不能自动把既有条件延伸成新线的免费停车依据。",
-    roadNote: "现有方案走村镇普通道路，不把余村游览步道直接当成可骑绿道。",
-    sources: [["行者 · 余村方向 #3491175", "https://www.imxingzhe.com/routes/3491175"], ["湖州文旅 · 骑行方向", "https://m.sohu.com/a/1057886096_121106832"]],
+    roadNote: "现有方案走村镇普通道路，不把余村游览步道直接当成可骑绿道。骑友提出灵溪公园至余村的单程约16—20公里，并使用‘寻找入口’等不确定描述；未证实与行者路书或既有短线重合。",
+    sources: [["行者 · 余村方向 #3491175", "https://www.imxingzhe.com/routes/3491175"], ["湖州文旅 · 骑行方向", "https://m.sohu.com/a/1057886096_121106832"], ["骑友 · 灵溪公园至余村的参考建议", "https://www.xiaohongshu.com/explore/69513f4c000000001f005680"]],
   },
   {
     ...common,
@@ -99,7 +99,7 @@ export default [
     note: "已有夹浦南段 7.8 / 12.8 公里方案；新线需先确认与夹浦的地理关系及实际重合，不假定为同一轨迹。",
     missing: "月亮广场附近合法停车及费用、完整路段路网、太湖沿线断点和与夹浦方案的重合范围。",
     parkingNote: "高德地图列出月亮广场地下停车场；未取得匹配整个行程的现行费用与取车窗口。",
-    roadNote: "公开资料提及太湖9号公路骑行，但无法仅凭片区名称推定整段辅道连续或均可骑。",
-    sources: [["行者 · 太湖方向 #5237161", "https://www.imxingzhe.com/routes/5237161"], ["湖州文旅 · 骑行方向", "https://m.sohu.com/a/1057886096_121106832"], ["携程 · 云梦谷周边骑行线索", "https://you.ctrip.com/travels/huzhou68/4167926.html"]],
+    roadNote: "湖州市政府2024年介绍长兴环太湖骑行道全长22.5公里，但无法仅凭片区名称推定所选线路的整段辅道连续或均可骑。",
+    sources: [["行者 · 太湖方向 #5237161", "https://www.imxingzhe.com/routes/5237161"], ["湖州市政府 · 长兴环太湖骑行道", "https://www.huzhou.gov.cn/art/2024/9/2/art_1229213550_59070530.html"], ["湖州文旅 · 骑行方向", "https://m.sohu.com/a/1057886096_121106832"], ["携程 · 云梦谷周边骑行线索", "https://you.ctrip.com/travels/huzhou68/4167926.html"]],
   },
 ];
