@@ -1965,7 +1965,8 @@
     "group": "qiandao-shangjiang",
     "routeIds": [
       "qiandao-shangjiang",
-      "qiandao-center-shangjiang"
+      "qiandao-center-shangjiang",
+      "qiandao-lake-loop"
     ],
     "kind": "road",
     "src": "assets/photos/qiandao-shangjiang-bridge.webp",
@@ -2001,7 +2002,8 @@
     "group": "qiandao-shangjiang",
     "routeIds": [
       "qiandao-shangjiang",
-      "qiandao-center-shangjiang"
+      "qiandao-center-shangjiang",
+      "qiandao-lake-loop"
     ],
     "kind": "road",
     "src": "assets/photos/qiandao-shangjiang-approach.webp",
@@ -2037,7 +2039,8 @@
     "group": "qiandao-shangjiang",
     "routeIds": [
       "qiandao-shangjiang",
-      "qiandao-center-shangjiang"
+      "qiandao-center-shangjiang",
+      "qiandao-lake-loop"
     ],
     "kind": "road",
     "src": "assets/photos/qiandao-shangjiang-side.webp",

@@ -16,6 +16,7 @@ import wengjin from "./wengjin.js";
 import qiandao from "./qiandao.js";
 import qiandao_shangjiang from "./qiandao-shangjiang.js";
 import qiandao_center from "./qiandao-center.js";
+import qiandao_loop from "./qiandao-loop.js";
 import qiandao_northeast from "./qiandao-northeast.js";
 import tonglu from "./tonglu.js";
 import qiantangpark from "./qiantangpark.js";
@@ -79,6 +80,7 @@ export const ROUTES = [
   ...qiandao,
   ...qiandao_shangjiang,
   ...qiandao_center,
+  ...qiandao_loop,
   ...qiandao_northeast,
   ...tonglu,
   ...qiantangpark,

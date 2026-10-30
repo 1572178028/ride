@@ -26,7 +26,7 @@ const server = http.createServer((req, res) => {
     watch(page); await page.goto(url); await page.waitForSelector('.route-card');
     assert.equal(await page.evaluate(() => innerWidth), 1440);
     assert.equal(await page.locator('.route-card').count(), 45);
-    assert.equal(await page.locator('#total-plans').innerText(), '68');
+    assert.equal(await page.locator('#total-plans').innerText(), '69');
     assert.equal(await page.locator('#total-parking').innerText(), '50');
     const ids = ROUTES.map(r => r.id);
     const select = async (p, id) => { await p.evaluate(id => { location.hash = 'route=' + id; }, id); await p.waitForFunction(title => document.querySelector('#selected-heading h2').textContent === title, routeLookup[id].title); };
@@ -404,7 +404,7 @@ const server = http.createServer((req, res) => {
       assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
     }
     for (const target of [page, mobile]) {
-      for (const id of ['qiandao-shangjiang', 'qiandao-northeast', 'qiandao-center-short', 'qiandao-center-shangjiang']) {
+      for (const id of ['qiandao-shangjiang', 'qiandao-northeast', 'qiandao-center-short', 'qiandao-center-shangjiang', 'qiandao-lake-loop']) {
         await select(target, id);
         assert.match(await target.locator('#route-detail').innerText(), /实际收费及禁停/);
         if (id === 'qiandao-northeast') assert.match(await target.locator('#route-detail').innerText(), /1.43km.*推行/);
@@ -472,8 +472,8 @@ const server = http.createServer((req, res) => {
       assert.equal(await target.locator('.route-card').count(), 1);
       assert.equal(await target.locator('.route-card h3').innerText(), '千岛湖');
       assert.equal(await target.locator('#region-filter option[value^="qiandao"]').count(), 1);
-      assert.equal(await target.locator('.variant-picker button').count(), 6);
-      for (const id of ['qiandao-cafe','qiandao-peninsula','qiandao-shangjiang','qiandao-center-short','qiandao-center-shangjiang','qiandao-northeast']) {
+      assert.equal(await target.locator('.variant-picker button').count(), 7);
+      for (const id of ['qiandao-cafe','qiandao-peninsula','qiandao-shangjiang','qiandao-center-short','qiandao-center-shangjiang','qiandao-lake-loop','qiandao-northeast']) {
         const button = target.locator(`[data-variant="${id}"]`);
         assert.ok((await button.innerText()).includes(routeLookup[id].shortTitle));
         await button.focus();
@@ -490,7 +490,7 @@ const server = http.createServer((req, res) => {
       await target.selectOption('#distance-filter', 'easy');
       assert.equal(await target.locator('.variant-picker button').count(), 3);
       await target.selectOption('#distance-filter', 'long');
-      assert.equal(await target.locator('.variant-picker button').count(), 3);
+      assert.equal(await target.locator('.variant-picker button').count(), 4);
       await target.locator('#search').fill('东北湖区');
       assert.equal(await target.locator('.variant-picker button').count(), 1);
       assert.equal(await target.locator('#selected-heading h2').innerText(), routeLookup['qiandao-northeast'].title);
@@ -498,7 +498,7 @@ const server = http.createServer((req, res) => {
       assert.ok(await target.locator('#route-view').isHidden());
       await target.locator('#clear-filters').click();
       await select(target, 'qiandao-shangjiang');
-      assert.equal(await target.locator('.variant-picker button').count(), 6);
+      assert.equal(await target.locator('.variant-picker button').count(), 7);
     }
     for(const id of ids){
       await select(mobile,id);

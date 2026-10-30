@@ -1,0 +1,85 @@
+{
+  "code": 0,
+  "data": {
+    "status": "1",
+    "info": "OK",
+    "infocode": "10000",
+    "count": "1",
+    "pois": [
+      {
+        "id": "B0K27U49HL",
+        "parent": [],
+        "childtype": [],
+        "name": "eVTOl COFFEE",
+        "tag": "coffee",
+        "type": "餐饮服务;咖啡厅;咖啡厅",
+        "typecode": "050500",
+        "biz_type": "diner",
+        "address": "姜家镇狮城路538号205室",
+        "location": "118.672359,29.472129",
+        "tel": "176****7923",
+        "postcode": [],
+        "website": [],
+        "email": [],
+        "pcode": "330000",
+        "pname": "浙江省",
+        "citycode": "0571",
+        "cityname": "杭州市",
+        "adcode": "330127",
+        "adname": "淳安县",
+        "importance": [],
+        "shopid": [],
+        "shopinfo": "0",
+        "poiweight": [],
+        "gridcode": "4418156312",
+        "distance": [],
+        "navi_poiid": [],
+        "entr_location": "118.672287,29.472192",
+        "business_area": [],
+        "exit_location": [],
+        "match": "0",
+        "recommend": "0",
+        "timestamp": "2026-10-23 04:03:43",
+        "alias": [],
+        "indoor_map": "0",
+        "indoor_data": {
+          "cpid": [],
+          "floor": [],
+          "truefloor": [],
+          "cmsid": []
+        },
+        "groupbuy_num": "0",
+        "discount_num": "0",
+        "biz_ext": {
+          "rating": "4.0",
+          "cost": "21.00",
+          "meal_ordering": "0",
+          "open_time": "09:00-17:30",
+          "opentime2": "周一至周日 09:00-17:30"
+        },
+        "event": [],
+        "children": [],
+        "photos": [
+          {
+            "title": [],
+            "url": "http://store.is.autonavi.com/showpic/1087d5bab6e988332ef983abfe4df695"
+          },
+          {
+            "title": [],
+            "url": "https://store.is.autonavi.com/showpic/e2bddeba2a584b9f60a0042b1d813ca3"
+          }
+        ],
+        "updateflag": "0",
+        "building": [],
+        "atag": "咖啡",
+        "featured_reviews": [],
+        "favorite_num": [],
+        "space_num": [],
+        "featured_reviews_remake": [],
+        "keytag": "咖啡"
+      }
+    ]
+  },
+  "type": "poi_detail",
+  "cached": false
+}

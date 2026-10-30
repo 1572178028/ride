@@ -12,6 +12,7 @@ export default [
   "qiandao-shangjiang",
   "qiandao-center-short",
   "qiandao-center-shangjiang",
+  "qiandao-lake-loop",
   "qiandao-northeast",
   "tonglu-riverside",
   "qiantang-seawall",

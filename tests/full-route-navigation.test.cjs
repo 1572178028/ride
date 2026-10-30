@@ -111,7 +111,7 @@ test('all navigation plans close the full route and split at the maintained actu
   else circuits++;
   if(r.id!=='xianghu-hegong') assert.ok(Math.abs(n.plans.full.at(-1).km-r.distance)<0.25,r.id);
  }
- assert.equal(returns,45);assert.equal(circuits,23);
+ assert.equal(returns,45);assert.equal(circuits,24);
  for(const[id,index]of[['westlake-tea-road',601],['meiling-south-road',228],['eastlake-outskirts',22]]){
   const r=ROUTES.find(r=>r.id===id),n=buildRouteNavigation(r,MAP_DATA.paths[id]);
   assert.equal(n.plans.outbound.at(-1).index,index,id);

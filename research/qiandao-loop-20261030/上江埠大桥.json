@@ -1,0 +1,169 @@
+{
+  "code": 0,
+  "data": {
+    "status": "1",
+    "info": "OK",
+    "infocode": "10000",
+    "count": "4",
+    "suggestion": {
+      "keywords": [],
+      "cities": []
+    },
+    "pois": [
+      {
+        "id": "B023B1D4RC",
+        "parent": [],
+        "childtype": [],
+        "name": "上江埠大桥",
+        "type": "地名地址信息;交通地名;桥",
+        "typecode": "190307",
+        "biz_type": [],
+        "address": "淳安县",
+        "location": "118.972877,29.529786",
+        "tel": [],
+        "pname": "浙江省",
+        "cityname": "杭州市",
+        "adname": "淳安县",
+        "importance": [],
+        "shopid": [],
+        "shopinfo": "2",
+        "poiweight": [],
+        "distance": [],
+        "biz_ext": {
+          "rating": [],
+          "cost": [],
+          "open_time": [],
+          "opentime2": []
+        },
+        "photos": [
+          {
+            "title": [],
+            "url": "https://aos-comment.amap.com/B023B1D4RC/comment/20260316-5d19658f2951ce0be039d4de-4Rsa1yfOmKp71Bpw1TGdXv.jpg"
+          },
+          {
+            "title": [],
+            "url": "https://aos-comment.amap.com/B023B1D4RC/comment/content_media_external_file_1000237450_ss__176****067941_39536282.jpg"
+          },
+          {
+            "title": [],
+            "url": "https://store.is.autonavi.com/showpic/29fa1b271cd1f9e8952e5bb381b747ed"
+          }
+        ],
+        "building": [],
+        "atag": [],
+        "featured_reviews": [],
+        "favorite_num": [],
+        "space_num": [],
+        "featured_reviews_remake": [],
+        "keytag": "桥"
+      },
+      {
+        "id": "B0FFKIRP3V",
+        "parent": [],
+        "childtype": [],
+        "name": "上江埠观景台",
+        "type": "风景名胜;风景名胜;观景点",
+        "typecode": "110209",
+        "biz_type": "tour",
+        "address": "千岛湖东线",
+        "location": "118.970366,29.523566",
+        "tel": [],
+        "pname": "浙江省",
+        "cityname": "杭州市",
+        "adname": "淳安县",
+        "importance": [],
+        "shopid": [],
+        "shopinfo": "2",
+        "poiweight": [],
+        "distance": [],
+        "biz_ext": {
+          "rating": "4.4",
+          "cost": [],
+          "ticket_ordering": "0",
+          "open_time": "24小时营业",
+          "opentime2": "周一至周日 00:00-24:00",
+          "level": []
+        },
+        "photos": [
+          {
+            "title": [],
+            "url": "https://store.is.autonavi.com/showpic/2c4bba7b62c0bb180****01572882650?type=pic",
+            "provider": []
+          },
+          {
+            "title": [],
+            "url": "https://aos-comment.amap.com/B0GUNOJKES/comment/9e5f4ea76eac501ce8cf2c79032fedce_2048_2048_80.jpg",
+            "provider": []
+          },
+          {
+            "title": [],
+            "url": "https://aos-comment.amap.com/comment/20260321-a2fe1af7f8328683d69262f8-XtKgAcaBEu5aLLKPfO54F.jpg",
+            "provider": []
+          }
+        ],
+        "building": [],
+        "atag": [],
+        "featured_reviews": [],
+        "favorite_num": [],
+        "space_num": [],
+        "featured_reviews_remake": [],
+        "keytag": "湖泊河流"
+      },
+      {
+        "id": "B0HAJ63M4N",
+        "parent": [],
+        "childtype": [],
+        "name": "上江埠微房车营地",
+        "type": "住宿服务;住宿服务相关;住宿服务相关",
+        "typecode": "100000",
+        "biz_type": "hotel",
+        "address": "里商乡淳杨线上江埠大桥南(上江埠驿站)",
+        "location": "118.970206,29.523090",
+        "tel": "0571-58708798;150****6905",
+        "pname": "浙江省",
+        "cityname": "杭州市",
+        "adname": "淳安县",
+        "importance": [],
+        "shopid": [],
+        "shopinfo": "0",
+        "poiweight": [],
+        "distance": [],
+        "biz_ext": {
+          "rating": "4.1",
+          "cost": [],
+          "hotel_ordering": "0",
+          "lowest_price": [],
+          "star": [],
+          "open_time": [],
+          "opentime2": []
+        },
+        "photos": [
+          {
+            "title": [],
+            "url": "http://store.is.autonavi.com/showpic/7f85a558373bb02e525199d36fb90ac1",
+            "provider": []
+          },
+          {
+            "title": [],
+            "url": "http://store.is.autonavi.com/showpic/4e443ac2ec70035d9668e2598b66c732",
+            "provider": []
+          },
+          {
+            "title": [],
+            "url": "https://store.is.autonavi.com/showpic/cc1901d6918a46c612e46f515c048ff2",
+            "provider": []
+          }
+        ],
+        "building": [],
+        "atag": [],
+        "featured_reviews": [],
+        "favorite_num": [],
+        "space_num": [],
+        "featured_reviews_remake": [],
+        "keytag": "露营地"
+      }
+    ]
+  },
+  "type": "poi_search",
+  "cached": false
+}

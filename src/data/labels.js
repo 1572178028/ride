@@ -46,6 +46,7 @@ export default {
     qiandao: "淳安 · 千岛湖",
     "qiandao-shangjiang": "淳安 · 千岛湖上江埠",
     "qiandao-center": "淳安 · 千岛湖中心湖区",
+    "qiandao-loop": "淳安 · 千岛湖中心与西南湖区",
     "qiandao-northeast": "淳安 · 千岛湖东北湖区",
     tonglu: "桐庐 · 富春江",
     qiantangpark: "钱塘 · 湿地外围",
