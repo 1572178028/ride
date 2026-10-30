@@ -3,8 +3,8 @@ const {ROUTES,ROUTE_METADATA}=require('../src/data/index.js');
 const {matchesRoute}=require('../src/domain/route-filters.js');
 const {routeCardHTML}=require('../src/features/routes/card.js');
 const filters={search:'',city:'all',region:'qiandao',distance:'all',parking:'all',lane:'all',favoritesOnly:false};
-const ids=['qiandao-cafe','qiandao-peninsula','qiandao-shangjiang','qiandao-northeast'];
-test('one Qiandao area exposes all four independently maintained route plans',()=>{
+const ids=['qiandao-cafe','qiandao-peninsula','qiandao-shangjiang','qiandao-center-short','qiandao-center-shangjiang','qiandao-northeast'];
+test('one Qiandao area exposes all six independently maintained route plans',()=>{
  const routes=ROUTES.filter(r=>matchesRoute(r,filters,new Set()));
  assert.deepEqual(routes.map(r=>r.id),ids);
  assert.equal(new Set(routes.map(r=>r.familyId)).size,3);
@@ -18,7 +18,7 @@ test('one Qiandao area exposes all four independently maintained route plans',()
 });
 test('Qiandao grouping respects search, distance and per-plan favorites',()=>{
  const select=f=>ROUTES.filter(r=>matchesRoute(r,{...filters,...f},new Set(['qiandao-northeast']))).map(r=>r.id);
- assert.deepEqual(select({distance:'long'}),ids.slice(2));
- assert.deepEqual(select({search:'东北湖区'}),[ids[3]]);
- assert.deepEqual(select({favoritesOnly:true}),[ids[3]]);
+ assert.deepEqual(select({distance:'long'}),[ids[2],ids[4],ids[5]]);
+ assert.deepEqual(select({search:'东北湖区'}),[ids[5]]);
+ assert.deepEqual(select({favoritesOnly:true}),[ids[5]]);
 });

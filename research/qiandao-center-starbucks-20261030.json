@@ -1,0 +1,117 @@
+{
+  "code": 0,
+  "data": {
+    "status": "1",
+    "info": "OK",
+    "infocode": "10000",
+    "count": "2",
+    "suggestion": {
+      "keywords": [],
+      "cities": []
+    },
+    "pois": [
+      {
+        "id": "B023B14BWS",
+        "parent": "B0FFFYF0GP",
+        "childtype": "301",
+        "name": "千岛湖秀水广场",
+        "type": "风景名胜;公园广场;城市广场",
+        "typecode": "110105",
+        "biz_type": "tour",
+        "address": "千岛湖镇阳光路17号(千岛湖旅游度假区)",
+        "location": "119.042279,29.614090",
+        "tel": "4008811988",
+        "pname": "浙江省",
+        "cityname": "杭州市",
+        "adname": "淳安县",
+        "importance": [],
+        "shopid": [],
+        "shopinfo": "2",
+        "poiweight": [],
+        "distance": [],
+        "biz_ext": {
+          "rating": "4.6",
+          "cost": [],
+          "ticket_ordering": "0",
+          "open_time": "24小时营业",
+          "opentime2": "周一至周日 00:00-24:00",
+          "level": []
+        },
+        "photos": [
+          {
+            "title": [],
+            "url": "https://store.is.autonavi.com/showpic/e9912801a3596f660000********8386?type=pic",
+            "provider": []
+          },
+          {
+            "title": [],
+            "url": "https://aos-comment.amap.com/B023B14BWS/comment/a2a79acfe8ccbb0fa935d5efe0a564dc_2048_2048_80.jpg",
+            "provider": []
+          },
+          {
+            "title": [],
+            "url": "https://store.is.autonavi.com/showpic/abf37b9ae741781e0000****0592?type=pic",
+            "provider": []
+          }
+        ],
+        "building": [],
+        "atag": [],
+        "featured_reviews": [],
+        "favorite_num": [],
+        "space_num": [],
+        "featured_reviews_remake": [],
+        "keytag": "广场"
+      },
+      {
+        "id": "B0FFGPZIKJ",
+        "parent": "B023B14BWS",
+        "childtype": "302",
+        "name": "星巴克(千岛湖秀水广场店)",
+        "type": "餐饮服务;咖啡厅;星巴克咖啡",
+        "typecode": "050501",
+        "biz_type": "diner",
+        "address": "阳光路89号秀水广场A-1营业房区",
+        "location": "119.041302,29.615546",
+        "tel": "0571-65102292",
+        "pname": "浙江省",
+        "cityname": "杭州市",
+        "adname": "淳安县",
+        "importance": [],
+        "shopid": [],
+        "shopinfo": "1",
+        "poiweight": [],
+        "distance": [],
+        "biz_ext": {
+          "rating": "4.6",
+          "cost": "30.00",
+          "meal_ordering": "0",
+          "open_time": "07:00-21:30",
+          "opentime2": "周一至周日 07:00-21:30"
+        },
+        "photos": [
+          {
+            "title": [],
+            "url": "https://aos-comment.amap.com/B0FFGPZIKJ/comment/44838346_6230_4531_8F61_FA1C7DE60410_L0_001_1126_2000_174****866543_13533894.jpg"
+          },
+          {
+            "title": [],
+            "url": "https://store.is.autonavi.com/showpic/21478a9ca0067b54343e016a69bd8700"
+          },
+          {
+            "title": [],
+            "url": "https://aos-comment.amap.com/B0FFGPZIKJ/comment/3bf5a32a18dd23513dbc85dc8c5db104_2048_2048_80.jpg"
+          }
+        ],
+        "building": [],
+        "atag": "单人餐,美式咖啡,下午茶",
+        "featured_reviews": [],
+        "favorite_num": [],
+        "space_num": [],
+        "featured_reviews_remake": [],
+        "keytag": "饮品"
+      }
+    ]
+  },
+  "type": "poi_search",
+  "cached": false
+}

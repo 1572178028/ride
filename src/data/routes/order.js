@@ -10,6 +10,8 @@ export default [
   "qiandao-cafe",
   "qiandao-peninsula",
   "qiandao-shangjiang",
+  "qiandao-center-short",
+  "qiandao-center-shangjiang",
   "qiandao-northeast",
   "tonglu-riverside",
   "qiantang-seawall",

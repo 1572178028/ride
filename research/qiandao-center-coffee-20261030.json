@@ -1,0 +1,89 @@
+{
+  "code": 0,
+  "data": {
+    "status": "1",
+    "info": "OK",
+    "infocode": "10000",
+    "count": "1",
+    "pois": [
+      {
+        "id": "B0KD1RK2EM",
+        "parent": [],
+        "childtype": [],
+        "name": "杭州千岛湖·雲渡咖啡",
+        "tag": [],
+        "type": "餐饮服务;咖啡厅;咖啡厅",
+        "typecode": "050500",
+        "biz_type": "diner",
+        "address": "千岛湖港口路3100-1号",
+        "location": "118.969634,29.546179",
+        "tel": [],
+        "postcode": [],
+        "website": [],
+        "email": [],
+        "pcode": "330000",
+        "pname": "浙江省",
+        "citycode": "0571",
+        "cityname": "杭州市",
+        "adcode": "330127",
+        "adname": "淳安县",
+        "importance": [],
+        "shopid": [],
+        "shopinfo": "0",
+        "poiweight": [],
+        "gridcode": "4418275711",
+        "distance": [],
+        "navi_poiid": [],
+        "entr_location": "118.969623,29.546131",
+        "business_area": "千岛湖旅游度假区(排岭半岛)",
+        "exit_location": [],
+        "match": "0",
+        "recommend": "0",
+        "timestamp": "2026-10-25 11:10:49",
+        "alias": [],
+        "indoor_map": "0",
+        "indoor_data": {
+          "cpid": [],
+          "floor": [],
+          "truefloor": [],
+          "cmsid": []
+        },
+        "groupbuy_num": "0",
+        "discount_num": "0",
+        "biz_ext": {
+          "rating": "4.6",
+          "cost": "26.00",
+          "meal_ordering": "0",
+          "open_time": "09:00-18:00",
+          "opentime2": "周一至周日 09:00-18:00"
+        },
+        "event": [],
+        "children": [],
+        "photos": [
+          {
+            "title": [],
+            "url": "https://store.is.autonavi.com/showpic/e6fd233d586135fa0000****8664?type=pic"
+          },
+          {
+            "title": [],
+            "url": "https://store.is.autonavi.com/showpic/6909052f35a8bbf4000****8510?type=pic"
+          },
+          {
+            "title": [],
+            "url": "https://aos-comment.amap.com/B0KD1RK2EM/comment/content_media_external_file_179_177****345932_19734748.jpg"
+          }
+        ],
+        "updateflag": "0",
+        "building": [],
+        "atag": "咖啡",
+        "featured_reviews": [],
+        "favorite_num": [],
+        "space_num": [],
+        "featured_reviews_remake": [],
+        "keytag": "咖啡"
+      }
+    ]
+  },
+  "type": "poi_detail",
+  "cached": false
+}
