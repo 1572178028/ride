@@ -1,0 +1,293 @@
+src/data/generated/plans.js
+  5dd66da8b365d231 2
+tests/full-route-navigation.test.cjs
+  5dd66da8b365d231 114
+tests/browser-check.cjs
+  5dd66da8b365d231 29-30,407,418,422,475-476,491,493,501
+src/data/generated/maps.js
+  5dd66da8b365d231 2
+research/qiandao-center-specs-20261030.json
+  5dd66da8b365d231 1-119
+index.html
+  5dd66da8b365d231 55-57
+docs/data-notes.md
+  5dd66da8b365d231 147-150
+research/qiandao-center-qiyecafe-20261030.json
+  5dd66da8b365d231 1-88
+tests/catalog.test.cjs
+  5dd66da8b365d231 15,22,37-38,90,107-108,110,228,250,446,518
+tests/architecture.test.cjs
+  5dd66da8b365d231 9
+tests/qiandao-grouping.test.cjs
+  5dd66da8b365d231 6-7,21-23
+tests/fixtures/catalog-migration-sha256.json
+  5dd66da8b365d231 2-4,6,12
+research/qiandao-center-parking-20261030.json
+  5dd66da8b365d231 1-75
+src/data/index.js
+  5dd66da8b365d231 34
+research/qiandao-center-plant-20261030.json
+  5dd66da8b365d231 1-1024
+research/qiandao-center-coffee-20261030.json
+  5dd66da8b365d231 1-89
+src/data/routes/index.js
+  5dd66da8b365d231 18,81
+research/qiandao-center-parking-around-20261030.json
+  5dd66da8b365d231 1-328
+src/data/routes/order.js
+  5dd66da8b365d231 13-14
+CHANGELOG.md
+  5dd66da8b365d231 3-6
+research/qiandao-center-coffee-around-20261030.json
+  5dd66da8b365d231 1-207
+README.md
+  5dd66da8b365d231 3,26,80-81
+research/qiandao-center-plant-ride-20261030.json
+  5dd66da8b365d231 1-49
+research/photo-licenses.json
+  5dd66da8b365d231 1967-1968,2003-2004,2039-2040
+src/data/routes/qiandao-center.js
+  5dd66da8b365d231 1-1056
+research/qiandao-center-20261030/README.md
+  5dd66da8b365d231 1-68
+research/qiandao-center-food-20261030.json
+  5dd66da8b365d231 1-89
+research/releases/v1.1.33.md
+  5dd66da8b365d231 42-50
+assets/maps/qiandao-center-shangjiang.svg
+  5dd66da8b365d231 1
+research/qiandao-center-xiushui-parking-20261030.json
+  5dd66da8b365d231 1-733
+scripts/build-qiandao-center.py
+  5dd66da8b365d231 1-52
+src/data/generated/paths.js
+  5dd66da8b365d231 2
+src/data/labels.js
+  5dd66da8b365d231 48
+assets/maps/qiandao-center-short.svg
+  5dd66da8b365d231 1
+tests/qiandao-center.test.cjs
+  5dd66da8b365d231 1-47
+research/qiandao-center-starbucks-20261030.json
+  5dd66da8b365d231 1-117
+research/qiandao-center-north-parking-20261030.json
+  5dd66da8b365d231 1-76
+docs/architecture/route-maintenance.md
+  5dd66da8b365d231 29,35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "07dd304ca68237e2f8f5816c301ac2fab599e454",
+  "prompts": {
+    "5dd66da8b365d231": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a18b55-7cc4-7290-b03a-3e83bdc3fc49",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 16069,
+      "total_deletions": 101,
+      "accepted_lines": 16015,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "research/qiandao-center-plant-20261030.json": {
+          "additions": 1024,
+          "accepted_lines": 1024
+        },
+        "README.md": {
+          "additions": 4,
+          "deletions": 2,
+          "accepted_lines": 4
+        },
+        "src/data/generated/plans.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "research/qiandao-center-starbucks-20261030.json": {
+          "additions": 117,
+          "accepted_lines": 117
+        },
+        "research/qiandao-center-20261030-osm.json.gz": {
+          "additions": 4430,
+          "accepted_lines": 4430
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 13,
+          "deletions": 12,
+          "accepted_lines": 12
+        },
+        "research/qiandao-center-xiushui-parking-20261030.json": {
+          "additions": 733,
+          "accepted_lines": 733
+        },
+        "assets/maps/qiandao-center-shangjiang.png": {
+          "additions": 1770,
+          "accepted_lines": 1770
+        },
+        "tests/architecture.test.cjs": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/labels.js": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "research/qiandao-center-qiyecafe-20261030.json": {
+          "additions": 88,
+          "accepted_lines": 88
+        },
+        "index.html": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 3
+        },
+        "research/qiandao-center-20261030/tiedan-route.webp": {
+          "additions": 792,
+          "accepted_lines": 792
+        },
+        "tests/full-route-navigation.test.cjs": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "research/releases/v1.1.33.md": {
+          "additions": 9,
+          "accepted_lines": 9
+        },
+        "src/data/routes/index.js": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "tests/qiandao-grouping.test.cjs": {
+          "additions": 5,
+          "deletions": 5,
+          "accepted_lines": 5
+        },
+        "assets/maps/qiandao-center-shangjiang.svg": {
+          "additions": 2,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/routes/qiandao-center.js": {
+          "additions": 1105,
+          "deletions": 49,
+          "accepted_lines": 1056
+        },
+        "src/data/index.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "assets/maps/qiandao-center-short.svg": {
+          "additions": 2,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "research/photo-licenses.json": {
+          "additions": 6,
+          "deletions": 3,
+          "accepted_lines": 6
+        },
+        "research/qiandao-center-coffee-around-20261030.json": {
+          "additions": 207,
+          "accepted_lines": 207
+        },
+        "research/qiandao-center-parking-20261030.json": {
+          "additions": 75,
+          "accepted_lines": 75
+        },
+        "research/qiandao-center-coffee-20261030.json": {
+          "additions": 89,
+          "accepted_lines": 89
+        },
+        "src/data/routes/order.js": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "research/qiandao-center-20261030/road-2.webp": {
+          "additions": 1898,
+          "accepted_lines": 1898
+        },
+        "research/qiandao-center-20261030/README.md": {
+          "additions": 68,
+          "accepted_lines": 68
+        },
+        "research/qiandao-center-food-20261030.json": {
+          "additions": 89,
+          "accepted_lines": 89
+        },
+        "research/qiandao-center-parking-around-20261030.json": {
+          "additions": 328,
+          "accepted_lines": 328
+        },
+        "CHANGELOG.md": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "docs/architecture/route-maintenance.md": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        },
+        "tests/fixtures/catalog-migration-sha256.json": {
+          "additions": 5,
+          "deletions": 5,
+          "accepted_lines": 5
+        },
+        "research/qiandao-center-north-parking-20261030.json": {
+          "additions": 76,
+          "accepted_lines": 76
+        },
+        "tests/browser-check.cjs": {
+          "additions": 10,
+          "deletions": 10,
+          "accepted_lines": 10
+        },
+        "src/data/generated/paths.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "research/qiandao-center-plant-ride-20261030.json": {
+          "additions": 49,
+          "accepted_lines": 49
+        },
+        "docs/data-notes.md": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "scripts/build-qiandao-center.py": {
+          "additions": 53,
+          "deletions": 1,
+          "accepted_lines": 52
+        },
+        "research/qiandao-center-20261030/road-3.webp": {
+          "additions": 1945,
+          "accepted_lines": 1945
+        },
+        "assets/maps/qiandao-center-short.png": {
+          "additions": 886,
+          "accepted_lines": 886
+        },
+        "research/qiandao-center-specs-20261030.json": {
+          "additions": 119,
+          "accepted_lines": 119
+        },
+        "src/data/generated/maps.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "tests/qiandao-center.test.cjs": {
+          "additions": 47,
+          "accepted_lines": 47
+        }
+      }
+    }
+  }
+}
