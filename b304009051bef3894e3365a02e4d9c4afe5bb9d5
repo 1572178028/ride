@@ -1,0 +1,315 @@
+src/data/labels.js
+  5dd66da8b365d231 49
+research/qiandao-loop-20261030/浪川乡政府.json
+  5dd66da8b365d231 1-137
+CHANGELOG.md
+  5dd66da8b365d231 3-6
+research/qiandao-loop-20261030/大墅.json
+  5dd66da8b365d231 1-134
+tests/catalog.test.cjs
+  5dd66da8b365d231 15,22,28,30-31,90,110,153-157,232,254,449-450,521
+research/qiandao-loop-20261030/姜家咖啡.json
+  5dd66da8b365d231 1-131
+tests/architecture.test.cjs
+  5dd66da8b365d231 9-10
+research/qiandao-loop-20261030/大墅镇政府.json
+  5dd66da8b365d231 1-146
+src/data/generated/plans.js
+  5dd66da8b365d231 2
+index.html
+  5dd66da8b365d231 55-56
+research/qiandao-loop-20261030/安阳餐厅.json
+  5dd66da8b365d231 1-16
+research/qiandao-loop-20261030/bridge-ride.json
+  5dd66da8b365d231 1-32
+research/qiandao-loop-20261030/汾口餐厅.json
+  5dd66da8b365d231 1-100
+research/qiandao-loop-20261030/安阳乡政府.json
+  5dd66da8b365d231 1-138
+research/qiandao-loop-20261030/README.md
+  5dd66da8b365d231 1-70
+src/data/routes/order.js
+  5dd66da8b365d231 15
+research/qiandao-loop-20261030/千岛湖大桥.json
+  5dd66da8b365d231 1-154
+research/qiandao-loop-20261030/界首乡政府.json
+  5dd66da8b365d231 1-129
+research/qiandao-loop-20261030/安阳餐饮复搜.json
+  5dd66da8b365d231 1-52
+tests/full-route-navigation.test.cjs
+  5dd66da8b365d231 114
+tests/qiandao-grouping.test.cjs
+  5dd66da8b365d231 6-7,10-11,21-23
+tests/fixtures/catalog-migration-sha256.json
+  5dd66da8b365d231 2-4,6,12
+assets/maps/qiandao-lake-loop.svg
+  5dd66da8b365d231 1
+research/qiandao-loop-20261030/汾口转角餐馆详情.json
+  5dd66da8b365d231 1-76
+research/qiandao-loop-20261030/下姜村.json
+  5dd66da8b365d231 1-168
+src/data/routes/index.js
+  5dd66da8b365d231 19,83
+research/qiandao-loop-20261030/上江埠大桥.json
+  5dd66da8b365d231 1-169
+research/qiandao-loop-20261030/汾口镇政府.json
+  5dd66da8b365d231 1-125
+scripts/build-qiandao-loop.py
+  5dd66da8b365d231 1-74
+tests/qiandao-loop.test.cjs
+  5dd66da8b365d231 1-49
+research/qiandao-loop-20261030/姜家镇政府.json
+  5dd66da8b365d231 1-119
+research/qiandao-loop-20261030/姜家咖啡详情.json
+  5dd66da8b365d231 1-85
+README.md
+  5dd66da8b365d231 3,26,75,82-83
+src/data/generated/paths.js
+  5dd66da8b365d231 2
+src/data/generated/maps.js
+  5dd66da8b365d231 2
+research/photo-licenses.json
+  5dd66da8b365d231 1968-1969,2005-2006,2042-2043
+research/qiandao-loop-spec-20261030.json
+  5dd66da8b365d231 1-204
+research/qiandao-loop-20261030/parking.json
+  5dd66da8b365d231 1-75
+tests/browser-check.cjs
+  5dd66da8b365d231 29,407,475-476,493,501
+research/releases/v1.1.33.md
+  5dd66da8b365d231 51-58
+research/qiandao-loop-20261030/north-bridge-ride.json
+  5dd66da8b365d231 1-77
+docs/architecture/route-maintenance.md
+  5dd66da8b365d231 29,35
+src/data/routes/qiandao-loop.js
+  5dd66da8b365d231 1-994
+research/qiandao-loop-20261030/集贤路骑行接驳.json
+  5dd66da8b365d231 1-32
+docs/data-notes.md
+  5dd66da8b365d231 151-154
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "b304009051bef3894e3365a02e4d9c4afe5bb9d5",
+  "prompts": {
+    "5dd66da8b365d231": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a18b55-7cc4-7290-b03a-3e83bdc3fc49",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 8737,
+      "total_deletions": 48,
+      "accepted_lines": 8736,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "research/qiandao-loop-20261030/界首乡政府.json": {
+          "additions": 129,
+          "accepted_lines": 129
+        },
+        "research/releases/v1.1.33.md": {
+          "additions": 8,
+          "accepted_lines": 8
+        },
+        "research/qiandao-loop-20261030/parking.json": {
+          "additions": 75,
+          "accepted_lines": 75
+        },
+        "src/data/generated/plans.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/labels.js": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "research/qiandao-loop-20261030/大墅.json": {
+          "additions": 134,
+          "accepted_lines": 134
+        },
+        "research/qiandao-loop-20261030/千岛湖大桥.json": {
+          "additions": 154,
+          "accepted_lines": 154
+        },
+        "tests/browser-check.cjs": {
+          "additions": 6,
+          "deletions": 6,
+          "accepted_lines": 6
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 17,
+          "deletions": 13,
+          "accepted_lines": 17
+        },
+        "index.html": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        },
+        "tests/architecture.test.cjs": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        },
+        "docs/data-notes.md": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "research/qiandao-loop-20261030/浪川乡政府.json": {
+          "additions": 137,
+          "accepted_lines": 137
+        },
+        "research/qiandao-loop-20261030/安阳餐厅.json": {
+          "additions": 16,
+          "accepted_lines": 16
+        },
+        "research/qiandao-loop-20261030/姜家咖啡详情.json": {
+          "additions": 85,
+          "accepted_lines": 85
+        },
+        "research/qiandao-loop-20261030/汾口转角餐馆详情.json": {
+          "additions": 76,
+          "accepted_lines": 76
+        },
+        "assets/maps/qiandao-lake-loop.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "docs/architecture/route-maintenance.md": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 2
+        },
+        "research/qiandao-loop-20261030/安阳餐饮复搜.json": {
+          "additions": 52,
+          "accepted_lines": 52
+        },
+        "tests/qiandao-loop.test.cjs": {
+          "additions": 49,
+          "accepted_lines": 49
+        },
+        "research/qiandao-loop-20261030/north-bridge-ride.json": {
+          "additions": 77,
+          "accepted_lines": 77
+        },
+        "README.md": {
+          "additions": 5,
+          "deletions": 3,
+          "accepted_lines": 5
+        },
+        "research/qiandao-loop-20261030/姜家镇政府.json": {
+          "additions": 119,
+          "accepted_lines": 119
+        },
+        "research/qiandao-loop-20261030/下姜村.json": {
+          "additions": 168,
+          "accepted_lines": 168
+        },
+        "research/qiandao-loop-20261030/bridge-ride.json": {
+          "additions": 32,
+          "accepted_lines": 32
+        },
+        "tests/qiandao-grouping.test.cjs": {
+          "additions": 7,
+          "deletions": 7,
+          "accepted_lines": 7
+        },
+        "research/qiandao-loop-20261030/集贤路骑行接驳.json": {
+          "additions": 32,
+          "accepted_lines": 32
+        },
+        "research/qiandao-loop-20261030/汾口镇政府.json": {
+          "additions": 125,
+          "accepted_lines": 125
+        },
+        "src/data/generated/maps.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/routes/qiandao-loop.js": {
+          "additions": 994,
+          "accepted_lines": 994
+        },
+        "research/qiandao-loop-20261030/上江埠大桥.json": {
+          "additions": 169,
+          "accepted_lines": 169
+        },
+        "tests/fixtures/catalog-migration-sha256.json": {
+          "additions": 5,
+          "deletions": 5,
+          "accepted_lines": 5
+        },
+        "scripts/build-qiandao-loop.py": {
+          "additions": 74,
+          "accepted_lines": 74
+        },
+        "research/qiandao-loop-spec-20261030.json": {
+          "additions": 204,
+          "accepted_lines": 204
+        },
+        "research/qiandao-loop-20261030/汾口餐厅.json": {
+          "additions": 100,
+          "accepted_lines": 100
+        },
+        "tests/full-route-navigation.test.cjs": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "research/qiandao-loop-20261030-osm.json.gz": {
+          "additions": 3002,
+          "accepted_lines": 3002
+        },
+        "research/qiandao-loop-20261030/安阳乡政府.json": {
+          "additions": 138,
+          "accepted_lines": 138
+        },
+        "research/qiandao-loop-20261030/README.md": {
+          "additions": 71,
+          "deletions": 1,
+          "accepted_lines": 70
+        },
+        "research/qiandao-loop-20261030/大墅镇政府.json": {
+          "additions": 146,
+          "accepted_lines": 146
+        },
+        "src/data/routes/index.js": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "src/data/routes/order.js": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "src/data/generated/paths.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "CHANGELOG.md": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "research/qiandao-loop-20261030/姜家咖啡.json": {
+          "additions": 131,
+          "accepted_lines": 131
+        },
+        "assets/maps/qiandao-lake-loop.png": {
+          "additions": 2171,
+          "accepted_lines": 2171
+        },
+        "research/photo-licenses.json": {
+          "additions": 6,
+          "deletions": 3,
+          "accepted_lines": 6
+        }
+      }
+    }
+  }
+}
