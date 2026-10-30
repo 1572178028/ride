@@ -1,0 +1,32 @@
+[
+  {
+    "file": "assets/photos/qiandao-center-tiedan-2.webp",
+    "bytes": 500914,
+    "sha256": "a37387849fbf7d1fab0edebb71f6fd6449cb735a2384ce8076fc17f93c574c6e"
+  },
+  {
+    "file": "assets/photos/qiandao-center-tiedan-3.webp",
+    "bytes": 493598,
+    "sha256": "5162e5dc1642a5edde5ebfa0b629d2e20fdfedd80503c29506d68c029c348498"
+  },
+  {
+    "file": "assets/photos/qiandao-center-tiedan-5.webp",
+    "bytes": 128204,
+    "sha256": "e2b394835af415d47a3c6d2a7cfc4d6634c07b8004130fdee96eb4d95d5965ce"
+  },
+  {
+    "file": "assets/photos/qiandao-loop-dijia-11.webp",
+    "bytes": 367596,
+    "sha256": "62e13c7e98fc6c13b93b057cc3ffae3611962ba7e42a3181d9605617e4479f83"
+  },
+  {
+    "file": "assets/photos/qiandao-loop-dijia-6.webp",
+    "bytes": 338294,
+    "sha256": "e8ecb9a9417e3b39c96b7ee3a25f78c93fcfbf62d33d2c658dbb4c699dcddfeb"
+  },
+  {
+    "file": "assets/photos/qiandao-loop-dijia-7.webp",
+    "bytes": 224114,
+    "sha256": "fe5b95a3deaaf8c1efbfbc47ad4b1823dec4a1fa881448b21ab12d60e23ec82e"
+  }
+]

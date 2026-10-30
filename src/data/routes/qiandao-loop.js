@@ -742,9 +742,115 @@ export default [
       "安阳和乡镇之间部分路段没有已核实餐饮或饮水点；在大墅、汾口等乡镇提前补足饮水与能量，自带备用内胎、补胎工具和车灯，不依赖咖啡店或驿站开门完成环线。",
       "路侧停车位默认免费，实际收费及禁停以现场标志为准。仅用合法公共划线泊位，确认限时和取车窗口覆盖装卸、全程骑行及休息；这不是运营方全天免费承诺。",
       "百度仅提供完整环线和折叠关键点备用，按点重新规划，不能视为精确轨迹导入；尚未iPhone百度App内真机核对，里程和桥隧走法须自行对照本站说明。",
-      "3张道路照片复用本线确实经过的排岭半岛骑行桥，未代表157公里各段都有照片。没有电话、实地或实骑核验。"
+      "3张道路照片复用本线确实经过的排岭半岛骑行桥，未代表157公里各段都有照片。没有电话、实地或实骑核验。",
+      "照片覆盖说明：新增汾口外围、下姜外围和环湖标线道路3张，保留1张共用骑行桥照；汾口与下姜图85%，无具名地点的标线道路图60%。北段界首至县城仍缺可独立定位的道路图，4张照片不代表157公里全段覆盖。"
     ],
     "photos": [
+      {
+        "id": "qiandao-loop-dijia-6",
+        "group": "qiandao-loop",
+        "routeIds": [
+          "qiandao-lake-loop"
+        ],
+        "kind": "road",
+        "src": "assets/photos/qiandao-loop-dijia-6.webp",
+        "source": "https://www.xiaohongshu.com/explore/6ac468e10000000012036e8b",
+        "originalUrl": "https://sns-webpic-qc.xhscdn.com/202610301505/93ea0b946e14edc92abd347601895ae7/note_pre_post_uhdr/1040g3r8325vfrd7b4ad049vsi2cvms343sjn8a0!nd_dft_wlteh_webp_3",
+        "author": "迪迦也要热死咯",
+        "title": "千岛湖140㎞一天干完，我感觉我又行了 · 原帖图6",
+        "date": "拍摄日未注明；平台显示10-06，未显示年份",
+        "checked": "2026-10-30",
+        "downloadDate": "2026-10-30",
+        "sourceType": "social-original-image",
+        "sourceImageIndex": 6,
+        "license": "原作者版权 · 未注明开放许可；保留署名和原帖，非CC许可",
+        "caption": "汾口外围 · “欢迎您再来汾口”门架道路",
+        "relation": "原帖明确顺时针淳杨线—汾口—千汾线回县城的环湖行程，手表图显示闭环轮廓。图6可见“欢迎您再来汾口”门架、白色边线与机动车混行道路，对应本线汾口外围方向；门架精确坐标未实测。未获得原始GPX；本线有额外旧路绕行，不把该图认作157公里规划每一段的精确证明。",
+        "verification": "站内搜索进入原帖，逐张目视道路、正文行程和路牌；下载页面已加载最高可用原图，不使用缩略图或页面截图。关联评分非定位概率，未实骑。",
+        "pixelWidth": 1080,
+        "pixelHeight": 1920,
+        "originalPixelWidth": 1080,
+        "originalPixelHeight": 1920,
+        "modification": "原始图片直接保存，未放大、未裁切、未重绘；保留原图水印，不含平台UI。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 35,
+          "track": 10,
+          "visual": 20,
+          "reason": "原帖明确顺时针淳杨线—汾口—千汾线回县城的环湖行程，手表图显示闭环轮廓。图6可见“欢迎您再来汾口”门架、白色边线与机动车混行道路，对应本线汾口外围方向；门架精确坐标未实测。未获得原始GPX；本线有额外旧路绕行，不把该图认作157公里规划每一段的精确证明。"
+        }
+      },
+      {
+        "id": "qiandao-loop-dijia-7",
+        "group": "qiandao-loop",
+        "routeIds": [
+          "qiandao-lake-loop"
+        ],
+        "kind": "road",
+        "src": "assets/photos/qiandao-loop-dijia-7.webp",
+        "source": "https://www.xiaohongshu.com/explore/6ac468e10000000012036e8b",
+        "originalUrl": "https://sns-webpic-qc.xhscdn.com/202610301505/2987fcba963b65527a4c24ae1545fd96/note_pre_post_uhdr/1040g3r8325vfrd7b4adg49vsi2cvms3445peoc0!nd_dft_wlteh_webp_3",
+        "author": "迪迦也要热死咯",
+        "title": "千岛湖140㎞一天干完，我感觉我又行了 · 原帖图7",
+        "date": "拍摄日未注明；平台显示10-06，未显示年份",
+        "checked": "2026-10-30",
+        "downloadDate": "2026-10-30",
+        "sourceType": "social-original-image",
+        "sourceImageIndex": 7,
+        "license": "原作者版权 · 未注明开放许可；保留署名和原帖，非CC许可",
+        "caption": "淳杨—千汾环湖行程 · 标线道路参考，具体位置待核",
+        "relation": "原帖明确顺时针淳杨线—汾口—千汾线回县城的环湖行程，手表图显示闭环轮廓。图7可见连续白色边线、道路骑行标记、切坡与起伏路面；无具名地标，不能确定淳杨或千汾的具体位置，只按明确共同行程作60%参考。未获得原始GPX；本线有额外旧路绕行，不把该图认作157公里规划每一段的精确证明。",
+        "verification": "站内搜索进入原帖，逐张目视道路、正文行程和路牌；下载页面已加载最高可用原图，不使用缩略图或页面截图。关联评分非定位概率，未实骑。",
+        "pixelWidth": 1080,
+        "pixelHeight": 1920,
+        "originalPixelWidth": 1080,
+        "originalPixelHeight": 1920,
+        "modification": "原始图片直接保存，未放大、未裁切、未重绘；保留原图水印，不含平台UI。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 10,
+          "track": 10,
+          "visual": 20,
+          "reason": "原帖明确顺时针淳杨线—汾口—千汾线回县城的环湖行程，手表图显示闭环轮廓。图7可见连续白色边线、道路骑行标记、切坡与起伏路面；无具名地标，不能确定淳杨或千汾的具体位置，只按明确共同行程作60%参考。未获得原始GPX；本线有额外旧路绕行，不把该图认作157公里规划每一段的精确证明。"
+        }
+      },
+      {
+        "id": "qiandao-loop-dijia-11",
+        "group": "qiandao-loop",
+        "routeIds": [
+          "qiandao-lake-loop"
+        ],
+        "kind": "road",
+        "src": "assets/photos/qiandao-loop-dijia-11.webp",
+        "source": "https://www.xiaohongshu.com/explore/6ac468e10000000012036e8b",
+        "originalUrl": "https://sns-webpic-qc.xhscdn.com/202610301505/f8af1fc5b094402633e13c3ae86ec4d4/note_pre_post_uhdr/1040g3r0325vfvvr1kc2g49vsi2cvms348chs5ko!nd_dft_wlteh_webp_3",
+        "author": "迪迦也要热死咯",
+        "title": "千岛湖140㎞一天干完，我感觉我又行了 · 原帖图11",
+        "date": "拍摄日未注明；平台显示10-06，未显示年份",
+        "checked": "2026-10-30",
+        "downloadDate": "2026-10-30",
+        "sourceType": "social-original-image",
+        "sourceImageIndex": 11,
+        "license": "原作者版权 · 未注明开放许可；保留署名和原帖，非CC许可",
+        "caption": "下姜外围 · 下姜村700米方向牌旁慢行道",
+        "relation": "原帖明确顺时针淳杨线—汾口—千汾线回县城的环湖行程，手表图显示闭环轮廓。图11可见“下姜村700m”方向牌、独立黑色慢行道及旁侧公路，对应本线下姜外围方向；不表示骑入村内，精确拍摄点未实测。未获得原始GPX；本线有额外旧路绕行，不把该图认作157公里规划每一段的精确证明。",
+        "verification": "站内搜索进入原帖，逐张目视道路、正文行程和路牌；下载页面已加载最高可用原图，不使用缩略图或页面截图。关联评分非定位概率，未实骑。",
+        "pixelWidth": 1080,
+        "pixelHeight": 1920,
+        "originalPixelWidth": 1080,
+        "originalPixelHeight": 1920,
+        "modification": "原始图片直接保存，未放大、未裁切、未重绘；保留原图水印，不含平台UI。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 35,
+          "track": 10,
+          "visual": 20,
+          "reason": "原帖明确顺时针淳杨线—汾口—千汾线回县城的环湖行程，手表图显示闭环轮廓。图11可见“下姜村700m”方向牌、独立黑色慢行道及旁侧公路，对应本线下姜外围方向；不表示骑入村内，精确拍摄点未实测。未获得原始GPX；本线有额外旧路绕行，不把该图认作157公里规划每一段的精确证明。"
+        }
+      },
       {
         "id": "qiandao-shangjiang-bridge",
         "group": "qiandao-shangjiang",
@@ -766,7 +872,7 @@ export default [
         "sourceImageIndex": 1,
         "license": "原作者版权 · 未注明开放许可；保留署名和原帖，非CC许可",
         "caption": "上江埠骑行景观桥 · 桥面与彩色路面",
-        "relation": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，只覆盖本线共用的骑行桥段，不代表157公里全段均已拍摄。",
+        "relation": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，仅覆盖各方案共用骑行桥段，不代表各方案全程均已拍摄。",
         "verification": "实际打开原帖、逐张查看并放大，下载页面最高可用1080/1440像素原始图片资源；排除地图、湖景、台阶和近似重复角度。",
         "pixelWidth": 1080,
         "pixelHeight": 1440,
@@ -779,81 +885,7 @@ export default [
           "location": 40,
           "track": 10,
           "visual": 20,
-          "reason": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，只覆盖本线共用的骑行桥段，不代表157公里全段均已拍摄。"
-        }
-      },
-      {
-        "id": "qiandao-shangjiang-approach",
-        "group": "qiandao-shangjiang",
-        "routeIds": [
-          "qiandao-shangjiang",
-          "qiandao-center-shangjiang",
-          "qiandao-lake-loop"
-        ],
-        "kind": "road",
-        "src": "assets/photos/qiandao-shangjiang-approach.webp",
-        "source": "https://www.xiaohongshu.com/explore/69cf8cc3000000001a037e88",
-        "originalUrl": "https://sns-webpic-qc.xhscdn.com/202610261408/03eaefb02ddfeac9ce9cb247958c7030/notes_pre_post/1040g3k831ugc3eh02a005p0or4l4cclujesb6d0!nd_dft_wgth_webp_3",
-        "author": "流浪地球的尤",
-        "title": "来千岛湖总要沿着湖边骑行那么一段吧 · 原帖图3",
-        "date": "拍摄日未注明；平台显示04-03（未显示年份）",
-        "checked": "2026-10-26",
-        "downloadDate": "2026-10-26",
-        "sourceType": "social-original-image",
-        "sourceImageIndex": 3,
-        "license": "原作者版权 · 未注明开放许可；保留署名和原帖，非CC许可",
-        "caption": "上江埠骑行景观桥 · 弯道接驳与护栏",
-        "relation": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，只覆盖本线共用的骑行桥段，不代表157公里全段均已拍摄。",
-        "verification": "实际打开原帖、逐张查看并放大，下载页面最高可用1080/1440像素原始图片资源；排除地图、湖景、台阶和近似重复角度。",
-        "pixelWidth": 1440,
-        "pixelHeight": 1080,
-        "originalPixelWidth": 1440,
-        "originalPixelHeight": 1080,
-        "modification": "原始图片直接保存，未放大、未裁切、未重绘；不含平台UI。",
-        "referenceOnly": true,
-        "matchAssessment": {
-          "source": 20,
-          "location": 40,
-          "track": 10,
-          "visual": 20,
-          "reason": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，只覆盖本线共用的骑行桥段，不代表157公里全段均已拍摄。"
-        }
-      },
-      {
-        "id": "qiandao-shangjiang-side",
-        "group": "qiandao-shangjiang",
-        "routeIds": [
-          "qiandao-shangjiang",
-          "qiandao-center-shangjiang",
-          "qiandao-lake-loop"
-        ],
-        "kind": "road",
-        "src": "assets/photos/qiandao-shangjiang-side.webp",
-        "source": "https://www.xiaohongshu.com/explore/69cf8cc3000000001a037e88",
-        "originalUrl": "https://sns-webpic-qc.xhscdn.com/202610261408/beceeef1002c3e06ea73cddba4e6bef1/notes_pre_post/1040g3k831ugc3cqr2o005p0or4l4cclu90g699o!nd_dft_wlteh_webp_3",
-        "author": "流浪地球的尤",
-        "title": "来千岛湖总要沿着湖边骑行那么一段吧 · 原帖图18",
-        "date": "拍摄日未注明；平台显示04-03（未显示年份）",
-        "checked": "2026-10-26",
-        "downloadDate": "2026-10-26",
-        "sourceType": "social-original-image",
-        "sourceImageIndex": 18,
-        "license": "原作者版权 · 未注明开放许可；保留署名和原帖，非CC许可",
-        "caption": "上江埠骑行景观桥 · 桥侧入口与全景",
-        "relation": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，只覆盖本线共用的骑行桥段，不代表157公里全段均已拍摄。",
-        "verification": "实际打开原帖、逐张查看并放大，下载页面最高可用1080/1440像素原始图片资源；排除地图、湖景、台阶和近似重复角度。",
-        "pixelWidth": 1080,
-        "pixelHeight": 1440,
-        "originalPixelWidth": 1080,
-        "originalPixelHeight": 1440,
-        "modification": "原始图片直接保存，未放大、未裁切、未重绘；不含平台UI。",
-        "referenceOnly": true,
-        "matchAssessment": {
-          "source": 20,
-          "location": 40,
-          "track": 10,
-          "visual": 20,
-          "reason": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，只覆盖本线共用的骑行桥段，不代表157公里全段均已拍摄。"
+          "reason": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，仅覆盖各方案共用骑行桥段，不代表各方案全程均已拍摄。"
         }
       }
     ],

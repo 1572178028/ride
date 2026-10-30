@@ -904,15 +904,122 @@ export default [
       "地图为公开道路独立规划，非原轨迹；沿路累计距离含完整去回及停车道路接驳，不含停车位内部装卸、游园和探店绕行。",
       "湖岸绿道与普通接驳道路分开标注；落叶、湿滑、起伏与下坡处减速，城区遵循单行和过街标志。",
       "百度全程、去程、返程及关键点备用按节点重新规划；尚未iPhone真机测试，App里程以实际算路为准。",
-      "没有电话、实地或实骑核验。自备饮水、能量补给与修车工具，不依赖商家开门完成行程。"
+      "没有电话、实地或实骑核验。自备饮水、能量补给与修车工具，不依赖商家开门完成行程。",
+      "照片覆盖说明：新增起伏路、林间弯道和公路旁慢行道3张行程参考，保留1张共用骑行桥照；60%为行程关联评分，具体机位未核，不据此挂靠7.6公里短线。"
     ],
     "photos": [
+      {
+        "id": "qiandao-center-tiedan-2",
+        "group": "qiandao-center",
+        "routeIds": [
+          "qiandao-center-shangjiang"
+        ],
+        "kind": "road",
+        "src": "assets/photos/qiandao-center-tiedan-2.webp",
+        "source": "https://www.xiaohongshu.com/explore/6854bd10000000002203ccfb",
+        "originalUrl": "https://sns-webpic-qc.xhscdn.com/202610301509/b966ce01dd482eccec85e02f0fb95645/1040g00831iuea2hj1e0g43mck5kdc2qid7454gg!nd_dft_wlteh_webp_3",
+        "author": "铁蛋",
+        "title": "千岛湖骑行，中心湖区段更精华（线路图及攻略） · 原帖图2",
+        "date": "拍摄日未注明；发布2025-06-20",
+        "checked": "2026-10-30",
+        "downloadDate": "2026-10-30",
+        "sourceType": "social-original-image",
+        "sourceImageIndex": 2,
+        "license": "原作者版权 · 未注明开放许可；保留署名和原帖，非CC许可",
+        "caption": "中心湖区至上江埠行程 · 起伏练习路参考",
+        "relation": "原帖首图与正文明确秀水广场—中心湖区—生态乐园—三潭驿站—上江埠15公里行程，并说明图2至9为道路环境。图2可见起伏路与旁侧平缓通路；与34.2公里方案的同方向行程关联，未取得逐图GPS，不能定位到7.6公里短线或证明规划精确压过拍摄点。只作线路参考，不给道路改名或推定准入。",
+        "verification": "站内搜索进入原帖，逐张目视道路、正文行程和路牌；下载页面已加载最高可用原图，不使用缩略图或页面截图。关联评分非定位概率，未实骑。",
+        "pixelWidth": 1080,
+        "pixelHeight": 1440,
+        "originalPixelWidth": 1080,
+        "originalPixelHeight": 1440,
+        "modification": "原始图片直接保存，未放大、未裁切、未重绘；保留原图水印，不含平台UI。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 10,
+          "track": 10,
+          "visual": 20,
+          "reason": "原帖首图与正文明确秀水广场—中心湖区—生态乐园—三潭驿站—上江埠15公里行程，并说明图2至9为道路环境。图2可见起伏路与旁侧平缓通路；与34.2公里方案的同方向行程关联，未取得逐图GPS，不能定位到7.6公里短线或证明规划精确压过拍摄点。只作线路参考，不给道路改名或推定准入。"
+        }
+      },
+      {
+        "id": "qiandao-center-tiedan-3",
+        "group": "qiandao-center",
+        "routeIds": [
+          "qiandao-center-shangjiang"
+        ],
+        "kind": "road",
+        "src": "assets/photos/qiandao-center-tiedan-3.webp",
+        "source": "https://www.xiaohongshu.com/explore/6854bd10000000002203ccfb",
+        "originalUrl": "https://sns-webpic-qc.xhscdn.com/202610301509/4472a3b50560e9a74d641cf0f0b471cd/1040g00831iuea2hj1e1043mck5kdc2qi4lh0650!nd_dft_wlteh_webp_3",
+        "author": "铁蛋",
+        "title": "千岛湖骑行，中心湖区段更精华（线路图及攻略） · 原帖图3",
+        "date": "拍摄日未注明；发布2025-06-20",
+        "checked": "2026-10-30",
+        "downloadDate": "2026-10-30",
+        "sourceType": "social-original-image",
+        "sourceImageIndex": 3,
+        "license": "原作者版权 · 未注明开放许可；保留署名和原帖，非CC许可",
+        "caption": "中心湖区至上江埠行程 · 林间弯道参考",
+        "relation": "原帖首图与正文明确秀水广场—中心湖区—生态乐园—三潭驿站—上江埠15公里行程，并说明图2至9为道路环境。图3可见红色林间弯道、挡墙与木护栏；与34.2公里方案的同方向行程关联，未取得逐图GPS，不能定位到7.6公里短线或证明规划精确压过拍摄点。只作线路参考，不给道路改名或推定准入。",
+        "verification": "站内搜索进入原帖，逐张目视道路、正文行程和路牌；下载页面已加载最高可用原图，不使用缩略图或页面截图。关联评分非定位概率，未实骑。",
+        "pixelWidth": 1080,
+        "pixelHeight": 1440,
+        "originalPixelWidth": 1080,
+        "originalPixelHeight": 1440,
+        "modification": "原始图片直接保存，未放大、未裁切、未重绘；保留原图水印，不含平台UI。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 10,
+          "track": 10,
+          "visual": 20,
+          "reason": "原帖首图与正文明确秀水广场—中心湖区—生态乐园—三潭驿站—上江埠15公里行程，并说明图2至9为道路环境。图3可见红色林间弯道、挡墙与木护栏；与34.2公里方案的同方向行程关联，未取得逐图GPS，不能定位到7.6公里短线或证明规划精确压过拍摄点。只作线路参考，不给道路改名或推定准入。"
+        }
+      },
+      {
+        "id": "qiandao-center-tiedan-5",
+        "group": "qiandao-center",
+        "routeIds": [
+          "qiandao-center-shangjiang"
+        ],
+        "kind": "road",
+        "src": "assets/photos/qiandao-center-tiedan-5.webp",
+        "source": "https://www.xiaohongshu.com/explore/6854bd10000000002203ccfb",
+        "originalUrl": "https://sns-webpic-qc.xhscdn.com/202610301509/bd5292b5d9d97d5bd35b0e9920cd2b59/1040g00831iuea2hj1e2043mck5kdc2qi6bp7ofg!nd_dft_wlteh_webp_3",
+        "author": "铁蛋",
+        "title": "千岛湖骑行，中心湖区段更精华（线路图及攻略） · 原帖图5",
+        "date": "拍摄日未注明；发布2025-06-20",
+        "checked": "2026-10-30",
+        "downloadDate": "2026-10-30",
+        "sourceType": "social-original-image",
+        "sourceImageIndex": 5,
+        "license": "原作者版权 · 未注明开放许可；保留署名和原帖，非CC许可",
+        "caption": "中心湖区至上江埠行程 · 公路旁红色慢行道参考",
+        "relation": "原帖首图与正文明确秀水广场—中心湖区—生态乐园—三潭驿站—上江埠15公里行程，并说明图2至9为道路环境。图5可见红色慢行道、木护栏及相邻公路；与34.2公里方案的同方向行程关联，未取得逐图GPS，不能定位到7.6公里短线或证明规划精确压过拍摄点。只作线路参考，不给道路改名或推定准入。",
+        "verification": "站内搜索进入原帖，逐张目视道路、正文行程和路牌；下载页面已加载最高可用原图，不使用缩略图或页面截图。关联评分非定位概率，未实骑。",
+        "pixelWidth": 1080,
+        "pixelHeight": 1440,
+        "originalPixelWidth": 1080,
+        "originalPixelHeight": 1440,
+        "modification": "原始图片直接保存，未放大、未裁切、未重绘；保留原图水印，不含平台UI。",
+        "referenceOnly": true,
+        "matchAssessment": {
+          "source": 20,
+          "location": 10,
+          "track": 10,
+          "visual": 20,
+          "reason": "原帖首图与正文明确秀水广场—中心湖区—生态乐园—三潭驿站—上江埠15公里行程，并说明图2至9为道路环境。图5可见红色慢行道、木护栏及相邻公路；与34.2公里方案的同方向行程关联，未取得逐图GPS，不能定位到7.6公里短线或证明规划精确压过拍摄点。只作线路参考，不给道路改名或推定准入。"
+        }
+      },
       {
         "id": "qiandao-shangjiang-bridge",
         "group": "qiandao-shangjiang",
         "routeIds": [
           "qiandao-shangjiang",
-          "qiandao-center-shangjiang"
+          "qiandao-center-shangjiang",
+          "qiandao-lake-loop"
         ],
         "kind": "road",
         "src": "assets/photos/qiandao-shangjiang-bridge.webp",
@@ -927,7 +1034,7 @@ export default [
         "sourceImageIndex": 1,
         "license": "原作者版权 · 未注明开放许可；保留署名和原帖，非CC许可",
         "caption": "上江埠骑行景观桥 · 桥面与彩色路面",
-        "relation": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，不代表其余25.5km路段均已拍摄。",
+        "relation": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，仅覆盖各方案共用骑行桥段，不代表各方案全程均已拍摄。",
         "verification": "实际打开原帖、逐张查看并放大，下载页面最高可用1080/1440像素原始图片资源；排除地图、湖景、台阶和近似重复角度。",
         "pixelWidth": 1080,
         "pixelHeight": 1440,
@@ -940,79 +1047,7 @@ export default [
           "location": 40,
           "track": 10,
           "visual": 20,
-          "reason": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，不代表其余25.5km路段均已拍摄。"
-        }
-      },
-      {
-        "id": "qiandao-shangjiang-approach",
-        "group": "qiandao-shangjiang",
-        "routeIds": [
-          "qiandao-shangjiang",
-          "qiandao-center-shangjiang"
-        ],
-        "kind": "road",
-        "src": "assets/photos/qiandao-shangjiang-approach.webp",
-        "source": "https://www.xiaohongshu.com/explore/69cf8cc3000000001a037e88",
-        "originalUrl": "https://sns-webpic-qc.xhscdn.com/202610261408/03eaefb02ddfeac9ce9cb247958c7030/notes_pre_post/1040g3k831ugc3eh02a005p0or4l4cclujesb6d0!nd_dft_wgth_webp_3",
-        "author": "流浪地球的尤",
-        "title": "来千岛湖总要沿着湖边骑行那么一段吧 · 原帖图3",
-        "date": "拍摄日未注明；平台显示04-03（未显示年份）",
-        "checked": "2026-10-26",
-        "downloadDate": "2026-10-26",
-        "sourceType": "social-original-image",
-        "sourceImageIndex": 3,
-        "license": "原作者版权 · 未注明开放许可；保留署名和原帖，非CC许可",
-        "caption": "上江埠骑行景观桥 · 弯道接驳与护栏",
-        "relation": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，不代表其余25.5km路段均已拍摄。",
-        "verification": "实际打开原帖、逐张查看并放大，下载页面最高可用1080/1440像素原始图片资源；排除地图、湖景、台阶和近似重复角度。",
-        "pixelWidth": 1440,
-        "pixelHeight": 1080,
-        "originalPixelWidth": 1440,
-        "originalPixelHeight": 1080,
-        "modification": "原始图片直接保存，未放大、未裁切、未重绘；不含平台UI。",
-        "referenceOnly": true,
-        "matchAssessment": {
-          "source": 20,
-          "location": 40,
-          "track": 10,
-          "visual": 20,
-          "reason": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，不代表其余25.5km路段均已拍摄。"
-        }
-      },
-      {
-        "id": "qiandao-shangjiang-side",
-        "group": "qiandao-shangjiang",
-        "routeIds": [
-          "qiandao-shangjiang",
-          "qiandao-center-shangjiang"
-        ],
-        "kind": "road",
-        "src": "assets/photos/qiandao-shangjiang-side.webp",
-        "source": "https://www.xiaohongshu.com/explore/69cf8cc3000000001a037e88",
-        "originalUrl": "https://sns-webpic-qc.xhscdn.com/202610261408/beceeef1002c3e06ea73cddba4e6bef1/notes_pre_post/1040g3k831ugc3cqr2o005p0or4l4cclu90g699o!nd_dft_wlteh_webp_3",
-        "author": "流浪地球的尤",
-        "title": "来千岛湖总要沿着湖边骑行那么一段吧 · 原帖图18",
-        "date": "拍摄日未注明；平台显示04-03（未显示年份）",
-        "checked": "2026-10-26",
-        "downloadDate": "2026-10-26",
-        "sourceType": "social-original-image",
-        "sourceImageIndex": 18,
-        "license": "原作者版权 · 未注明开放许可；保留署名和原帖，非CC许可",
-        "caption": "上江埠骑行景观桥 · 桥侧入口与全景",
-        "relation": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，不代表其余25.5km路段均已拍摄。",
-        "verification": "实际打开原帖、逐张查看并放大，下载页面最高可用1080/1440像素原始图片资源；排除地图、湖景、台阶和近似重复角度。",
-        "pixelWidth": 1080,
-        "pixelHeight": 1440,
-        "originalPixelWidth": 1080,
-        "originalPixelHeight": 1440,
-        "modification": "原始图片直接保存，未放大、未裁切、未重绘；不含平台UI。",
-        "referenceOnly": true,
-        "matchAssessment": {
-          "source": 20,
-          "location": 40,
-          "track": 10,
-          "visual": 20,
-          "reason": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，不代表其余25.5km路段均已拍摄。"
+          "reason": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，仅覆盖各方案共用骑行桥段，不代表各方案全程均已拍摄。"
         }
       }
     ],

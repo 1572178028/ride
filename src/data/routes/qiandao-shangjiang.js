@@ -456,7 +456,9 @@ export default [
         "id": "qiandao-shangjiang-bridge",
         "group": "qiandao-shangjiang",
         "routeIds": [
-          "qiandao-shangjiang"
+          "qiandao-shangjiang",
+          "qiandao-center-shangjiang",
+          "qiandao-lake-loop"
         ],
         "kind": "road",
         "src": "assets/photos/qiandao-shangjiang-bridge.webp",
@@ -471,7 +473,7 @@ export default [
         "sourceImageIndex": 1,
         "license": "原作者版权 · 未注明开放许可；保留署名和原帖，非CC许可",
         "caption": "上江埠骑行景观桥 · 桥面与彩色路面",
-        "relation": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，不代表其余25.5km路段均已拍摄。",
+        "relation": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，仅覆盖各方案共用骑行桥段，不代表各方案全程均已拍摄。",
         "verification": "实际打开原帖、逐张查看并放大，下载页面最高可用1080/1440像素原始图片资源；排除地图、湖景、台阶和近似重复角度。",
         "pixelWidth": 1080,
         "pixelHeight": 1440,
@@ -484,7 +486,7 @@ export default [
           "location": 40,
           "track": 10,
           "visual": 20,
-          "reason": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，不代表其余25.5km路段均已拍摄。"
+          "reason": "原帖正文明确中心码头—骑行桥—上江埠大桥行程；画面白色双塔悬索桥、彩色桥面及弯道接驳对应本线骑行桥。机位/GPS未实测，没有原始轨迹；三图为桥面、弯道接驳、桥侧全景不同视角，仅覆盖各方案共用骑行桥段，不代表各方案全程均已拍摄。"
         }
       },
       {
