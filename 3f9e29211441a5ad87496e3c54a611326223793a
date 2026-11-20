@@ -1,0 +1,47 @@
+research/nanjing-routes-and-photos-20261120.md
+  1bf823a270bd137e 35
+research/releases/v2.2.36.md
+  1bf823a270bd137e 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "3f9e29211441a5ad87496e3c54a611326223793a",
+  "prompts": {
+    "1bf823a270bd137e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f781-98f8-7340-bb17-8ddd3b4c1394",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 1274,
+      "total_deletions": 1357,
+      "accepted_lines": 1274,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "assets/photos/nanjing-laoshan-qizhen-forest-straight.webp": {
+          "additions": 746,
+          "deletions": 525,
+          "accepted_lines": 746
+        },
+        "research/releases/v2.2.36.md": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "assets/photos/nanjing-laoshan-qizhen-guardrail-slope.webp": {
+          "additions": 526,
+          "deletions": 830,
+          "accepted_lines": 526
+        },
+        "research/nanjing-routes-and-photos-20261120.md": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        }
+      }
+    }
+  }
+}
