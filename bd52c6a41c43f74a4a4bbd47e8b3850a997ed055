@@ -1,0 +1,224 @@
+research/releases/v2.2.36.md
+  1bf823a270bd137e 1-11
+research/photo-licenses.json
+  1bf823a270bd137e 2486-2559
+tests/qiandao-grouping.test.cjs
+  1bf823a270bd137e 11-12
+tests/full-route-navigation.test.cjs
+  1bf823a270bd137e 134
+index.html
+  1bf823a270bd137e 55-57,312-313,334-335,340-341
+tests/architecture.test.cjs
+  1bf823a270bd137e 9-10
+CHANGELOG.md
+  1bf823a270bd137e 3-6
+src/data/generated/paths.js
+  1bf823a270bd137e 2
+src/data/generated/plans.js
+  1bf823a270bd137e 2
+tests/catalog.test.cjs
+  1bf823a270bd137e 15,32,34-36,111-114,219,236,258,308,332,453-454,525-526
+src/data/routes/nanjing-huanglongxian.js
+  1bf823a270bd137e 1-317
+src/data/routes/order.js
+  1bf823a270bd137e 72-73
+src/data/generated/maps.js
+  1bf823a270bd137e 2
+tests/browser-check.cjs
+  1bf823a270bd137e 28-30,180,572,580-591,607-622
+src/data/labels.js
+  1bf823a270bd137e 12-13
+README.md
+  1bf823a270bd137e 3
+src/data/routes/nanjing-laoshan.js
+  1bf823a270bd137e 1-283
+version.json
+  1bf823a270bd137e 2,5,7-9
+scripts/build-nanjing-regional-roads.py
+  1bf823a270bd137e 1-71
+tests/fixtures/catalog-migration-sha256.json
+  1bf823a270bd137e 2-4,6,12
+src/data/routes/nanjing-wuxiangshan.js
+  1bf823a270bd137e 295-370,372-373
+assets/maps/nanjing-laoshan-qizhen.svg
+  1bf823a270bd137e 1
+src/data/routes/index.js
+  1bf823a270bd137e 54-55,111-112
+research/nanjing-routes-and-photos-20261120.md
+  1bf823a270bd137e 1-26
+assets/maps/nanjing-huanglongxian-road.svg
+  1bf823a270bd137e 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "bd52c6a41c43f74a4a4bbd47e8b3850a997ed055",
+  "prompts": {
+    "1bf823a270bd137e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f781-98f8-7340-bb17-8ddd3b4c1394",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "liguoyong",
+      "messages": [],
+      "total_additions": 9896,
+      "total_deletions": 195,
+      "accepted_lines": 9756,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "tests/qiandao-grouping.test.cjs": {
+          "additions": 4,
+          "deletions": 4,
+          "accepted_lines": 2
+        },
+        "src/data/generated/plans.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/labels.js": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "src/data/generated/maps.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/nanjing-laoshan.js": {
+          "additions": 283,
+          "accepted_lines": 283
+        },
+        "tests/architecture.test.cjs": {
+          "additions": 4,
+          "deletions": 4,
+          "accepted_lines": 2
+        },
+        "version.json": {
+          "additions": 7,
+          "deletions": 7,
+          "accepted_lines": 5
+        },
+        "tests/full-route-navigation.test.cjs": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "assets/maps/nanjing-huanglongxian-road.png": {
+          "additions": 457,
+          "accepted_lines": 457
+        },
+        "research/releases/v2.2.36.md": {
+          "additions": 12,
+          "deletions": 1,
+          "accepted_lines": 11
+        },
+        "src/data/routes/index.js": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "scripts/build-nanjing-regional-roads.py": {
+          "additions": 71,
+          "accepted_lines": 71
+        },
+        "README.md": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "src/data/routes/nanjing-huanglongxian.js": {
+          "additions": 317,
+          "accepted_lines": 317
+        },
+        "tests/fixtures/catalog-migration-sha256.json": {
+          "additions": 10,
+          "deletions": 10,
+          "accepted_lines": 5
+        },
+        "assets/maps/nanjing-laoshan-qizhen.png": {
+          "additions": 1280,
+          "accepted_lines": 1280
+        },
+        "research/releases/v2.2.35.md": {
+          "additions": 11,
+          "deletions": 11
+        },
+        "src/data/generated/paths.js": {
+          "additions": 2,
+          "deletions": 2,
+          "accepted_lines": 1
+        },
+        "research/nanjing-huanglongxian-osm.json.gz": {
+          "additions": 29,
+          "accepted_lines": 29
+        },
+        "src/data/routes/nanjing-wuxiangshan.js": {
+          "additions": 78,
+          "deletions": 3,
+          "accepted_lines": 78
+        },
+        "src/data/routes/order.js": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "assets/photos/nanjing-wuxiangshan-qiuhu-station.png": {
+          "additions": 2992,
+          "accepted_lines": 2992
+        },
+        "index.html": {
+          "additions": 18,
+          "deletions": 18,
+          "accepted_lines": 9
+        },
+        "CHANGELOG.md": {
+          "additions": 6,
+          "deletions": 2,
+          "accepted_lines": 4
+        },
+        "research/nanjing-laoshan-photos-20261120.md": {
+          "additions": 20,
+          "deletions": 20
+        },
+        "assets/photos/nanjing-wuxiangshan-qiuhu-bend.png": {
+          "additions": 3681,
+          "accepted_lines": 3681
+        },
+        "research/nanjing-laoshan-osm.json.gz": {
+          "additions": 364,
+          "accepted_lines": 364
+        },
+        "assets/maps/nanjing-laoshan-qizhen.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "tests/browser-check.cjs": {
+          "additions": 38,
+          "deletions": 11,
+          "accepted_lines": 33
+        },
+        "tests/catalog.test.cjs": {
+          "additions": 28,
+          "deletions": 28,
+          "accepted_lines": 18
+        },
+        "scripts/build-nanjing-laoshan.py": {
+          "additions": 66,
+          "deletions": 66
+        },
+        "research/photo-licenses.json": {
+          "additions": 74,
+          "accepted_lines": 74
+        },
+        "research/nanjing-routes-and-photos-20261120.md": {
+          "additions": 26,
+          "accepted_lines": 26
+        },
+        "assets/maps/nanjing-huanglongxian-road.svg": {
+          "additions": 1,
+          "accepted_lines": 1
+        }
+      }
+    }
+  }
+}
