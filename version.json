@@ -1,11 +1,11 @@
 {
-  "version": "2.2.34",
+  "version": "2.2.36",
   "date": "2026-11-20",
   "status": "release",
-  "description": "新增江苏南京溧水无想山外围19.0公里往返，接入南京筛选、秋湖路路侧泊位、SVG/PNG地图与全程导航。",
+  "description": "新增南京老山七珍线和黄龙岘茶谷路两条往返，补入无想山秋湖路两张道路实拍。",
   "increments": {
-    "routes": 1,
-    "cities": 1,
-    "provinces": 1
+    "routes": 2,
+    "cities": 0,
+    "provinces": 0
   }
 }

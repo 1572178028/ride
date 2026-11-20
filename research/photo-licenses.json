@@ -2483,5 +2483,79 @@
     "pixelWidth": 1080,
     "pixelHeight": 653,
     "sourceImageIndex": 3
+  },
+  {
+    "id": "nanjing-wuxiangshan-qiuhu-bend",
+    "group": "nanjing-wuxiangshan",
+    "routeIds": [
+      "nanjing-wuxiangshan-road"
+    ],
+    "kind": "road",
+    "sourceType": "video-frame",
+    "platform": "bilibili",
+    "title": "南京无想山跑山视频 · 第1集",
+    "source": "https://www.bilibili.com/video/BV1Mh411t7mx/?p=1",
+    "author": "普罗旺斯的Lavande",
+    "date": "发布于2021-11-01，拍摄日期未注明",
+    "license": "原作者版权 · 原帖未声明开放许可",
+    "captureDate": "2026-11-20",
+    "checked": "2026-11-20",
+    "storage": "local",
+    "src": "assets/photos/nanjing-wuxiangshan-qiuhu-bend.png",
+    "caption": "秋湖路 · 驿站西侧弯道",
+    "relation": "原视频第1集15:11。白色值守房、前方秋湖驿站屋顶和路右成排水杉对应该线路秋湖驿站西侧的弯道。 为历史自驾画面，当日路况与停车条件以现场为准。",
+    "verification": "在 B 站打开原帖，登录后按该视频最高可选720P截取纯视频画面。已对照秋湖驿站建筑、林带、道路形态和公开地图。",
+    "frameTime": "15:11",
+    "frameTimeSeconds": 911,
+    "pixelWidth": 1280,
+    "pixelHeight": 720,
+    "videoPixelWidth": 1280,
+    "videoPixelHeight": 720,
+    "modification": "按播放器源尺寸截帧，画面未裁切、放大或重绘。",
+    "assessmentDate": "2026-11-20",
+    "matchAssessment": {
+      "source": 20,
+      "location": 40,
+      "track": 10,
+      "visual": 20,
+      "reason": "原帖标明秋湖驿站的到达或离开行程，画面可辨认驿站建筑和水杉林位置。清晰可见沥青路面、中心线和弯道边线。 原视频未提供逐帧GPS。"
+    }
+  },
+  {
+    "id": "nanjing-wuxiangshan-qiuhu-station",
+    "group": "nanjing-wuxiangshan",
+    "routeIds": [
+      "nanjing-wuxiangshan-road"
+    ],
+    "kind": "road",
+    "sourceType": "video-frame",
+    "platform": "bilibili",
+    "title": "南京无想山跑山视频 · 第2集",
+    "source": "https://www.bilibili.com/video/BV1Mh411t7mx/?p=2",
+    "author": "普罗旺斯的Lavande",
+    "date": "发布于2021-11-01，拍摄日期未注明",
+    "license": "原作者版权 · 原帖未声明开放许可",
+    "captureDate": "2026-11-20",
+    "checked": "2026-11-20",
+    "storage": "local",
+    "src": "assets/photos/nanjing-wuxiangshan-qiuhu-station.png",
+    "caption": "秋湖路 · 秋湖驿站门前",
+    "relation": "原视频第2集00:18。画面左侧的秋湖驿站石墙与坡屋顶、对面的水杉林和双向路面，对应秋湖路骑行起点附近的驿站门前直段。 为历史自驾画面，当日路况与停车条件以现场为准。",
+    "verification": "在 B 站打开原帖，登录后按该视频最高可选720P截取纯视频画面。已对照秋湖驿站建筑、林带、道路形态和公开地图。",
+    "frameTime": "00:18",
+    "frameTimeSeconds": 18,
+    "pixelWidth": 1280,
+    "pixelHeight": 720,
+    "videoPixelWidth": 1280,
+    "videoPixelHeight": 720,
+    "modification": "按播放器源尺寸截帧，画面未裁切、放大或重绘。",
+    "assessmentDate": "2026-11-20",
+    "matchAssessment": {
+      "source": 20,
+      "location": 40,
+      "track": 10,
+      "visual": 20,
+      "reason": "原帖标明秋湖驿站的到达或离开行程，画面可辨认驿站建筑和水杉林位置。可见机动车与非机动车共用的双向道路、路面标线和两侧空间。 原视频未提供逐帧GPS。"
+    }
   }
 ]

@@ -6,8 +6,8 @@ const root = path.resolve(__dirname, "..");
 
 test("catalogue has one importable entry without browser globals", () => {
   const data = require("../src/data/index.js");
-  assert.equal(data.ROUTES.length, 70);
-  assert.equal(data.ROUTE_METADATA.familyCount, 50);
+  assert.equal(data.ROUTES.length, 72);
+  assert.equal(data.ROUTE_METADATA.familyCount, 52);
   assert.equal(globalThis.ROUTES, undefined);
   assert.equal(new Set(data.ROUTES.map((r) => r.id)).size, data.ROUTES.length);
 });

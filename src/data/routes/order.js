@@ -69,4 +69,6 @@ export default [
   "jiaxing-pinghu-donghu",
   "jiaxing-zhapu",
   "nanjing-wuxiangshan-road",
+  "nanjing-laoshan-qizhen",
+  "nanjing-huanglongxian-road",
 ];
