@@ -275,9 +275,115 @@ export default [
       "本方案采用老山东侧公共道路往返。岔琥路与黄山岭路西侧连接仍在研究，旧行者环线路程及爬升与本方案独立。",
       "页面上线核验覆盖地图、停车和起点链接及百度全程、单程导航参数，百度App重算待真机核对。"
     ],
-    "photos": [],
+    "photos": [
+      {
+        "id": "nanjing-laoshan-qizhen-forest-straight",
+        "group": "nanjing-laoshan",
+        "routeIds": [
+          "nanjing-laoshan-qizhen"
+        ],
+        "kind": "road",
+        "storage": "local",
+        "checked": "2026-11-20",
+        "assessmentDate": "2026-11-20",
+        "src": "assets/photos/nanjing-laoshan-qizhen-forest-straight.webp",
+        "caption": "七珍线 · 林间直道",
+        "pixelWidth": 1080,
+        "pixelHeight": 1440,
+        "sourceType": "social-original-image",
+        "platform": "xiaohongshu",
+        "title": "卧卧卧！这个路也太美了吧！🚗",
+        "source": "https://www.xiaohongshu.com/explore/6a695e98000000000503b5dc",
+        "author": "FL",
+        "date": "发布于2026-07-29，拍摄日期未注明",
+        "license": "原作者版权 · 未注明开放许可",
+        "referenceOnly": true,
+        "downloadDate": "2026-11-20",
+        "modification": "保存原帖加载的1080×1440图片文件，保留原图可见内容，未裁剪或放大。",
+        "verification": "读取完整原帖及配图，作者将公路画面归于浦口七珍线。对照正式路线经过的七珍线 X154，未用后续响堂水库照片。",
+        "sourceImageIndex": 1,
+        "relation": "原帖第1张。画面可见林间双向道路、中心标线和两侧路缘。作为七珍线道路参考，具体拍摄点未定位。",
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 0,
+          "visual": 17,
+          "reason": "原帖、署名和配图齐全。作者明确将道路归于浦口七珍线，正式方案覆盖珍珠泉至南门段。原帖没有可对应此图的轨迹。直段、中心标线及林带清楚。"
+        }
+      },
+      {
+        "id": "nanjing-laoshan-qizhen-guardrail-slope",
+        "group": "nanjing-laoshan",
+        "routeIds": [
+          "nanjing-laoshan-qizhen"
+        ],
+        "kind": "road",
+        "storage": "local",
+        "checked": "2026-11-20",
+        "assessmentDate": "2026-11-20",
+        "src": "assets/photos/nanjing-laoshan-qizhen-guardrail-slope.webp",
+        "caption": "七珍线 · 带护栏的坡段",
+        "pixelWidth": 1080,
+        "pixelHeight": 1440,
+        "sourceType": "social-original-image",
+        "platform": "xiaohongshu",
+        "title": "卧卧卧！这个路也太美了吧！🚗",
+        "source": "https://www.xiaohongshu.com/explore/6a695e98000000000503b5dc",
+        "author": "FL",
+        "date": "发布于2026-07-29，拍摄日期未注明",
+        "license": "原作者版权 · 未注明开放许可",
+        "referenceOnly": true,
+        "downloadDate": "2026-11-20",
+        "modification": "保存原帖加载的1080×1440图片文件，保留原图可见内容，未裁剪或放大。",
+        "verification": "读取完整原帖及配图，作者将公路画面归于浦口七珍线。对照正式路线经过的七珍线 X154，未用后续响堂水库照片。",
+        "sourceImageIndex": 2,
+        "relation": "原帖第2张。画面可见公路坡度、路侧绿色护栏和中心标线。作为七珍线道路参考，具体拍摄点未定位。",
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 0,
+          "visual": 19,
+          "reason": "原帖和署名齐全，正文点明七珍线。没有逐图定位或可对应此图的轨迹。坡段、护栏和标线可辨，与第1张的林间直段有区别。"
+        }
+      },
+      {
+        "id": "nanjing-laoshan-qizhen-hairpin",
+        "group": "nanjing-laoshan",
+        "routeIds": [
+          "nanjing-laoshan-qizhen"
+        ],
+        "kind": "road",
+        "storage": "local",
+        "checked": "2026-11-20",
+        "assessmentDate": "2026-11-20",
+        "src": "assets/photos/nanjing-laoshan-qizhen-hairpin.jpg",
+        "caption": "七珍线 · 山麓大弯（2018年）",
+        "pixelWidth": 970,
+        "pixelHeight": 545,
+        "sourceType": "forum-original-image",
+        "platform": "autohome",
+        "source": "https://club.autohome.com.cn/bbs/thread/d6766c61ce04d53a/77339437-1.html",
+        "title": "带你领略南京江北风景如画七珍线",
+        "author": "wangguo668",
+        "date": "发布于2018-11-06，作者记述于2018年10月中旬拍摄",
+        "license": "原作者版权 · 未注明开放许可",
+        "referenceOnly": true,
+        "downloadDate": "2026-11-20",
+        "sourceImageIndex": 19,
+        "modification": "保存网页加载的970×545图片文件，保留原图标记，未裁剪或放大。",
+        "relation": "作者按从珍珠泉沿七珍线骑行的顺序展示，并标出这处大弯。图中保留弯道内外侧护栏和中心线。画面用于观察历史道路形态，具体机位未定位。",
+        "verification": "核对汽车之家主帖署名、骑行顺序、弯道图注与后续到达大椅山的记述。图中标线、护栏和道路转向清晰，对照主线确有多处急弯。",
+        "matchAssessment": {
+          "source": 20,
+          "location": 34,
+          "track": 10,
+          "visual": 20,
+          "reason": "原帖、署名和图片齐全。图序位于从珍珠泉出发至大椅山之间，支持主线东侧共线路段。原帖有骑行行程无照片GPS。画面可辨山路急弯、护栏和标线。"
+        }
+      }
+    ],
     "photoTarget": 3,
-    "photoMissing": 3,
-    "photoGap": "待补3张珍珠街接驳或七珍线的道路实拍。"
+    "photoMissing": 0,
+    "photoGap": ""
   }
 ];

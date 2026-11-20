@@ -305,7 +305,7 @@ test('new city lakes preserve actual shoreline and island polygons', () => {
 
 test('local and external licensed photos are attributed and attached to their actual subject', () => {
   const licenses = JSON.parse(fs.readFileSync(path.join(root, 'research/photo-licenses.json')));
-  assert.equal(licenses.length, 81);
+  assert.equal(licenses.length, 87);
   for (const r of [...app.ROUTES, ...app.EXPANSION_CANDIDATES, ...app.ROUTES.flatMap(r=>r.researchExtensions||[])]) for (const photo of r.photos || []) {
     const record = licenses.find(p => p.src === photo.src);
     assert.ok(record && record.author === photo.author && record.license === photo.license);
@@ -316,8 +316,9 @@ test('local and external licensed photos are attributed and attached to their ac
       if(photo.sourceType==='news-video-frame'){assert.ok(photo.frameTimeSeconds>0);assert.ok(photo.originalUrl.startsWith('https://meizi-chao-pub.8531.cn/'));}
     }else if(photo.sourceType==='social-video-frame'){
       assert.equal(host,'www.douyin.com');assert.ok(photo.frameTime);assert.match(photo.license,/原作者版权|未声明开放许可/);assert.ok(!photo.licenseUrl);
-    }else if(photo.sourceType==='social-original-image'){
-      assert.equal(host,'www.xiaohongshu.com');assert.ok(photo.sourceImageIndex>0);assert.ok(photo.downloadDate);assert.ok(photo.pixelWidth>0&&photo.pixelHeight>0);assert.match(photo.license,/未注明开放许可/);
+    }else if(['social-original-image','forum-original-image'].includes(photo.sourceType)){
+      assert.equal(host, photo.sourceType==='forum-original-image' ? 'club.autohome.com.cn' : 'www.xiaohongshu.com');
+      assert.ok(photo.sourceImageIndex>0);assert.ok(photo.downloadDate);assert.ok(photo.pixelWidth>0&&photo.pixelHeight>0);assert.match(photo.license,/未注明开放许可/);
     }else if(['social-screenshot','social-image','press-photo','video-frame'].includes(photo.sourceType)){
       assert.ok(['www.xiaohongshu.com','pic.hangzhou.com.cn','hznews.hangzhou.com.cn','www.bilibili.com','www.sohu.com','jhwcw.zjol.com.cn'].includes(host));assert.ok(photo.captureDate);assert.match(photo.license,/未声明开放许可/);assert.ok(!photo.licenseUrl);
     }else{assert.ok(photo.source.startsWith('https://commons.wikimedia.org/wiki/File:'));assert.ok(photo.licenseUrl);}
@@ -329,7 +330,7 @@ test('local and external licensed photos are attributed and attached to their ac
     else if(record.candidateIds){assert.ok(record.candidateIds.includes(r.id),r.id+': photo assigned to an unreviewed research candidate');assert.equal(record.group,r.region);}
     else assert.equal(photo.group, expected);
   }
-  assert.equal(app.ROUTE_METADATA.photoCount, 58, 'reviewed photographs are counted once across variants');
+  assert.equal(app.ROUTE_METADATA.photoCount, 64, 'reviewed photographs are counted once across variants');
 });
 
 test('all published plans have SVG and PNG exports', () => {
@@ -450,8 +451,8 @@ test('Map markers show only short identifiers, with accessible full names for in
  }
 });
 test('Photo coverage and gaps stay explicit and every added assignment targets a real route', () => {
- assert.equal(app.ROUTE_METADATA.photoFamilyCount,25);
- assert.equal(app.ROUTE_METADATA.photoRouteCount,39);
+ assert.equal(app.ROUTE_METADATA.photoFamilyCount,27);
+ assert.equal(app.ROUTE_METADATA.photoRouteCount,41);
  const licenses=JSON.parse(fs.readFileSync(path.join(root,'research/photo-licenses.json')));
  for(const p of licenses.filter(p=>p.checked==='2026-10-19')){
   assert.ok(p.relation&&p.verification&&p.kind);

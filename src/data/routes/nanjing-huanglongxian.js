@@ -309,9 +309,124 @@ export default [
       "图上线按公开道路独立计算，避开茶园步道及新海线机动车道路。晏湖支线保留在研究记录中。",
       "本批没有现场收费、路况复核和百度App真机试算。实际通行以当日标识为准。"
     ],
-    "photos": [],
+    "photos": [
+      {
+        "id": "nanjing-huanglongxian-chagu-stone-curve",
+        "group": "nanjing-huanglongxian",
+        "routeIds": [
+          "nanjing-huanglongxian-road"
+        ],
+        "kind": "road",
+        "storage": "local",
+        "checked": "2026-11-20",
+        "assessmentDate": "2026-11-20",
+        "src": "assets/photos/nanjing-huanglongxian-chagu-stone-curve.jpg",
+        "caption": "茶谷路 · 林边弯道",
+        "pixelWidth": 1920,
+        "pixelHeight": 1080,
+        "sourceType": "video-frame",
+        "platform": "xiaohongshu",
+        "source": "https://www.xiaohongshu.com/explore/69d72b0f0000000023015948",
+        "title": "南京江宁——这条路，就是春天的路啊🍃",
+        "author": "七秒鱼的🐟",
+        "date": "发布于2026-04-09，拍摄日期未注明",
+        "license": "原作者版权 · 原帖未声明开放许可",
+        "referenceOnly": true,
+        "captureDate": "2026-11-20",
+        "videoPixelWidth": 1920,
+        "videoPixelHeight": 1080,
+        "modification": "按原帖播放器实际1920×1080尺寸截取画面，不含界面和播放控件，未裁剪或放大。",
+        "verification": "原帖明确指明江宁茶谷路及马鞍山往南京方向，与道路命名批复及公开路网中的同名路段对应。原帖未提供各镜头坐标。",
+        "frameTimeSeconds": 1.05,
+        "frameTime": "00:01.05",
+        "relation": "原视频 00:01.05，可见有路肩、矮墙和机动车道路中心线的弯道。原帖明确为茶谷路由南向北的公路画面，作为道路参考，具体机位未定位。",
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 0,
+          "visual": 18,
+          "reason": "阅读署名、完整原帖和对应镜头。作者指明茶谷路和方向，正式方案与该公路有共线路段。原帖未给镜头位置或轨迹。画面清楚展示有路肩、矮墙和机动车道路中心线的弯道。"
+        }
+      },
+      {
+        "id": "nanjing-huanglongxian-chagu-field-straight",
+        "group": "nanjing-huanglongxian",
+        "routeIds": [
+          "nanjing-huanglongxian-road"
+        ],
+        "kind": "road",
+        "storage": "local",
+        "checked": "2026-11-20",
+        "assessmentDate": "2026-11-20",
+        "src": "assets/photos/nanjing-huanglongxian-chagu-field-straight.jpg",
+        "caption": "茶谷路 · 田边直段",
+        "pixelWidth": 1920,
+        "pixelHeight": 1080,
+        "sourceType": "video-frame",
+        "platform": "xiaohongshu",
+        "source": "https://www.xiaohongshu.com/explore/69d72b0f0000000023015948",
+        "title": "南京江宁——这条路，就是春天的路啊🍃",
+        "author": "七秒鱼的🐟",
+        "date": "发布于2026-04-09，拍摄日期未注明",
+        "license": "原作者版权 · 原帖未声明开放许可",
+        "referenceOnly": true,
+        "captureDate": "2026-11-20",
+        "videoPixelWidth": 1920,
+        "videoPixelHeight": 1080,
+        "modification": "按原帖播放器实际1920×1080尺寸截取画面，不含界面和播放控件，未裁剪或放大。",
+        "verification": "原帖明确指明江宁茶谷路及马鞍山往南京方向，与道路命名批复及公开路网中的同名路段对应。原帖未提供各镜头坐标。",
+        "frameTimeSeconds": 6.7,
+        "frameTime": "00:06.70",
+        "relation": "原视频 00:06.70，可见双向公路直段、两侧路缘和开阔田地。原帖明确为茶谷路由南向北的公路画面，作为道路参考，具体机位未定位。",
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 0,
+          "visual": 18,
+          "reason": "阅读署名、完整原帖和对应镜头。作者指明茶谷路和方向，正式方案与该公路有共线路段。原帖未给镜头位置或轨迹。画面清楚展示双向公路直段、两侧路缘和开阔田地。"
+        }
+      },
+      {
+        "id": "nanjing-huanglongxian-chagu-tree-avenue",
+        "group": "nanjing-huanglongxian",
+        "routeIds": [
+          "nanjing-huanglongxian-road"
+        ],
+        "kind": "road",
+        "storage": "local",
+        "checked": "2026-11-20",
+        "assessmentDate": "2026-11-20",
+        "src": "assets/photos/nanjing-huanglongxian-chagu-tree-avenue.jpg",
+        "caption": "茶谷路 · 林荫路段",
+        "pixelWidth": 1920,
+        "pixelHeight": 1080,
+        "sourceType": "video-frame",
+        "platform": "xiaohongshu",
+        "source": "https://www.xiaohongshu.com/explore/69d72b0f0000000023015948",
+        "title": "南京江宁——这条路，就是春天的路啊🍃",
+        "author": "七秒鱼的🐟",
+        "date": "发布于2026-04-09，拍摄日期未注明",
+        "license": "原作者版权 · 原帖未声明开放许可",
+        "referenceOnly": true,
+        "captureDate": "2026-11-20",
+        "videoPixelWidth": 1920,
+        "videoPixelHeight": 1080,
+        "modification": "按原帖播放器实际1920×1080尺寸截取画面，不含界面和播放控件，未裁剪或放大。",
+        "verification": "原帖明确指明江宁茶谷路及马鞍山往南京方向，与道路命名批复及公开路网中的同名路段对应。原帖未提供各镜头坐标。",
+        "frameTimeSeconds": 9.5,
+        "frameTime": "00:09.50",
+        "relation": "原视频 00:09.50，可见两侧树列、路缘及路侧警示标志。原帖明确为茶谷路由南向北的公路画面，作为道路参考，具体机位未定位。",
+        "matchAssessment": {
+          "source": 20,
+          "location": 30,
+          "track": 0,
+          "visual": 18,
+          "reason": "阅读署名、完整原帖和对应镜头。作者指明茶谷路和方向，正式方案与该公路有共线路段。原帖未给镜头位置或轨迹。画面清楚展示两侧树列、路缘及路侧警示标志。"
+        }
+      }
+    ],
     "photoTarget": 3,
-    "photoMissing": 3,
-    "photoGap": "待补3张茶谷路或朱门村道的道路实拍。"
+    "photoMissing": 0,
+    "photoGap": ""
   }
 ];

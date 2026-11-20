@@ -577,18 +577,26 @@ const server = http.createServer((req, res) => {
       await card.click();
       assert.equal(await target.locator('#selected-heading h2').innerText(), routeLookup[nanjingId].title);
       assert.match(await target.locator('.parking-box').innerText(), /默认免费[\s\S]*40米/);
-      const roadPhotos = target.locator('#route-detail .photo-open');
-      assert.equal(await roadPhotos.count(), 2);
-      for (const button of await roadPhotos.all()) {
-        assert.deepEqual(await button.locator('img').evaluate(async img => {
-          await img.decode();
-          return [img.naturalWidth, img.naturalHeight];
-        }), [1280, 720]);
-      }
-      await roadPhotos.first().click();
-      await target.locator('#photo-dialog img').evaluate(img => img.decode());
-      assert.match(await target.locator('#photo-dialog').innerText(), /普罗旺斯的Lavande[\s\S]*15:11/);
-      await target.locator('#photo-dialog .photo-close').click();
+      const verifyRoadPhotos = async (id, count) => {
+        const photos = routeLookup[id].photos;
+        const buttons = target.locator(`#route-detail .photo-open[data-photo-owner="${id}"]`);
+        assert.equal(photos.length, count);
+        assert.equal(await buttons.count(), count);
+        for (const [index, photo] of photos.entries()) {
+          assert.deepEqual(await buttons.nth(index).locator('img').evaluate(async img => {
+            await img.decode();
+            return [img.naturalWidth, img.naturalHeight];
+          }), [photo.pixelWidth, photo.pixelHeight]);
+        }
+        await buttons.first().click();
+        const dialog = target.locator('#photo-dialog');
+        await dialog.locator('img').evaluate(img => img.decode());
+        assert.equal(await dialog.locator('h3').innerText(), photos[0].caption);
+        assert.ok((await dialog.innerText()).includes(photos[0].author));
+        assert.equal(await dialog.getByRole('link', { name: /原始出处/ }).getAttribute('href'), photos[0].source);
+        await dialog.locator('.photo-close').click();
+      };
+      await verifyRoadPhotos(nanjingId, 2);
       assert.equal(await target.locator('#map-container [data-poi="parking"]').count(), 1);
       assert.equal(await target.locator('#map-container [data-poi="start"]').count(), 1);
       const trip = async kind => new URL(await target.locator('.full-route-' + kind).getAttribute('href'));
@@ -610,6 +618,7 @@ const server = http.createServer((req, res) => {
       await laoshanCard.click();
       assert.match(await target.locator('#selected-heading h2').innerText(), /老山七珍线/);
       assert.match(await target.locator('.parking-box').innerText(), /10.{0,3}元[\s\S]*99米/);
+      await verifyRoadPhotos('nanjing-laoshan-qizhen', 3);
       const laoshanOutbound = await trip('outbound');
       const laoshanInbound = await trip('inbound');
       assert.equal(laoshanOutbound.searchParams.get('destination'), laoshanInbound.searchParams.get('origin'));
@@ -619,6 +628,7 @@ const server = http.createServer((req, res) => {
       await huanglongxianCard.click();
       assert.match(await target.locator('#selected-heading h2').innerText(), /黄龙岘茶谷路/);
       assert.match(await target.locator('.parking-box').innerText(), /免费[\s\S]*20米/);
+      await verifyRoadPhotos('nanjing-huanglongxian-road', 3);
       assert.equal((await trip('open')).searchParams.get('region'), '南京市');
     }
     const phoneSheet=await browser.newPage({viewport:{width:390,height:844}});
