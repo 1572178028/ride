@@ -25,9 +25,9 @@ const server = http.createServer((req, res) => {
     const page = await browser.newPage({ viewport: { width: 1440, height: 1050 }, reducedMotion: 'reduce', acceptDownloads: true });
     watch(page); await page.goto(url); await page.waitForSelector('.route-card');
     assert.equal(await page.evaluate(() => innerWidth), 1440);
-    assert.equal(await page.locator('.route-card').count(), 45);
-    assert.equal(await page.locator('#total-plans').innerText(), '69');
-    assert.equal(await page.locator('#total-parking').innerText(), '50');
+    assert.equal(await page.locator('.route-card').count(), 46);
+    assert.equal(await page.locator('#total-plans').innerText(), '70');
+    assert.equal(await page.locator('#total-parking').innerText(), '51');
     const ids = ROUTES.map(r => r.id);
     const select = async (p, id) => { await p.evaluate(id => { location.hash = 'route=' + id; }, id); await p.waitForFunction(title => document.querySelector('#selected-heading h2').textContent === title, routeLookup[id].title); };
     await page.selectOption('#region-filter','xianghu');
@@ -177,7 +177,7 @@ const server = http.createServer((req, res) => {
     await page.selectOption('#city-filter', 'jinhua'); assert.equal(await page.locator('#region-filter').inputValue(), 'all');
     await page.selectOption('#city-filter', 'all'); await page.selectOption('#parking-filter', 'unknown'); assert.equal(await page.locator('.route-card').count(), 6);
     await page.selectOption('#lane-filter', 'dedicated'); assert.ok(await page.locator('#route-view').isHidden());
-    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 45);
+    await page.locator('#clear-filters').click(); assert.equal(await page.locator('.route-card').count(), 46);
     await page.locator('#route-library').scrollIntoViewIfNeeded();
     assert.ok(await page.locator('#route-list').evaluate(el => el.scrollHeight > el.clientHeight && getComputedStyle(el).overflowY === 'auto'));
     await page.locator('.card-select').last().click();
@@ -565,6 +565,34 @@ const server = http.createServer((req, res) => {
         await select(target,id);await target.locator('#map-container').scrollIntoViewIfNeeded();
         await target.screenshot({path:'/private/tmp/ride-'+id+'-'+(target===mobile?'mobile':'desktop')+'.png'});
       }
+    }
+    const nanjingId = 'nanjing-wuxiangshan-road';
+    for (const target of [page, mobile]) {
+      await target.selectOption('#city-filter', { label: '南京' });
+      assert.equal(await target.locator('.route-card').count(), 1);
+      assert.equal(await target.locator('#region-filter option:checked').textContent(), '全部片区');
+      await target.selectOption('#region-filter', 'nanjing-wuxiangshan');
+      const card = target.locator(`[data-select="${nanjingId}"]`);
+      await card.locator('img').evaluate(img => img.decode());
+      await card.click();
+      assert.equal(await target.locator('#selected-heading h2').innerText(), routeLookup[nanjingId].title);
+      assert.match(await target.locator('.parking-box').innerText(), /默认免费[\s\S]*40米/);
+      assert.match(await target.locator('#route-detail .photo-empty').innerText(), /待补3张/);
+      assert.equal(await target.locator('#map-container [data-poi="parking"]').count(), 1);
+      assert.equal(await target.locator('#map-container [data-poi="start"]').count(), 1);
+      const trip = async kind => new URL(await target.locator('.full-route-' + kind).getAttribute('href'));
+      const outbound = await trip('outbound');
+      const inbound = await trip('inbound');
+      assert.equal(outbound.searchParams.get('destination'), inbound.searchParams.get('origin'));
+      assert.equal(outbound.searchParams.get('region'), '南京市');
+      const pendingDownload = target.waitForEvent('download');
+      await target.locator('#download-map').click();
+      const png = await pendingDownload;
+      assert.equal(await png.failure(), null);
+      assert.equal(fs.readFileSync(await png.path()).subarray(1, 4).toString(), 'PNG');
+      assert.ok(await target.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+      await target.locator('#map-container').scrollIntoViewIfNeeded();
+      await target.screenshot({ path: '/private/tmp/ride-nanjing-wuxiangshan-' + (target === mobile ? 'mobile' : 'desktop') + '.png' });
     }
     const phoneSheet=await browser.newPage({viewport:{width:390,height:844}});
     watch(phoneSheet);

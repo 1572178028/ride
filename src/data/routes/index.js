@@ -50,6 +50,7 @@ import xiazhuhu_west_road_return from "./xiazhuhu-west-road-return.js";
 import nanxun_city_ring from "./nanxun-city-ring.js";
 import yucun_north_road from "./yucun-north-road.js";
 import taihu_nine_long from "./taihu-nine-long.js";
+import nanjing_wuxiangshan from "./nanjing-wuxiangshan.js";
 const positions = new Map(order.map((id, index) => [id, index]));
 export const ROUTES = [
   ...jiaxing_xiangjiadang,
@@ -104,6 +105,7 @@ export const ROUTES = [
   ...liangzhu_village,
   ...chaoshan,
   ...xiasha_riverside,
+  ...nanjing_wuxiangshan,
 ].sort(
   (a, b) =>
     (positions.get(a.id) ?? Infinity) - (positions.get(b.id) ?? Infinity),

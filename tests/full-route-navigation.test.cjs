@@ -97,6 +97,26 @@ test('closed circuits stay one plan even though they return to the same origin',
  assert.deepEqual(plans.inbound.map(p=>p.point),[c,d,a]);
 });
 
+test('Wuxiangshan enters and leaves the divided Jinjing Road junction in travel order', () => {
+  const { REGIONAL_PLANS } = require('../src/data/index.js');
+  const { buildRouteNavigation } = require('../src/domain/route-navigation.js');
+  const route = ROUTES.find(r => r.id === 'nanjing-wuxiangshan-road');
+  const plan = REGIONAL_PLANS[route.id];
+  const { plans, fallback, path } = buildRouteNavigation(route, MAP_DATA.paths[route.id]);
+  assert.deepEqual(path[0], route.start.point);
+  assert.deepEqual(path.at(-1), route.start.point);
+  const turn = plans.outbound.at(-1);
+  assert.equal(turn.name, '金井路与致远路路口折返');
+  assert.deepEqual(turn.point, plans.inbound[0].point);
+  assert.deepEqual(path[turn.index + 1], plan.anchors[3]);
+  assert.equal(plan.segments[turn.index - 1].way, 1103110571);
+  assert.equal(plan.segments[turn.index].way, 1103109336);
+  assert.equal(plan.segments[turn.index + 1].way, 1034840477);
+  assert.ok(fallback.some(waypoint => waypoint.index === turn.index + 1));
+  assert.equal(route.parking.feeBasis, 'user-default-roadside');
+  assert.notDeepEqual(route.parking.point, route.start.point);
+});
+
 test('all navigation plans close the full route and split at the maintained actual turnaround',()=>{
  const {buildRouteNavigation}=require('../src/domain/route-navigation.js');
  const {NAVIGATION_GEOMETRY}=require('../src/data/index.js');
@@ -111,7 +131,7 @@ test('all navigation plans close the full route and split at the maintained actu
   else circuits++;
   if(r.id!=='xianghu-hegong') assert.ok(Math.abs(n.plans.full.at(-1).km-r.distance)<0.25,r.id);
  }
- assert.equal(returns,45);assert.equal(circuits,24);
+ assert.equal(returns,46);assert.equal(circuits,24);
  for(const[id,index]of[['westlake-tea-road',601],['meiling-south-road',228],['eastlake-outskirts',22]]){
   const r=ROUTES.find(r=>r.id===id),n=buildRouteNavigation(r,MAP_DATA.paths[id]);
   assert.equal(n.plans.outbound.at(-1).index,index,id);

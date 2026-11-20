@@ -1,11 +1,11 @@
 {
-  "version": "1.1.33",
-  "date": "2026-10-27",
+  "version": "2.2.34",
+  "date": "2026-11-20",
   "status": "release",
-  "description": "嘉兴13条公共道路方案已接入；后续补入3张关联道路图与13线iPhone百度集中核对清单，照片仍缺36张，App逐线结果待核对。",
+  "description": "新增江苏南京溧水无想山外围19.0公里往返，接入南京筛选、秋湖路路侧泊位、SVG/PNG地图与全程导航。",
   "increments": {
-    "routes": 13,
-    "cities": 0,
-    "provinces": 0
+    "routes": 1,
+    "cities": 1,
+    "provinces": 1
   }
 }

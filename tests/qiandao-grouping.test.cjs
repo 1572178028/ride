@@ -8,8 +8,8 @@ test('one Qiandao area exposes all seven independently maintained route plans',(
  const routes=ROUTES.filter(r=>matchesRoute(r,filters,new Set()));
  assert.deepEqual(routes.map(r=>r.id),ids);
  assert.equal(new Set(routes.map(r=>r.familyId)).size,4);
- assert.equal(ROUTE_METADATA.familyCount,49);
- assert.equal(ROUTE_METADATA.regionCount,45);
+ assert.equal(ROUTE_METADATA.familyCount,50);
+ assert.equal(ROUTE_METADATA.regionCount,46);
  for(const r of routes){
   const html=routeCardHTML([...routes],{selected:r,saved:new Set()});
   assert.match(html,/<h3>千岛湖<\/h3>/);assert.match(html,/route-card selected/);

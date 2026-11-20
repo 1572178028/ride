@@ -5,8 +5,10 @@ export default {
     jiaxing: "嘉兴",
     shaoxing: "绍兴",
     jinhua: "金华",
+    nanjing: "南京",
   },
   regions: {
+    "nanjing-wuxiangshan": "溧水 · 无想山外围",
     "jiaxing-xiangjiadang": "南湖 · 湘家荡",
     "jiaxing-xiuhu": "秀洲 · 秀湖外围",
     "jiaxing-wangjiangjing": "秀洲 · 王江泾莲泗荡",
